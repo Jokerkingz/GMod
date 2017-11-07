@@ -32,12 +32,17 @@ public class Scr_SocketF : MonoBehaviour {
 		}
 		vOpl = Mathf.Clamp(vOpl,0f,1f);
 	}
-	public void RemoveAttachement(GameObject tReference){
-		if (vAttachedObject == tReference)
+	/*public void RemoveAttachement(GameObject tReference){
+		if (vAttachedObject == tReference){
 			tReference.transform.SetParent(null);
-
+			tReference.GetComponent<Rigidbody>().useGravity = true;
+			tReference.GetComponent<Rigidbody>().isKinematic = false;
+			tReference.GetComponent<Scr_Socket>().enabled = true;
+			tReference.GetComponent<OVRGrabbable>().enabled = true;
+			}
 
 	}
+	*/
 	public void AcceptPart(GameObject tReference,string tName){
 		vAttachedObject = tReference;
 		tReference.transform.SetParent(this.transform);
@@ -53,6 +58,14 @@ public class Scr_SocketF : MonoBehaviour {
 		if (vHologram == null){
 			vHologram = Instantiate(tReference.gameObject) as GameObject;
 			vHologram.GetComponent<Scr_Socket>().enabled = false;
+
+
+
+			//Angle Correction
+			vHologram.transform.localEulerAngles = tReference.transform.eulerAngles;
+
+
+
 
 			Collider[] tList =  vHologram.GetComponentsInChildren <Collider>();
 			foreach (Collider tC in tList)

@@ -79,7 +79,16 @@ public class OVRGrabbable : MonoBehaviour
 	/// </summary>
     public Transform snapOffset
     {
-        get { return m_snapOffset; }
+    	// This is original
+		 get {return m_snapOffset;}
+		 /*
+		get {
+			Transform tNew = new Transform;
+			tNew.transform.position=m_snapOffset.localPosition;
+			tNew.eulerAngles=m_snapOffset.localEulerAngles;
+			tNew.localScale=m_snapOffset.localScale;
+			return tNew; }
+			*/
     }
 
 	/// <summary>
@@ -122,6 +131,8 @@ public class OVRGrabbable : MonoBehaviour
         m_grabbedBy = hand;
         m_grabbedCollider = grabPoint;
         gameObject.GetComponent<Rigidbody>().isKinematic = true;
+
+		//this.GetComponent<Scr_Socket>().CheckForAttach();
     }
 
 	/// <summary>
@@ -136,7 +147,10 @@ public class OVRGrabbable : MonoBehaviour
         m_grabbedBy = null;
         m_grabbedCollider = null;
 
-		this.GetComponent<Scr_Socket>().CheckForAttach();
+		//this.GetComponentInChildren<Scr_SocketF>().RemoveAttachement(this.gameObject);
+		Scr_Socket[] tTmp = GetComponentsInChildren<Scr_Socket>();
+		foreach (Scr_Socket tThat in tTmp)
+			tThat.CheckForAttach();
     }
 
     void Awake()

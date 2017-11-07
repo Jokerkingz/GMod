@@ -263,7 +263,7 @@ public class OVRGrabber : MonoBehaviour
                 m_grabbedObjectPosOff = m_gripTransform.localPosition;
                 if(m_grabbedObj.snapOffset)
                 {
-                    Vector3 snapOffset = m_grabbedObj.snapOffset.position;
+                    Vector3 snapOffset = m_grabbedObj.snapOffset.localPosition*.1f;
                     if (m_controller == OVRInput.Controller.LTouch) snapOffset.x = -snapOffset.x;
                     m_grabbedObjectPosOff += snapOffset;
                 }
@@ -280,7 +280,7 @@ public class OVRGrabber : MonoBehaviour
                 m_grabbedObjectRotOff = m_gripTransform.localRotation;
                 if(m_grabbedObj.snapOffset)
                 {
-                    m_grabbedObjectRotOff = m_grabbedObj.snapOffset.rotation * m_grabbedObjectRotOff;
+                    m_grabbedObjectRotOff = m_grabbedObj.snapOffset.localRotation * m_grabbedObjectRotOff;
                 }
             }
             else
