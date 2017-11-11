@@ -122,7 +122,6 @@ public class OVRGrabbable : MonoBehaviour
     {
         get { return m_grabPoints; }
     }
-
 	/// <summary>
 	/// Notifies the object that it has been grabbed.
 	/// </summary>
