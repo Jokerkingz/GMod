@@ -126,12 +126,14 @@ public class OVRGrabbable : MonoBehaviour
 	/// Notifies the object that it has been grabbed.
 	/// </summary>
 	virtual public void GrabBegin(OVRGrabber hand, Collider grabPoint)
-    {
+	{	
+		Scr_Socket tCheck = this.GetComponent<Scr_Socket>();
+		if (tCheck!=null)
+			tCheck.Detach();
         m_grabbedBy = hand;
         m_grabbedCollider = grabPoint;
         gameObject.GetComponent<Rigidbody>().isKinematic = true;
 
-		//this.GetComponent<Scr_Socket>().CheckForAttach();
     }
 
 	/// <summary>
@@ -169,7 +171,8 @@ public class OVRGrabbable : MonoBehaviour
     }
 
     protected virtual void Start()
-    {
+	{	Rigidbody tRB = GetComponent<Rigidbody>();
+		if (tRB != null)
         m_grabbedKinematic = GetComponent<Rigidbody>().isKinematic;
     }
 

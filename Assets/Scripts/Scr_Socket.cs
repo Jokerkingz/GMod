@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Scr_Socket : MonoBehaviour {
 	public List<GameObject> vFemaleSocket;
+	public GameObject vAttachedTo;
 	public string vState;
 
 	void Start(){
@@ -12,15 +13,21 @@ public class Scr_Socket : MonoBehaviour {
 
 	}
 	void Update(){
-		foreach (GameObject tThis in vFemaleSocket){
-			tThis.GetComponent<Scr_SocketF>().ShowHollogram(this.gameObject,"Base");
-		}
-
-
+		GameObject tClosest = NearestFromList();
+		if (tClosest != null)
+		tClosest.GetComponent<Scr_SocketF>().ShowHollogram(this.gameObject,"Base");
 	}
 	public void CheckForAttach(){
+		GameObject tClosest = NearestFromList();
+		if (tClosest != null){
+			GameObject tReceive = null;
+			tReceive = tClosest.GetComponent<Scr_SocketF>().AcceptPart(this.gameObject,"Base");
+			vAttachedTo = tReceive;
+			}
+	}
+	public void Detach(){
 		foreach (GameObject tThis in vFemaleSocket){
-			tThis.GetComponent<Scr_SocketF>().AcceptPart(this.gameObject,"Base");
+			tThis.GetComponent<Scr_SocketF>().RemoveAttachement(this.gameObject);
 		}
 	}
 	void OnTriggerEnter(Collider tOther){
@@ -33,6 +40,23 @@ public class Scr_Socket : MonoBehaviour {
 			vFemaleSocket.Remove(tOther.gameObject);
 		}
 	}
+
+	GameObject NearestFromList(){
+		GameObject tClosest = null;
+		float tDistance = 0f;
+			foreach (GameObject tThis in vFemaleSocket){
+			if (tClosest == null){
+				tClosest = tThis;
+				tDistance = Vector3.Distance(this.transform.position,tThis.transform.position);
+				}
+			else if (Vector3.Distance(this.transform.position,tThis.transform.position) < tDistance)
+				{tClosest = tThis;
+				tDistance = Vector3.Distance(this.transform.position,tThis.transform.position);
+				}
+			}
+		return tClosest;
+	}
+
 /*
 	public bool vMale;
 	public List<GameObject> vConnectWith = new List<GameObject>();
