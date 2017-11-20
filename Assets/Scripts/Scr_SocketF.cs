@@ -36,6 +36,17 @@ public class Scr_SocketF : MonoBehaviour {
 		vOpl = Mathf.Clamp(vOpl,0f,1f);
 	}
 	public void RemoveAttachement(GameObject tReference){
+			Debug.Log("Passing through script RemovedAttachment");
+		tReference.transform.SetParent(null);
+		Transform[] tOldParts = this.GetComponentsInChildren<Transform>();
+		foreach (Transform tThat in tOldParts) {
+			if ((tThat.tag != "GripPart") && (this.gameObject != tThat.gameObject)){
+				tThat.SetParent(tReference.transform);
+				Debug.Log(tThat.name +" Changed My parent");
+			}
+		}
+		tReference.GetComponent<Rigidbody>().useGravity = true;
+		tReference.GetComponent<Rigidbody>().isKinematic = false; 
 		/*if (vAttachedObject == tReference){
 			tReference.transform.SetParent(null);
 			tReference.GetComponent<Rigidbody>().useGravity = true;
@@ -43,12 +54,18 @@ public class Scr_SocketF : MonoBehaviour {
 			tReference.GetComponent<Scr_Socket>().enabled = true;
 			tReference.GetComponent<OVRGrabbable>().enabled = true;
 		}*/
+		/*
 		GameObject tNewParent;
 		tNewParent = vOriginalPart;
-		Transform[] tSubParts = tReference.GetComponentsInChildren<Transform>();
-		foreach (Transform tThat in tSubParts) {
-			tThat.SetParent(tNewParent.transform);
+		if (tNewParent != null){
+			Transform[] tSubParts = tReference.GetComponentsInChildren<Transform>();
+			foreach (Transform tThat in tSubParts) {
+				tThat.SetParent(tNewParent.transform);
+			}
 		}
+
+		*/
+
 	}
 
 	public GameObject AcceptPart(GameObject tReference,string tName){
@@ -60,8 +77,8 @@ public class Scr_SocketF : MonoBehaviour {
 		tReference.transform.SetParent(this.transform);
 		tReference.transform.localPosition= Vector3.zero;
 		tReference.transform.eulerAngles = this.transform.eulerAngles;
-		//tReference.GetComponent<Rigidbody>().useGravity = false;
-		//tReference.GetComponent<Rigidbody>().isKinematic = true; 
+		tReference.GetComponent<Rigidbody>().useGravity = false;
+		tReference.GetComponent<Rigidbody>().isKinematic = true; 
 		//tReference.GetComponent<Scr_Socket>().enabled = false;
 		//tReference.GetComponent<OVRGrabbable>().enabled = false;
 		//// ]
@@ -76,18 +93,17 @@ public class Scr_SocketF : MonoBehaviour {
 		*/
 		Transform[] tSubParts = tReference.GetComponentsInChildren<Transform>();
 		foreach (Transform tThat in tSubParts) {
-			tThat.SetParent(this.transform);
-			//if (tThat.name == "Obj_SnapOffset")
-			//	tTransform = tThat.gameObject;
+			if (tThat.tag != "GripPart")
+				tThat.SetParent(this.transform);
 		}
 		tReference.transform.SetParent(this.transform);
 		vOriginalPart = tReference.gameObject;
 
+		tReference.SetActive(true);
 
 		/// copy parts
 
 		//tTo.snapOffset = tFrom.snapOffset;
-		tReference.SetActive(false);
 		//ConfigurableJoint tCheck;
 		//tCheck = tReference.GetComponent<ConfigurableJoint>();
 		//if (tCheck == null)
@@ -107,19 +123,13 @@ public class Scr_SocketF : MonoBehaviour {
 				tC.enabled = false;
 
 			Renderer[] tListA =  vHologram.GetComponentsInChildren <Renderer>();
-			foreach (Renderer tR in tListA)
-				tR.material = vMaterial;
-				/*
-			SphereCollider[] tListA =  vHologram.GetComponentsInChildren <SphereCollider>();
-			foreach (SphereCollider tSC in tListA)
-				tSC.enabled = false;
-			BoxCollider[] tListB =  vHologram.GetComponentsInChildren <BoxCollider>();
-			foreach (BoxCollider tBC in tListB)
-				tBC.enabled = false;
-			CapsuleCollider[] tListC =  vHologram.GetComponentsInChildren <CapsuleCollider>();
-			foreach (CapsuleCollider tCC in tListC)
-				tCC.enabled = false;
-				*/
+			foreach (Renderer tR in tListA){
+				//tR.material = vMaterial;
+				Material[] tNew = new Material[tR.materials.Length];
+				for(int i = 0; i < tR.materials.Length;i++)
+					tNew[i] = vMaterial;
+				tR.materials = tNew;
+			}
 		}
 	}
 

@@ -125,7 +125,7 @@ public class OVRGrabber : MonoBehaviour
     }
 
 	void FixedUpdate()
-	{
+	{	
 		if (operatingWithoutOVRCameraRig)
 			OnUpdatedAnchors();
 	}
@@ -165,7 +165,7 @@ public class OVRGrabber : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider otherCollider)
-    {
+	{	if (otherCollider.tag == "GripPart"){
         // Get the grab trigger
 		OVRGrabbable grabbable = otherCollider.GetComponent<OVRGrabbable>() ?? otherCollider.GetComponentInParent<OVRGrabbable>();
         if (grabbable == null) return;
@@ -174,6 +174,7 @@ public class OVRGrabber : MonoBehaviour
         int refCount = 0;
         m_grabCandidates.TryGetValue(grabbable, out refCount);
         m_grabCandidates[grabbable] = refCount + 1;
+        }
     }
 
     void OnTriggerExit(Collider otherCollider)
@@ -210,7 +211,6 @@ public class OVRGrabber : MonoBehaviour
             GrabEnd();
         }
     }
-
     protected virtual void GrabBegin()
     {
         float closestMagSq = float.MaxValue;
@@ -376,4 +376,28 @@ public class OVRGrabber : MonoBehaviour
             GrabbableRelease(Vector3.zero, Vector3.zero);
         }
     }
+
+
+	public void ShowHollogram(GameObject tReference, string tName){
+		//vOpl += 1f;
+		GameObject vHologram = null;
+		if (vHologram == null){
+			vHologram = Instantiate(tReference.gameObject) as GameObject;
+			vHologram.GetComponent<Scr_Socket>().enabled = false;
+			//Angle Correction
+			vHologram.transform.localEulerAngles = tReference.transform.eulerAngles;
+			Collider[] tList =  vHologram.GetComponentsInChildren <Collider>();
+			foreach (Collider tC in tList)
+				tC.enabled = false;
+				/*
+			Renderer[] tListA =  vHologram.GetComponentsInChildren <Renderer>();
+			foreach (Renderer tR in tListA){
+				//tR.material = vMaterial;
+				Material[] tNew = new Material[tR.materials.Length];
+				for(int i = 0; i < tR.materials.Length;i++)
+					tNew[i] = vMaterial;
+				tR.materials = tNew;
+			}'*/
+		}
+	}
 }

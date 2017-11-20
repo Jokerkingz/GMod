@@ -6,16 +6,16 @@ public class Scr_Socket : MonoBehaviour {
 	public List<GameObject> vFemaleSocket;
 	public GameObject vAttachedTo;
 	public string vState;
-
+	private OVRGrabbable cOVRGable;
 	void Start(){
 		vFemaleSocket.Clear();
 		vState = "Free";
-
+		cOVRGable = GetComponent<OVRGrabbable>();
 	}
 	void Update(){
 		GameObject tClosest = NearestFromList();
-		if (tClosest != null)
-		tClosest.GetComponent<Scr_SocketF>().ShowHollogram(this.gameObject,"Base");
+		if (tClosest != null && cOVRGable.vIsBeingGripped)
+			tClosest.GetComponent<Scr_SocketF>().ShowHollogram(this.gameObject,"Base");
 	}
 	public void CheckForAttach(){
 		GameObject tClosest = NearestFromList();
@@ -23,12 +23,16 @@ public class Scr_Socket : MonoBehaviour {
 			GameObject tReceive = null;
 			tReceive = tClosest.GetComponent<Scr_SocketF>().AcceptPart(this.gameObject,"Base");
 			vAttachedTo = tReceive;
-			}
+		}
+		vFemaleSocket.Clear();
 	}
 	public void Detach(){
-		foreach (GameObject tThis in vFemaleSocket){
-			tThis.GetComponent<Scr_SocketF>().RemoveAttachement(this.gameObject);
-		}
+		if (vAttachedTo != null){
+			vAttachedTo.GetComponent<Scr_SocketF>().RemoveAttachement(this.gameObject);
+			vFemaleSocket.Clear();
+			Debug.Log("RemovedAttachment");}
+		
+		vAttachedTo = null;
 	}
 	void OnTriggerEnter(Collider tOther){
 		if (tOther.tag == "SocketFemale"){

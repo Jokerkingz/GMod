@@ -42,6 +42,7 @@ public class OVRGrabbable : MonoBehaviour
     protected Collider m_grabbedCollider = null;
     protected OVRGrabber m_grabbedBy = null;
 
+    public bool vIsBeingGripped;
 	/// <summary>
 	/// If true, the object can currently be grabbed.
 	/// </summary>
@@ -126,10 +127,12 @@ public class OVRGrabbable : MonoBehaviour
 	/// Notifies the object that it has been grabbed.
 	/// </summary>
 	virtual public void GrabBegin(OVRGrabber hand, Collider grabPoint)
-	{	
+	{	vIsBeingGripped = true;
 		Scr_Socket tCheck = this.GetComponent<Scr_Socket>();
-		if (tCheck!=null)
+		if (tCheck!=null){
 			tCheck.Detach();
+			Debug.Log("detached");
+			}
         m_grabbedBy = hand;
         m_grabbedCollider = grabPoint;
         gameObject.GetComponent<Rigidbody>().isKinematic = true;
@@ -140,7 +143,7 @@ public class OVRGrabbable : MonoBehaviour
 	/// Notifies the object that it has been released.
 	/// </summary>
 	virtual public void GrabEnd(Vector3 linearVelocity, Vector3 angularVelocity)
-    {
+	{	vIsBeingGripped = false;
         Rigidbody rb = gameObject.GetComponent<Rigidbody>();
         rb.isKinematic = m_grabbedKinematic;
         rb.velocity = linearVelocity;
