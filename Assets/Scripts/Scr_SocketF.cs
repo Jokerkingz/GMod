@@ -12,23 +12,39 @@ public class Scr_SocketF : MonoBehaviour {
 	//public GameObject vPartConnected;
 	public GameObject vPseudoPart;
 	public GameObject vOriginalPart;
-	public Material vMaterial;
+	public Material vMaterialGood;
+	public Material vMaterialBad;
 	private float vOpl;
+
+	private GameObject tSource;
+	public List<Scr_CollisionCheck> tCollideList = new List<Scr_CollisionCheck>();
+	//public Vector3 tShow;
+	//public string tName;
 	// Use this for initialization
-	void Start () {
-		
-	}
 
 	// Update is called once per frame
 	void Update () {
+		Material tMat = vMaterialGood;
 		if (vOpl > 0){
 			vOpl -= .5f;
-			vHologram.transform.position = this.transform.position;
-			vHologram.transform.eulerAngles = this.transform.eulerAngles;
+			vHologram.transform.localEulerAngles = Reorientate(tSource);
+			foreach (Scr_CollisionCheck tSample in tCollideList){
+				if (tSample.vHere > 0f){
+					tMat = vMaterialBad;
+					}
+			}
 
+			Renderer[] tListA =  vHologram.GetComponentsInChildren <Renderer>();
+			foreach (Renderer tR in tListA){
+				Material[] tNew = new Material[tR.materials.Length];
+				for(int i = 0; i < tR.materials.Length;i++)
+					tNew[i] = tMat;
+				tR.materials = tNew;
+				}
 		}
 		else if (vHologram != null){
 			Destroy(vHologram.gameObject);
+			tSource = null;
 			vHologram = null;
 
 
@@ -36,61 +52,28 @@ public class Scr_SocketF : MonoBehaviour {
 		vOpl = Mathf.Clamp(vOpl,0f,1f);
 	}
 	public void RemoveAttachement(GameObject tReference){
-			Debug.Log("Passing through script RemovedAttachment");
 		tReference.transform.SetParent(null);
 		Transform[] tOldParts = this.GetComponentsInChildren<Transform>();
 		foreach (Transform tThat in tOldParts) {
 			if ((tThat.tag != "GripPart") && (this.gameObject != tThat.gameObject)){
 				tThat.SetParent(tReference.transform);
-				Debug.Log(tThat.name +" Changed My parent");
 			}
 		}
 		tReference.GetComponent<Rigidbody>().useGravity = true;
 		tReference.GetComponent<Rigidbody>().isKinematic = false; 
-		/*if (vAttachedObject == tReference){
-			tReference.transform.SetParent(null);
-			tReference.GetComponent<Rigidbody>().useGravity = true;
-			tReference.GetComponent<Rigidbody>().isKinematic = false;
-			tReference.GetComponent<Scr_Socket>().enabled = true;
-			tReference.GetComponent<OVRGrabbable>().enabled = true;
-		}*/
-		/*
-		GameObject tNewParent;
-		tNewParent = vOriginalPart;
-		if (tNewParent != null){
-			Transform[] tSubParts = tReference.GetComponentsInChildren<Transform>();
-			foreach (Transform tThat in tSubParts) {
-				tThat.SetParent(tNewParent.transform);
-			}
-		}
-
-		*/
-
+		tCollideList.Clear();
 	}
 
 	public GameObject AcceptPart(GameObject tReference,string tName){
 		
-
 		// Attache the following[
 
 		vAttachedObject = tReference;
 		tReference.transform.SetParent(this.transform);
 		tReference.transform.localPosition= Vector3.zero;
-		tReference.transform.eulerAngles = this.transform.eulerAngles;
+		tReference.transform.localEulerAngles = Reorientate(tReference);//+this.transform.eulerAngles;
 		tReference.GetComponent<Rigidbody>().useGravity = false;
 		tReference.GetComponent<Rigidbody>().isKinematic = true; 
-		//tReference.GetComponent<Scr_Socket>().enabled = false;
-		//tReference.GetComponent<OVRGrabbable>().enabled = false;
-		//// ]
-		/*
-		GameObject tNewBase;// = Resources.Load("Prefab/Pre_SocketBase") as GameObject;
-		GameObject tTransform;
-		tNewBase = Instantiate(vPseudoPart);
-		tNewBase.transform.SetParent(this.transform);
-		tNewBase.transform.localPosition= Vector3.zero;
-		tNewBase.transform.eulerAngles = this.transform.eulerAngles;
-		vPseudoPart = tNewBase.gameObject;
-		*/
 		Transform[] tSubParts = tReference.GetComponentsInChildren<Transform>();
 		foreach (Transform tThat in tSubParts) {
 			if (tThat.tag != "GripPart")
@@ -101,36 +84,67 @@ public class Scr_SocketF : MonoBehaviour {
 
 		tReference.SetActive(true);
 
-		/// copy parts
-
-		//tTo.snapOffset = tFrom.snapOffset;
-		//ConfigurableJoint tCheck;
-		//tCheck = tReference.GetComponent<ConfigurableJoint>();
-		//if (tCheck == null)
-		//	tCheck = tReference.AddComponent<ConfigurableJoint>();
-		//tCheck.connectedBody = this.GetComponent<Rigidbody>();
 		return this.gameObject;
 	}
 	public void ShowHollogram(GameObject tReference, string tName){
+		if (this.GetComponentInParent<OVRGrabbable>().vIsBeingGripped){
 		vOpl += 1f;
 		if (vHologram == null){
+			GameObject tSkipThis;
+			tCollideList.Clear();
+			tSource = tReference;
 			vHologram = Instantiate(tReference.gameObject) as GameObject;
 			vHologram.GetComponent<Scr_Socket>().enabled = false;
-			//Angle Correction
-			vHologram.transform.localEulerAngles = tReference.transform.eulerAngles;
+			vHologram.transform.SetParent(this.transform);
+			vHologram.transform.localPosition= Vector3.zero;
+			vHologram.transform.eulerAngles = Reorientate(tReference);
 			Collider[] tList =  vHologram.GetComponentsInChildren <Collider>();
-			foreach (Collider tC in tList)
-				tC.enabled = false;
-
+			foreach (Collider tC in tList){
+				if (tC.GetComponent<Scr_CollisionCheck>() == null)
+					tC.enabled = false;
+				}
+			Scr_CollisionCheck tSkipCheck = tReference.GetComponentInChildren<Scr_CollisionCheck>();
+			tSkipThis = tSkipCheck.gameObject;
+			tCollideList.Clear();
+			Scr_CollisionCheck[] tSubCheck = vHologram.GetComponentsInChildren <Scr_CollisionCheck>();
+			foreach (Scr_CollisionCheck tCC in tSubCheck){
+				tCollideList.Add(tCC);
+				tCC.vException = tSkipThis.gameObject;
+						//tCC.enabled = tr;
+				}
 			Renderer[] tListA =  vHologram.GetComponentsInChildren <Renderer>();
 			foreach (Renderer tR in tListA){
-				//tR.material = vMaterial;
 				Material[] tNew = new Material[tR.materials.Length];
 				for(int i = 0; i < tR.materials.Length;i++)
-					tNew[i] = vMaterial;
+					tNew[i] = vMaterialGood;
 				tR.materials = tNew;
+				}
 			}
 		}
 	}
 
+	Vector3 Reorientate(GameObject tObject){
+		Vector3 tNewVect = tObject.transform.eulerAngles;
+		OVRGrabbable tCheck = this.GetComponentInParent<OVRGrabbable>();
+		GameObject tObj = tCheck.gameObject;
+		Vector3 tOwnVect = tObj.transform.eulerAngles;
+		tNewVect.x = tNewVect.x-tOwnVect.x;
+		tNewVect.y = tNewVect.y-tOwnVect.y;
+		tNewVect.z = tNewVect.z-tOwnVect.z;
+		if (tNewVect.x >360) tNewVect.x -= 360f;
+		if (tNewVect.y >360) tNewVect.y -= 360f;
+		if (tNewVect.z >360) tNewVect.z -= 360f;
+
+		tNewVect.x = ((Mathf.Round(tNewVect.x/90f))*90f);
+		tNewVect.y = ((Mathf.Round(tNewVect.y/90f))*90f);
+		tNewVect.z = ((Mathf.Round(tNewVect.z/90f))*90f);
+
+		//tNewVect.x = ((Mathf.Round((tNewVect.x+tOwnVect.x)/90f))*90f);
+		//tNewVect.y = ((Mathf.Round((tNewVect.y-tOwnVect.y)/90f))*90f);
+		//tNewVect.z = ((Mathf.Round((tNewVect.z-tOwnVect.z)/90f))*90f);
+		//if (tNewVect.x >360) tNewVect.x -= 360f;
+		//if (tNewVect.y >360) tNewVect.y -= 360f;
+		//if (tNewVect.z >360) tNewVect.z -= 360f;
+		return tNewVect;
+	}
 }

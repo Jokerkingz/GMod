@@ -227,9 +227,10 @@ public class OVRGrabber : MonoBehaviour
             }
 
             for (int j = 0; j < grabbable.grabPoints.Length; ++j)
-            {
+			{if (grabbable.grabPoints[j] != null){
                 Collider grabbableCollider = grabbable.grabPoints[j];
                 // Store the closest grabbable
+
                 Vector3 closestPointOnBounds = grabbableCollider.ClosestPointOnBounds(m_gripTransform.position);
                 float grabbableMagSq = (m_gripTransform.position - closestPointOnBounds).sqrMagnitude;
                 if (grabbableMagSq < closestMagSq)
@@ -237,6 +238,7 @@ public class OVRGrabber : MonoBehaviour
                     closestMagSq = grabbableMagSq;
                     closestGrabbable = grabbable;
                     closestGrabbableCollider = grabbableCollider;
+                }
                 }
             }
         }
@@ -378,26 +380,4 @@ public class OVRGrabber : MonoBehaviour
     }
 
 
-	public void ShowHollogram(GameObject tReference, string tName){
-		//vOpl += 1f;
-		GameObject vHologram = null;
-		if (vHologram == null){
-			vHologram = Instantiate(tReference.gameObject) as GameObject;
-			vHologram.GetComponent<Scr_Socket>().enabled = false;
-			//Angle Correction
-			vHologram.transform.localEulerAngles = tReference.transform.eulerAngles;
-			Collider[] tList =  vHologram.GetComponentsInChildren <Collider>();
-			foreach (Collider tC in tList)
-				tC.enabled = false;
-				/*
-			Renderer[] tListA =  vHologram.GetComponentsInChildren <Renderer>();
-			foreach (Renderer tR in tListA){
-				//tR.material = vMaterial;
-				Material[] tNew = new Material[tR.materials.Length];
-				for(int i = 0; i < tR.materials.Length;i++)
-					tNew[i] = vMaterial;
-				tR.materials = tNew;
-			}'*/
-		}
-	}
 }

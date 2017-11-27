@@ -95,6 +95,7 @@ public class OVRPlayerController : MonoBehaviour
 	private float SimulationRate = 60f;
 	private float buttonRotation = 0f;
 
+	public bool vSkipMovement = true;
 	void Start()
 	{
 		// Add eye-depth as a camera offset from the player controller
@@ -229,7 +230,8 @@ public class OVRPlayerController : MonoBehaviour
 	}
 
 	public virtual void UpdateMovement()
-	{
+	{	if (vSkipMovement)
+			return;
 		if (HaltUpdateMovement)
 			return;
 

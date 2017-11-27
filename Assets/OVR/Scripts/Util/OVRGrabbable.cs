@@ -131,7 +131,6 @@ public class OVRGrabbable : MonoBehaviour
 		Scr_Socket tCheck = this.GetComponent<Scr_Socket>();
 		if (tCheck!=null){
 			tCheck.Detach();
-			Debug.Log("detached");
 			}
         m_grabbedBy = hand;
         m_grabbedCollider = grabPoint;
