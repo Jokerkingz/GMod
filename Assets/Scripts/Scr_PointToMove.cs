@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Scr_PointToMove : MonoBehaviour {
-	public GameObject vChosenSpot;
 	public GameObject vObjectToCreate;
 	public GameObject vTemp;
 	public LayerMask vObstacles;
 
 	public Vector3 vAngleChoice;
 	public GameObject vTeleportTo;
+	public float vAngleToUse;
 
-
-	public float vAngle;
+	public OVRPlayerController cOVRPC;
+	private float vPress = 0f;
+	private bool vActive = false;
 	// Update is called once per frame
 	void Start () {
-		vTeleportTo = GameObject.FindGameObjectWithTag("TeleportHere");
+		//vTeleportTo = GameObject.FindGameObjectWithTag("TeleportHere");
 	}
 
 	void FixedUpdate () {
@@ -23,21 +24,30 @@ public class Scr_PointToMove : MonoBehaviour {
 		float tY = Input.GetAxis("Oculus_GearVR_RThumbstickY");
 		float tAngle = Mathf.Atan2(tX,tY)*180/Mathf.PI;
 		float tAddition = transform.eulerAngles.y;
-		vAngle = tAddition;
-		//vAngleChoice = new Vector3(Input.GetAxis("Oculus_GearVR_RThumbstickX"),0,Input.GetAxis("Oculus_GearVR_RThumbstickY"));
-		//vAngleChoice = transform.TransformDirection(vAngleChoice);
-		//vAngle = Mathf.Atan2(Mathf.Cos(Input.GetAxis("Oculus_GearVR_RThumbstickX")),Mathf.Sin(Input.GetAxis("Oculus_GearVR_RThumbstickY")));
-		//vTeleportTo.transform.LookAt(vTeleportTo.transform.position + vAngleChoice);
-
-		vTeleportTo.transform.eulerAngles = new Vector3(0,tAngle+tAddition,0);
-		//vTeleportTo.transform.eulerAngles(new Vector3(0,Mathf.Rad2Deg*Mathf.Atan2(Mathf.Cos(Input.GetAxis("Oculus_GearVR_RThumbstickX")),Mathf.Sin(Input.GetAxis("Oculus_GearVR_RThumbstickY"))),0));
-
-
+		vAngleToUse = tAngle+tAddition;
 
 		if (Input.GetButton("OGVR_RThumbPress")){
 			vPointToThere();
+			vPress = 2f;
+			vActive = true;
 		}
-		if (OVRInput.GetUp(OVRInput.Button.SecondaryThumbstickUp)){
+		if (vPress > 0f)
+			vPress -= .5f;
+		else{
+			vPress = 0f;
+			if (vActive){
+				vActive = false;
+		//if (Input.GetButtonUp("OGVR_RThumbPress")){
+			if (vAngleToUse > 360f)
+					vAngleToUse -= 360f;
+			if (vAngleToUse < 0f)
+				vAngleToUse += 360f;
+				cOVRPC.vAngleOffSet = vAngleToUse;
+			cOVRPC.gameObject.transform.position = vTemp.GetComponentInChildren<Scr_CheckBody>().vOpenSpot;
+			//GameObject.FindGameObjectWithTag("Orient").transform.eulerAngles = new Vector3(0,vAngleToUse,0);
+			Debug.Log("Pork");
+			Destroy(vTemp);
+			}
 		}
 	}
 	void vPointToThere(){
@@ -51,7 +61,7 @@ public class Scr_PointToMove : MonoBehaviour {
 					}
 				else{
 					vTemp.transform.position = tHit.point;
-					//vChosenSpot.transform.position = vTemp.GetComponentInChildren <Scr_CheckBody>().CheckFreeSpot();
+					vTemp.GetComponentInChildren<Scr_CheckBody>().vRotAngle = vAngleToUse;
 				}
 			}
 		}
