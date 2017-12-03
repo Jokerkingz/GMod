@@ -3,11 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Scr_Socket : MonoBehaviour {
+	[Header("Base")]
 	public List<GameObject> vFemaleSocket;
 	public List<GameObject> vFemaleSkip;
 	public GameObject vAttachedTo;
 	public string vState;
 	private OVRGrabbable cOVRGable;
+
+
+	enum ModType {Null, Base, Barrel, Handle, Magazine, Ammunition, Shield, Battery};
+
+	[Header("Connection Parts")]
+	ModType vPartType = ModType.Base;
+	ModType vRequiredPart = ModType.Null;
+
+	GameObject vConnectedWith;
+
+
 	void Start(){
 		vFemaleSocket.Clear();
 		Scr_SocketF[] tSkip = this.GetComponentsInChildren<Scr_SocketF>();
@@ -35,6 +47,7 @@ public class Scr_Socket : MonoBehaviour {
 	}
 	public void Detach(){
 		if (vAttachedTo != null){
+			BroadCastThis("OldUnequip");
 			vAttachedTo.GetComponent<Scr_SocketF>().RemoveAttachement(this.gameObject);
 			vFemaleSocket.Clear();
 			Debug.Log("RemovedAttachment");}
@@ -71,4 +84,21 @@ public class Scr_Socket : MonoBehaviour {
 		return tClosest;
 	}
 
+	void BroadCastThis(string vAttachDetach){
+		this.transform.root.gameObject.BroadcastMessage(vAttachDetach,this.gameObject);
+	}
+
+	void NewEquiped(GameObject tThis){
+		if (vRequiredPart != ModType.Null){
+			if (vRequiredPart == tThis.GetComponent<Scr_Socket>().vPartType){
+				vConnectedWith = tThis.gameObject;
+			}
+			
+		}
+
+	}
+	void OldUnequip(GameObject tThis){
+		if (vConnectedWith == tThis.gameObject)
+			vConnectedWith = null;
+	}
 }

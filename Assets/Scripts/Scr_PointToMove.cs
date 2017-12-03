@@ -44,9 +44,11 @@ public class Scr_PointToMove : MonoBehaviour {
 				vAngleToUse += 360f;
 				cOVRPC.vAngleOffSet = vAngleToUse;
 			cOVRPC.gameObject.transform.position = vTemp.GetComponentInChildren<Scr_CheckBody>().vOpenSpot;
-			//GameObject.FindGameObjectWithTag("Orient").transform.eulerAngles = new Vector3(0,vAngleToUse,0);
+			GameObject.FindGameObjectWithTag("Orient").transform.localEulerAngles = new Vector3(0,vAngleToUse,0);
 			Debug.Log("Pork");
 			Destroy(vTemp);
+
+
 			}
 		}
 	}
@@ -67,4 +69,6 @@ public class Scr_PointToMove : MonoBehaviour {
 		}
 
 	}
+
+
 }
