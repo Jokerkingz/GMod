@@ -10,24 +10,31 @@ public class Scr_Socket : MonoBehaviour {
 	public string vState;
 	private OVRGrabbable cOVRGable;
 
-
-	enum ModType {Null, Base, Barrel, Handle, Magazine, Ammunition, Shield, Battery};
-
-	[Header("Connection Parts")]
-	ModType vPartType = ModType.Base;
-	ModType vRequiredPart = ModType.Null;
-
+	private Scr_SubStatus cSS;
 	GameObject vConnectedWith;
 
+	public List<Transform> vOriginalParts = new List<Transform>();
 
+	public string vPartType;
 	void Start(){
 		vFemaleSocket.Clear();
 		Scr_SocketF[] tSkip = this.GetComponentsInChildren<Scr_SocketF>();
 		foreach(Scr_SocketF tTemp in tSkip){
 			vFemaleSkip.Add(tTemp.gameObject);
 		}
+
 		vState = "Free";
 		cOVRGable = GetComponent<OVRGrabbable>();
+
+		// sort through current Parts
+		Transform[] tCheckList = this.GetComponentsInChildren<Transform>();
+		foreach(Transform tTemp in tCheckList){
+			if ((tTemp.gameObject.tag != "GripPart") && (tTemp.gameObject != this.gameObject))
+				vOriginalParts.Add(tTemp);
+			}
+		cSS = GetComponent<Scr_SubStatus>();
+		if (cSS = null)
+			Debug.Log(this.name);
 	}
 	void Update(){
 		GameObject tClosest = NearestFromList();
@@ -37,41 +44,62 @@ public class Scr_Socket : MonoBehaviour {
 	public void CheckForAttach(){
 		GameObject tClosest = NearestFromList();
 		if (tClosest != null){
-			GameObject tReceive = null;
 			if (tClosest.GetComponentInParent<OVRGrabbable>().vIsBeingGripped){
-				tReceive = tClosest.GetComponent<Scr_SocketF>().AcceptPart(this.gameObject,"Base");
+					tClosest.GetComponent<Scr_SocketF>().AcceptPart(this.gameObject,"Base");
 				}
-			vAttachedTo = tReceive;
 		}
-		vFemaleSocket.Clear();
 	}
-	public void Detach(){
+	public void Detach(FastList<GameObject> tAlreadyDetached){
+		if (tAlreadyDetached.Contains(this.gameObject))
+			return;
 		if (vAttachedTo != null){
 			BroadCastThis("OldUnequip");
-			vAttachedTo.GetComponent<Scr_SocketF>().RemoveAttachement(this.gameObject);
-			vFemaleSocket.Clear();
-			Debug.Log("RemovedAttachment");}
-		
+			this.GetComponent<Rigidbody>().useGravity = true;
+			this.GetComponent<Rigidbody>().isKinematic = false; 
+			vAttachedTo.GetComponent<Scr_SocketF>().vAttachedObject = null;
+
+			transform.SetParent(null);
+			foreach (Transform tThat in vOriginalParts) {
+				tThat.SetParent(this.transform);
+				}
+			}
+
+		vFemaleSocket.Clear();
+		tAlreadyDetached.Add(this.gameObject);
+		foreach (Transform tThat in vOriginalParts) {
+			Scr_SocketF tcSF = null;
+			tcSF = tThat.gameObject.GetComponent<Scr_SocketF>();
+			if (tcSF != null){
+				if (tcSF.vAttachedObject != null)
+					tcSF.vAttachedObject.GetComponent<Scr_Socket>().Detach(tAlreadyDetached);
+			}
+		}
 		vAttachedTo = null;
-	}
+		}
+
 	void OnTriggerEnter(Collider tOther){
 		if (tOther.tag == "SocketFemale"){
-			if (!vFemaleSkip.Contains(tOther.gameObject))
+			if (!vFemaleSkip.Contains(tOther.gameObject)){
+				if (tOther.GetComponent<Scr_SocketF>().vPartType != vPartType)
+				if (tOther.GetComponent<Scr_SocketF>().vAttachedObject == null)
 				vFemaleSocket.Add(tOther.gameObject);
-
+				}
 		}
 	}
 	void OnTriggerExit(Collider tOther){
 		if (tOther.tag == "SocketFemale"){
-			if (!vFemaleSkip.Contains(tOther.gameObject))
+			if (!vFemaleSkip.Contains(tOther.gameObject)){
+				if (tOther.GetComponent<Scr_SocketF>().vPartType != vPartType)
+				if (tOther.GetComponent<Scr_SocketF>().vAttachedObject == null)
 				vFemaleSocket.Remove(tOther.gameObject);
+				}
 		}
 	}
 
 	GameObject NearestFromList(){
 		GameObject tClosest = null;
 		float tDistance = 0f;
-			foreach (GameObject tThis in vFemaleSocket){
+		foreach (GameObject tThis in vFemaleSocket){
 			if (tClosest == null){
 				tClosest = tThis;
 				tDistance = Vector3.Distance(this.transform.position,tThis.transform.position);
@@ -80,6 +108,8 @@ public class Scr_Socket : MonoBehaviour {
 				{tClosest = tThis;
 				tDistance = Vector3.Distance(this.transform.position,tThis.transform.position);
 				}
+					
+				
 			}
 		return tClosest;
 	}
@@ -89,8 +119,8 @@ public class Scr_Socket : MonoBehaviour {
 	}
 
 	void NewEquiped(GameObject tThis){
-		if (vRequiredPart != ModType.Null){
-			if (vRequiredPart == tThis.GetComponent<Scr_Socket>().vPartType){
+		if (cSS.vRequiredPart != Scr_SubStatus.ModType.Null){
+			if (cSS.vRequiredPart == tThis.GetComponent<Scr_Socket>().cSS.vPartType){
 				vConnectedWith = tThis.gameObject;
 			}
 			

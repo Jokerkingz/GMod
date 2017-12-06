@@ -43,6 +43,7 @@ public class OVRGrabbable : MonoBehaviour
     protected OVRGrabber m_grabbedBy = null;
 
     public bool vIsBeingGripped;
+    public bool vIsGunHandle;
 	/// <summary>
 	/// If true, the object can currently be grabbed.
 	/// </summary>
@@ -130,7 +131,9 @@ public class OVRGrabbable : MonoBehaviour
 	{	vIsBeingGripped = true;
 		Scr_Socket tCheck = this.GetComponent<Scr_Socket>();
 		if (tCheck!=null){
-			tCheck.Detach();
+			FastList<GameObject> tTemp = new FastList<GameObject>();
+			tTemp.Clear();
+			tCheck.Detach(tTemp);
 			}
         m_grabbedBy = hand;
         m_grabbedCollider = grabPoint;
@@ -185,5 +188,10 @@ public class OVRGrabbable : MonoBehaviour
             // Notify the hand to release destroyed grabbables
             m_grabbedBy.ForceRelease(this);
         }
+    }
+    void Update(){
+    	//if ()
+
+
     }
 }
