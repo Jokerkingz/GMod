@@ -6,6 +6,7 @@ public class Scr_Bullet : MonoBehaviour {
 	public Rigidbody cRB;
 	public float vSpeedMultiplier = 10f;
 	public GameObject vModelToTurn;
+
 	// Use this for initialization
 	void Start () {
 		cRB = GetComponent<Rigidbody>();

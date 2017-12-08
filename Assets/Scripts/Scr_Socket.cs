@@ -70,8 +70,10 @@ public class Scr_Socket : MonoBehaviour {
 			Scr_SocketF tcSF = null;
 			tcSF = tThat.gameObject.GetComponent<Scr_SocketF>();
 			if (tcSF != null){
-				if (tcSF.vAttachedObject != null)
+				if (tcSF.vAttachedObject != null){
+
 					tcSF.vAttachedObject.GetComponent<Scr_Socket>().Detach(tAlreadyDetached);
+					}
 			}
 		}
 		vAttachedTo = null;

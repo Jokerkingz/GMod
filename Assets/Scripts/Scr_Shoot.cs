@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Scr_Shoot : MonoBehaviour {
+public class Scr_ShootSpot : MonoBehaviour {
 	public bool vActive;
 	public bool vIShouldReceive;
 

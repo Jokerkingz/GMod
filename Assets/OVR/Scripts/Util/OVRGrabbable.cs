@@ -190,8 +190,8 @@ public class OVRGrabbable : MonoBehaviour
         }
     }
     void Update(){
-    	//if ()
-
+		//if (Input.GetAxis("OGVR_RIndexTrigger") > 0)
+    	//	this.gameObject.BroadcastMessage("Triggered");
 
     }
 }
