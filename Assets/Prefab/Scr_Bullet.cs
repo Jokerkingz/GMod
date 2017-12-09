@@ -22,7 +22,7 @@ public class Scr_Bullet : MonoBehaviour {
 		if (tOther.gameObject.tag == "Wall")
 			Destroy(this.gameObject);
 		if (tOther.gameObject.tag == "Player" || tOther.gameObject.tag == "AI"){
-			tOther.gameObject.SendMessage("TakeDamage",1);
+			tOther.gameObject.SendMessage("patat",SendMessageOptions.DontRequireReceiver);
 			Destroy(this.gameObject);
 			}
 	}

@@ -9,12 +9,18 @@ public class Scr_Triggered : MonoBehaviour {
 	public int vAmmo;
 	public int vMaxAmmo = 100;
 	public bool vIsPlayer;
+
+	public bool vUnlimited;
+	public bool vAIOwned;
+	public GameObject vTarget;
 	// Use this for initialization
 	void Start () {
 		FindMagazine();
 		if (vIsPlayer)
 			Cursor.lockState = CursorLockMode.Locked;
 		vAmmo = vMaxAmmo;
+		if (vAIOwned)
+			vTarget = GameObject.FindGameObjectWithTag("MainCamera");
 	}
 	
 	// Update is called once per frame
@@ -22,15 +28,16 @@ public class Scr_Triggered : MonoBehaviour {
 		if (vShotCD > 0f)
 			vShotCD -= Time.deltaTime;
 
-		if (Input.GetAxis("OGVR_RIndexTrigger") > 0){
+		if (Input.GetAxis("OGVR_RIndexTrigger") > 0 && !vAIOwned){
 		Debug.Log("Triggered");
 			Triggered ();
 			}
+		if (vAIOwned)
+			this.transform.LookAt(vTarget.transform.position);
     		//this.gameObject.BroadcastMessage("Triggered");
 	}
 	void FindMagazine(){
 		vMagazine = this.GetComponentInChildren<Scr_Magazine>();
-
 	}
 
 	public void Triggered (){ // Start Bang Bang
@@ -38,8 +45,10 @@ public class Scr_Triggered : MonoBehaviour {
 			GameObject tObj = Instantiate(vAmmunition);
 			tObj.transform.position = this.transform.position;
 			tObj.transform.eulerAngles = this.transform.eulerAngles;
+			tObj.GetComponent<Scr_Bullet>().vSpeedMultiplier = 5f;
 			vShotCD += .5f;
-			vAmmo -= 1;
+			if (!vUnlimited)
+				vAmmo -= 1;
 			vShotCD = .5f;
 		}
 	}

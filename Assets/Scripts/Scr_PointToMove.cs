@@ -14,6 +14,8 @@ public class Scr_PointToMove : MonoBehaviour {
 	public OVRPlayerController cOVRPC;
 	private float vPress = 0f;
 	private bool vActive = false;
+
+	public GameObject vOrienter;
 	// Update is called once per frame
 	void Start () {
 		//vTeleportTo = GameObject.FindGameObjectWithTag("TeleportHere");
@@ -37,15 +39,19 @@ public class Scr_PointToMove : MonoBehaviour {
 			vPress = 0f;
 			if (vActive){
 				vActive = false;
-		//if (Input.GetButtonUp("OGVR_RThumbPress")){
-			if (vAngleToUse > 360f)
-					vAngleToUse -= 360f;
-			if (vAngleToUse < 0f)
-				vAngleToUse += 360f;
-				cOVRPC.vAngleOffSet = vAngleToUse;
-			cOVRPC.gameObject.transform.position = vTemp.GetComponentInChildren<Scr_CheckBody>().vOpenSpot;
-			GameObject.FindGameObjectWithTag("Orient").transform.localEulerAngles = new Vector3(0,vAngleToUse,0);
-			Debug.Log("Pork");
+			//if (Input.GetButtonUp("OGVR_RThumbPress")){
+				if (vAngleToUse > 360f)
+						vAngleToUse -= 360f;
+				if (vAngleToUse < 0f)
+						vAngleToUse += 360f;
+				if (vTemp != null){
+					cOVRPC.vAngleOffSet = vAngleToUse;
+					cOVRPC.gameObject.transform.position = vTemp.GetComponentInChildren<Scr_CheckBody>().vOpenSpot;
+					vOrienter.transform.localEulerAngles = new Vector3(0,vAngleToUse,0);
+					}
+				
+			//GameObject.FindGameObjectWithTag("Orient").transform.localEulerAngles = new Vector3(0,vAngleToUse,0);
+			//Debug.Log("Pork");
 			Destroy(vTemp);
 
 
