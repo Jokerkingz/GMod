@@ -142,23 +142,23 @@ public class Scr_SocketF : MonoBehaviour {
 		GameObject tObj = tCheck.gameObject;
 		Vector3 tOwnVect = tObj.transform.eulerAngles;
 		//tNewVect.x = tNewVect.x-tOwnVect.x;
-		//tNewVect.y = tNewVect.y-tOwnVect.y;
+		tNewVect.y = tNewVect.y-tOwnVect.y;
 		//tNewVect.z = tNewVect.z-tOwnVect.z;
 
-		tNewVect.x = tNewVect.x;
-		tNewVect.y = tNewVect.y;
-		tNewVect.z = tNewVect.z;
+		//tNewVect.x = tNewVect.x;
+		//tNewVect.y = tNewVect.y;
+		//tNewVect.z = tNewVect.z;
 
 		//tNewVect.x = tOwnVect.x;
 		//tNewVect.y = tOwnVect.y;
 		//tNewVect.z = tOwnVect.z;
-		if (tNewVect.x >360) tNewVect.x -= 360f;
+		//if (tNewVect.x >360) tNewVect.x -= 360f;
 		if (tNewVect.y >360) tNewVect.y -= 360f;
-		if (tNewVect.z >360) tNewVect.z -= 360f;
+		//if (tNewVect.z >360) tNewVect.z -= 360f;
 
-		tNewVect.x = ((Mathf.Round(tNewVect.x/90f))*90f);
+		tNewVect.x = 0;//((Mathf.Round(tNewVect.x/90f))*90f);
 		tNewVect.y = ((Mathf.Round(tNewVect.y/90f))*90f);
-		tNewVect.z = ((Mathf.Round(tNewVect.z/90f))*90f);
+		tNewVect.z = 0;//((Mathf.Round(tNewVect.z/90f))*90f);
 
 		//tNewVect.x = ((Mathf.Round((tNewVect.x+tOwnVect.x)/90f))*90f);
 		//tNewVect.y = ((Mathf.Round((tNewVect.y-tOwnVect.y)/90f))*90f);

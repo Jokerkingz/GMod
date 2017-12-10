@@ -145,8 +145,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1434922408542154}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0000062585, y: -0.005, z: 0.528}
+  m_LocalRotation: {x: -0.70710576, y: -0, z: -0, w: 0.70710784}
+  m_LocalPosition: {x: 0, y: 0.5279541, z: 0.0049972534}
   m_LocalScale: {x: 0.26250002, y: 0.3214136, z: 1.0244207}
   m_Children: []
   m_Father: {fileID: 4513760095602530}
@@ -158,8 +158,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1248052721882840}
-  m_LocalRotation: {x: -0.70710576, y: -0, z: -1.2155568e-11, w: 0.70710784}
-  m_LocalPosition: {x: 0.012992993, y: -0.001013279, z: 1.0536999}
+  m_LocalRotation: {x: -1, y: -8.595272e-12, z: -8.595297e-12, w: 0.00000295043}
+  m_LocalPosition: {x: 0.012989044, y: 1.053772, z: 0.0010299683}
   m_LocalScale: {x: 0.034500036, y: 0.034500044, z: 0.037900005}
   m_Children: []
   m_Father: {fileID: 4513760095602530}
@@ -171,8 +171,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1528906913370978}
-  m_LocalRotation: {x: 0.000000081460364, y: 0.7071068, z: -3.7303494e-14, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.52599984}
+  m_LocalRotation: {x: -0.49999925, y: 0.5000007, z: -0.4999993, w: 0.5000008}
+  m_LocalPosition: {x: 0, y: 0.52612305, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 4513760095602530}
@@ -184,8 +184,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1985062003311490}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.078, y: 0.70379996, z: -1.0385}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -23.74594, y: 273.0457, z: 44.992}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4454550389873172}
@@ -203,9 +203,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1632146156078104}
-  m_LocalRotation: {x: 0.70710576, y: -0, z: -0, w: 0.7071079}
+  m_LocalRotation: {x: -0.000000059604638, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.034492575, y: 0.03449262, z: 0.03794187}
+  m_LocalScale: {x: 0.034492575, y: 0.034492623, z: 0.037941873}
   m_Children: []
   m_Father: {fileID: 4513760095602530}
   m_RootOrder: 3
@@ -216,8 +216,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1459153216874532}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.012992993, y: -0.001013279, z: 1.087}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.012989044, y: 1.0870361, z: 0.0010299683}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4513760095602530}
@@ -229,13 +229,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1240239744738384}
-  m_LocalRotation: {x: 0.86602545, y: 0, z: 0, w: 0.49999994}
-  m_LocalPosition: {x: 0, y: 0.67, z: 0.2}
+  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
+  m_LocalPosition: {x: 0, y: -0.392, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4513760095602530}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 120.00001, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
 --- !u!23 &23118051629350852
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -420,7 +420,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: c90928e1d26d27d40b9615e98f1165c1, type: 2}
+  - {fileID: 2100000, guid: 99ffcfff0cae55b418a5ed2018b181b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -621,6 +621,7 @@ MonoBehaviour:
   m_grabPoints:
   - {fileID: 65113878312590572}
   vIsBeingGripped: 0
+  vIsGrippedBy: 
   vIsGunHandle: 0
 --- !u!135 &135468172440548366
 SphereCollider:

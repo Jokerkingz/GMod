@@ -154,7 +154,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1549615591376954}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.474, y: 0.675922, z: -1.007}
+  m_LocalPosition: {x: -24.086, y: 272.97, z: 45.035}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4319438119851284}
@@ -198,13 +198,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1808880222881978}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.70710576, y: -0, z: -0, w: 0.70710784}
   m_LocalPosition: {x: 0, y: 0.04596001, z: 0.0917}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 4119140355694296}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 0}
 --- !u!4 &4606115839596702
 Transform:
   m_ObjectHideFlags: 1
@@ -544,6 +544,7 @@ MonoBehaviour:
   m_grabPoints:
   - {fileID: 65984794730759608}
   vIsBeingGripped: 0
+  vIsGrippedBy: 
   vIsGunHandle: 1
 --- !u!135 &135425106209779842
 SphereCollider:
