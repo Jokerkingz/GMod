@@ -93,6 +93,7 @@ public class Scr_SocketF : MonoBehaviour {
 			}
 			tReference.transform.SetParent(this.transform);
 			vOriginalPart = tReference.gameObject;
+			tReference.GetComponent<Scr_Socket>().BroadCastThis("NewEquiped");
 			tReference.GetComponent<Scr_Socket>().vAttachedTo = this.gameObject;
 			tReference.SetActive(true);
 			}
@@ -136,13 +137,21 @@ public class Scr_SocketF : MonoBehaviour {
 	}
 
 	Vector3 Reorientate(GameObject tObject){
-		Vector3 tNewVect = tObject.transform.eulerAngles;
+		Vector3 tNewVect = tObject.transform.localEulerAngles;
 		OVRGrabbable tCheck = this.GetComponentInParent<OVRGrabbable>();
 		GameObject tObj = tCheck.gameObject;
 		Vector3 tOwnVect = tObj.transform.eulerAngles;
-		tNewVect.x = tNewVect.x-tOwnVect.x;
-		tNewVect.y = tNewVect.y-tOwnVect.y;
-		tNewVect.z = tNewVect.z-tOwnVect.z;
+		//tNewVect.x = tNewVect.x-tOwnVect.x;
+		//tNewVect.y = tNewVect.y-tOwnVect.y;
+		//tNewVect.z = tNewVect.z-tOwnVect.z;
+
+		tNewVect.x = tNewVect.x;
+		tNewVect.y = tNewVect.y;
+		tNewVect.z = tNewVect.z;
+
+		//tNewVect.x = tOwnVect.x;
+		//tNewVect.y = tOwnVect.y;
+		//tNewVect.z = tOwnVect.z;
 		if (tNewVect.x >360) tNewVect.x -= 360f;
 		if (tNewVect.y >360) tNewVect.y -= 360f;
 		if (tNewVect.z >360) tNewVect.z -= 360f;

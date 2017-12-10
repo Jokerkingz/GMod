@@ -11,6 +11,5 @@ public class Scr_TouchButton : MonoBehaviour {
 			if (tOther.GetComponent<Scr_TouchTip>().vPointing)
 				vSource.vReceiveButton(vTypeOfButton);
 			}
-
 	}
 }

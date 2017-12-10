@@ -116,20 +116,23 @@ public class Scr_Socket : MonoBehaviour {
 		return tClosest;
 	}
 
-	void BroadCastThis(string vAttachDetach){
-		this.transform.root.gameObject.BroadcastMessage(vAttachDetach,this.gameObject);
+	public void BroadCastThis(string vAttachDetach){
+		this.transform.root.gameObject.BroadcastMessage(vAttachDetach,this.gameObject,SendMessageOptions.DontRequireReceiver);
 	}
 
-	void NewEquiped(GameObject tThis){
+	public void NewEquiped(GameObject tThis){
+	/*
+		if (tThis != null)
 		if (cSS.vRequiredPart != Scr_SubStatus.ModType.Null){
 			if (cSS.vRequiredPart == tThis.GetComponent<Scr_Socket>().cSS.vPartType){
 				vConnectedWith = tThis.gameObject;
 			}
 			
 		}
-
+		*/
 	}
-	void OldUnequip(GameObject tThis){
+	 
+	public void OldUnequip(GameObject tThis){
 		if (vConnectedWith == tThis.gameObject)
 			vConnectedWith = null;
 	}

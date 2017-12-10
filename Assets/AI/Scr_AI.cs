@@ -37,6 +37,8 @@ public class Scr_AI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (vIsDead)
+			vAIStatus = "Dead";
 		cAC.SetFloat("Speed",cNMA.speed);
 		switch (vAIStatus){
 		case "Idle": fActIdle(); break;
@@ -157,5 +159,10 @@ public class Scr_AI : MonoBehaviour {
 	}
 	public void vGetAlerted(){
 		vIsAlert = true;
+	}
+	public void Hit(){
+		vIsDead = true;
+		cAC.SetBool("Dead",true);
+
 	}
 }

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23142986506737624}
   - component: {fileID: 114497868441695534}
   - component: {fileID: 54892310943726880}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pre_Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 33425288409581294}
   - component: {fileID: 136393240463028798}
   - component: {fileID: 23915660423970252}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Obj_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,8 +56,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1165367898603628}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.390621, y: 272, z: 49.14785}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalPosition: {x: -17.577667, y: 272.8571, z: 51.350277}
+  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_Children:
   - {fileID: 4997854521041808}
   m_Father: {fileID: 0}
@@ -195,7 +195,7 @@ SphereCollider:
   m_GameObject: {fileID: 1165367898603628}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -207,7 +207,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1396910765975204}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1

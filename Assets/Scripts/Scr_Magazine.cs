@@ -8,13 +8,25 @@ public class Scr_Magazine : MonoBehaviour {
 	public string vMagazineType;
 	public int vMaxAmmo;
 	public int vCurrentAmmo;
-	// Use this for initialization
-	void Start () {
-		
+
+	public Renderer vModelToCancel;
+	void Start(){
+		vCurrentAmmo = vMaxAmmo;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	void Update(){
+		if (vCurrentAmmo <= 0)	{
+			vModelToCancel.enabled = false;
+		}
+	}
+
+
+	public void Reload(){
+		BroadCastThis("NewEquiped");
+		vCurrentAmmo = vMaxAmmo;
+		vModelToCancel.enabled = true;
+	}
+
+	void BroadCastThis(string vAttachDetach){
+		this.transform.root.gameObject.BroadcastMessage(vAttachDetach,this.gameObject,SendMessageOptions.DontRequireReceiver);
 	}
 }

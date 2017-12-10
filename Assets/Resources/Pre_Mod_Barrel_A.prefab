@@ -11,6 +11,22 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1206805304228498}
   m_IsPrefabParent: 1
+--- !u!1 &1054511501066430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4232142050696188}
+  - component: {fileID: 114481091208423316}
+  m_Layer: 10
+  m_Name: Obj_ShootSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1206805304228498
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,6 +131,19 @@ Transform:
   m_Father: {fileID: 4581767933958938}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 0}
+--- !u!4 &4232142050696188
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1054511501066430}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.02}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4581767933958938}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4344523237699020
 Transform:
   m_ObjectHideFlags: 1
@@ -162,13 +191,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1206805304228498}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0007, y: 0.70379996, z: -1.0385}
+  m_LocalPosition: {x: -23.497, y: 272.938, z: 44.989}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4347683895984368}
   - {fileID: 4540296140938030}
   - {fileID: 4214076736089030}
   - {fileID: 4344523237699020}
+  - {fileID: 4232142050696188}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -410,7 +440,29 @@ MonoBehaviour:
   m_grabPoints:
   - {fileID: 65819964706269086}
   vIsBeingGripped: 0
+  vIsGrippedBy: 
   vIsGunHandle: 0
+--- !u!114 &114481091208423316
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1054511501066430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbd8cf77875f95b4c9edb648804c4163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vAmmunition: {fileID: 1165367898603628, guid: 691a20af8c0d0304d8450b7094085119,
+    type: 2}
+  vAmmo: 0
+  vMaxAmmo: 100
+  vIsPlayer: 1
+  vUnlimited: 0
+  vAIOwned: 0
+  vTarget: {fileID: 0}
+  vProjectileSpeed: 10
+  vMagazineList: []
 --- !u!114 &114520300130257808
 MonoBehaviour:
   m_ObjectHideFlags: 1

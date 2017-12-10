@@ -42,7 +42,8 @@ public class OVRGrabbable : MonoBehaviour
     protected Collider m_grabbedCollider = null;
     protected OVRGrabber m_grabbedBy = null;
 
-    public bool vIsBeingGripped;
+	public bool vIsBeingGripped;
+    public string vIsGrippedBy;
     public bool vIsGunHandle;
 	/// <summary>
 	/// If true, the object can currently be grabbed.
@@ -129,6 +130,7 @@ public class OVRGrabbable : MonoBehaviour
 	/// </summary>
 	virtual public void GrabBegin(OVRGrabber hand, Collider grabPoint)
 	{	vIsBeingGripped = true;
+		vIsGrippedBy = hand.vWhichHand;
 		Scr_Socket tCheck = this.GetComponent<Scr_Socket>();
 		if (tCheck!=null){
 			FastList<GameObject> tTemp = new FastList<GameObject>();
@@ -189,9 +191,12 @@ public class OVRGrabbable : MonoBehaviour
             m_grabbedBy.ForceRelease(this);
         }
     }
+
     void Update(){
-		//if (Input.GetAxis("OGVR_RIndexTrigger") > 0)
-    	//	this.gameObject.BroadcastMessage("Triggered");
+		if (((vIsGrippedBy == "Right" && Input.GetAxis("OGVR_RIndexTrigger") > 0.8f) || (vIsGrippedBy == "Left" && Input.GetAxis("OGVR_LIndexTrigger") > 0.8f)) && vIsGunHandle && vIsBeingGripped){
+			this.gameObject.BroadcastMessage("Triggered",SendMessageOptions.DontRequireReceiver);
+			Debug.Log("Triggered Button");
+			}
 
     }
 }

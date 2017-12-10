@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4525077706843914}
   - component: {fileID: 114669842219876126}
   m_Layer: 10
-  m_Name: GameObject
+  m_Name: Obj_ShootSpot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 4676299503999070}
   - component: {fileID: 114192394353600246}
   m_Layer: 10
-  m_Name: GameObject (1)
+  m_Name: Obj_ShootSpot (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -167,7 +167,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1672698096796774}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0896, y: 0.70379996, z: -1.0385}
+  m_LocalPosition: {x: -23.659218, y: 272.9408, z: 44.973934}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4430362506377678}
@@ -200,7 +200,7 @@ Transform:
   m_GameObject: {fileID: 1606888275267548}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.206, z: 2.981}
-  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4528366082335722}
   m_RootOrder: 5
@@ -449,12 +449,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vAmmunition: {fileID: 1165367898603628, guid: 691a20af8c0d0304d8450b7094085119,
     type: 2}
-  vAmmo: 0
+  vAmmo: 100
   vMaxAmmo: 100
-  vIsPlayer: 0
+  vIsPlayer: 1
   vUnlimited: 0
   vAIOwned: 0
   vTarget: {fileID: 0}
+  vProjectileSpeed: 15
+  vMagazineList: []
 --- !u!114 &114506948813344590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -466,7 +468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803bd097623c9af4f97055ed2cdf2023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vHere: NaN
+  vHere: 0
   vException: {fileID: 0}
 --- !u!114 &114550617379815864
 MonoBehaviour:
@@ -497,8 +499,13 @@ MonoBehaviour:
   vFemaleSocket: []
   vFemaleSkip: []
   vAttachedTo: {fileID: 0}
-  vState: 
-  vOriginalParts: []
+  vState: Free
+  vOriginalParts:
+  - {fileID: 4430362506377678}
+  - {fileID: 4567699762740948}
+  - {fileID: 4971206250846028}
+  - {fileID: 4525077706843914}
+  - {fileID: 4676299503999070}
   vPartType: Barrel
 --- !u!114 &114627505639018542
 MonoBehaviour:
@@ -518,6 +525,7 @@ MonoBehaviour:
   m_grabPoints:
   - {fileID: 65302617817630100}
   vIsBeingGripped: 0
+  vIsGrippedBy: 
   vIsGunHandle: 0
 --- !u!114 &114669842219876126
 MonoBehaviour:
@@ -532,12 +540,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vAmmunition: {fileID: 1165367898603628, guid: 691a20af8c0d0304d8450b7094085119,
     type: 2}
-  vAmmo: 0
+  vAmmo: 100
   vMaxAmmo: 100
-  vIsPlayer: 0
+  vIsPlayer: 1
   vUnlimited: 0
   vAIOwned: 0
   vTarget: {fileID: 0}
+  vProjectileSpeed: 15
+  vMagazineList: []
 --- !u!135 &135498891966239448
 SphereCollider:
   m_ObjectHideFlags: 1
