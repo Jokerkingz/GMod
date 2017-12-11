@@ -14,6 +14,7 @@ public class Scr_Triggered : MonoBehaviour {
 	public bool vAIOwned;
 	public GameObject vTarget;
 
+	public float vCoolDownTime = .25f;
 	public float vProjectileSpeed = 5f;
 	public List<Scr_Magazine> vMagazineList;
 	// Use this for initialization
@@ -62,7 +63,7 @@ public class Scr_Triggered : MonoBehaviour {
 						if (vMagazineList[0].vCurrentAmmo <= 0)
 							vMagazineList.Remove(vMagazineList[0]);
 						GameObject tTemp = transform.root.gameObject;
-						vShotCD = .2f;
+						vShotCD = vCoolDownTime;
 						}
 					else
 						vMagazineList.Remove(vMagazineList[0]);

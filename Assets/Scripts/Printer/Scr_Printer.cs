@@ -27,6 +27,8 @@ public class Scr_Printer : MonoBehaviour {
 
 	public void vReceiveButton(string vSource){
 		vCD +=.4f;
+		string tTemp;
+		GameObject vPrefab;
 		switch (vSource){
 		case "Next":
 			vModTypIndex ++;
@@ -42,20 +44,33 @@ public class Scr_Printer : MonoBehaviour {
 
 			break;
 		case "Brand":
-			if (vSubType == "A")
-				vSubType = "B";
-			else
-				vSubType = "A";
-			if (vModTypIndex == 4 || vModTypIndex == 5)
-				vSubType = "A";
+			switch(vSubType){
+				case "A":
+					vSubType = "B";
+					break;
+				case "B":
+					vSubType = "C";
+					break;
+				default:
+					vSubType = "A";
+				break;
+
+			}
 			break;
 		case "Print":
-			string tTemp = "Pre_Mod_"+vModType[vModTypIndex]+"_"+vSubType;
+			tTemp = "Pre_Mod_"+vModType[vModTypIndex]+"_"+vSubType;
 			Debug.Log(tTemp);
-			GameObject vPrefab = Instantiate(Resources.Load(tTemp)) as GameObject;
-			vPrefab.transform.position = vSpawnSpot.transform.position;
+			vPrefab = Resources.Load(tTemp) as GameObject;
+			if (vPrefab != null){
+				vPrefab = Instantiate(vPrefab) ;
+				vPrefab.transform.position = vSpawnSpot.transform.position;
+				}
 			break;
 		}
+		tTemp = "Pre_Mod_"+vModType[vModTypIndex]+"_"+vSubType;
+		vPrefab = Resources.Load(tTemp) as GameObject;
+		if (vPrefab == null)
+			vSubType = "A";
 		vMiddle.text = vModType[vModTypIndex]+ " " + vSubType;
 	}
 }
