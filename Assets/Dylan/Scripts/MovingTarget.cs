@@ -5,6 +5,7 @@ public class MovingTarget : MonoBehaviour
 {
 	//point to move object
 	public Vector3 pointB;
+	public float speed = 2.0f;
 
 	IEnumerator Start()
 	{
@@ -20,7 +21,7 @@ public class MovingTarget : MonoBehaviour
 	IEnumerator MoveObject(Transform thisTransform, Vector3 startPos, Vector3 endPos, float time)
 	{
 		var i= 0.0f;
-		var rate= 3.0f/time;
+		var rate= speed/time;
 		while(i < 1.0f)
 		{
 			i += Time.deltaTime * rate;
