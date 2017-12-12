@@ -195,8 +195,16 @@ public class OVRGrabbable : MonoBehaviour
     void Update(){
 		if (((vIsGrippedBy == "Right" && Input.GetAxis("OGVR_RIndexTrigger") > 0.8f) || (vIsGrippedBy == "Left" && Input.GetAxis("OGVR_LIndexTrigger") > 0.8f)) && vIsGunHandle && vIsBeingGripped){
 			this.gameObject.BroadcastMessage("Triggered",SendMessageOptions.DontRequireReceiver);
-			Debug.Log("Triggered Button");
+			//Debug.Log("Triggered Button");
 			}
 
+    }
+    public void TurnOff(string vWhy){
+    	switch (vWhy){
+    	case "Hollow":
+    		this.enabled = false;
+    		this.tag = "Hollow";
+    	break;
+    	}
     }
 }

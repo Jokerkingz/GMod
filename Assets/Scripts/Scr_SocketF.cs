@@ -21,9 +21,15 @@ public class Scr_SocketF : MonoBehaviour {
 
 	private Scr_SubStatus cSS;
 
+	public Vector3 vHollowAngle;
 	public string vPartType;
 
+
+
+	private AudioSource cAS;
+	public AudioClip vSFX;
 	void Start(){
+		cAS = this.GetComponent<AudioSource>();
 		cSS = GetComponent<Scr_SubStatus>();
 		if (cSS = null)
 			Debug.Log(this.name);
@@ -33,7 +39,8 @@ public class Scr_SocketF : MonoBehaviour {
 		Material tMat = vMaterialGood;
 		if (vOpl > 0){
 			vOpl -= .5f;
-			vHologram.transform.localEulerAngles = Reorientate(tSource);
+			vHollowAngle = Reorientate(tSource);
+			vHologram.transform.localEulerAngles = vHollowAngle;
 			foreach (Scr_CollisionCheck tSample in tCollideList){
 				if (tSample.vHere > 0f){
 					tMat = vMaterialBad;
@@ -81,9 +88,10 @@ public class Scr_SocketF : MonoBehaviour {
 		if (tIsCollisionFree){
 		// Attache the following[
 			vAttachedObject = tReference;
+			cAS.PlayOneShot(vSFX);
 			tReference.transform.SetParent(this.transform);
 			tReference.transform.localPosition= Vector3.zero;
-			tReference.transform.localEulerAngles = Reorientate(tReference);//+this.transform.eulerAngles;
+			tReference.transform.localEulerAngles = vHollowAngle;//Reorientate(tReference);//+this.transform.eulerAngles;
 			tReference.GetComponent<Rigidbody>().useGravity = false;
 			tReference.GetComponent<Rigidbody>().isKinematic = true; 
 			Transform[] tSubParts = tReference.GetComponentsInChildren<Transform>();
@@ -102,7 +110,7 @@ public class Scr_SocketF : MonoBehaviour {
 	public void ShowHollogram(GameObject tReference, string tName){
 		if (this.GetComponentInParent<OVRGrabbable>().vIsBeingGripped){
 			vOpl += 1f;
-		if (vHologram == null){
+		if (vHologram == null && GameObject.FindGameObjectsWithTag("Hollow").Length <= 0){
 			GameObject tSkipThis;
 			tCollideList.Clear();
 			tSource = tReference;
@@ -111,11 +119,13 @@ public class Scr_SocketF : MonoBehaviour {
 			vHologram.transform.SetParent(this.transform);
 			vHologram.transform.localPosition= Vector3.zero;
 			vHologram.transform.eulerAngles = Reorientate(tReference);
+			vHologram.BroadcastMessage("TurnOff","Hollow");
 			Collider[] tList =  vHologram.GetComponentsInChildren <Collider>();
 			foreach (Collider tC in tList){
 				if (tC.GetComponent<Scr_CollisionCheck>() == null)
 					tC.enabled = false;
 				}
+
 			Scr_CollisionCheck tSkipCheck = tReference.GetComponentInChildren<Scr_CollisionCheck>();
 			tSkipThis = tSkipCheck.gameObject;
 			tCollideList.Clear();
@@ -168,4 +178,12 @@ public class Scr_SocketF : MonoBehaviour {
 		//if (tNewVect.z >360) tNewVect.z -= 360f;
 		return tNewVect;
 	}
+    public void TurnOff(string vWhy){
+    	switch (vWhy){
+    	case "Hollow":
+    		this.enabled = false;
+    		this.tag = "Hollow";
+    	break;
+    	}
+    }
 }

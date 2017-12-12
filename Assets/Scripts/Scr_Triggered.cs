@@ -9,6 +9,7 @@ public class Scr_Triggered : MonoBehaviour {
 	public int vAmmo;
 	public int vMaxAmmo = 100;
 	public bool vIsPlayer;
+	public float vOffSet = .1f;
 
 	public bool vUnlimited;
 	public bool vAIOwned;
@@ -39,7 +40,7 @@ public class Scr_Triggered : MonoBehaviour {
 	}
 
 	public void Triggered (){ // Start Bang Bang
-		Debug.Log("Triggered");
+		//Debug.Log("Triggered");
 		if (vAmmo > 0 && vShotCD <= 0f){
 			if (vAIOwned){
 				GameObject tObj = Instantiate(vAmmunition);
@@ -63,7 +64,7 @@ public class Scr_Triggered : MonoBehaviour {
 						if (vMagazineList[0].vCurrentAmmo <= 0)
 							vMagazineList.Remove(vMagazineList[0]);
 						GameObject tTemp = transform.root.gameObject;
-						vShotCD = vCoolDownTime;
+						vShotCD = vCoolDownTime+Random.Range(0,vOffSet);
 						}
 					else
 						vMagazineList.Remove(vMagazineList[0]);
@@ -81,6 +82,7 @@ public class Scr_Triggered : MonoBehaviour {
 	}
 
 	public void NewEquiped(GameObject tThis){
+			//Debug.Log(this.GetComponent<Scr_Socket>().vPartType +" Received " + tThis.GetComponent<Scr_Socket>().vPartType);
 		if (tThis.GetComponent<Scr_Socket>().vPartType == "Magazine"){
 			if (tThis.GetComponent<Scr_Magazine>() != null){
 				vMagazineList.Add(tThis.GetComponent<Scr_Magazine>());
@@ -93,15 +95,15 @@ public class Scr_Triggered : MonoBehaviour {
 	public void ReEquip(GameObject tThis){
 		if (tThis.GetComponent<Scr_Socket>().vPartType == "Magazine"){
 			if (tThis.GetComponent<Scr_Magazine>() != null){
-				vMagazineList.Add(tThis.GetComponent<Scr_Magazine>());
+				if (vMagazineList.Contains(tThis.GetComponent<Scr_Magazine>()))
+					vMagazineList.Add(tThis.GetComponent<Scr_Magazine>());
 				//vConnectedWith = tThis.gameObject;
 			}
 			
 		}
 	}
-	public void fReload(){
-		
 
-
-	}
+    public void TurnOff(){
+    	this.enabled = false;
+    }
 }

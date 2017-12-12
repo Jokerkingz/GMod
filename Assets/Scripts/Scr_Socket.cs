@@ -16,7 +16,11 @@ public class Scr_Socket : MonoBehaviour {
 	public List<Transform> vOriginalParts = new List<Transform>();
 
 	public string vPartType;
+
+	private AudioSource cAS;
+	public AudioClip vSFX;
 	void Start(){
+		cAS = this.GetComponent<AudioSource>();
 		vFemaleSocket.Clear();
 		Scr_SocketF[] tSkip = this.GetComponentsInChildren<Scr_SocketF>();
 		foreach(Scr_SocketF tTemp in tSkip){
@@ -54,6 +58,7 @@ public class Scr_Socket : MonoBehaviour {
 			return;
 		if (vAttachedTo != null){
 			BroadCastThis("OldUnequip");
+			cAS.PlayOneShot(vSFX);
 			this.GetComponent<Rigidbody>().useGravity = true;
 			this.GetComponent<Rigidbody>().isKinematic = false; 
 			vAttachedTo.GetComponent<Scr_SocketF>().vAttachedObject = null;
@@ -136,4 +141,13 @@ public class Scr_Socket : MonoBehaviour {
 		if (vConnectedWith == tThis.gameObject)
 			vConnectedWith = null;
 	}
+
+    public void TurnOff(string vWhy){
+    	switch (vWhy){
+    	case "Hollow":
+    		this.enabled = false;
+    		this.tag = "Hollow";
+    	break;
+    	}
+    }
 }

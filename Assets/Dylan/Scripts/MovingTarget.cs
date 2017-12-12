@@ -7,6 +7,7 @@ public class MovingTarget : MonoBehaviour
 	public Vector3 pointB;
 	public float speed = 2.0f;
 
+	public GameObject vParticle;
 	IEnumerator Start()
 	{
 		//move object back and forth
@@ -30,6 +31,9 @@ public class MovingTarget : MonoBehaviour
 		}
 	}
 	void OnTriggerEnter (Collider other){
-		Destroy (gameObject);
+		//Destroy (gameObject);
+		GameObject tObj = Instantiate(vParticle);
+		tObj.transform.position = this.transform.position;
+		this.gameObject.SetActive(false);
 	}
 }

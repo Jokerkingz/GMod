@@ -26,51 +26,53 @@ public class Scr_Printer : MonoBehaviour {
 	}
 
 	public void vReceiveButton(string vSource){
-		vCD +=.4f;
-		string tTemp;
-		GameObject vPrefab;
-		switch (vSource){
-		case "Next":
-			vModTypIndex ++;
-			if (vModTypIndex >= vModType.Length)
-				vModTypIndex = 0;
-			vSubType = "A";
-			break;
-		case "Previous":
-			vModTypIndex --;
-			if (vModTypIndex < 0 )
-				vModTypIndex = vModType.Length-1;
-			vSubType = "A";
-
-			break;
-		case "Brand":
-			switch(vSubType){
-				case "A":
-					vSubType = "B";
-					break;
-				case "B":
-					vSubType = "C";
-					break;
-				default:
-					vSubType = "A";
+		if (vCD <= 0){
+			vCD +=.4f;
+			string tTemp;
+			GameObject vPrefab;
+			switch (vSource){
+			case "Next":
+				vModTypIndex ++;
+				if (vModTypIndex >= vModType.Length)
+					vModTypIndex = 0;
+				vSubType = "A";
 				break;
+			case "Previous":
+				vModTypIndex --;
+				if (vModTypIndex < 0 )
+					vModTypIndex = vModType.Length-1;
+				vSubType = "A";
 
-			}
-			break;
-		case "Print":
-			tTemp = "Pre_Mod_"+vModType[vModTypIndex]+"_"+vSubType;
-			Debug.Log(tTemp);
-			vPrefab = Resources.Load(tTemp) as GameObject;
-			if (vPrefab != null){
-				vPrefab = Instantiate(vPrefab) ;
-				vPrefab.transform.position = vSpawnSpot.transform.position;
+				break;
+			case "Brand":
+				switch(vSubType){
+					case "A":
+						vSubType = "B";
+						break;
+					case "B":
+						vSubType = "C";
+						break;
+					default:
+						vSubType = "A";
+					break;
+
 				}
-			break;
-		}
-		tTemp = "Pre_Mod_"+vModType[vModTypIndex]+"_"+vSubType;
-		vPrefab = Resources.Load(tTemp) as GameObject;
-		if (vPrefab == null)
-			vSubType = "A";
-		vMiddle.text = vModType[vModTypIndex]+ " " + vSubType;
+				break;
+			case "Print":
+				tTemp = "Pre_Mod_"+vModType[vModTypIndex]+"_"+vSubType;
+				Debug.Log(tTemp);
+				vPrefab = Resources.Load(tTemp) as GameObject;
+				if (vPrefab != null){
+					vPrefab = Instantiate(vPrefab) ;
+					vPrefab.transform.position = vSpawnSpot.transform.position;
+					}
+				break;
+			}
+			tTemp = "Pre_Mod_"+vModType[vModTypIndex]+"_"+vSubType;
+			vPrefab = Resources.Load(tTemp) as GameObject;
+			if (vPrefab == null)
+				vSubType = "A";
+			vMiddle.text = vModType[vModTypIndex]+ " " + vSubType;
+			}
 	}
 }
