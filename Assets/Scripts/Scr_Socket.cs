@@ -87,7 +87,7 @@ public class Scr_Socket : MonoBehaviour {
 	void OnTriggerEnter(Collider tOther){
 		if (tOther.tag == "SocketFemale"){
 			if (!vFemaleSkip.Contains(tOther.gameObject)){
-				if (tOther.GetComponent<Scr_SocketF>().vPartType != vPartType)
+				//if (tOther.GetComponent<Scr_SocketF>().vPartType != vPartType)
 				if (tOther.GetComponent<Scr_SocketF>().vAttachedObject == null)
 				vFemaleSocket.Add(tOther.gameObject);
 				}
@@ -96,7 +96,7 @@ public class Scr_Socket : MonoBehaviour {
 	void OnTriggerExit(Collider tOther){
 		if (tOther.tag == "SocketFemale"){
 			if (!vFemaleSkip.Contains(tOther.gameObject)){
-				if (tOther.GetComponent<Scr_SocketF>().vPartType != vPartType)
+				//if (tOther.GetComponent<Scr_SocketF>().vPartType != vPartType)
 				if (tOther.GetComponent<Scr_SocketF>().vAttachedObject == null)
 				vFemaleSocket.Remove(tOther.gameObject);
 				}

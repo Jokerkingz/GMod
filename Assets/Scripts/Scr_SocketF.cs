@@ -40,20 +40,22 @@ public class Scr_SocketF : MonoBehaviour {
 		if (vOpl > 0){
 			vOpl -= .5f;
 			vHollowAngle = Reorientate(tSource);
-			vHologram.transform.localEulerAngles = vHollowAngle;
-			foreach (Scr_CollisionCheck tSample in tCollideList){
-				if (tSample.vHere > 0f){
-					tMat = vMaterialBad;
+			if (vHologram != null){
+				vHologram.transform.localEulerAngles = vHollowAngle;
+				foreach (Scr_CollisionCheck tSample in tCollideList){
+					if (tSample.vHere > 0f){
+						tMat = vMaterialBad;
+						}
+				}
+
+				Renderer[] tListA =  vHologram.GetComponentsInChildren <Renderer>();
+				foreach (Renderer tR in tListA){
+					Material[] tNew = new Material[tR.materials.Length];
+					for(int i = 0; i < tR.materials.Length;i++)
+						tNew[i] = tMat;
+					tR.materials = tNew;
 					}
 			}
-
-			Renderer[] tListA =  vHologram.GetComponentsInChildren <Renderer>();
-			foreach (Renderer tR in tListA){
-				Material[] tNew = new Material[tR.materials.Length];
-				for(int i = 0; i < tR.materials.Length;i++)
-					tNew[i] = tMat;
-				tR.materials = tNew;
-				}
 		}
 		else if (vHologram != null){
 			Destroy(vHologram.gameObject);
@@ -127,7 +129,7 @@ public class Scr_SocketF : MonoBehaviour {
 				}
 
 			Scr_CollisionCheck tSkipCheck = tReference.GetComponentInChildren<Scr_CollisionCheck>();
-			tSkipThis = tSkipCheck.gameObject;
+				tSkipThis = tSkipCheck.gameObject;
 			tCollideList.Clear();
 			Scr_CollisionCheck[] tSubCheck = vHologram.GetComponentsInChildren <Scr_CollisionCheck>();
 			foreach (Scr_CollisionCheck tCC in tSubCheck){
@@ -147,6 +149,8 @@ public class Scr_SocketF : MonoBehaviour {
 	}
 
 	Vector3 Reorientate(GameObject tObject){
+		if (tObject == null)
+			return Vector3.zero;
 		Vector3 tNewVect = tObject.transform.localEulerAngles;
 		OVRGrabbable tCheck = this.GetComponentInParent<OVRGrabbable>();
 		GameObject tObj = tCheck.gameObject;
