@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 114432484457055426}
   - component: {fileID: 114501965623545750}
   - component: {fileID: 82547655862909544}
+  - component: {fileID: 114604773500259346}
   m_Layer: 10
   m_Name: Obj_Female_Socket
   m_TagString: SocketFemale
@@ -221,8 +222,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1985062003311490}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2818, y: 65.02509, z: 46.3746}
+  m_LocalRotation: {x: -0, y: -0.70710576, z: -0, w: 0.7071079}
+  m_LocalPosition: {x: 1.2818, y: 65.02509, z: 46.483}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4454550389873172}
@@ -234,7 +235,7 @@ Transform:
   - {fileID: 224184307991361458}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
 --- !u!4 &4517848910350260
 Transform:
   m_ObjectHideFlags: 1
@@ -809,6 +810,17 @@ MonoBehaviour:
   vPartType: 2
   vRequiredPart: 0
   CorrectionPartType: 
+--- !u!114 &114604773500259346
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1459153216874532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f272706b46687da449f89ddf4304cd9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114668650395920850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -951,7 +963,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1094488043041982}
   m_LocalRotation: {x: 0.49999997, y: 0.4999986, z: 0.49999997, w: 0.50000155}
-  m_LocalPosition: {x: -0.14700001, y: 0.505, z: 0}
+  m_LocalPosition: {x: -0.147, y: 0.534, z: 0.006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224977037148962436}
@@ -960,8 +972,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 90.00001}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.147, y: 0.505}
-  m_SizeDelta: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.147, y: 0.534}
+  m_SizeDelta: {x: 0.1, y: 0.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224977037148962436
 RectTransform:

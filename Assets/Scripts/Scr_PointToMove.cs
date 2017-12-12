@@ -16,19 +16,30 @@ public class Scr_PointToMove : MonoBehaviour {
 	private bool vActive = false;
 
 	public GameObject vOrienter;
+	public bool vIsRight;
 	// Update is called once per frame
 	void Start () {
 		//vTeleportTo = GameObject.FindGameObjectWithTag("TeleportHere");
 	}
 
-	void FixedUpdate () {
-		float tX = Input.GetAxis("Oculus_GearVR_RThumbstickX");
-		float tY = Input.GetAxis("Oculus_GearVR_RThumbstickY");
+	void Update () {
+		float tX;
+		float tY;
+
+		if (vIsRight){
+		 tX = Input.GetAxis("Oculus_GearVR_RThumbstickX");
+		 tY = Input.GetAxis("Oculus_GearVR_RThumbstickY");
+		}
+		else
+		{
+		 tX = Input.GetAxis("Oculus_GearVR_LThumbstickX");
+		 tY = Input.GetAxis("Oculus_GearVR_LThumbstickY");
+			}
 		float tAngle = Mathf.Atan2(tX,tY)*180/Mathf.PI;
 		float tAddition = transform.eulerAngles.y;
 		vAngleToUse = tAngle+tAddition;
 
-		if (Input.GetButton("OGVR_RThumbPress")){
+		if ((vIsRight && Input.GetButton("OGVR_RThumbPress")) || (!vIsRight && Input.GetButton("OGVR_LThumbPress"))){
 			vPointToThere();
 			vPress = 2f;
 			vActive = true;

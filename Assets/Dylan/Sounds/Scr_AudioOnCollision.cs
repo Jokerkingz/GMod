@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Scr_AudioOnCollision : MonoBehaviour {
-	public AudioClip vSound2Play;
+	public AudioClip[] vSound2Play;
 	private AudioSource cAS;
 	private bool vReady;
 
@@ -14,7 +14,9 @@ public class Scr_AudioOnCollision : MonoBehaviour {
 	void OnCollisionEnter(){
 		if (!vReady)
 			vReady = true;
-		else
-			cAS.PlayOneShot(vSound2Play,.1f);
+		else{
+		//Debug.Log("poop");
+			cAS.PlayOneShot(vSound2Play[Random.Range(0,vSound2Play.Length-1)],.1f);
+			}
 	}
 }

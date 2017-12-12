@@ -61,6 +61,7 @@ GameObject:
   - component: {fileID: 114788023951465346}
   - component: {fileID: 114387385288706606}
   - component: {fileID: 82364390090061888}
+  - component: {fileID: 114339300678463086}
   m_Layer: 10
   m_Name: Pre_Mod_Sword_A
   m_TagString: SocketMale
@@ -123,7 +124,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1514361746470396}
   m_LocalRotation: {x: 0.4999999, y: 0.49999997, z: 0.4999986, w: 0.5000016}
-  m_LocalPosition: {x: 1.4387295, y: 65.0867, z: 45.938}
+  m_LocalPosition: {x: 1.554, y: 65.0867, z: 46.0349}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4227060767708212}
@@ -432,7 +433,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -444,7 +445,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -456,7 +457,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!114 &114228316901151754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -470,6 +471,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vHere: 0
   vException: {fileID: 0}
+--- !u!114 &114339300678463086
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1514361746470396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ca48f0c256579b4e94f9598488df766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vSound2Play:
+  - {fileID: 8300000, guid: e7b9c1df023374c46a82272efb9bdad6, type: 3}
+  - {fileID: 8300000, guid: fc3f4c7d313c1481a9162f91dd8cbcb0, type: 3}
 --- !u!114 &114387385288706606
 MonoBehaviour:
   m_ObjectHideFlags: 1

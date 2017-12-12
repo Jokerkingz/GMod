@@ -58,7 +58,7 @@ public class Scr_Socket : MonoBehaviour {
 			return;
 		if (vAttachedTo != null){
 			BroadCastThis("OldUnequip");
-			cAS.PlayOneShot(vSFX);
+			cAS.PlayOneShot(vSFX,.3f);
 			this.GetComponent<Rigidbody>().useGravity = true;
 			this.GetComponent<Rigidbody>().isKinematic = false; 
 			vAttachedTo.GetComponent<Scr_SocketF>().vAttachedObject = null;

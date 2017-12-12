@@ -13,7 +13,13 @@ public class Scr_Printer : MonoBehaviour {
 	public Text vBrand;
 	public float vCD;
 	// Use this for initialization
+
+
+	public AudioSource cAS;
+	public AudioClip vSFXPrint;
+	public AudioClip vSFXClick;
 	void Start () {
+		cAS = GetComponent<AudioSource>();
 		vModType = new string[]{"Handle","Base","Barrel","Magazine","Extension","Sword","Shield"};
 		vSubType = "A";
 	}
@@ -32,12 +38,14 @@ public class Scr_Printer : MonoBehaviour {
 			GameObject vPrefab;
 			switch (vSource){
 			case "Next":
+				cAS.PlayOneShot(vSFXClick,.05f);
 				vModTypIndex ++;
 				if (vModTypIndex >= vModType.Length)
 					vModTypIndex = 0;
 				vSubType = "A";
 				break;
 			case "Previous":
+				cAS.PlayOneShot(vSFXClick,.05f);
 				vModTypIndex --;
 				if (vModTypIndex < 0 )
 					vModTypIndex = vModType.Length-1;
@@ -45,6 +53,7 @@ public class Scr_Printer : MonoBehaviour {
 
 				break;
 			case "Brand":
+				cAS.PlayOneShot(vSFXClick,.05f);
 				switch(vSubType){
 					case "A":
 						vSubType = "B";
@@ -59,6 +68,7 @@ public class Scr_Printer : MonoBehaviour {
 				}
 				break;
 			case "Print":
+				cAS.PlayOneShot(vSFXPrint,.5f);
 				tTemp = "Pre_Mod_"+vModType[vModTypIndex]+"_"+vSubType;
 				Debug.Log(tTemp);
 				vPrefab = Resources.Load(tTemp) as GameObject;

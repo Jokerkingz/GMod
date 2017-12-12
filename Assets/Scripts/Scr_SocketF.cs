@@ -90,7 +90,7 @@ public class Scr_SocketF : MonoBehaviour {
 		if (tIsCollisionFree){
 		// Attache the following[
 			vAttachedObject = tReference;
-			cAS.PlayOneShot(vSFX);
+			cAS.PlayOneShot(vSFX,.2f);
 			tReference.transform.SetParent(this.transform);
 			tReference.transform.localPosition= Vector3.zero;
 			tReference.transform.localEulerAngles = vHollowAngle;//Reorientate(tReference);//+this.transform.eulerAngles;
