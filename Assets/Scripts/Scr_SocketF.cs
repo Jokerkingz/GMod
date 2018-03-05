@@ -21,7 +21,7 @@ public class Scr_SocketF : MonoBehaviour {
 
 	private Scr_SubStatus cSS;
 
-	public Vector3 vHollowAngle;
+	private Vector3 vHollowAngle;
 	public string vPartType;
 
 

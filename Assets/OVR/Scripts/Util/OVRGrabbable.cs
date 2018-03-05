@@ -129,18 +129,41 @@ public class OVRGrabbable : MonoBehaviour
 	/// Notifies the object that it has been grabbed.
 	/// </summary>
 	virtual public void GrabBegin(OVRGrabber hand, Collider grabPoint)
-	{	vIsBeingGripped = true;
+	{	Scr_ModSystem_Handler tHandle = this.GetComponent<Scr_ModSystem_Handler>();
+		Debug.Log("Grabbed");
+		if (tHandle != null){
+				Debug.Log("Has Mod System Handler");
+			if (tHandle.vHolsterConnectedTo != null){
+				Debug.Log("I should Let Go");
+				Scr_Belt_Holsters tHolster = tHandle.vHolsterConnectedTo.GetComponent<Scr_Belt_Holsters>();
+					if (tHolster != null){
+					tHolster.fRemoveHandle(this.gameObject);
+				}
+			}
+		}
+
+
+		vIsBeingGripped = true;
 		vIsGrippedBy = hand.vWhichHand;
-		Scr_Socket tCheck = this.GetComponent<Scr_Socket>();
+		Scr_Male_Socket tNewSocket = this.GetComponent<Scr_Male_Socket>();
+		if (tNewSocket!=null){
+			tNewSocket.enabled = true;
+			tNewSocket.vConnectableSockets.Clear();
+			tNewSocket.Detach(this.gameObject);
+			}
+
+		/*Scr_Socket tCheck = this.GetComponent<Scr_Socket>();
 		if (tCheck!=null){
 			FastList<GameObject> tTemp = new FastList<GameObject>();
 			tTemp.Clear();
 			tCheck.Detach(tTemp);
 			}
+			*/
         m_grabbedBy = hand;
         m_grabbedCollider = grabPoint;
         gameObject.GetComponent<Rigidbody>().isKinematic = true;
 
+		
     }
 
 	/// <summary>
@@ -148,17 +171,38 @@ public class OVRGrabbable : MonoBehaviour
 	/// </summary>
 	virtual public void GrabEnd(Vector3 linearVelocity, Vector3 angularVelocity)
 	{	vIsBeingGripped = false;
+
+
         Rigidbody rb = gameObject.GetComponent<Rigidbody>();
         rb.isKinematic = m_grabbedKinematic;
+		rb.isKinematic = false;
+		rb.useGravity = true;
         rb.velocity = linearVelocity;
         rb.angularVelocity = angularVelocity;
         m_grabbedBy = null;
         m_grabbedCollider = null;
 
+		Scr_Male_Socket tNewSocket = this.GetComponent<Scr_Male_Socket>();
+		if (tNewSocket!=null){
+			tNewSocket.enabled = false;
+			tNewSocket.CheckForAttach();
+			tNewSocket.vConnectableSockets.Clear();
+			}
+
+		Scr_ModSystem_Handler tHandle = this.GetComponent<Scr_ModSystem_Handler>();
+		if (tHandle != null){
+			if (tHandle.vHolsterConnectedTo != null){
+				Scr_Belt_Holsters tHolster = tHandle.vHolsterConnectedTo.GetComponent<Scr_Belt_Holsters>();
+					if (tHolster != null){
+					tHolster.fReceiveHandle(this.gameObject);
+				}
+			}
+		}
 		//this.GetComponentInChildren<Scr_SocketF>().RemoveAttachement(this.gameObject);
-		Scr_Socket[] tTmp = GetComponentsInChildren<Scr_Socket>();
-		foreach (Scr_Socket tThat in tTmp)
-			tThat.CheckForAttach();
+
+		//Scr_Male_Socket[] tTmp = GetComponentsInChildren<Scr_Male_Socket>();
+		//foreach (Scr_Male_Socket tThat in tTmp)
+		//	tThat.CheckForAttach();
     }
 
     void Awake()

@@ -167,10 +167,11 @@ public class OVRGrabber : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider otherCollider)
-	{	if (otherCollider.tag == "GripPart"){
+	{
+	if (otherCollider.tag == "GripPart"){
         // Get the grab trigger
 		OVRGrabbable grabbable = otherCollider.GetComponent<OVRGrabbable>() ?? otherCollider.GetComponentInParent<OVRGrabbable>();
-        if (grabbable == null) return;
+		 if (grabbable == null) return;
 
         // Add the grabbable
         int refCount = 0;

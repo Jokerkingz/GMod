@@ -17,6 +17,8 @@ public class Scr_RespawnStuff : MonoBehaviour {
 		if (vIsCan){
 			this.transform.position = vSpotOriginal;
 			this.transform.eulerAngles = vAnglOriginal;
+			this.GetComponent<Rigidbody>().velocity = Vector3.zero;
+			this.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
 			}
 		else
 			this.gameObject.SetActive(true);
