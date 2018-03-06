@@ -9,6 +9,7 @@ public class Scr_ModSystem_Handler : MonoBehaviour {
 	private bool vIsCheckingForParts = false;
 	public GameObject vHolsterConnectedTo;
 	public float vHollowRate;
+	public GameObject vHolsterShowHollowTo;
 
 	// Use this for initialization
 	void Start () {
@@ -26,11 +27,11 @@ public class Scr_ModSystem_Handler : MonoBehaviour {
 			}
 		}
 		if (vHollowRate > 0f){
-			if (vHolsterConnectedTo != null)
-			vHolsterConnectedTo.GetComponent<Scr_Belt_Holsters>().ShowHollogram(this.gameObject);
+			if (vHolsterShowHollowTo != null)
+				vHolsterShowHollowTo.GetComponent<Scr_Belt_Holsters>().ShowHollogram(this.gameObject);
 			vHollowRate -=.2f;
 			if (vHollowRate <= 0f)
-				vHolsterConnectedTo = null;
+				vHolsterShowHollowTo = null;
 			}
 
 	}
@@ -63,7 +64,7 @@ public class Scr_ModSystem_Handler : MonoBehaviour {
 	void OnTriggerStay(Collider tOther){
 		if (tOther.tag == "Belt" && this.GetComponent<OVRGrabbable>().vIsBeingGripped){
 			if (tOther.GetComponent<Scr_Belt_Holsters>().vStatus == "Nothing"){
-				vHolsterConnectedTo = tOther.gameObject;
+				vHolsterShowHollowTo = tOther.gameObject;
 					vHollowRate = 1f;
 				}
 			}

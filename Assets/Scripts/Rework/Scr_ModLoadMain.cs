@@ -17,9 +17,7 @@ public class Scr_ModLoadMain : MonoBehaviour {
 			tDivide = new string[0];
 			tDivide = vStringList[i].Split("/"[0]);
 			foreach(Scr_ModSaverSocket tSocket in tMSS){
-				Debug.Log("Check " + tDivide[0]);
 				if (tSocket.vSocketID == tDivide[0]){
-					Debug.Log("Found " + tDivide[0]);
 					GameObject vPrefab = Resources.Load(tDivide[1]) as GameObject;
 					if (vPrefab != null){
 						if (tSocket.vConnection != null)

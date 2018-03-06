@@ -80,6 +80,7 @@ public class Scr_Belt_Holsters : MonoBehaviour {
 			vSavedHandle.transform.position = this.transform.position;
 			vSavedHandle.transform.eulerAngles = this.transform.eulerAngles;
 
+			tHandle.GetComponent<Scr_ModSystem_Handler>().vHolsterConnectedTo = this.gameObject;
 			Scr_ModSaverSocket[] tSocketList = tHandle.GetComponent<Scr_ModSaverPart>().vModSaverSocketList;
 				foreach (Scr_ModSaverSocket tSocket in tSocketList) {
 					Scr_Female_Socket tFemaleSocket = tSocket.GetComponent<Scr_Female_Socket>();
@@ -103,13 +104,16 @@ public class Scr_Belt_Holsters : MonoBehaviour {
 			}
 	}
 	public void fRemoveHandle(GameObject tHandle){
-		if (vStatus == "Holding" )
+		if (vStatus == "Holding" ){
+			Debug.Log("Removing Handle");
 			vStatus = "";
 			Rigidbody tHR = tHandle.GetComponent<Rigidbody>();
 			tHR.isKinematic = false;
 			tHR.useGravity = true;
 			vSavedHandle.GetComponent<Scr_ModLoadMain>().fConvert(vSavedGun);
 			vSavedGun = ""; 
+			tHandle.GetComponent<Scr_ModSystem_Handler>().vHolsterConnectedTo = null;
+			}
 
 
 		//vStatus = "Holding";
@@ -144,7 +148,8 @@ public class Scr_Belt_Holsters : MonoBehaviour {
 				// Turn Off Scripts
 				OVRGrabbable[] tOVRGrabbableList = vHologramObj.GetComponentsInChildren<OVRGrabbable>();
 				foreach (OVRGrabbable tOVRGrabbable in tOVRGrabbableList)
-					Destroy(tOVRGrabbable);//.enabled = false;
+					//Destroy(tOVRGrabbable);
+				tOVRGrabbable.enabled = false;
 				Scr_Male_Socket[] tMaleSocketList = vHologramObj.GetComponentsInChildren<Scr_Male_Socket>();
 				foreach (Scr_Male_Socket tMaleSocket in tMaleSocketList)
 					tMaleSocket.enabled = false;

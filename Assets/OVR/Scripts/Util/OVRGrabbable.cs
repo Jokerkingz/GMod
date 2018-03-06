@@ -130,11 +130,8 @@ public class OVRGrabbable : MonoBehaviour
 	/// </summary>
 	virtual public void GrabBegin(OVRGrabber hand, Collider grabPoint)
 	{	Scr_ModSystem_Handler tHandle = this.GetComponent<Scr_ModSystem_Handler>();
-		Debug.Log("Grabbed");
 		if (tHandle != null){
-				Debug.Log("Has Mod System Handler");
 			if (tHandle.vHolsterConnectedTo != null){
-				Debug.Log("I should Let Go");
 				Scr_Belt_Holsters tHolster = tHandle.vHolsterConnectedTo.GetComponent<Scr_Belt_Holsters>();
 					if (tHolster != null){
 					tHolster.fRemoveHandle(this.gameObject);
@@ -191,8 +188,8 @@ public class OVRGrabbable : MonoBehaviour
 
 		Scr_ModSystem_Handler tHandle = this.GetComponent<Scr_ModSystem_Handler>();
 		if (tHandle != null){
-			if (tHandle.vHolsterConnectedTo != null){
-				Scr_Belt_Holsters tHolster = tHandle.vHolsterConnectedTo.GetComponent<Scr_Belt_Holsters>();
+			if (tHandle.vHolsterShowHollowTo != null){
+				Scr_Belt_Holsters tHolster = tHandle.vHolsterShowHollowTo.GetComponent<Scr_Belt_Holsters>();
 					if (tHolster != null){
 					tHolster.fReceiveHandle(this.gameObject);
 				}
