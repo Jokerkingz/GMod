@@ -22,9 +22,9 @@ GameObject:
   - component: {fileID: 33394856289511458}
   - component: {fileID: 135492834110194294}
   - component: {fileID: 23618903284060924}
-  - component: {fileID: 114830713134886576}
-  - component: {fileID: 114668253293138712}
   - component: {fileID: 82112336834967490}
+  - component: {fileID: 114309764649982306}
+  - component: {fileID: 114610275020983426}
   m_Layer: 10
   m_Name: Obj_Female_Socket
   m_TagString: SocketFemale
@@ -112,7 +112,11 @@ GameObject:
   - component: {fileID: 54591834516652958}
   - component: {fileID: 114606047565688598}
   - component: {fileID: 82642562730979050}
-  m_Layer: 0
+  - component: {fileID: 114766389346782666}
+  - component: {fileID: 114690332964344540}
+  - component: {fileID: 114755861190120280}
+  - component: {fileID: 114650290060487512}
+  m_Layer: 12
   m_Name: Pre_Mod_Handle_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +212,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1991414613247604}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.2618289, y: 65.065, z: 46.59606}
+  m_LocalPosition: {x: -3.65, y: 65.065, z: 46.455}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4069819798543382}
@@ -462,9 +466,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 1
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 1c4aede3ee4ba324e8ad681afdc349a9, type: 3}
 --- !u!65 &65981192201951492
@@ -534,7 +538,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -546,7 +550,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -558,7 +562,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!82 &82642562730979050
 AudioSource:
   m_ObjectHideFlags: 1
@@ -614,7 +618,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -626,7 +630,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -638,7 +642,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!114 &114238110959375850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -652,6 +656,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vHere: 2
   vException: {fileID: 0}
+--- !u!114 &114309764649982306
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1324674909359764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b857d68f6749a4291f8a5b8abca0c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vConnectedObject: {fileID: 0}
+  vPseudoPart: {fileID: 0}
+  vMatGood: {fileID: 2100000, guid: 670e11c956fc6de4cb777d663ce9bbae, type: 2}
+  vMatBad: {fileID: 2100000, guid: dc826689a7577db41ae9ed34b7b67531, type: 2}
+  vHoloRate: 0
+  vCollisionRate: 0
+  vPartType: 
+  vSFX: {fileID: 0}
 --- !u!114 &114606047565688598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -672,7 +695,7 @@ MonoBehaviour:
   vIsBeingGripped: 0
   vIsGrippedBy: 
   vIsGunHandle: 1
---- !u!114 &114668253293138712
+--- !u!114 &114610275020983426
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -680,36 +703,71 @@ MonoBehaviour:
   m_GameObject: {fileID: 1324674909359764}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bccdbca8136b5a488817bad49ab46cf, type: 3}
+  m_Script: {fileID: 11500000, guid: f6a902b5162cef44c92304f1ae2b42ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TagList: []
-  vPartType: 4
-  vRequiredPart: 0
-  CorrectionPartType: 
---- !u!114 &114830713134886576
+  vSocketID: 
+  vSocketConnection: 
+  vConnection: {fileID: 0}
+--- !u!114 &114650290060487512
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1324674909359764}
+  m_GameObject: {fileID: 1991414613247604}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba75dde44ea8f7445b1ed5b74950403c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5744c07de3cdafe47bb543f64cbdd4a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vHologram: {fileID: 0}
-  vSource: {fileID: 0}
-  vAttachedObject: {fileID: 0}
-  vPseudoPart: {fileID: 1405397073350404, guid: e92c729b086bdf6429769a8da42f281a,
-    type: 2}
-  vOriginalPart: {fileID: 0}
-  vMaterialGood: {fileID: 2100000, guid: 670e11c956fc6de4cb777d663ce9bbae, type: 2}
-  vMaterialBad: {fileID: 2100000, guid: dc826689a7577db41ae9ed34b7b67531, type: 2}
-  tCollideList: []
-  vHollowAngle: {x: 0, y: 0, z: 0}
+  vStringList:
+  - 11Poop
+  - Cow
+  - pooti
+  vPartOfString: 
+--- !u!114 &114690332964344540
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1991414613247604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31596c82c86129c4ebc397a2f5762ec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lModsConnected: []
+  lMagazineList: []
+  vHolsterConnectedTo: {fileID: 0}
+  vHollowRate: 0
+  vHolsterShowHollowTo: {fileID: 0}
+--- !u!114 &114755861190120280
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1991414613247604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a873fbe8fc62874d8ae21073d32b5e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vSavelist: 
+--- !u!114 &114766389346782666
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1991414613247604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb6781bed099a24fa48708af70a01a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vOwnID: 
   vPartType: Handle
-  vSFX: {fileID: 8300000, guid: bdef2cfab008c48158badaea25324753, type: 3}
+  vModSaverSocketList: []
+  vHighestNumber: 
 --- !u!135 &135492834110194294
 SphereCollider:
   m_ObjectHideFlags: 1

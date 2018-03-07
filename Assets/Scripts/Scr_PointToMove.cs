@@ -50,6 +50,7 @@ public class Scr_PointToMove : MonoBehaviour {
 			 tX = Input.GetAxis("Oculus_GearVR_LThumbstickX");
 			 tY = Input.GetAxis("Oculus_GearVR_LThumbstickY");
 			}
+		cLR.enabled = false;
 		if (tX != 0 && tY != 0){
 		/*
 			if (vPressCheck == "Not Being Pressed")
@@ -58,6 +59,7 @@ public class Scr_PointToMove : MonoBehaviour {
 				vPressCheck = "Being Pressed";
 		*/
 			//vPressCheck = "Being Pressed";
+			cLR.enabled = true;
 			vPointToThere();
 			vPress = 2f;
 			vActive = true;
@@ -72,6 +74,7 @@ public class Scr_PointToMove : MonoBehaviour {
 		*/
 		float tAngle = Mathf.Atan2(tX,tY)*180/Mathf.PI;
 		float tAddition = transform.eulerAngles.y;
+		if (Vector2.Distance(Vector2.zero,new Vector3(tX,tY)) > .5f)
 		vAngleToUse = tAngle+tAddition;
 		/*
 		if ((vIsRight && Input.GetButton("OGVR_RThumbPress")) || (!vIsRight && Input.GetButton("OGVR_LThumbPress"))){
@@ -93,10 +96,9 @@ public class Scr_PointToMove : MonoBehaviour {
 				if (vAngleToUse < 0f)
 						vAngleToUse += 360f;
 				if (vTemp != null){
-					if (Vector2.Distance(Vector2.zero,new Vector3(tX,tY)) > .5f)
 						cOVRPC.vAngleOffSet = vAngleToUse;
 						cOVRPC.gameObject.transform.position = vTemp.GetComponentInChildren<Scr_CheckBody>().vOpenSpot;
-					if (Vector2.Distance(Vector2.zero,new Vector3(tX,tY)) > .5f)
+					//if (Vector2.Distance(Vector2.zero,new Vector3(tX,tY)) > .75f)
 						vOrienter.transform.localEulerAngles = new Vector3(0,vAngleToUse,0);
 					}
 				
