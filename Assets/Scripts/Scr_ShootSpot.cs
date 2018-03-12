@@ -30,7 +30,6 @@ public class Scr_Shoot : MonoBehaviour {
 	}
 	void FindMagazine(){
 		vMagazine = this.GetComponentInChildren<Scr_Magazine>();
-
 	}
 
 	public void Triggered (){ // Start Bang Bang
@@ -43,6 +42,7 @@ public class Scr_Shoot : MonoBehaviour {
 			vShotCD = .5f;
 		}
 	}
+
 	public void Reload(){
 		vAmmo = vMaxAmmo;
 	}

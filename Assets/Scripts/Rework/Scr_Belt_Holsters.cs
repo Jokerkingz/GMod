@@ -11,12 +11,6 @@ public class Scr_Belt_Holsters : MonoBehaviour {
 	public GameObject vHologramSource;
 	public Material vHoloMaterial;
 
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-
 	// Update is called once per frame
 	void Update () {
 		switch (vStatus){
@@ -73,6 +67,7 @@ public class Scr_Belt_Holsters : MonoBehaviour {
 			tHR.isKinematic = true;
 			tHR.useGravity = false;
 
+
 			vStatus = "Holding";
 			vSavedHandle = tHandle;
 			vSavedGun = tHandle.GetComponent<Scr_ModSaverMain>().fInitialize(tHandle.gameObject);
@@ -81,6 +76,8 @@ public class Scr_Belt_Holsters : MonoBehaviour {
 			vSavedHandle.transform.eulerAngles = this.transform.eulerAngles;
 
 			tHandle.GetComponent<Scr_ModSystem_Handler>().vHolsterConnectedTo = this.gameObject;
+			this.GetComponent<Scr_Belt_Ammunition>().fReceiveMagazines(tHandle.gameObject);
+
 			Scr_ModSaverSocket[] tSocketList = tHandle.GetComponent<Scr_ModSaverPart>().vModSaverSocketList;
 				foreach (Scr_ModSaverSocket tSocket in tSocketList) {
 					Scr_Female_Socket tFemaleSocket = tSocket.GetComponent<Scr_Female_Socket>();
@@ -101,11 +98,11 @@ public class Scr_Belt_Holsters : MonoBehaviour {
 				tR.materials = tNew;
 				}
 			*/
+			tHandle.GetComponent<Scr_ModHandle>().fUpdateList();
 			}
 	}
 	public void fRemoveHandle(GameObject tHandle){
 		if (vStatus == "Holding" ){
-			Debug.Log("Removing Handle");
 			vStatus = "";
 			Rigidbody tHR = tHandle.GetComponent<Rigidbody>();
 			tHR.isKinematic = false;
@@ -113,6 +110,7 @@ public class Scr_Belt_Holsters : MonoBehaviour {
 			vSavedHandle.GetComponent<Scr_ModLoadMain>().fConvert(vSavedGun);
 			vSavedGun = ""; 
 			tHandle.GetComponent<Scr_ModSystem_Handler>().vHolsterConnectedTo = null;
+			tHandle.GetComponent<Scr_ModHandle>().fUpdateList();
 			}
 
 

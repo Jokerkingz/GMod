@@ -51,7 +51,7 @@ public class Scr_PointToMove : MonoBehaviour {
 			 tY = Input.GetAxis("Oculus_GearVR_LThumbstickY");
 			}
 		cLR.enabled = false;
-		if (tX != 0 && tY != 0){
+		if (tX != 0 && tY != 0 && (Vector2.Distance(Vector2.zero,new Vector3(tX,tY)) > .05f)){
 		/*
 			if (vPressCheck == "Not Being Pressed")
 				vPressCheck = "Start Pressing";
@@ -75,7 +75,7 @@ public class Scr_PointToMove : MonoBehaviour {
 		float tAngle = Mathf.Atan2(tX,tY)*180/Mathf.PI;
 		float tAddition = transform.eulerAngles.y;
 		if (Vector2.Distance(Vector2.zero,new Vector3(tX,tY)) > .5f)
-		vAngleToUse = tAngle+tAddition;
+			vAngleToUse = tAngle+tAddition;
 		/*
 		if ((vIsRight && Input.GetButton("OGVR_RThumbPress")) || (!vIsRight && Input.GetButton("OGVR_LThumbPress"))){
 			vPointToThere();
@@ -127,10 +127,11 @@ public class Scr_PointToMove : MonoBehaviour {
 			//tRay = new Ray(
 
 			tIndex += 1;
+			cLR.positionCount = tIndex+1;
 			if (tIndex <= 9)
-			tDistance = .7f+tIndex*.02f;
+				tDistance = .5f+tIndex*.01f;
 			else {
-				tDistance = Mathf.Infinity;
+				tDistance = 10f;//Mathf.Infinity;
 			}
 
 	
@@ -152,10 +153,11 @@ public class Scr_PointToMove : MonoBehaviour {
 					}
 				}
 			} else{
-
+				if (tIndex <= 9)
+					tDistance = 2f;
 				tStartingPosition = tRay.GetPoint(tDistance);
 				tStartingDirection = new Vector3(tStartingDirection.x,tStartingDirection.y-(tIndex*.07f),tStartingDirection.z);
-
+				//cLR.positionCount = tIndex+1;
 			}
 			cLR.SetPosition(tIndex,tStartingPosition);
 			//tRay.GetPoint(1);

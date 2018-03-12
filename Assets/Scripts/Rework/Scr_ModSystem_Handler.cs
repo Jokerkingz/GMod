@@ -10,7 +10,7 @@ public class Scr_ModSystem_Handler : MonoBehaviour {
 	public GameObject vHolsterConnectedTo;
 	public float vHollowRate;
 	public GameObject vHolsterShowHollowTo;
-
+	public Scr_ModHandle cMH;
 	// Use this for initialization
 	void Start () {
 		lModsConnected.Clear();

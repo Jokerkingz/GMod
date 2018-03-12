@@ -45,6 +45,7 @@ public class OVRGrabbable : MonoBehaviour
 	public bool vIsBeingGripped;
     public string vIsGrippedBy;
     public bool vIsGunHandle;
+    private Scr_ModHandle cMH;
 	/// <summary>
 	/// If true, the object can currently be grabbed.
 	/// </summary>
@@ -220,6 +221,7 @@ public class OVRGrabbable : MonoBehaviour
 
     protected virtual void Start()
 	{	Rigidbody tRB = GetComponent<Rigidbody>();
+		cMH = GetComponent<Scr_ModHandle>();
 		if (tRB != null)
         m_grabbedKinematic = GetComponent<Rigidbody>().isKinematic;
     }
@@ -234,8 +236,9 @@ public class OVRGrabbable : MonoBehaviour
     }
 
     void Update(){
-		if (((vIsGrippedBy == "Right" && Input.GetAxis("OGVR_RIndexTrigger") > 0.8f) || (vIsGrippedBy == "Left" && Input.GetAxis("OGVR_LIndexTrigger") > 0.8f)) && vIsGunHandle && vIsBeingGripped){
-			this.gameObject.BroadcastMessage("Triggered",SendMessageOptions.DontRequireReceiver);
+		if (((vIsGrippedBy == "Right" && Input.GetAxis("OGVR_RIndexTrigger") > 0.8f) || (vIsGrippedBy == "Left" && Input.GetAxis("OGVR_LIndexTrigger") > 0.8f)) && vIsGunHandle && vIsBeingGripped && cMH != null){
+			cMH.fTriggerPressed();
+			//this.gameObject.BroadcastMessage("Triggered",SendMessageOptions.DontRequireReceiver);
 			//Debug.Log("Triggered Button");
 			}
 

@@ -104,17 +104,20 @@ public class Scr_Female_Socket : MonoBehaviour {
 
 				// Turn Off Scripts
 				OVRGrabbable[] tOVRGrabbableList = vHologramObj.GetComponentsInChildren<OVRGrabbable>();
-				foreach (OVRGrabbable tOVRGrabbable in tOVRGrabbableList)
-					tOVRGrabbable.enabled = false;
+			foreach (OVRGrabbable tOVRGrabbable in tOVRGrabbableList)
+				Destroy(tOVRGrabbable);
 				Scr_Male_Socket[] tMaleSocketList = vHologramObj.GetComponentsInChildren<Scr_Male_Socket>();
-				foreach (Scr_Male_Socket tMaleSocket in tMaleSocketList)
-					tMaleSocket.enabled = false;
+			foreach (Scr_Male_Socket tMaleSocket in tMaleSocketList)
+				Destroy(tMaleSocket);
 				Scr_Female_Socket[] tFemaleSocketList = vHologramObj.GetComponentsInChildren<Scr_Female_Socket>();
-				foreach (Scr_Female_Socket tFemaleSocket in tFemaleSocketList)
-				tFemaleSocket.enabled = false;
+			foreach (Scr_Female_Socket tFemaleSocket in tFemaleSocketList)
+				Destroy(tFemaleSocket);
+				Scr_Mod_Magazine[] tModMagazineList = vHologramObj.GetComponentsInChildren<Scr_Mod_Magazine>();
+				foreach (Scr_Mod_Magazine tModMagazine in tModMagazineList)
+				Destroy(tModMagazine);
 				Scr_ModSystem_Handler[] tModHandlerList = vHologramObj.GetComponentsInChildren<Scr_ModSystem_Handler>();
-				foreach (Scr_ModSystem_Handler tModHandler in tModHandlerList)
-					tModHandler.enabled = false;
+			foreach (Scr_ModSystem_Handler tModHandler in tModHandlerList)
+				Destroy(tModHandler);
 
 
 				Renderer[] tListA =  vHologramObj.GetComponentsInChildren <Renderer>();
@@ -152,7 +155,9 @@ public class Scr_Female_Socket : MonoBehaviour {
 			tReference.transform.SetParent(this.transform);
 
 				Scr_ModSystem_Handler tRootMSH = tReference.transform.root.GetComponent<Scr_ModSystem_Handler>();
+
 				if (tRootMSH != null){
+					tRootMSH.GetComponent<Scr_ModHandle>().fUpdateList();
 					tRootMSH.lModsConnected.Add(tReference);
 					if (tRefMS.vIsMagazine)
 						tRootMSH.lMagazineList.Add(tReference);

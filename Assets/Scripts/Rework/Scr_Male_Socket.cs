@@ -103,11 +103,12 @@ public class Scr_Male_Socket : MonoBehaviour {
 			tTrans.transform.SetParent(tDetachingObject.transform);
 		}
 		Transform tRoot = tDetachingObject.transform.root;
-
 		tDetachingObject.transform.SetParent(null);
 
 		tRoot.transform.SetParent(tDetachingObject.transform);
 		tRoot.transform.SetParent(null);
+		if (tRoot.GetComponent<Scr_ModHandle>() != null)
+			tRoot.GetComponent<Scr_ModHandle>().fUpdateList();
 
 	}
 

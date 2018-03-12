@@ -19,9 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4389510186292156}
-  - component: {fileID: 33980069310791084}
   - component: {fileID: 65456439324320622}
-  - component: {fileID: 23112333111433558}
   - component: {fileID: 114040757943050084}
   m_Layer: 14
   m_Name: Grip_Box
@@ -70,14 +68,13 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4428139043415592}
-  - component: {fileID: 33703315915291986}
   - component: {fileID: 135570832846410714}
-  - component: {fileID: 23827161861720604}
   - component: {fileID: 114553922085983818}
-  - component: {fileID: 114357005528656666}
   - component: {fileID: 54933715647692680}
-  - component: {fileID: 114407691004431522}
+  - component: {fileID: 114759459800427948}
   - component: {fileID: 82809934262592460}
+  - component: {fileID: 114580805205680320}
+  - component: {fileID: 114483915764950548}
   m_Layer: 10
   m_Name: Pre_Mod_Magazine_A
   m_TagString: SocketMale
@@ -168,7 +165,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1816739256824476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5866432, y: 65.02513, z: 46.4667}
+  m_LocalPosition: {x: -4.0202823, y: 65.02509, z: 46.477886}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4888862278436278}
@@ -205,40 +202,6 @@ Transform:
   m_Father: {fileID: 4428139043415592}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
---- !u!23 &23112333111433558
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1380298772589100}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 2100000, guid: eac98e665e13eee4c865f4979d049d80, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!23 &23132193101223502
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -307,40 +270,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!23 &23827161861720604
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1816739256824476}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 79a1ba4b82e7eb5409572a967f4e2201, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!23 &23873064656266466
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -382,13 +311,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1890682991925708}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!33 &33703315915291986
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1816739256824476}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &33752399527451324
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -402,13 +324,6 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1947414341664594}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!33 &33980069310791084
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1380298772589100}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &54933715647692680
 Rigidbody:
@@ -516,7 +431,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -528,7 +443,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -540,7 +455,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!114 &114040757943050084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -554,7 +469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vHere: 0
   vException: {fileID: 0}
---- !u!114 &114357005528656666
+--- !u!114 &114483915764950548
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -562,34 +477,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1816739256824476}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e67e801745665524eba14e76ecdc9c1a, type: 3}
+  m_Script: {fileID: 11500000, guid: 6bfd6c7cd3eb4694982cac3521ade4a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vFemaleSocket: []
-  vFemaleSkip: []
-  vAttachedTo: {fileID: 0}
-  vState: 
-  vOriginalParts: []
-  vPartType: Magazine
-  vSFX: {fileID: 8300000, guid: 967a8d7b692784ede9b29a4e9ec83e48, type: 3}
---- !u!114 &114407691004431522
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1816739256824476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9918a946ea219a34188c673b21086990, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vBulletSource: {fileID: 1165367898603628, guid: 691a20af8c0d0304d8450b7094085119,
+  vMagazineToPop: {fileID: 1890682991925708}
+  vBulletToUse: {fileID: 1165367898603628, guid: 691a20af8c0d0304d8450b7094085119,
     type: 2}
-  vBulletType: 
-  vMagazineType: 
-  vMaxAmmo: 50
-  vCurrentAmmo: 0
-  vModelToCancel: {fileID: 23132193101223502}
+  vMaxAmmo: 10
+  vCurrentAmmo: 10
 --- !u!114 &114553922085983818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -610,6 +505,24 @@ MonoBehaviour:
   vIsBeingGripped: 0
   vIsGrippedBy: 
   vIsGunHandle: 0
+--- !u!114 &114580805205680320
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816739256824476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38cf79e73d08f9e4b9b633c9540e640a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vOriginalParts: []
+  vGripParts: []
+  vConnectedTo: {fileID: 0}
+  vIsMagazine: 0
+  vConnectableSockets: []
+  vStatus: Active
+  vSFX: {fileID: 0}
 --- !u!114 &114731230043761658
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -621,6 +534,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1df3a5140d4ed49bb9fab8053c2ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114759459800427948
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816739256824476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb6781bed099a24fa48708af70a01a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vOwnID: 
+  vPartType: Pre_Mod_Magazine_A
+  vModSaverSocketList: []
 --- !u!135 &135570832846410714
 SphereCollider:
   m_ObjectHideFlags: 1
