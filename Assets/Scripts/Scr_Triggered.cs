@@ -46,7 +46,7 @@ public class Scr_Triggered : MonoBehaviour {
 				GameObject tObj = Instantiate(vAmmunition);
 				tObj.transform.position = this.transform.position;
 				tObj.transform.eulerAngles = this.transform.eulerAngles;
-				tObj.GetComponent<Scr_Bullet>().vSpeedMultiplier = vProjectileSpeed;
+				tObj.GetComponent<Scr_Misc_Bullet>().vSpeedMultiplier = vProjectileSpeed;
 				GameObject tTemp = transform.root.gameObject;
 					vShotCD = 1.5f;
 				//vShotCD += .5f;
@@ -58,7 +58,7 @@ public class Scr_Triggered : MonoBehaviour {
 						GameObject tObj = Instantiate(vMagazineList[0].vBulletSource);
 						tObj.transform.position = this.transform.position;
 						tObj.transform.eulerAngles = this.transform.eulerAngles;
-						tObj.GetComponent<Scr_Bullet>().vSpeedMultiplier = vProjectileSpeed;
+						tObj.GetComponent<Scr_Misc_Bullet>().vSpeedMultiplier = vProjectileSpeed;
 
 						vMagazineList[0].vCurrentAmmo -= 1;
 						if (vMagazineList[0].vCurrentAmmo <= 0)

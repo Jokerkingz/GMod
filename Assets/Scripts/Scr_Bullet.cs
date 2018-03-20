@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Scr_Bullet : MonoBehaviour {
+/*
 	public Rigidbody cRB;
 	public float vSpeedMultiplier = 10f;
 	public GameObject vModelToTurn;
@@ -46,5 +47,5 @@ public class Scr_Bullet : MonoBehaviour {
 	void Dead(){
 		Destroy(this.gameObject);
 
-	}
+	}'*/
 }

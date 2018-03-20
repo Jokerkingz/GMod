@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Scr_ModBarrel : MonoBehaviour {
 	public float vCoolDown;
+	public GameObject vVFX;
 	// Update is called once per frame
 	void Update () {
 		if (vCoolDown > 0f)
@@ -18,7 +19,9 @@ public class Scr_ModBarrel : MonoBehaviour {
 				tObj.transform.position = this.transform.position;
 				tObj.transform.eulerAngles = this.transform.eulerAngles;
 				vCoolDown = .4f;
-
+				tObj = Instantiate(vVFX);
+				tObj.transform.position = this.transform.position;
+				tObj.transform.eulerAngles = this.transform.eulerAngles;
 			}
 		}
 	}
