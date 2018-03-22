@@ -60,8 +60,8 @@ public class Scr_PointToMove : MonoBehaviour {
 		*/
 			//vPressCheck = "Being Pressed";
 			cLR.enabled = true;
-			vPointToThere();
 			vPress = 2f;
+			vPointToThere();
 			vActive = true;
 			}
 			/*
@@ -121,11 +121,9 @@ public class Scr_PointToMove : MonoBehaviour {
 		int tIndex = 0;
 		RaycastHit tHit;
 		cLR.SetPosition(0,tStartingPosition);
-			cLR.positionCount = 10;
+		cLR.positionCount = 10;
 		while (!tDone){
 			tRay = new Ray(tStartingPosition,tStartingDirection);
-			//tRay = new Ray(
-
 			tIndex += 1;
 			cLR.positionCount = tIndex+1;
 			if (tIndex <= 9)
@@ -153,80 +151,14 @@ public class Scr_PointToMove : MonoBehaviour {
 					}
 				}
 			} else{
-				if (tIndex <= 9)
-					tDistance = 2f;
 				tStartingPosition = tRay.GetPoint(tDistance);
 				tStartingDirection = new Vector3(tStartingDirection.x,tStartingDirection.y-(tIndex*.07f),tStartingDirection.z);
-				//cLR.positionCount = tIndex+1;
+		
 			}
 			cLR.SetPosition(tIndex,tStartingPosition);
 			//tRay.GetPoint(1);
 			if (tIndex > 10)
 				tDone = true;
 		}
-
-
-
-		/*
-		Ray tRay = new Ray(transform.position,transform.TransformDirection(Vector3.forward));
-		RaycastHit tHit;
-		if (Physics.Raycast(tRay,out tHit,10f,vObstacles)){
-			if (tHit.collider.tag == "Floor"){
-				if (vTemp.gameObject == null){
-					vTemp = Instantiate(vObjectToCreate);
-					vTemp.transform.position = tHit.point;
-					}
-				else{
-					vTemp.transform.position = tHit.point;
-					vTemp.GetComponentInChildren<Scr_CheckBody>().vRotAngle = vAngleToUse;
-				}
-			}
-		}
-		*/
-	}
-	void vRaycastToThere(){
-		Ray tRay = new Ray(transform.position,transform.TransformDirection(Vector3.forward));
-		RaycastHit tHit;
-		if (Physics.Raycast(tRay,out tHit,10f,vObstacles)){
-			if (tHit.collider.tag == "Floor"){
-				if (vTemp.gameObject == null){
-					vTemp = Instantiate(vObjectToCreate);
-					vTemp.transform.position = tHit.point;
-					}
-				else{
-					vTemp.transform.position = tHit.point;
-					vTemp.GetComponentInChildren<Scr_CheckBody>().vRotAngle = vAngleToUse;
-				}
-			}
-		}
-
-	}
-
-
-	// Update is called once per frame
-	void WDnoeai () {
-		Ray tRay;
-		Vector3 tMySpot = transform.position;
-		bool tDone = false;
-		float tDistance = 1f;
-		int tCount = 0;
-			cLR.positionCount = 1;
-		cLR.SetPosition(tCount,transform.position);
-		while (!tDone) {
-			tCount += 1;
-			cLR.positionCount = tCount+1;
-			vPointSpot = transform.TransformDirection(Vector3.forward*tDistance);
-			tRay = new Ray (tMySpot,  vPointSpot);
-			RaycastHit tHit;
-			if (Physics.Raycast (tRay,out tHit, tDistance,vHitLayer)){
-				//vLineRenderPoint = tHit.point;
-				cLR.SetPosition(tCount,transform.position+tHit.point+(new Vector3(Random.value-.5f,Random.value-.5f,Random.value-.5f)*.25f));
-				tDone = true;
-				}
-			cLR.SetPosition(tCount,transform.position+vPointSpot+(new Vector3(Random.value-.5f,Random.value-.5f,Random.value-.5f)*.25f));
-			tDistance += 1f;
-			if (tCount > 15)
-				tDone = true;
-			}
 		}
 }

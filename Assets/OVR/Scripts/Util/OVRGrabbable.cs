@@ -130,7 +130,8 @@ public class OVRGrabbable : MonoBehaviour
 	/// Notifies the object that it has been grabbed.
 	/// </summary>
 	virtual public void GrabBegin(OVRGrabber hand, Collider grabPoint)
-	{	Scr_ModSystem_Handler tHandle = this.GetComponent<Scr_ModSystem_Handler>();
+	{	
+	Scr_ModSystem_Handler tHandle = this.GetComponent<Scr_ModSystem_Handler>();
 		if (tHandle != null){
 			if (tHandle.vHolsterConnectedTo != null){
 				Scr_Belt_Holsters tHolster = tHandle.vHolsterConnectedTo.GetComponent<Scr_Belt_Holsters>();
@@ -170,15 +171,17 @@ public class OVRGrabbable : MonoBehaviour
 	virtual public void GrabEnd(Vector3 linearVelocity, Vector3 angularVelocity)
 	{	vIsBeingGripped = false;
 
+		if (tag != "Display"){
+	        Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+	        rb.isKinematic = m_grabbedKinematic;
+			rb.isKinematic = false;
+			rb.useGravity = true;
+	        rb.velocity = linearVelocity;
+	        rb.angularVelocity = angularVelocity;
+	        }
+	        m_grabbedBy = null;
+	        m_grabbedCollider = null;
 
-        Rigidbody rb = gameObject.GetComponent<Rigidbody>();
-        rb.isKinematic = m_grabbedKinematic;
-		rb.isKinematic = false;
-		rb.useGravity = true;
-        rb.velocity = linearVelocity;
-        rb.angularVelocity = angularVelocity;
-        m_grabbedBy = null;
-        m_grabbedCollider = null;
 
 		Scr_Male_Socket tNewSocket = this.GetComponent<Scr_Male_Socket>();
 		if (tNewSocket!=null){
