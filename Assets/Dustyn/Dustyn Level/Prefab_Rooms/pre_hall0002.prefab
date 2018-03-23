@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33998350818302110}
   - component: {fileID: 23058522884549310}
   - component: {fileID: 65344825859682902}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CeilingPanel2x2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 33208303100029376}
   - component: {fileID: 23476668490125494}
   - component: {fileID: 65750357570594216}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CeilingSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,9 +58,9 @@ GameObject:
   - component: {fileID: 33260531344106932}
   - component: {fileID: 23210781179510266}
   - component: {fileID: 65665320583581068}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorPanel
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 33856156327708606}
   - component: {fileID: 23606973257605068}
   - component: {fileID: 65884275767248244}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CeilingSide (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 33275526873212816}
   - component: {fileID: 23732814224674828}
   - component: {fileID: 65052834579125802}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CeilingSide (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,9 +112,9 @@ GameObject:
   - component: {fileID: 33103185462537500}
   - component: {fileID: 23032582941304422}
   - component: {fileID: 65709075410320954}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorPanel (1)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 33576215778414390}
   - component: {fileID: 23110506532860242}
   - component: {fileID: 65712422056185358}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CeilingSide (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,9 +148,9 @@ GameObject:
   - component: {fileID: 33364763012822414}
   - component: {fileID: 23466706751191740}
   - component: {fileID: 65970100388821160}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorPanel (5)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,7 +163,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4455477396920820}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pre_hall0002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 33666263884019754}
   - component: {fileID: 23819388398143242}
   - component: {fileID: 65639372083210836}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CeilingSide (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 33861857710233416}
   - component: {fileID: 23962317597486662}
   - component: {fileID: 65419059968488448}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CeilingSide (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 33041001265268722}
   - component: {fileID: 23096918401764522}
   - component: {fileID: 65640551639375202}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CeilingSide (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4553852008991548}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CeilingIntersection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 33766893466519344}
   - component: {fileID: 23464846256298794}
   - component: {fileID: 65151367500933680}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CeilingSide (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,9 +268,9 @@ GameObject:
   - component: {fileID: 33653326100209276}
   - component: {fileID: 23970040410499360}
   - component: {fileID: 65416868008691964}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorPanel (4)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -389,7 +389,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1462515188717876}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 89.881, y: 36.921, z: -209.52}
+  m_LocalPosition: {x: 89.881, y: 36.921, z: -204.3}
   m_LocalScale: {x: 2, y: 0.12, z: 2}
   m_Children:
   - {fileID: 4417575667039886}
