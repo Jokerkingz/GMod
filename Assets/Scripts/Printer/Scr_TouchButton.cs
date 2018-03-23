@@ -7,6 +7,8 @@ public class Scr_TouchButton : MonoBehaviour {
 	public string vTypeOfButton;
 	public GameObject[] vTargets;
 
+	public bool vUsesTableDisplay;
+	public Scr_TableController vTableSource;
 	void Start(){
 		vTargets = GameObject.FindGameObjectsWithTag("Respawn");
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Scr_SystemTouchReceiver : MonoBehaviour {
-	public Scr_SystemDisplay vSystemDisplay;
+	public Scr_TableController vTableSource;
 	public string vMessageToSend;
 
 	// Use this for initialization
@@ -14,7 +14,7 @@ public class Scr_SystemTouchReceiver : MonoBehaviour {
 	void OnTriggerEnter(Collider tOther){
 		if (tOther.tag == "FingerTip"){
 			if (tOther.GetComponent<Scr_TouchTip>().vPointing)
-				vSystemDisplay.SendMessage(vMessageToSend);
+				vTableSource.gameObject.SendMessage(vMessageToSend);
 				}
 	}
 }

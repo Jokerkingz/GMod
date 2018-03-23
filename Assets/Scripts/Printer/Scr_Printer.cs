@@ -18,6 +18,7 @@ public class Scr_Printer : MonoBehaviour {
 	public AudioSource cAS;
 	public AudioClip vSFXPrint;
 	public AudioClip vSFXClick;
+
 	void Start () {
 		cAS = GetComponent<AudioSource>();
 		vModType = new string[]{"Handle","Base","Barrel","Magazine","Extension","Sword","Shield"};
