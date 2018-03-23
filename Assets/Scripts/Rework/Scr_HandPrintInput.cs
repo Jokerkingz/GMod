@@ -5,14 +5,16 @@ using UnityEngine;
 public class Scr_HandPrintInput : MonoBehaviour {
 	public bool vIsUsedForTable;
 	public Scr_TableController vTableSource;
-	public string vDoorSource;
+	public Scr_Door vDoorSource;
 	private float vCook;
 	private bool vDone;
+
 	void Update(){
 		vCook -= Time.deltaTime;
 		if (!vDone && vCook > 2f){
 			vDone = true;
 			vTableSource.fHandPressed();
+			vDoorSource.fDoorOpen();
 			Debug.Log("I found the Hand");
 			enabled = false;
 			Destroy(this.gameObject);
