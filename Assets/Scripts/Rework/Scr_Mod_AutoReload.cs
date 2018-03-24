@@ -13,6 +13,7 @@ public class Scr_Mod_AutoReload : MonoBehaviour {
 
 	public GameObject vOriginalModel;
 	private Renderer cRdr;
+	public Texture vText;
 	// Use this for initialization
 	void Start () {
 		//cRdr = GetComponent<Renderer>();
@@ -23,11 +24,11 @@ public class Scr_Mod_AutoReload : MonoBehaviour {
 		vMeter += Time.deltaTime;
 		if (vMaterialClone != null){
 		if (vMeter < vMaxMeter){
-			vMaterialClone.SetFloat("_node_3736",1f-(vMeter/vMaxMeter));
+				vMaterialClone.SetFloat("_DissolveAmount",1f-(vMeter/vMaxMeter));
 			//vSourceMaterial.SetFloat("_node_3736",vMeter);
 			}
 		else{vMeter = vMaxMeter;
-			vMaterialClone.SetFloat("_node_3736",1f-(vMeter/vMaxMeter));
+				vMaterialClone.SetFloat("_DissolveAmount",1f-(vMeter/vMaxMeter));
 			//vSourceMaterial.SetFloat("_node_3736",vMeter);
 			cMMSource.fReload();
 			cRdr.material = vOriginalMaterial;
@@ -36,7 +37,7 @@ public class Scr_Mod_AutoReload : MonoBehaviour {
 			}
 		}
 	}
-	public void fStartReloading(GameObject tSource, float tTimeTillCompletion,Scr_Mod_Magazine tMM, Scr_GameEngine cGE){
+	public void fStartReloading(GameObject tSource, float tTimeTillCompletion,Scr_Mod_Magazine tMM, Scr_GameEngine cGE,Texture tTxt){
 		vOriginalModel = tSource;
 		cMMSource = tMM;
 		vOriginalMaterial = tMM.vMagazineToPop.GetComponent<Renderer>().material;
@@ -46,8 +47,9 @@ public class Scr_Mod_AutoReload : MonoBehaviour {
 		//vMaterialClone = new Material(Scr_GameEngine.gMat_Fabricate);
 		vMaterialClone = new Material(vSourceMaterial);
 		cRdr.material = vMaterialClone;
-
-		vMaterialClone.SetFloat("_node_3736",1f-(vMeter/vMaxMeter));
+		//vText = cRdr.material.mainTexture;
+		vMaterialClone.SetTexture ("_BaseTexture",tTxt);
+		vMaterialClone.SetFloat("_DissolveAmount",1f-(vMeter/vMaxMeter));
 		//	vSourceMaterial.SetFloat("_node_3736",vMeter);
 	}
 

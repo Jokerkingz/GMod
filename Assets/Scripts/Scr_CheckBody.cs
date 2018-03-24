@@ -27,10 +27,10 @@ public class Scr_CheckBody : MonoBehaviour {
 			vCD = 0f;
 			CheckFreeSpot();
 		}
+		vPseudoSpot.transform.position = vOpenSpot;
 	}
 	public void CheckFreeSpot(){
 		{vOpenSpot = transform.position;
-		vPseudoSpot.transform.position = vOpenSpot;
 		//GetComponentInParent<Scr_PointToMove>().vChosenSpot.transform.position = vOpenSpot; 
 		if (!vHasASpot){
 			vHasASpot = true;

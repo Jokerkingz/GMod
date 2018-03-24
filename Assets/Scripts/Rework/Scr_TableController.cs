@@ -28,9 +28,9 @@ public class Scr_TableController : MonoBehaviour {
 	public string vCurrentChoice;
 	// Use this for initialization
 	void Start () {
-
-				vVectScale = new Vector3(.5f,vFloatUse,1);
-				vDisplay.transform.localScale = vVectScale;
+		vModType = new string[]{"Handle","Base","Barrel","Magazine","Extension","Sword","Shield"};
+		vVectScale = new Vector3(.5f,vFloatUse,1);
+		vDisplay.transform.localScale = vVectScale;
 	}
 	
 	// Update is called once per frame
@@ -85,9 +85,6 @@ public class Scr_TableController : MonoBehaviour {
 	public void fPreviousPressed(){
 		if (vStatus != "Selection")
 			return;
-		//vStatus = "PopUp";
-		//vVectScale = new Vector3(.5f,0,1);
-		//vFloatUse = 0f;
 		vModTypIndex --;
 		if (vModTypIndex < 0 )
 			vModTypIndex = vModType.Length-1;
@@ -96,10 +93,6 @@ public class Scr_TableController : MonoBehaviour {
 	public void fNextPressed(){
 		if (vStatus != "Selection")
 			return;
-		//vStatus = "PopUp";
-		//vVectScale = new Vector3(.5f,0,1);
-		//vFloatUse = 0f;
-
 		vModTypIndex ++;
 		if (vModTypIndex >= vModType.Length)
 			vModTypIndex = 0;
@@ -124,7 +117,9 @@ public class Scr_TableController : MonoBehaviour {
 	void fCreateNewHolo(){
 		Destroy(vHologramObj);
 		vHologramObj = null;
+		//Debug.Log(tTemp);
 		string tTemp = "Pre_Mod_"+vModType[vModTypIndex]+"_"+vSubType;
+		Debug.Log(tTemp);
 		vCurrentChoice = tTemp;
 		GameObject tPrefab = Resources.Load(tTemp) as GameObject;
 		if (tPrefab != null){

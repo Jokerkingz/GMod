@@ -34,7 +34,7 @@ public class Scr_FabricationCollective : MonoBehaviour {
 	transform.position = vLockSpot;
 	if (vMaterialClone != null){
 		if (vMeter < vMaxMeter){
-			Debug.Log("Changing proprties " + (1f-(vMeter/vMaxMeter)).ToString());
+//			Debug.Log("Changing proprties " + (1f-(vMeter/vMaxMeter)).ToString());
 			vMaterialClone.SetFloat("_DissolveAmount",1f-(vMeter/vMaxMeter));
 			}
 		else{vMeter = vMaxMeter;

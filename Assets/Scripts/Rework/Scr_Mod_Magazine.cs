@@ -10,6 +10,7 @@ public class Scr_Mod_Magazine : MonoBehaviour {
 	//private  cMAR;
 	private Scr_Mod_Statistics cMS;
 	public Scr_GameEngine cGE;
+	public Texture vTextureToUse;
 	// Use this for initialization
 	void Start () {
 		vCurrentAmmo = vMaxAmmo;
@@ -31,7 +32,7 @@ public class Scr_Mod_Magazine : MonoBehaviour {
 		vMagazineToPop.GetComponent<Collider>().enabled = false;
 		Rigidbody cRB = tPoppedMagazine.AddComponent<Rigidbody>();
 		Scr_Mod_AutoReload cMAR = this.gameObject.AddComponent<Scr_Mod_AutoReload>();
-		cMAR.fStartReloading(this.gameObject,cMS.vTypeData,this,cGE);
+			cMAR.fStartReloading(this.gameObject,cMS.vTypeData,this,cGE,vTextureToUse);
 
 
 		tPoppedMagazine.transform.position = vMagazineToPop.transform.position;

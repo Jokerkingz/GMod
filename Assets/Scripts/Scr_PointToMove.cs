@@ -52,58 +52,33 @@ public class Scr_PointToMove : MonoBehaviour {
 			}
 		cLR.enabled = false;
 		if (tX != 0 && tY != 0 && (Vector2.Distance(Vector2.zero,new Vector3(tX,tY)) > .05f)){
-		/*
-			if (vPressCheck == "Not Being Pressed")
-				vPressCheck = "Start Pressing";
-			else
-				vPressCheck = "Being Pressed";
-		*/
-			//vPressCheck = "Being Pressed";
 			cLR.enabled = true;
 			vPress = 2f;
 			vPointToThere();
 			vActive = true;
 			}
-			/*
-		else {
-			if (vPressCheck == "Being Pressed")
-				vPressCheck = "Just Stopped Pressing";
-			else
-				vPressCheck = "Not Being Pressed";
-		}
-		*/
 		float tAngle = Mathf.Atan2(tX,tY)*180/Mathf.PI;
 		float tAddition = transform.eulerAngles.y;
 		if (Vector2.Distance(Vector2.zero,new Vector3(tX,tY)) > .5f)
 			vAngleToUse = tAngle+tAddition;
-		/*
-		if ((vIsRight && Input.GetButton("OGVR_RThumbPress")) || (!vIsRight && Input.GetButton("OGVR_LThumbPress"))){
-			vPointToThere();
-			vPress = 2f;
-			vActive = true;
-		}
-		*/
 		if (vPress > 0f)
 			vPress -= .5f;
 		else{
 			vPress = 0f;
 			if (vActive){
 				vActive = false;
-			//if (Input.GetButtonUp("OGVR_RThumbPress")){
-				
 				if (vAngleToUse > 360f)
 						vAngleToUse -= 360f;
 				if (vAngleToUse < 0f)
 						vAngleToUse += 360f;
 				if (vTemp != null){
-						cOVRPC.vAngleOffSet = vAngleToUse;
-						cOVRPC.gameObject.transform.position = vTemp.GetComponentInChildren<Scr_CheckBody>().vOpenSpot;
-					//if (Vector2.Distance(Vector2.zero,new Vector3(tX,tY)) > .75f)
-						vOrienter.transform.localEulerAngles = new Vector3(0,vAngleToUse,0);
+					cOVRPC.vAngleOffSet = vAngleToUse;
+					//if (vTemp.GetComponentInChildren<Scr_CheckBody>().vHasASpot)
+					Vector3 tSpot = vTemp.GetComponentInChildren<Scr_CheckBody>().vOpenSpot;
+					if (tSpot != Vector3.zero)
+						cOVRPC.gameObject.transform.position = tSpot;
+					vOrienter.transform.localEulerAngles = new Vector3(0,vAngleToUse,0);
 					}
-				
-			//GameObject.FindGameObjectWithTag("Orient").transform.localEulerAngles = new Vector3(0,vAngleToUse,0);
-			//Debug.Log("Pork");
 			Destroy(vTemp);
 
 
@@ -152,6 +127,14 @@ public class Scr_PointToMove : MonoBehaviour {
 				}
 			} else{
 				tStartingPosition = tRay.GetPoint(tDistance);
+				if (vTemp.gameObject == null){
+					vTemp = Instantiate(vObjectToCreate);
+					vTemp.transform.position = tStartingPosition;
+					tStartingPosition = tHit.point;
+					}
+				else{
+					vTemp.transform.position = tHit.point;
+					tStartingPosition = tStartingPosition;}
 				tStartingDirection = new Vector3(tStartingDirection.x,tStartingDirection.y-(tIndex*.07f),tStartingDirection.z);
 		
 			}

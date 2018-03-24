@@ -19,7 +19,7 @@ public class Scr_ModBarrel : MonoBehaviour {
 				tObj.transform.position = this.transform.position;
 				tObj.transform.eulerAngles = this.transform.eulerAngles;
 				vCoolDown = .4f;
-				tObj = Instantiate(vVFX);
+				//tObj = Instantiate(vVFX);
 				tObj.transform.position = this.transform.position;
 				tObj.transform.eulerAngles = this.transform.eulerAngles;
 			}

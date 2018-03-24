@@ -18,6 +18,7 @@ public bool isUnlocked;
  public bool doorActive;
 public KeyCode openDoor = KeyCode.Space;
 private Animation anim;
+public bool IsDebug;
 
 	void Start () {
 		//sceneManager = FindObjectOfType<Scr_SceneManager>();
@@ -51,9 +52,10 @@ private Animation anim;
 	void StartLoadingNext()
 	{
 		if (roomToLoad !=null)
-		{
+		{	if (!IsDebug){
 			Scr_SceneManager.Instance.LoadNext(roomToLoad);
 			fDoorOpen();
+			}
 		}
 
 	}

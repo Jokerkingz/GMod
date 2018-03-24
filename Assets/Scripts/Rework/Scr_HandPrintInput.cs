@@ -7,13 +7,26 @@ public class Scr_HandPrintInput : MonoBehaviour {
 	public Scr_TableController vTableSource;
 	public Scr_Door vDoorSource;
 	private float vCook;
+	private float vSpeed;
 	private bool vDone;
+	private ParticleSystem[] vList = new ParticleSystem[0];
+	void Start(){
+		vList = GetComponentsInChildren<ParticleSystem>();
 
+	}
 	void Update(){
 		vCook -= Time.deltaTime;
+		foreach (ParticleSystem tThis in vList){
+			//tThis.main.simulationSpeed = ;
+			var main = tThis.main;
+			main.simulationSpeed = .3f+(.5f*vCook);
+
+		  } 
 		if (!vDone && vCook > 2f){
 			vDone = true;
+			if (vIsUsedForTable)
 			vTableSource.fHandPressed();
+			else
 			vDoorSource.fDoorOpen();
 			Debug.Log("I found the Hand");
 			enabled = false;
@@ -21,6 +34,7 @@ public class Scr_HandPrintInput : MonoBehaviour {
 		}
 		vCook = Mathf.Clamp(vCook,0f,3f);
 	}
+
 	void OnTriggerStay(){
 			vCook += 2*Time.deltaTime;
 	}
