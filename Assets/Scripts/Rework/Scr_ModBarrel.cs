@@ -5,6 +5,7 @@ using UnityEngine;
 public class Scr_ModBarrel : MonoBehaviour {
 	public float vCoolDown;
 	public GameObject vVFX;
+	public Collider vColliderToSkip;
 	// Update is called once per frame
 	void Update () {
 		if (vCoolDown > 0f)
@@ -22,6 +23,7 @@ public class Scr_ModBarrel : MonoBehaviour {
 				//tObj = Instantiate(vVFX);
 				tObj.transform.position = this.transform.position;
 				tObj.transform.eulerAngles = this.transform.eulerAngles;
+				Physics.IgnoreCollision(tObj.GetComponent<Scr_Bullet>().vColliderToSkip,vColliderToSkip);
 			}
 		}
 	}

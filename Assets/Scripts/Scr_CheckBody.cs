@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Scr_CheckBody : MonoBehaviour {
 	public Vector3 vOpenSpot;
+	public bool vReadyToTeleport;
 	public bool vHasASpot;
 	public float vCD = 2f;
 
@@ -25,6 +26,7 @@ public class Scr_CheckBody : MonoBehaviour {
 		vCD -= .5f;
 		if (vCD <= 0){
 			vCD = 0f;
+			vReadyToTeleport = true;
 			CheckFreeSpot();
 		}
 		vPseudoSpot.transform.position = vOpenSpot;

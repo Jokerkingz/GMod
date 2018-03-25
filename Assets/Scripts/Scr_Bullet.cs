@@ -3,6 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Scr_Bullet : MonoBehaviour {
+	public Rigidbody cRB; // must be public
+	public float vSpeedMultiplier; // must be public
+	public Vector3 vFixedAngle; // must be public
+	public Collider vColliderToSkip; // must be public
+	private Vector3 vPreviousPosition;
+	public LayerMask vLayer;
+	void Start(){
+		cRB.velocity = (transform.TransformDirection(Vector3.up))*vSpeedMultiplier;
+		vPreviousPosition = transform.position;
+	}
+	void FixedUpdate(){
+//		vSpeed = cRB.velocity;
+		Ray tRay = new Ray(this.transform.position,vPreviousPosition);
+		RaycastHit tHit;
+		//Physics.Raycast(this.transform.position,vPreviousPosition,out tHit,vLayer) // beefore using ray
+		Physics.Raycast(tRay,out tHit,vLayer);
+		}
+	void fHit(Vector3 tPoint){
+		cRB.AddExplosionForce(5f,tPoint,0f);
+		Destroy(this.gameObject);
+	}
+	void OnCollisionEnter(Collision tOther){
+		fHit(tOther.contacts[0].point);
+		//Rigidbody tRB = tOther.attachedRigidbody;
+	}
 /*
 	public Rigidbody cRB;
 	public float vSpeedMultiplier = 10f;
@@ -47,5 +72,5 @@ public class Scr_Bullet : MonoBehaviour {
 	void Dead(){
 		Destroy(this.gameObject);
 
-	}'*/
+	}*/
 }

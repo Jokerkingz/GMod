@@ -73,10 +73,11 @@ public class Scr_PointToMove : MonoBehaviour {
 						vAngleToUse += 360f;
 				if (vTemp != null){
 					cOVRPC.vAngleOffSet = vAngleToUse;
-					//if (vTemp.GetComponentInChildren<Scr_CheckBody>().vHasASpot)
-					Vector3 tSpot = vTemp.GetComponentInChildren<Scr_CheckBody>().vOpenSpot;
-					if (tSpot != Vector3.zero)
+					if (vTemp.GetComponentInChildren<Scr_CheckBody>().vReadyToTeleport){
+						Vector3 tSpot = vTemp.GetComponentInChildren<Scr_CheckBody>().vOpenSpot;
+						//if (tSpot != Vector3.zero)
 						cOVRPC.gameObject.transform.position = tSpot;
+						}
 					vOrienter.transform.localEulerAngles = new Vector3(0,vAngleToUse,0);
 					}
 			Destroy(vTemp);
