@@ -59,6 +59,7 @@ public class Scr_TableController : MonoBehaviour {
 				vCD	+= Time.deltaTime;
 				if (vCD > 1f)
 					{vStatus = "Selection";
+					fCreateNewHolo();
 
 					}
 			break;

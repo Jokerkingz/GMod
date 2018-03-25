@@ -1,28 +1,45 @@
 fileFormatVersion: 2
-guid: 3d39b6e332cc8e84c9dd93513c48dc69
-timeCreated: 1521922535
+guid: 512e1893f66f7444d98d8bc7a01e8e63
+timeCreated: 1521939411
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Cube
-    100002: Magazine
-    100004: Magazine_Body
-    100006: //RootNode
-    400000: Cube
-    400002: Magazine
-    400004: Magazine_Body
-    400006: //RootNode
+    100000: Body
+    100002: Cube
+    100004: Magazine
+    100006: Magazine_Body
+    100008: //RootNode
+    100010: Socket_Female
+    100012: Socket_Male
+    400000: Body
+    400002: Cube
+    400004: Magazine
+    400006: Magazine_Body
+    400008: //RootNode
+    400010: Socket_Female
+    400012: Socket_Male
     2100000: 'Material #47'
-    2300000: Magazine
-    2300002: Magazine_Body
-    2300004: //RootNode
-    3300000: Magazine
-    3300002: Magazine_Body
-    3300004: //RootNode
-    4300000: Magazine_Body
-    4300002: Magazine
-    9500000: //RootNode
+    2300000: Body
+    2300002: Cube
+    2300004: Magazine
+    2300006: Magazine_Body
+    2300008: Socket_Female
+    2300010: Socket_Male
+    2300012: //RootNode
+    3300000: Body
+    3300002: Cube
+    3300004: Magazine
+    3300006: Magazine_Body
+    3300008: Socket_Female
+    3300010: Socket_Male
+    3300012: //RootNode
+    4300000: Socket_Male
+    4300002: Socket_Female
+    4300004: Magazine
+    4300006: Magazine_Body
+    4300008: Cube
+    4300010: Body
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -97,7 +114,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
