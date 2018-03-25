@@ -6,12 +6,15 @@ using System.Linq;
 public class Scr_ModHandle : MonoBehaviour {
 	public List<Scr_ModBarrel> lBarrelList = new List<Scr_ModBarrel>();
 	public List<Scr_Mod_Magazine> lMagazineList = new List<Scr_Mod_Magazine>();
+	public List<Scr_ModModule> lModuleList = new List<Scr_ModModule>();
 
 	public int tCount;
 	// Update is called once per frame
 	public void fUpdateList() {
 		lBarrelList.Clear();
 		lBarrelList = GetComponentsInChildren<Scr_ModBarrel>().ToList();
+		lModuleList.Clear();
+		lModuleList = GetComponentsInChildren<Scr_ModModule>().ToList();
 		lMagazineList.Clear();
 		//lMagazineList = GetComponentsInChildren<Scr_Mod_Magazine>().ToList();
 		Scr_Mod_Magazine[] tList = GetComponentsInChildren<Scr_Mod_Magazine>();
@@ -26,6 +29,9 @@ public class Scr_ModHandle : MonoBehaviour {
 		fUpdateList();
 		foreach (Scr_ModBarrel tBarrel in lBarrelList){
 			tBarrel.fCallToShot(this);
+		}
+		foreach (Scr_ModModule tBarrel in lModuleList){
+			tBarrel.fActivateMod();
 		}
 	}
 	public GameObject fGetBullet(){

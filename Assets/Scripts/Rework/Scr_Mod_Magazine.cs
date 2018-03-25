@@ -11,6 +11,7 @@ public class Scr_Mod_Magazine : MonoBehaviour {
 	private Scr_Mod_Statistics cMS;
 	public Scr_GameEngine cGE;
 	public Texture vTextureToUse;
+	public Vector3 vPopDirection;
 	// Use this for initialization
 	void Start () {
 		vCurrentAmmo = vMaxAmmo;
@@ -38,7 +39,7 @@ public class Scr_Mod_Magazine : MonoBehaviour {
 		tPoppedMagazine.transform.position = vMagazineToPop.transform.position;
 		tPoppedMagazine.transform.eulerAngles = vMagazineToPop.transform.eulerAngles;
 		tPoppedMagazine.transform.localScale = vMagazineToPop.transform.lossyScale;
-		cRB.velocity = tPoppedMagazine.transform.TransformDirection(Vector3.down*5f);
+			cRB.velocity = tPoppedMagazine.transform.TransformDirection(vPopDirection*5f);
 		}
 	}
 }

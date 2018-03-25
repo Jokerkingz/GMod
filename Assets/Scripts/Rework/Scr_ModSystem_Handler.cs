@@ -33,7 +33,6 @@ public class Scr_ModSystem_Handler : MonoBehaviour {
 			if (vHollowRate <= 0f)
 				vHolsterShowHollowTo = null;
 			}
-
 	}
 	void fInputToBroadCast(){
 		if (!vIsCheckingForParts){
