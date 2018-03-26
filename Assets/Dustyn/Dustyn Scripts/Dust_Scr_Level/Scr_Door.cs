@@ -32,6 +32,7 @@ public bool IsDebug;
 		if (canInteract &&Input.GetKeyDown(openDoor) &&isUnlocked &&!doorActive)
 		{
 			doorActive=true;
+			PlaySound(1);
 			StartLoadingNext();
 			StartUnloadingPrevious();
 			DeleteUnnecessaryDoors();
@@ -41,6 +42,7 @@ public bool IsDebug;
 
 		if (canInteract &&Input.GetKeyDown(openDoor) &&!isUnlocked)
 		{
+			PlaySound(2);
 			Debug.Log("Locked");
 		}
 
@@ -95,14 +97,18 @@ public bool IsDebug;
 
 	public void fDoorOpen()
 	{
-		doorActive=true;
+		/*doorActive=true;
 		StartLoadingNext();
 		StartUnloadingPrevious();
 		DeleteUnnecessaryDoors();
-		Debug.Log("Opening");
-
+		Debug.Log("Opening");*/
+		
+		//if (!doorActive)
+		//{
+		//doorActive=true;
 		PlaySound(3);
 		anim.Play(anim.clip.name="ani_DoorOpen");
+		//}
 	}
 
 	public void DoorClose()

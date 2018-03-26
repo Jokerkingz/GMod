@@ -18,7 +18,7 @@ public class scr_ambushManager : MonoBehaviour {
 	
 	void Update () {
 
-		GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+		GameObject[] enemies = GameObject.FindGameObjectsWithTag("AI");
 		enemiesLeftBeforeAmbush=enemies.Length;
 
 		if (enemiesLeftBeforeAmbush==enemiesAmmountForAmbush &&!lockCheck)

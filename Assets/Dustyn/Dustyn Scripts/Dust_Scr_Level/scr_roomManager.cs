@@ -21,7 +21,7 @@ public class scr_roomManager : MonoBehaviour {
 
 		if (enemiesLeft==0 &&!lockCheck)
 		{
-			doorGoal.GetComponent<scr_doorGoal>().DoorUnlocked();
+			doorGoal.GetComponent<Scr_Door>().DoorUnlocked();
 			lockCheck=true;
 		}
 	}
