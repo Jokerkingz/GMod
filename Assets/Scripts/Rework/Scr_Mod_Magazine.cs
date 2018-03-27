@@ -38,7 +38,8 @@ public class Scr_Mod_Magazine : MonoBehaviour {
 
 		tPoppedMagazine.transform.position = vMagazineToPop.transform.position;
 		tPoppedMagazine.transform.eulerAngles = vMagazineToPop.transform.eulerAngles;
-		tPoppedMagazine.transform.localScale = vMagazineToPop.transform.lossyScale;
+			tPoppedMagazine.transform.localScale = vMagazineToPop.transform.lossyScale;
+			tPoppedMagazine.AddComponent<Scr_DestroyTime>().fStartTimer(3f);
 			cRB.velocity = tPoppedMagazine.transform.TransformDirection(vPopDirection*5f);
 		}
 	}

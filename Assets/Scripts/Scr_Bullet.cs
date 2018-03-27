@@ -7,27 +7,43 @@ public class Scr_Bullet : MonoBehaviour {
 	public float vSpeedMultiplier; // must be public
 	public Vector3 vFixedAngle; // must be public
 	public Collider vColliderToSkip; // must be public
+	public GameObject vGameObjectToSkip; // must be public
 	private Vector3 vPreviousPosition;
 	public LayerMask vLayer;
+	public GameObject vSpark;
 	void Start(){
 		cRB.velocity = (transform.TransformDirection(Vector3.up))*vSpeedMultiplier;
 		vPreviousPosition = transform.position;
 	}
-	void FixedUpdate(){
+	void Update(){
 //		vSpeed = cRB.velocity;
-		Ray tRay = new Ray(this.transform.position,vPreviousPosition);
+		Ray tRay = new Ray(this.transform.position,vPreviousPosition-this.transform.position);
 		RaycastHit tHit;
+		float tDistance = Vector3.Distance(vPreviousPosition,this.transform.position);
 		//Physics.Raycast(this.transform.position,vPreviousPosition,out tHit,vLayer) // beefore using ray
-		Physics.Raycast(tRay,out tHit,vLayer);
+		Debug.DrawRay(this.transform.position,vPreviousPosition-this.transform.position,Color.white);
+		if (Physics.Raycast(tRay,out tHit,tDistance,vLayer)){
+			if (tHit.collider.gameObject != vGameObjectToSkip && tHit.collider.tag != "Bullet"){
+				fHit(tHit.point,tHit.rigidbody);
+				}
+			}
+		vPreviousPosition = this.transform.position;
 		}
-	void fHit(Vector3 tPoint){
-		cRB.AddExplosionForce(5f,tPoint,0f);
+	void fHit(Vector3 tPoint, Rigidbody tOther){
+		GameObject tTEmp = Instantiate(vSpark);
+		tTEmp.transform.position = tPoint;
+		tTEmp.GetComponent<Scr_DestroyTime>().fStartTimer(.9f);
+		//Rigidbody tRB = tOther.GetComponent<Rigidbody>();
+		if (tOther != null)
+			tOther.AddExplosionForce(10f,tPoint,10f,5f);
 		Destroy(this.gameObject);
 	}
 	void OnCollisionEnter(Collision tOther){
-		fHit(tOther.contacts[0].point);
-		//Rigidbody tRB = tOther.attachedRigidbody;
+		fHit(tOther.contacts[0].point,tOther.rigidbody);
+		//
 	}
+
+
 /*
 	public Rigidbody cRB;
 	public float vSpeedMultiplier = 10f;

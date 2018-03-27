@@ -17,7 +17,7 @@ public class Scr_TableController : MonoBehaviour {
 
 	// Print Data
 
-	public string[] vModType = new string[]{"Handle","Base","Barrel","Extension","Sword","Shield"};
+	public string[] vModType = new string[]{"Handle","Base","Module","Barrel","Extension","Sword","Shield"};
 	public int vModTypIndex;
 	public string vSubType = "A"; //"B"
 	public float vCoolDown;
@@ -28,7 +28,7 @@ public class Scr_TableController : MonoBehaviour {
 	public string vCurrentChoice;
 	// Use this for initialization
 	void Start () {
-		vModType = new string[]{"Handle","Base","Barrel","Magazine","Extension","Sword","Shield"};
+		vModType = new string[]{"Handle","Base","Barrel","Module","Magazine","Extension","Sword","Shield"};
 		vVectScale = new Vector3(.5f,vFloatUse,1);
 		vDisplay.transform.localScale = vVectScale;
 	}
@@ -90,6 +90,7 @@ public class Scr_TableController : MonoBehaviour {
 		if (vModTypIndex < 0 )
 			vModTypIndex = vModType.Length-1;
 		vSubType = "A";
+		fCreateNewHolo();
 	}
 	public void fNextPressed(){
 		if (vStatus != "Selection")
@@ -132,8 +133,7 @@ public class Scr_TableController : MonoBehaviour {
 			// Turn Off Scripts
 			OVRGrabbable[] tOVRGrabbableList = vHologramObj.GetComponentsInChildren<OVRGrabbable>();
 			foreach (OVRGrabbable tOVRGrabbable in tOVRGrabbableList)
-				//Destroy(tOVRGrabbable);
-			tOVRGrabbable.enabled = false;
+				Destroy(tOVRGrabbable);
 			Scr_Male_Socket[] tMaleSocketList = vHologramObj.GetComponentsInChildren<Scr_Male_Socket>();
 			foreach (Scr_Male_Socket tMaleSocket in tMaleSocketList)
 				tMaleSocket.enabled = false;
@@ -143,6 +143,9 @@ public class Scr_TableController : MonoBehaviour {
 			Scr_ModSystem_Handler[] tModHandlerList = vHologramObj.GetComponentsInChildren<Scr_ModSystem_Handler>();
 			foreach (Scr_ModSystem_Handler tModHandler in tModHandlerList)
 				tModHandler.enabled = false;
+			Collider[] tModColliderList = vHologramObj.GetComponentsInChildren<Collider>();
+			foreach (Collider tModCollider in tModColliderList)
+				tModCollider.enabled = false;
 
 				Renderer[] tListA =  vHologramObj.GetComponentsInChildren <Renderer>();
 				foreach (Renderer tR in tListA){

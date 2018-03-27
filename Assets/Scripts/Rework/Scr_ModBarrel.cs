@@ -6,6 +6,7 @@ public class Scr_ModBarrel : MonoBehaviour {
 	public float vCoolDown;
 	public GameObject vVFX;
 	public Collider vColliderToSkip;
+
 	// Update is called once per frame
 	void Update () {
 		if (vCoolDown > 0f)
@@ -18,12 +19,17 @@ public class Scr_ModBarrel : MonoBehaviour {
 				GameObject tObj = Instantiate(tTemp);
 				//tBullet.vCurrentAmmo -= 1;
 				tObj.transform.position = this.transform.position;
-				tObj.transform.eulerAngles = this.transform.eulerAngles;
-				vCoolDown = .4f;
+				Vector3 tTrajectory = new Vector3(this.transform.eulerAngles.x+Random.Range(-5f,5f),this.transform.eulerAngles.y+Random.Range(-5f,5f),this.transform.eulerAngles.z+Random.Range(-5f,5f));
+				tObj.transform.eulerAngles = tTrajectory;
+				//Scr_DestroyTime tDest = 
+				tObj.AddComponent<Scr_DestroyTime>().fStartTimer(3f);
+				vCoolDown = .05f;
 				//tObj = Instantiate(vVFX);
-				tObj.transform.position = this.transform.position;
-				tObj.transform.eulerAngles = this.transform.eulerAngles;
-				Physics.IgnoreCollision(tObj.GetComponent<Scr_Bullet>().vColliderToSkip,vColliderToSkip);
+				//tObj.transform.position = this.transform.position;
+				//tObj.transform.eulerAngles = this.transform.eulerAngles;
+				Scr_Bullet tCB = tObj.GetComponent<Scr_Bullet>();
+				tCB.vGameObjectToSkip = vColliderToSkip.gameObject;
+				Physics.IgnoreCollision(tCB.vColliderToSkip,vColliderToSkip);
 			}
 		}
 	}

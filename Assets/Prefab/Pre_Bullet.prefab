@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 54700071259784092}
   m_Layer: 13
   m_Name: Pre_Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,3 +129,8 @@ MonoBehaviour:
   vSpeedMultiplier: 15
   vFixedAngle: {x: 0, y: 0, z: 0}
   vColliderToSkip: {fileID: 64431704107382886}
+  vGameObjectToSkip: {fileID: 0}
+  vLayer:
+    serializedVersion: 2
+    m_Bits: 268545
+  vSpark: {fileID: 1280538921318006, guid: ae7e324796ee1f94d99c7b9f61e9c331, type: 2}
