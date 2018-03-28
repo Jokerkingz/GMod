@@ -24,9 +24,19 @@ public class scr_Elevator : MonoBehaviour {
 		audio.Play ();
 
 	}
-	void ElevatorStart()
+
+	public void ElevatorDoorOpen()
 	{
-		anim.Play();
+		anim.Play(anim.clip.name="ani_elevatOpen");
+	}
+
+	public void ElevatorDoorClose()
+	{
+		anim.Play(anim.clip.name="ani_elevatClose");
+	}
+	public void ElevatorStart()
+	{
+		anim.Play(anim.clip.name="ani_elevatMove");
 	}
 	//ACCESSED VIA ANIMATION EVENTS
 	public void SoundElevatorFloorSwitchBeep()
@@ -39,4 +49,5 @@ public class scr_Elevator : MonoBehaviour {
 	{PlaySound(2);}
 	public void SoundElevatorEndThud()
 	{PlaySound(3);}
+
 }
