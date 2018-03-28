@@ -5,9 +5,16 @@ using UnityEngine;
 public class scr_Elevator : MonoBehaviour {
 
 	private Animation anim;
+	[Header("Elevator Properties")]
 	public AudioClip[] audioClip;
+	public GameObject invisibleWall;
+
+	[Header("Loading/Unloading")]
+	public string roomToLoad;
+	public string roomToUnload;
 	void Start () {
 		anim= this.gameObject.GetComponent<Animation>();
+		invisibleWall.GetComponent<Collider>().enabled=false;
 	}
 	
 	void Update () {
@@ -27,11 +34,15 @@ public class scr_Elevator : MonoBehaviour {
 
 	public void ElevatorDoorOpen()
 	{
-		anim.Play(anim.clip.name="ani_elevatOpen");
+		PlaySound(4);
+		invisibleWall.GetComponent<Collider>().enabled=false;
+		anim.Play(anim.clip.name="ani_elevatOpen");	
 	}
 
 	public void ElevatorDoorClose()
 	{
+		PlaySound(5);
+		invisibleWall.GetComponent<Collider>().enabled=true;
 		anim.Play(anim.clip.name="ani_elevatClose");
 	}
 	public void ElevatorStart()
@@ -50,4 +61,14 @@ public class scr_Elevator : MonoBehaviour {
 	public void SoundElevatorEndThud()
 	{PlaySound(3);}
 
+
+	//UNLOADING AND LOADING ROOMS, ACCESSED VIA ANIMATION EVENTS
+	public void ElevatorLoading()
+	{
+		Scr_SceneManager.Instance.LoadNext(roomToLoad);
+	}
+	public void ElevatorUnloading()
+	{
+		Scr_SceneManager.Instance.LoadNext(roomToUnload);
+	}
 }
