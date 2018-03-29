@@ -69,6 +69,6 @@ public class scr_Elevator : MonoBehaviour {
 	}
 	public void ElevatorUnloading()
 	{
-		Scr_SceneManager.Instance.LoadNext(roomToUnload);
+		Scr_SceneManager.Instance.UnloadPrevious(roomToUnload);
 	}
 }
