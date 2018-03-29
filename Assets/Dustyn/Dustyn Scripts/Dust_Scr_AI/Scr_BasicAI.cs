@@ -4,16 +4,11 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class Scr_BasicAI : MonoBehaviour {
-	enum State {Idle, Patrol, Chase, Attack, AttackInPlace, Dying}
+	enum State {Idle, Patrol, Chase, Attack, AttackInPlace, Dying, RunToCover, InCover}
 
 	State currentState;
 
 	[Header("--- IMPLEMENTATION ---")]
-
-	[Header ("Bot Type - Only select one")]
-	public bool typePatrolBot;
-	public bool typeGuardBot;
-	public bool typeDroneBot;
 
 	[Header("Guard Style: Stationary Guard")]
 	[Tooltip("If Guard is stationary, ignore the patrol guard options")]
@@ -27,6 +22,13 @@ public class Scr_BasicAI : MonoBehaviour {
 	[Tooltip("For the Patrol Guard, only change the array below. Do not touch the values above")]
 	public Transform[] patrolPointArray;
 
+	[Header("GuardStyle: Chase or go to Cover")]
+	public bool goToCover;
+	public float runToCoverSpeed;
+	public float insideCoverDistance;
+	public float coverDistance;
+	public Transform coverPoint;
+	[Tooltip("If the bot chases the player, ignore these points")]
 
 	[Header("--- DO NOT TOUCH ---")]
 	
@@ -103,6 +105,8 @@ public class Scr_BasicAI : MonoBehaviour {
 			case State.Attack: this.Attack(); break;
 			case State.AttackInPlace: this.AttackInPlace(); break;
 			case State.Dying: this.Dying();break;
+			case State.RunToCover: this.RunToCover();break;
+			case State.InCover: this.InCover();break;
 		}
 
 		enemyCurrentState = "" + currentState;
@@ -112,6 +116,10 @@ public class Scr_BasicAI : MonoBehaviour {
 		if (!stationaryGuard)
 		{
 		patrolPointDistance =Vector3.Distance (transform.position, patrolPointArray[curPatrolPoint].transform.position);
+		}
+		if (goToCover)
+		{
+			coverDistance = Vector3.Distance(transform.position, coverPoint.transform.position);
 		}
 		
 		//MELEE, TO DO IN THE FUTURE
@@ -164,8 +172,11 @@ public class Scr_BasicAI : MonoBehaviour {
 
 	void Idle()
 	{
-		if (boolChase)
+		if (boolChase &&!goToCover)
 		{currentState= State.Chase;}
+
+		if (boolChase&&goToCover)
+		{currentState= State.RunToCover;}
 
 		/*if (floatDistance<=floatAlertedRange)
 		{currentState=State.Chase;}*/
@@ -179,10 +190,11 @@ public class Scr_BasicAI : MonoBehaviour {
 	{
 		navyMeshy.speed = floatSpeedHolder;
 
-		if (boolChase)
+		if (boolChase &&!goToCover)
 		{currentState= State.Chase;}
-		/*if (floatDistance<=floatAlertedRange)
-		{currentState=State.Chase;}*/
+
+		if (boolChase&&goToCover)
+		{currentState= State.RunToCover;}
 		
 		if (patrolPointDistance<=patrolPointSwitchDistance)
 		{
@@ -275,6 +287,24 @@ public class Scr_BasicAI : MonoBehaviour {
 			Destroy(this.gameObject, 3f);
 	}
 
+	void RunToCover()
+	{
+		if (healthScript.curHealth <=0) {currentState=State.Dying;}
+		if (insideCoverDistance>=coverDistance){currentState=State.InCover;}
+		navyMeshy.destination = coverPoint.position;
+		navyMeshy.speed = runToCoverSpeed;
+		return;
+	}
+
+	void InCover()
+	{
+		if (healthScript.curHealth <=0) {currentState=State.Dying;}
+		if (inLineOfSight){enemyShoot.isShooting =true;}
+		else {enemyShoot.isShooting=false;}
+		navyMeshy.speed=0;
+		transform.LookAt(target);
+		return;
+	}
 	public void Alerted()
 	{
 		//getting shot will alert
