@@ -107,14 +107,14 @@ public bool IsDebug;
 		//{
 		//doorActive=true;
 		PlaySound(3);
-		anim.Play(anim.clip.name="ani_DoorOpen");
+		anim.Play(anim.clip.name="ani_doorOpen");
 		//}
 	}
 
 	public void DoorClose()
 	{
 		PlaySound(4);
-		anim.Play(anim.clip.name="ani_DoorClose");
+		anim.Play(anim.clip.name="ani_doorClose");
 	}
 
 	//ACCESSED VIA ANIMATION EVENT
