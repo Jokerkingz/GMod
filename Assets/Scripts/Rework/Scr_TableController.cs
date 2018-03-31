@@ -17,8 +17,18 @@ public class Scr_TableController : MonoBehaviour {
 
 	// Print Data
 
-	public string[] vModType = new string[]{"Handle","Base","Module","Barrel","Extension","Sword","Shield"};
+	private string[] vModType = new string[]{"Handle","Base","Barrel","Magazine","Module"};//,"Extension","Sword","Shield"};
 	public int vModTypIndex;
+	private string[] vHandleType = new string[]{"Simple"};
+	public int vHandleTypIndex;
+	private string[] vBaseType = new string[]{"Simple","Cylinder","Magazine","Battery"};
+	public int vBaseTypIndex;
+	private string[] vBarrelType = new string[]{"Simple","Rail","DualPlasma"};
+	public int vBarrelTypIndex;
+	private string[] vMagazineType = new string[]{"Simple","Plasma"};
+	public int vMagazineTypIndex;
+	private string[] vModuleType = new string[]{"Rotator"};
+	public int vModuleTypIndex;
 	public string vSubType = "A"; //"B"
 	public float vCoolDown;
 	public GameObject vSpawnSpot;
@@ -26,11 +36,13 @@ public class Scr_TableController : MonoBehaviour {
 	//public Text vBrand;
 	public float vCD;
 	public string vCurrentChoice;
+
+	private Scr_System_SourceList cGE;
 	// Use this for initialization
 	void Start () {
-		vModType = new string[]{"Handle","Base","Barrel","Module","Magazine","Extension","Sword","Shield"};
 		vVectScale = new Vector3(.5f,vFloatUse,1);
 		vDisplay.transform.localScale = vVectScale;
+		cGE = GameObject.FindGameObjectWithTag("GameController").GetComponent<Scr_System_SourceList>();
 	}
 	
 	// Update is called once per frame
@@ -83,7 +95,8 @@ public class Scr_TableController : MonoBehaviour {
 		vFloatUse = 0f;
 
 	}
-	public void fPreviousPressed(){
+	// Category Change // Category Change // Category Change // Category Change // Category Change // Category Change // Category Change // Category Change
+	public void fPreviousCategory(){
 		if (vStatus != "Selection")
 			return;
 		vModTypIndex --;
@@ -92,7 +105,7 @@ public class Scr_TableController : MonoBehaviour {
 		vSubType = "A";
 		fCreateNewHolo();
 	}
-	public void fNextPressed(){
+	public void fNextCategory(){
 		if (vStatus != "Selection")
 			return;
 		vModTypIndex ++;
@@ -101,6 +114,80 @@ public class Scr_TableController : MonoBehaviour {
 		vSubType = "A";
 		fCreateNewHolo();
 	}
+	// Type Change // Type Change // Type Change // Type Change // Type Change // Type Change // Type Change // Type Change // Type Change // Type Change // Type Change // Type Change 
+	public void fNextType(){
+		if (vStatus != "Selection")
+			return;
+		switch (vModType[vModTypIndex]){
+		case "Handle":
+			vHandleTypIndex ++;
+			if (vHandleTypIndex >= vHandleType.Length)
+				vHandleTypIndex = 0;
+			break;
+		case "Base":
+			vBaseTypIndex ++;
+			if (vBaseTypIndex >= vBaseType.Length)
+				vBaseTypIndex = 0;
+			break;
+		case "Barrel":
+			vBarrelTypIndex ++;
+			if (vBarrelTypIndex >= vBarrelType.Length)
+				vBarrelTypIndex = 0;
+			break;
+		case "Magazine":
+			vMagazineTypIndex ++;
+			if (vMagazineTypIndex >= vMagazineType.Length)
+				vMagazineTypIndex = 0;
+			break;
+		case "Module":
+			vModuleTypIndex ++;
+			if (vModuleTypIndex >= vModuleType.Length)
+				vModuleTypIndex = 0;
+			break;
+
+
+			//"Handle","Base","Barrel","Magazine","Module"
+		}
+		vSubType = "A";
+		fCreateNewHolo();
+	}
+	public void fPreviousType(){
+		if (vStatus != "Selection")
+			return;
+		switch (vModType[vModTypIndex]){
+		case "Handle":
+			vHandleTypIndex --;
+			if (vHandleTypIndex < 0)
+				vHandleTypIndex = vHandleType.Length-1;
+			break;
+		case "Base":
+			vBaseTypIndex --;
+			if (vBaseTypIndex < 0)
+				vBaseTypIndex = vBaseType.Length-1;
+			break;
+		case "Barrel":
+			vBarrelTypIndex --;
+			if (vBarrelTypIndex < 0)
+				vBarrelTypIndex = vBarrelType.Length-1;
+			break;
+		case "Magazine":
+			vMagazineTypIndex --;
+			if (vMagazineTypIndex < 0)
+				vMagazineTypIndex = vMagazineType.Length-1;
+			break;
+		case "Module":
+			vModuleTypIndex --;
+			if (vModuleTypIndex < 0)
+				vModuleTypIndex = vModuleType.Length-1;
+			break;
+
+
+			//"Handle","Base","Barrel","Magazine","Module"
+		}
+		vSubType = "A";
+		fCreateNewHolo();
+	}
+	// Print Pressed // Print Pressed // Print Pressed // Print Pressed // Print Pressed // Print Pressed // Print Pressed // Print Pressed // Print Pressed // Print Pressed // Print Pressed
 	public void fPrintPressed(){
 		if (vStatus != "Selection")
 			return;
@@ -108,7 +195,8 @@ public class Scr_TableController : MonoBehaviour {
 		Destroy(vHologramObj);
 		vHologramObj = null;
 		vCD = 0;
-		GameObject vPrefab = Resources.Load(vCurrentChoice) as GameObject;
+		//string tNewName;
+		GameObject vPrefab = cGE.fGetPrefab(vCurrentChoice);
 		if (vPrefab != null){
 			vPrefab = Instantiate(vPrefab) ;
 			vPrefab.transform.position = this.transform.position;
@@ -120,10 +208,16 @@ public class Scr_TableController : MonoBehaviour {
 		Destroy(vHologramObj);
 		vHologramObj = null;
 		//Debug.Log(tTemp);
-		string tTemp = "Pre_Mod_"+vModType[vModTypIndex]+"_"+vSubType;
+
+		string tTemp = vGetType();
+		tTemp = vModType[vModTypIndex]+"_"+tTemp+"_"+vSubType;
 		Debug.Log(tTemp);
-		vCurrentChoice = tTemp;
-		GameObject tPrefab = Resources.Load(tTemp) as GameObject;
+		GameObject tPrefab = cGE.fGetPrefab(tTemp);
+		if (tPrefab == null){
+			tPrefab = cGE.fGetPrefab(vCurrentChoice);
+			}
+		else
+			vCurrentChoice = tTemp;
 		if (tPrefab != null){
 			vAngle = 0;
 			vHologramObj = Instantiate(tPrefab);
@@ -157,73 +251,16 @@ public class Scr_TableController : MonoBehaviour {
 			}
 
 	}
-	/*
-	public void ShowHollogram(GameObject tReference){
-		if (vStatus == "Nothing"){
-			vHoloRate = 1f;
-			if (vHologramObj == null && vHologramSource == null && GameObject.FindGameObjectsWithTag("Hollow").Length <= 0){
-					List<GameObject> tColliderList = new List<GameObject>();
-					Transform[] tTransList = tReference.GetComponentsInChildren<Transform>();
-					foreach (Transform tObjects in tTransList){
-						if (tObjects.tag == "GripPart")
-							tColliderList.Add(tObjects.gameObject);
-					}
-			vHologramSource = tReference;
 
-			// hologram creation
-				vHologramObj = Instantiate(tReference) as GameObject;
-				vHologramObj.BroadcastMessage("TurnOff","Hollow");
-				vHologramObj.transform.SetParent(this.transform);
-				vHologramObj.transform.position = this.transform.position;
-				vHologramObj.transform.eulerAngles = this.transform.eulerAngles;
-
-				tTransList = new Transform[0];
-				tTransList = vHologramObj.GetComponentsInChildren<Transform>();
-				foreach (Transform tObjects in tTransList)
-					tObjects.tag = "Hollow";
-				// Turn Off Scripts
-				OVRGrabbable[] tOVRGrabbableList = vHologramObj.GetComponentsInChildren<OVRGrabbable>();
-				foreach (OVRGrabbable tOVRGrabbable in tOVRGrabbableList)
-					//Destroy(tOVRGrabbable);
-				tOVRGrabbable.enabled = false;
-				Scr_Male_Socket[] tMaleSocketList = vHologramObj.GetComponentsInChildren<Scr_Male_Socket>();
-				foreach (Scr_Male_Socket tMaleSocket in tMaleSocketList)
-					tMaleSocket.enabled = false;
-				Scr_Female_Socket[] tFemaleSocketList = vHologramObj.GetComponentsInChildren<Scr_Female_Socket>();
-				foreach (Scr_Female_Socket tFemaleSocket in tFemaleSocketList)
-					tFemaleSocket.enabled = false;
-				Scr_ModSystem_Handler[] tModHandlerList = vHologramObj.GetComponentsInChildren<Scr_ModSystem_Handler>();
-				foreach (Scr_ModSystem_Handler tModHandler in tModHandlerList)
-					tModHandler.enabled = false;
-
-				Renderer[] tListA =  vHologramObj.GetComponentsInChildren <Renderer>();
-				foreach (Renderer tR in tListA){
-					Material[] tNew = new Material[tR.materials.Length];
-					for(int i = 0; i < tR.materials.Length;i++)
-						tNew[i] = vHoloMaterial;
-					tR.materials = tNew;
-				}
-			}
+	string vGetType(){
+		string tTemp = "";
+		switch (vModType[vModTypIndex]){
+		case "Handle": tTemp = vHandleType[vHandleTypIndex]; break;
+		case "Base": tTemp = vBaseType[vBaseTypIndex]; break;
+		case "Barrel": tTemp = vBarrelType[vBarrelTypIndex]; break;
+		case "Magazine": tTemp = vMagazineType[vMagazineTypIndex]; break;
+		case "Module": tTemp = vModuleType[vModuleTypIndex]; break;
 		}
+		return tTemp;
 	}
-
-
-			case "Print":
-				cAS.PlayOneShot(vSFXPrint,.5f);
-				tTemp = "Pre_Mod_"+vModType[vModTypIndex]+"_"+vSubType;
-				Debug.Log(tTemp);
-				vPrefab = Resources.Load(tTemp) as GameObject;
-				if (vPrefab != null){
-					vPrefab = Instantiate(vPrefab) ;
-					vPrefab.transform.position = vSpawnSpot.transform.position;
-					}
-				break;
-			}
-			tTemp = "Pre_Mod_"+vModType[vModTypIndex]+"_"+vSubType;
-			vPrefab = Resources.Load(tTemp) as GameObject;
-			if (vPrefab == null)
-				vSubType = "A";
-			vMiddle.text = vModType[vModTypIndex]+ " " + vSubType;
-			}
-			*/
 }

@@ -19,11 +19,11 @@ public class Scr_ModBarrel : MonoBehaviour {
 				GameObject tObj = Instantiate(tTemp);
 				//tBullet.vCurrentAmmo -= 1;
 				tObj.transform.position = this.transform.position;
-				Vector3 tTrajectory = new Vector3(this.transform.eulerAngles.x+Random.Range(-5f,5f),this.transform.eulerAngles.y+Random.Range(-5f,5f),this.transform.eulerAngles.z+Random.Range(-5f,5f));
+				Vector3 tTrajectory = new Vector3(this.transform.eulerAngles.x+Random.Range(-2f,2f),this.transform.eulerAngles.y+Random.Range(-2f,2f),this.transform.eulerAngles.z+Random.Range(-2f,2f));
 				tObj.transform.eulerAngles = tTrajectory;
 				//Scr_DestroyTime tDest = 
 				tObj.AddComponent<Scr_DestroyTime>().fStartTimer(3f);
-				vCoolDown = .05f;
+				vCoolDown = .1f;
 				//tObj = Instantiate(vVFX);
 				//tObj.transform.position = this.transform.position;
 				//tObj.transform.eulerAngles = this.transform.eulerAngles;

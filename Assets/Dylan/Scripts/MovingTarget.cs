@@ -30,10 +30,11 @@ public class MovingTarget : MonoBehaviour
 			yield return null;
 		}
 	}
+	/*
 	void OnTriggerEnter (Collider other){
 		//Destroy (gameObject);
 		GameObject tObj = Instantiate(vParticle);
 		tObj.transform.position = this.transform.position;
 		this.gameObject.SetActive(false);
-	}
+	} */
 }

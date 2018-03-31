@@ -6,8 +6,12 @@ public class Scr_ModLoadMain : MonoBehaviour {
 	//public string vOriginalString;
 	public string[] vStringList = new string[0];
 	public string vPartOfString;
+	public Scr_System_SourceList cGE;
 	// Use this for initialization
+	void Start(){
+		cGE = GameObject.FindGameObjectWithTag("GameController").GetComponent<Scr_System_SourceList>();
 
+	}
 	[ContextMenu("Convert")]
 	public void fConvert (string tLoadthis) {
 		vStringList = tLoadthis.Split("#"[0]);
@@ -18,7 +22,9 @@ public class Scr_ModLoadMain : MonoBehaviour {
 			tDivide = vStringList[i].Split("/"[0]);
 			foreach(Scr_ModSaverSocket tSocket in tMSS){
 				if (tSocket.vSocketID == tDivide[0]){
-					GameObject vPrefab = Resources.Load(tDivide[1]) as GameObject;
+					Debug.Log(tDivide[1] + " Is being Tried to be made");
+					GameObject vPrefab = cGE.fGetPrefab(tDivide[1]);
+					//GameObject vPrefab = Resources.Load(tDivide[1]) as GameObject;
 					if (vPrefab != null){
 						if (tSocket.vConnection != null)
 							tSocket.vConnection.GetComponent<Scr_Male_Socket>().Detach(tSocket.vConnection);

@@ -65,7 +65,6 @@ public class Scr_Belt_Ammunition : MonoBehaviour {
 		vPresentMagazines = new GameObject[3];
 		vShowing = false;
 		foreach (Scr_Mod_Magazine tMagazine in tMagazineList){
-			Debug.Log("Found a Mag");
 			tObj = tMagazine.vMagazineToPop;
 			vNameOfMagazine[tCount] = tMagazine.GetComponent<Scr_ModSaverPart>().vPartType;
 			vPresentMagazines[tCount] = Instantiate(tObj);
