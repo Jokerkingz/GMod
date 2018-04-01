@@ -10,9 +10,14 @@ public class Scr_roomSwitch : MonoBehaviour {
 	public float waitTimer;
 	private Collider trigCollider;
 	
+	public bool doesUntagFloors;
+	public GameObject[] floorTiles;
 
 	void Start () {
 		trigCollider = this.gameObject.GetComponent<Collider>();
+
+		/*if (doesUntagFloors)
+		{floorTiles = GameObject.FindGameObjectsWithTag("Floor");}*/
 	}
 	
 	void OnTriggerEnter(Collider col)
@@ -28,6 +33,9 @@ public class Scr_roomSwitch : MonoBehaviour {
 		}
 		trigCollider.enabled=false;
 
+		if (doesUntagFloors)
+		{UntagFloor();}
+
 		}
 	}
 
@@ -37,4 +45,12 @@ public class Scr_roomSwitch : MonoBehaviour {
 		nextDoor.GetComponent<Scr_Door>().DoorUnlocked();
 
 	}
+
+	void UntagFloor()
+	{
+		foreach (GameObject floorTile in floorTiles )
+		if (floorTile.tag == "Floor")
+		{floorTile.tag  = "Untagged";}
+	}
 }
+
