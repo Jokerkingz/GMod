@@ -103,12 +103,20 @@ public bool IsDebug;
 		DeleteUnnecessaryDoors();
 		Debug.Log("Opening");*/
 		
-		//if (!doorActive)
-		//{
-		//doorActive=true;
+		if (!doorActive &&isUnlocked)
+		{
+		doorActive=true;
+		StartLoadingNext();
+		StartUnloadingPrevious();
+		DeleteUnnecessaryDoors();
 		PlaySound(3);
 		anim.Play(anim.clip.name="ani_doorOpen");
-		//}
+		}
+
+		if (!isUnlocked)
+		{
+		PlaySound(2);
+		}
 	}
 
 	public void DoorClose()
