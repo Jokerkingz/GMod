@@ -27,8 +27,12 @@ public class Scr_BasicAI : MonoBehaviour {
 	public float runToCoverSpeed;
 	public float insideCoverDistance;
 	public float coverDistance;
-	public Transform coverPoint;
 	[Tooltip("If the bot chases the player, ignore these points")]
+	public Transform coverPoint;
+	
+	[Header("Check for Player")]
+	public bool isCheckingWithRayCast;
+	public bool isCheckingWithDistanceAndAngle;
 
 	[Header("--- DO NOT TOUCH ---")]
 	
@@ -135,9 +139,10 @@ public class Scr_BasicAI : MonoBehaviour {
 	void FixedUpdate()
 	{
 		//-------RAYCAST
-		/*RaycastHit hit;
-		Debug.DrawRay (transform.position, transform.TransformDirection(Vector3.forward*rayDistance), Color.red);
-		if (Physics.Raycast (transform.position, transform.TransformDirection(Vector3.forward*rayDistance), out hit))
+		if (isCheckingWithRayCast){
+		RaycastHit hit;
+		Debug.DrawRay (transform.position +transform.up *0.75f, transform.TransformDirection(Vector3.forward*rayDistance), Color.red);
+		if (Physics.Raycast (transform.position+transform.up *0.75f, transform.TransformDirection(Vector3.forward*rayDistance), out hit))
 		if (hit.collider.CompareTag("Player")) {
 			Alerted();
 			inLineOfSight=true;
@@ -147,9 +152,10 @@ public class Scr_BasicAI : MonoBehaviour {
 			inLineOfSight =false;
 			enemyShoot.isShooting=false;
 		}
-	 */
+		}
 
 	 //-------DISTANCE + ANGLE CHECK
+	if (isCheckingWithDistanceAndAngle){
 	 Vector3 direction = target.position - this.transform.position;
 	 float angle = Vector3.Angle (direction, this.transform.forward);
 	if (Vector3.Distance (target.position, this.transform.position) < viewDistance && angle<viewAngle)
@@ -161,7 +167,7 @@ public class Scr_BasicAI : MonoBehaviour {
 		inLineOfSight =false;
 		enemyShoot.isShooting=false;
 	}
-
+	}
 	if (inLineOfSight)
 	{
 		boolChase=true;
