@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1509,7 +1509,7 @@ MeshRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1667332867}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1550,8 +1550,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomToLoad: Sce_level0019
   roomToUnload: Sce_level0017
-  loadTimer: 1.3
-  unloadTimer: 1.1
+  loadTimer: 1
+  unloadTimer: 1
 --- !u!65 &1667332870
 BoxCollider:
   m_ObjectHideFlags: 0

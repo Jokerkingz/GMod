@@ -12,6 +12,9 @@ public class Scr_HandPrintInput : MonoBehaviour {
 	private ParticleSystem[] vList = new ParticleSystem[0];
 	void Start(){
 		vList = GetComponentsInChildren<ParticleSystem>();
+		GetComponentsInChildren<HandSymbolState>();
+
+
 
 	}
 	void Update(){
@@ -30,9 +33,11 @@ public class Scr_HandPrintInput : MonoBehaviour {
 			}
 			else{
 				vDoorSource.fDoorOpen();
-				vDone = true;}
+				//vDone = true;
+				vCook = 0f;
+				}
 			Debug.Log("I found the Hand");
-			enabled = false;
+			//enabled = false;
 		}
 		vCook = Mathf.Clamp(vCook,0f,3f);
 	}

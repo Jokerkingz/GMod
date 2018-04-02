@@ -536,9 +536,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 1
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: deca2990c9fc81e45ad405624a739b2a, type: 3}
 --- !u!64 &64834075824467504
@@ -550,9 +550,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 1
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300006, guid: deca2990c9fc81e45ad405624a739b2a, type: 3}
 --- !u!64 &64997847139387606
@@ -564,9 +564,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 1
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: deca2990c9fc81e45ad405624a739b2a, type: 3}
 --- !u!65 &65352678501216912
@@ -774,7 +774,6 @@ MonoBehaviour:
   vMaterialGood: {fileID: 2100000, guid: 670e11c956fc6de4cb777d663ce9bbae, type: 2}
   vMaterialBad: {fileID: 2100000, guid: dc826689a7577db41ae9ed34b7b67531, type: 2}
   tCollideList: []
-  vHollowAngle: {x: 0, y: 0, z: 0}
   vPartType: Handle
   vSFX: {fileID: 8300000, guid: bdef2cfab008c48158badaea25324753, type: 3}
 --- !u!114 &114867631863262136

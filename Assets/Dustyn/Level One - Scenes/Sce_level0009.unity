@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 180558131}
   - component: {fileID: 180558130}
   - component: {fileID: 180558129}
+  - component: {fileID: 180558133}
   m_Layer: 0
   m_Name: EnemyPlaceHolder
   m_TagString: AI
@@ -198,6 +199,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &180558133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 180558128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dd9cf513086ce647a49474696ccea48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &580634064
 Prefab:
   m_ObjectHideFlags: 0
@@ -2023,6 +2035,7 @@ GameObject:
   - component: {fileID: 1448308073}
   - component: {fileID: 1448308072}
   - component: {fileID: 1448308071}
+  - component: {fileID: 1448308075}
   m_Layer: 0
   m_Name: EnemyPlaceHolder (1)
   m_TagString: AI
@@ -2097,6 +2110,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1448308075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1448308070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dd9cf513086ce647a49474696ccea48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1580098773
 Prefab:
   m_ObjectHideFlags: 0
@@ -2201,6 +2225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesLeft: 0
   doorGoal: {fileID: 1580098774}
+  enemiesToAlert: []
 --- !u!4 &1663719822
 Transform:
   m_ObjectHideFlags: 0

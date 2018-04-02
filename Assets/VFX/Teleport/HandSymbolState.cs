@@ -11,18 +11,17 @@ public class HandSymbolState : MonoBehaviour {
 	void Start () {
 		
 	}
-	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown ("space") && active == true) {
+		if (!active) {
 			ParticleSystem.MainModule settings = GetComponent<ParticleSystem>().main;
 			settings.startColor = new ParticleSystem.MinMaxGradient(inactiveColor);
-			active = false;
+
 		}
-		else if(Input.GetKeyDown ("space") && active == false) {
+		else {
 			ParticleSystem.MainModule settings = GetComponent<ParticleSystem>().main;
 			settings.startColor = new ParticleSystem.MinMaxGradient(activeColor);
-			active = true;
+
 		}
 		
 	}

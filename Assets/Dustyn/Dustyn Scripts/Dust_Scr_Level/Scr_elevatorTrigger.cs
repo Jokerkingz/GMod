@@ -19,7 +19,7 @@ public class Scr_elevatorTrigger : MonoBehaviour {
 
 	void OnTriggerEnter (Collider col)
 	{
-		if (col.tag=="Player")
+		if (col.tag=="MainOVR")
 		{
 			if (exteriorTrigger)
 			{

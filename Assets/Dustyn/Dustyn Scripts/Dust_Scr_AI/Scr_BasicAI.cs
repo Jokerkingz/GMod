@@ -45,6 +45,7 @@ public class Scr_BasicAI : MonoBehaviour {
 	public Scr_HealthScript healthScript;
 	public Scr_EnemyShoot enemyShoot;
 	public Rigidbody rgbd;
+	public LayerMask vLayer;
 	//private Animator anim;
 
 	[Header("Bools")]
@@ -74,7 +75,8 @@ public class Scr_BasicAI : MonoBehaviour {
 		rgbd = this.gameObject.GetComponent<Rigidbody>();
 
 		//anim = this.gameObject.GetComponent<Animator>();
-		target = GameObject.FindWithTag("Player").transform;
+		//target = GameObject.FindWithTag("Player").transform;
+		target = GameObject.FindWithTag("MainOVR").transform;
 
 
 
@@ -140,10 +142,10 @@ public class Scr_BasicAI : MonoBehaviour {
 	{
 		//-------RAYCAST
 		if (isCheckingWithRayCast){
-		RaycastHit hit;
+		/*RaycastHit hit;
 		Debug.DrawRay (transform.position +transform.up *0.75f, transform.TransformDirection(Vector3.forward*rayDistance), Color.red);
 		if (Physics.Raycast (transform.position+transform.up *0.75f, transform.TransformDirection(Vector3.forward*rayDistance), out hit))
-		if (hit.collider.CompareTag("Player")) {
+		if (hit.collider.CompareTag("MainOVR")) {
 			Alerted();
 			inLineOfSight=true;
 		}
@@ -151,7 +153,24 @@ public class Scr_BasicAI : MonoBehaviour {
 		{
 			inLineOfSight =false;
 			enemyShoot.isShooting=false;
-		}
+		}*/
+
+
+			Ray tRay = new Ray(transform.position+transform.up *0.75f, transform.TransformDirection(Vector3.forward*rayDistance));
+			Debug.DrawRay (transform.position +transform.up *0.75f, transform.TransformDirection(Vector3.forward*rayDistance), Color.red);
+			RaycastHit tHit;
+
+			if (Physics.Raycast(tRay, out tHit, rayDistance, vLayer))
+			{
+			if (tHit.collider.CompareTag("MainOVR"))
+			{
+			Alerted();
+			inLineOfSight=true;
+			}
+			else{
+			inLineOfSight=false;
+			enemyShoot.isShooting=false;
+			}
 		}
 
 	 //-------DISTANCE + ANGLE CHECK
@@ -160,19 +179,23 @@ public class Scr_BasicAI : MonoBehaviour {
 	 float angle = Vector3.Angle (direction, this.transform.forward);
 	if (Vector3.Distance (target.position, this.transform.position) < viewDistance && angle<viewAngle)
 	{
-		inLineOfSight=true;
+		//inLineOfSight=true;
+			transform.LookAt(target);
 	}
-	else 
+	/*else 
 	{
 		inLineOfSight =false;
 		enemyShoot.isShooting=false;
 	}
-	}
+	}*/
 	if (inLineOfSight)
 	{
 		boolChase=true;
 	}
 
+
+	}
+	}
 	}
 	
 

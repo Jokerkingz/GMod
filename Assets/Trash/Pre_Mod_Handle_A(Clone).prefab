@@ -4029,9 +4029,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 1
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300006, guid: deca2990c9fc81e45ad405624a739b2a, type: 3}
 --- !u!64 &64308731452983246
@@ -4043,9 +4043,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 1
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: deca2990c9fc81e45ad405624a739b2a, type: 3}
 --- !u!64 &64319338541732954
@@ -4057,9 +4057,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 1
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: deca2990c9fc81e45ad405624a739b2a, type: 3}
 --- !u!64 &64358281805574962
@@ -4071,9 +4071,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 1
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: deca2990c9fc81e45ad405624a739b2a, type: 3}
 --- !u!64 &64376079583096486
@@ -4085,9 +4085,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 1
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: deca2990c9fc81e45ad405624a739b2a, type: 3}
 --- !u!64 &64386647866105832
@@ -4099,9 +4099,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 1
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!64 &64564827893071678
@@ -4113,9 +4113,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 1
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!64 &64748163718601884
@@ -4127,9 +4127,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 1
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 2ac8636fa58397f48b5fe71a848a11e9, type: 3}
 --- !u!64 &64824825761343366
@@ -4141,9 +4141,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 1
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: deca2990c9fc81e45ad405624a739b2a, type: 3}
 --- !u!64 &64978336648787618
@@ -4155,9 +4155,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 1
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: deca2990c9fc81e45ad405624a739b2a, type: 3}
 --- !u!65 &65069698331057358
@@ -5783,7 +5783,6 @@ MonoBehaviour:
   vMaterialBad: {fileID: 2100000, guid: dc826689a7577db41ae9ed34b7b67531, type: 2}
   tCollideList:
   - {fileID: 0}
-  vHollowAngle: {x: 0, y: 90, z: 0}
   vPartType: Base
   vSFX: {fileID: 8300000, guid: bdef2cfab008c48158badaea25324753, type: 3}
 --- !u!114 &114229537309357986
@@ -5841,7 +5840,6 @@ MonoBehaviour:
   vMaterialBad: {fileID: 2100000, guid: dc826689a7577db41ae9ed34b7b67531, type: 2}
   tCollideList:
   - {fileID: 0}
-  vHollowAngle: {x: 0, y: -90, z: 0}
   vPartType: Base
   vSFX: {fileID: 8300000, guid: bdef2cfab008c48158badaea25324753, type: 3}
 --- !u!114 &114252436090240732
@@ -6086,7 +6084,6 @@ MonoBehaviour:
   vMaterialBad: {fileID: 2100000, guid: dc826689a7577db41ae9ed34b7b67531, type: 2}
   tCollideList:
   - {fileID: 0}
-  vHollowAngle: {x: 0, y: 90, z: 0}
   vPartType: Base
   vSFX: {fileID: 8300000, guid: bdef2cfab008c48158badaea25324753, type: 3}
 --- !u!114 &114401418671715638
@@ -6167,7 +6164,6 @@ MonoBehaviour:
   vMaterialBad: {fileID: 2100000, guid: dc826689a7577db41ae9ed34b7b67531, type: 2}
   tCollideList:
   - {fileID: 0}
-  vHollowAngle: {x: 0, y: 0, z: 0}
   vPartType: Base
   vSFX: {fileID: 8300000, guid: bdef2cfab008c48158badaea25324753, type: 3}
 --- !u!114 &114549972337224406
@@ -6253,7 +6249,6 @@ MonoBehaviour:
   vMaterialGood: {fileID: 2100000, guid: 670e11c956fc6de4cb777d663ce9bbae, type: 2}
   vMaterialBad: {fileID: 2100000, guid: dc826689a7577db41ae9ed34b7b67531, type: 2}
   tCollideList: []
-  vHollowAngle: {x: 0, y: 0, z: 0}
   vPartType: Base
   vSFX: {fileID: 8300000, guid: bdef2cfab008c48158badaea25324753, type: 3}
 --- !u!114 &114630031027871972
@@ -6277,7 +6272,6 @@ MonoBehaviour:
   vMaterialBad: {fileID: 2100000, guid: dc826689a7577db41ae9ed34b7b67531, type: 2}
   tCollideList:
   - {fileID: 0}
-  vHollowAngle: {x: 0, y: 0, z: 0}
   vPartType: Handle
   vSFX: {fileID: 8300000, guid: bdef2cfab008c48158badaea25324753, type: 3}
 --- !u!114 &114631690272026420
@@ -6380,7 +6374,6 @@ MonoBehaviour:
   vMaterialGood: {fileID: 2100000, guid: 670e11c956fc6de4cb777d663ce9bbae, type: 2}
   vMaterialBad: {fileID: 2100000, guid: dc826689a7577db41ae9ed34b7b67531, type: 2}
   tCollideList: []
-  vHollowAngle: {x: 0, y: 90, z: 0}
   vPartType: Extension
   vSFX: {fileID: 8300000, guid: bdef2cfab008c48158badaea25324753, type: 3}
 --- !u!114 &114680882359782370
@@ -6418,7 +6411,6 @@ MonoBehaviour:
   vMaterialBad: {fileID: 2100000, guid: dc826689a7577db41ae9ed34b7b67531, type: 2}
   tCollideList:
   - {fileID: 0}
-  vHollowAngle: {x: 0, y: 0, z: 0}
   vPartType: Base
   vSFX: {fileID: 8300000, guid: bdef2cfab008c48158badaea25324753, type: 3}
 --- !u!114 &114694278030479066
@@ -6484,7 +6476,6 @@ MonoBehaviour:
   vMaterialBad: {fileID: 2100000, guid: dc826689a7577db41ae9ed34b7b67531, type: 2}
   tCollideList:
   - {fileID: 0}
-  vHollowAngle: {x: 0, y: -90, z: 0}
   vPartType: Base
   vSFX: {fileID: 8300000, guid: bdef2cfab008c48158badaea25324753, type: 3}
 --- !u!114 &114703493813707228
@@ -6598,7 +6589,6 @@ MonoBehaviour:
   vMaterialBad: {fileID: 2100000, guid: dc826689a7577db41ae9ed34b7b67531, type: 2}
   tCollideList:
   - {fileID: 0}
-  vHollowAngle: {x: 0, y: 0, z: 0}
   vPartType: Base
   vSFX: {fileID: 8300000, guid: bdef2cfab008c48158badaea25324753, type: 3}
 --- !u!135 &135023640442185758
@@ -6826,7 +6816,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1239928865255846}
   m_LocalRotation: {x: 0.70710677, y: 0.7071069, z: 0.000000029802322, w: 0.0000021010637}
-  m_LocalPosition: {x: 0.00599958, y: 0.53398615, z: 0.14699855}
+  m_LocalPosition: {x: 0, y: 0, z: 0.14699855}
   m_LocalScale: {x: 1.0000008, y: 1.0000011, z: 1.0000017}
   m_Children: []
   m_Father: {fileID: 4978546742940890}
@@ -6844,7 +6834,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1015053482488512}
   m_LocalRotation: {x: 0.70710677, y: 0.7071069, z: -0, w: 0.0000021010637}
-  m_LocalPosition: {x: 0.0059814453, y: 0.53398705, z: 0.14699692}
+  m_LocalPosition: {x: 0, y: 0, z: 0.14699692}
   m_LocalScale: {x: 0.0050000064, y: 0.005000008, z: 0.0050000134}
   m_Children: []
   m_Father: {fileID: 4978546742940890}

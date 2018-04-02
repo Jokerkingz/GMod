@@ -2375,9 +2375,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 1
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300006, guid: deca2990c9fc81e45ad405624a739b2a, type: 3}
 --- !u!64 &64137667862697364
@@ -2389,9 +2389,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 1
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: d37e064fc2f7a1f4a82ae9b41412cee6, type: 3}
 --- !u!64 &64180045892224468
@@ -2403,9 +2403,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 1
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: deca2990c9fc81e45ad405624a739b2a, type: 3}
 --- !u!64 &64238130382353382
@@ -2417,9 +2417,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 1
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: deca2990c9fc81e45ad405624a739b2a, type: 3}
 --- !u!64 &64492372327756400
@@ -2431,9 +2431,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 1
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 24dad45ea27af4542a948ce69e36da22, type: 3}
 --- !u!64 &64618776032820786
@@ -2445,9 +2445,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 1
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!64 &64705136634769554
@@ -2459,9 +2459,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 1
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: deca2990c9fc81e45ad405624a739b2a, type: 3}
 --- !u!65 &65306691373798638
@@ -3399,7 +3399,6 @@ MonoBehaviour:
   vMaterialGood: {fileID: 2100000, guid: 670e11c956fc6de4cb777d663ce9bbae, type: 2}
   vMaterialBad: {fileID: 2100000, guid: dc826689a7577db41ae9ed34b7b67531, type: 2}
   tCollideList: []
-  vHollowAngle: {x: 0, y: 0, z: 0}
   vPartType: Base
   vSFX: {fileID: 8300000, guid: bdef2cfab008c48158badaea25324753, type: 3}
 --- !u!114 &114111669565148112
@@ -3435,7 +3434,6 @@ MonoBehaviour:
   vMaterialGood: {fileID: 2100000, guid: 670e11c956fc6de4cb777d663ce9bbae, type: 2}
   vMaterialBad: {fileID: 2100000, guid: dc826689a7577db41ae9ed34b7b67531, type: 2}
   tCollideList: []
-  vHollowAngle: {x: 0, y: 0, z: 0}
   vPartType: Base
   vSFX: {fileID: 8300000, guid: bdef2cfab008c48158badaea25324753, type: 3}
 --- !u!114 &114141115369217550
@@ -3459,7 +3457,6 @@ MonoBehaviour:
   vMaterialBad: {fileID: 2100000, guid: dc826689a7577db41ae9ed34b7b67531, type: 2}
   tCollideList:
   - {fileID: 0}
-  vHollowAngle: {x: 0, y: -90, z: 0}
   vPartType: Handle
   vSFX: {fileID: 8300000, guid: bdef2cfab008c48158badaea25324753, type: 3}
 --- !u!114 &114177399350113282
@@ -3694,7 +3691,6 @@ MonoBehaviour:
   vMaterialBad: {fileID: 2100000, guid: dc826689a7577db41ae9ed34b7b67531, type: 2}
   tCollideList:
   - {fileID: 0}
-  vHollowAngle: {x: 0, y: 180, z: 0}
   vPartType: Base
   vSFX: {fileID: 8300000, guid: bdef2cfab008c48158badaea25324753, type: 3}
 --- !u!114 &114793770297880594
@@ -3732,7 +3728,6 @@ MonoBehaviour:
   vMaterialBad: {fileID: 2100000, guid: dc826689a7577db41ae9ed34b7b67531, type: 2}
   tCollideList:
   - {fileID: 0}
-  vHollowAngle: {x: 0, y: -90, z: 0}
   vPartType: Base
   vSFX: {fileID: 8300000, guid: bdef2cfab008c48158badaea25324753, type: 3}
 --- !u!114 &114837425871373378
@@ -3769,7 +3764,6 @@ MonoBehaviour:
   vMaterialGood: {fileID: 2100000, guid: 670e11c956fc6de4cb777d663ce9bbae, type: 2}
   vMaterialBad: {fileID: 2100000, guid: dc826689a7577db41ae9ed34b7b67531, type: 2}
   tCollideList: []
-  vHollowAngle: {x: 0, y: 0, z: 0}
   vPartType: Base
   vSFX: {fileID: 8300000, guid: bdef2cfab008c48158badaea25324753, type: 3}
 --- !u!114 &114892869789494244

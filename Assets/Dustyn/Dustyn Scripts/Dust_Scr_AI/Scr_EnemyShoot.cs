@@ -27,17 +27,22 @@ public class Scr_EnemyShoot : MonoBehaviour {
 		{
 			StartCoroutine(CoolDown());
 			
-			GameObject tempBulletHandler;
+			/*GameObject tempBulletHandler;
 			tempBulletHandler = Instantiate(bullet, barrel.transform.position, barrel.transform.rotation);
 
 			tempBulletHandler.transform.Rotate (Vector3.left *90);
 
 			Rigidbody tempRB;
 			tempRB =tempBulletHandler.GetComponent<Rigidbody>();
-			tempRB.AddForce(transform.forward * bulletforce);
+			tempRB.AddForce(transform.forward * bulletforce);*/
+			GameObject tObj = Instantiate(bullet);
+			tObj.transform.position = barrel.transform.position;
+				Vector3 tTrajectory = new Vector3(this.transform.eulerAngles.x+Random.Range(-2f,2f),this.transform.eulerAngles.y+Random.Range(-2f,2f),this.transform.eulerAngles.z+Random.Range(-2f,2f));
+				tObj.transform.eulerAngles = tTrajectory;
+				tObj.AddComponent<Scr_DestroyTime>().fStartTimer(3f);
 			
 
-			Destroy (tempBulletHandler, 10.0f);
+			//Destroy (tempBulletHandler, 10.0f);
 
 		}
 	}
@@ -48,5 +53,6 @@ public class Scr_EnemyShoot : MonoBehaviour {
 		yield return new WaitForSeconds (coolDownTime);
 		canShoot=true;
 	}
+
 
 }

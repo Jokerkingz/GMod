@@ -30,7 +30,7 @@ public class Scr_Bullet : MonoBehaviour {
 		vPreviousPosition = this.transform.position;
 		}
 	void fHit(GameObject tObj, Vector3 tPoint, Rigidbody tOther){
-		if (tObj.tag == "Target")
+		if (tObj.tag == "Target" || tObj.tag == "AI")
 			tObj.SendMessage("fHit");
 		GameObject tTEmp = Instantiate(vSpark);
 		tTEmp.transform.position = tPoint;

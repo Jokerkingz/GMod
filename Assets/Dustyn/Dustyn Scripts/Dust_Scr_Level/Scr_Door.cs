@@ -23,6 +23,12 @@ public bool IsDebug;
 	void Start () {
 		//sceneManager = FindObjectOfType<Scr_SceneManager>();
 		anim = this.gameObject.GetComponent<Animation>();
+		if (!isUnlocked){
+			HandSymbolState[] HandList = GetComponentsInChildren<HandSymbolState>();
+			foreach (HandSymbolState Hand in HandList){
+				Hand.active = false;
+				}	
+			}
 	}
 	
 
@@ -93,6 +99,12 @@ public bool IsDebug;
 		//PLAYER CAN OPEN DOOR NOW
 		PlaySound(0);
 		isUnlocked =true;
+
+		HandSymbolState[] HandList = GetComponentsInChildren<HandSymbolState>();
+		foreach (HandSymbolState Hand in HandList){
+			Hand.active = true;
+			}	
+		
 	}
 
 	public void fDoorOpen()

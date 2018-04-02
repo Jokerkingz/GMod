@@ -15,7 +15,7 @@ public class Scr_trigLoad : MonoBehaviour {
 	}
 	void OnTriggerEnter (Collider col)
 	{
-		if (col.tag =="Player")
+		if (col.tag =="MainOVR")
 		{
 			trigCollider.enabled=false;
 			if (roomToLoad !=null)
