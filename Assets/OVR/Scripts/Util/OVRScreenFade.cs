@@ -30,6 +30,7 @@ public class OVRScreenFade : MonoBehaviour
 	/// <summary>
 	/// How long it takes to fade.
 	/// </summary>
+	public string vState = "FadeIn";
 	public float fadeTime = 2.0f;
 
 	/// <summary>
@@ -55,7 +56,8 @@ public class OVRScreenFade : MonoBehaviour
 	/// </summary>
 	void OnEnable()
 	{
-		StartCoroutine(FadeIn());
+		//StartCoroutine(FadeIn());
+		//StartCoroutine(FadeOut());
 	}
 
 	/// <summary>
@@ -66,8 +68,10 @@ public class OVRScreenFade : MonoBehaviour
 #else
 	void OnLevelWasLoaded(int level)
 #endif
-	{
+	{	if (vState == "FadeIn")
 		StartCoroutine(FadeIn());
+		else
+		StartCoroutine(FadeOut());
 	}
 
 	/// <summary>
@@ -85,7 +89,7 @@ public class OVRScreenFade : MonoBehaviour
 	/// Fades alpha from 1.0 to 0.0
 	/// </summary>
 	IEnumerator FadeIn()
-	{
+	{if (vState == "FadeIn"){
 		float elapsedTime = 0.0f;
 		fadeMaterial.color = fadeColor;
 		Color color = fadeColor;
@@ -98,6 +102,23 @@ public class OVRScreenFade : MonoBehaviour
 			fadeMaterial.color = color;
 		}
 		isFading = false;
+		}
+	else
+		{float elapsedTime = 0.0f;
+		//fadeMaterial.color = fadeColor;
+     	Color color = fadeColor;
+      	color.a = 0f;
+      	fadeMaterial.color = color;
+		isFading = true;
+		if (elapsedTime < fadeTime)
+		{
+         yield return fadeInstruction;
+         elapsedTime += Time.deltaTime;
+         color.a = Mathf.Clamp01(elapsedTime / fadeTime);
+         fadeMaterial.color = color;
+		}
+		isFading = false;
+		}
 	}
 
 	/// <summary>
@@ -119,5 +140,35 @@ public class OVRScreenFade : MonoBehaviour
 			GL.End();
 			GL.PopMatrix();
 		}
+
+
 	}
+
+
+	public void StartFade()
+	{	vState = "FadeOut";
+		StartCoroutine(FadeIn());
+	}
+
+	/// &lt;summary&gt;
+	/// Fades alpha from 0.0 to 1.0
+	/// &lt;/summary&gt;
+	IEnumerator FadeOut()
+	{
+		float elapsedTime = 0.0f;
+		//fadeMaterial.color = fadeColor;
+     	Color color = fadeColor;
+      	color.a = 0f;
+      	fadeMaterial.color = color;
+		isFading = true;
+		if (elapsedTime < fadeTime)
+		{
+         yield return fadeInstruction;
+         elapsedTime += Time.deltaTime;
+         color.a = Mathf.Clamp01(elapsedTime / fadeTime);
+         fadeMaterial.color = color;
+		}
+		isFading = false;
+	}
+
 }

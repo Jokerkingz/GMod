@@ -24,12 +24,14 @@ public class Scr_Bullet : MonoBehaviour {
 		Debug.DrawRay(this.transform.position,vPreviousPosition-this.transform.position,Color.white);
 		if (Physics.Raycast(tRay,out tHit,tDistance,vLayer)){
 			if (tHit.collider.gameObject != vGameObjectToSkip && tHit.collider.tag != "Bullet"){
-				fHit(tHit.point,tHit.rigidbody);
+				fHit(tHit.collider.gameObject,tHit.point,tHit.rigidbody);
 				}
 			}
 		vPreviousPosition = this.transform.position;
 		}
-	void fHit(Vector3 tPoint, Rigidbody tOther){
+	void fHit(GameObject tObj, Vector3 tPoint, Rigidbody tOther){
+		if (tObj.tag == "Target")
+			tObj.SendMessage("fHit");
 		GameObject tTEmp = Instantiate(vSpark);
 		tTEmp.transform.position = tPoint;
 		tTEmp.GetComponent<Scr_DestroyTime>().fStartTimer(.9f);
@@ -39,7 +41,7 @@ public class Scr_Bullet : MonoBehaviour {
 		Destroy(this.gameObject);
 	}
 	void OnCollisionEnter(Collision tOther){
-		fHit(tOther.contacts[0].point,tOther.rigidbody);
+		fHit(tOther.collider.gameObject,tOther.contacts[0].point,tOther.rigidbody);
 		//
 	}
 

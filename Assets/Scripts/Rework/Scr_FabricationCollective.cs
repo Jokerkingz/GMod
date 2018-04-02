@@ -9,8 +9,13 @@ public class Scr_FabricationCollective : MonoBehaviour {
 	public Material vMaterialClone;
 	private List<Scr_FabricationData> vFabricateList = new List<Scr_FabricationData>();
 	public Vector3 vLockSpot;
+	public bool vIsLocked = true;
+	public bool vHasStarted;
 	// Use this for initialization
-	void Start () {
+	public void Start () {
+		if (vHasStarted)
+			return;
+		vHasStarted = true;
 		vSourceMaterial = GameObject.FindGameObjectWithTag("GameController").GetComponent<Scr_GameEngine>().gMat_Fabricate;
 		Renderer[] tThose = GetComponentsInChildren<Renderer>();
 		Scr_FabricationData tCFD;
@@ -21,17 +26,20 @@ public class Scr_FabricationCollective : MonoBehaviour {
 			tCFD.vRenderSource = tThat;
 			vFabricateList.Add(tCFD);
 			tThat.material = vMaterialClone;
-
 		}
 		Rigidbody cRB = GetComponent<Rigidbody>();
-		cRB.useGravity = false;
-		cRB.isKinematic = true;
+		if (cRB != null){
+			cRB.useGravity = false;
+			cRB.isKinematic = true;
+			}
+		vMaterialClone.SetFloat("_DissolveAmount",1f-(vMeter/vMaxMeter));
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	vMeter += Time.deltaTime;
-	transform.position = vLockSpot;
+	if (vIsLocked)
+		transform.position = vLockSpot;
 	if (vMaterialClone != null){
 		if (vMeter < vMaxMeter){
 //			Debug.Log("Changing proprties " + (1f-(vMeter/vMaxMeter)).ToString());
@@ -41,10 +49,12 @@ public class Scr_FabricationCollective : MonoBehaviour {
 			vMaterialClone.SetFloat("_DissolveAmount",1f-(vMeter/vMaxMeter));
 			foreach (Scr_FabricationData tFD in vFabricateList){
 				tFD.vRenderSource.material = tFD.vOriginalMaterial;
+				Destroy(tFD,1f);
 				}
 			Rigidbody cRB = GetComponent<Rigidbody>();
-			cRB.useGravity = true;
-			cRB.isKinematic = false;
+			if (cRB != null){
+				cRB.useGravity = true;
+				cRB.isKinematic = false;}
 			Destroy(vMaterialClone);
 			Destroy(this);
 			}

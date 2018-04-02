@@ -22,7 +22,7 @@ public class Scr_roomSwitch : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider col)
 	{
-		if (col.tag=="Player")
+		if (col.tag=="MainOVR")
 		{
 		if (prevDoor !=null){
 		prevDoor.GetComponent<Scr_Door>().DoorClose();

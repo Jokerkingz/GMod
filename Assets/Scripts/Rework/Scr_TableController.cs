@@ -16,7 +16,6 @@ public class Scr_TableController : MonoBehaviour {
 	public Material vHoloMaterial;
 
 	// Print Data
-
 	private string[] vModType = new string[]{"Handle","Base","Barrel","Magazine","Module"};//,"Extension","Sword","Shield"};
 	public int vModTypIndex;
 	private string[] vHandleType = new string[]{"Simple"};

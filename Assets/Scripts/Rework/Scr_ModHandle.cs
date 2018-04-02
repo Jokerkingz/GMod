@@ -24,9 +24,6 @@ public class Scr_ModHandle : MonoBehaviour {
 			}
 		tCount = lMagazineList.Count;
 	}
-	void Update(){
-		fTriggerPressed();
-	}
 	public void fTriggerPressed(){
 		fUpdateList();
 		foreach (Scr_ModBarrel tBarrel in lBarrelList){

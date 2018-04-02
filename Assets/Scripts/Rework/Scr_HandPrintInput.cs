@@ -23,14 +23,16 @@ public class Scr_HandPrintInput : MonoBehaviour {
 
 		  } 
 		if (!vDone && vCook > 2f){
-			vDone = true;
 			if (vIsUsedForTable)
-				vTableSource.fHandPressed();
-			else
+				{vTableSource.fHandPressed();
+				Destroy(this.gameObject);
+				 vDone = true;
+			}
+			else{
 				vDoorSource.fDoorOpen();
+				vDone = true;}
 			Debug.Log("I found the Hand");
 			enabled = false;
-			Destroy(this.gameObject);
 		}
 		vCook = Mathf.Clamp(vCook,0f,3f);
 	}
