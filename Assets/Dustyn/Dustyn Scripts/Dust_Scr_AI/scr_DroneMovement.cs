@@ -72,11 +72,18 @@ public class scr_DroneMovement : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-	 Vector3 direction = target.position - this.transform.position;
+	 /*Vector3 direction = target.position - this.transform.position;
 	 float angle = Vector3.Angle (direction, this.transform.forward);
 		if (Vector3.Distance (target.position, this.transform.position) < viewDistance && angle<viewAngle)
 		{
 			boolChase=true;
+		}*/
+
+		RaycastHit hit;
+		Debug.DrawRay (transform.position, transform.TransformDirection(Vector3.forward*viewDistance), Color.red);
+		if (Physics.Raycast (transform.position, transform.TransformDirection(Vector3.forward*viewDistance), out hit))
+		if (hit.collider.CompareTag("Player")) {
+		boolChase=true;
 		}
 	}
 	void Idle()

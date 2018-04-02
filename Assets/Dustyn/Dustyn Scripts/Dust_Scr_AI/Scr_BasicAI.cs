@@ -249,6 +249,7 @@ public class Scr_BasicAI : MonoBehaviour {
 		}
 
 		if (inLineOfSight){currentState = State.Attack;}
+		transform.LookAt(target);
 		//rgbd.constraints = RigidbodyConstraints.None;
 		return;
 	}
@@ -259,6 +260,7 @@ public class Scr_BasicAI : MonoBehaviour {
 		if (healthScript.curHealth <=0) {currentState=State.Dying;}
 		enemyShoot.isShooting =true;
 		if (!inLineOfSight){currentState=State.Chase;}
+		transform.LookAt(target);
 		//rgbd.constraints = RigidbodyConstraints.None;
 		return;
 
@@ -315,7 +317,10 @@ public class Scr_BasicAI : MonoBehaviour {
 	{
 		//getting shot will alert
 		//will also alert when another ai in the room spots the player
-		boolChase =true;	
+		//if (!boolChase){
+		//FindObjectOfType<scr_roomManager>().RoomAlerted();
+		boolChase=true;
+		//}
 	}
 
 }
