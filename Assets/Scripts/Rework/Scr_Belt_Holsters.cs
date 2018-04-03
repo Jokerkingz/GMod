@@ -76,7 +76,7 @@ public class Scr_Belt_Holsters : MonoBehaviour {
 			vSavedHandle.transform.eulerAngles = this.transform.eulerAngles;
 
 			tHandle.GetComponent<Scr_ModSystem_Handler>().vHolsterConnectedTo = this.gameObject;
-			this.GetComponent<Scr_Belt_Ammunition>().fReceiveMagazines(tHandle.gameObject);
+			//this.GetComponent<Scr_Belt_Ammunition>().fReceiveMagazines(tHandle.gameObject);
 
 			Scr_ModSaverSocket[] tSocketList = tHandle.GetComponent<Scr_ModSaverPart>().vModSaverSocketList;
 				foreach (Scr_ModSaverSocket tSocket in tSocketList) {

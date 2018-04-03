@@ -35,9 +35,10 @@ public class Scr_GameEngine : MonoBehaviour {
 	}
 	public void fGoToScene(){
 		//SceneManager.LoadScene(0);
-		GameObject tTemp = GetComponent<OVRPlayerController>().gameObject;
+		GameObject tTemp = GetComponentInChildren<OVRPlayerController>().gameObject;
 		tTemp.transform.position = new Vector3(-.2f,65.37f,45.37f);
 		cLO.FadeOut();
-		SceneManager.LoadScene("Scene/Sce_CleanedRoom");
+		SceneManager.LoadScene(vNextRoom);
+		Destroy(this.gameObject);
 	}
 }

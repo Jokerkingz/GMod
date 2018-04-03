@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Scr_FixedAngle : MonoBehaviour {
+	public GameObject vAngleSource;
 	void Update () {
-		transform.eulerAngles = new Vector3(-90,0,0);
+		if (vAngleSource != null)
+		transform.eulerAngles = new Vector3(-90,180+vAngleSource.transform.localEulerAngles.y,0);
 	}
 }

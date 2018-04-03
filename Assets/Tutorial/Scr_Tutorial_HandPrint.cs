@@ -32,7 +32,13 @@ public class Scr_Tutorial_HandPrint : MonoBehaviour {
 					enabled = false;
 				break;
 				case "EndTutorial":
-					cGE.fGotoNextRoom("Sce_Shooting_Range");
+				cGE.fGotoNextRoom("Scene/Sce_CleanedRoom");
+					vDone = true;
+					enabled = false;
+
+				break;
+				case "BeginRaid":
+					cGE.fGotoNextRoom("Dustyn/Level One - Scenes/Sce_level0000");
 					vDone = true;
 					enabled = false;
 
