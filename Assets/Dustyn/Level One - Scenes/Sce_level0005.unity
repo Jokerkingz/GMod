@@ -3305,6 +3305,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1801430988}
   - component: {fileID: 1801430987}
+  - component: {fileID: 1801430989}
   m_Layer: 0
   m_Name: RoomManager
   m_TagString: Untagged
@@ -3325,12 +3326,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesLeft: 0
   doorGoal: {fileID: 685084635}
-  enemiesToAlert:
-  - {fileID: 2123888311}
-  - {fileID: 1977138143}
-  - {fileID: 1141183430}
-  - {fileID: 369759190}
-  - {fileID: 952489483}
 --- !u!4 &1801430988
 Transform:
   m_ObjectHideFlags: 0
@@ -3344,6 +3339,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1801430989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1801430986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d6e83a9e5d93bc4d9211160cb2821bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiesToAlert:
+  - {fileID: 2123888311}
+  - {fileID: 1977138143}
+  - {fileID: 1141183430}
+  - {fileID: 369759190}
+  - {fileID: 952489483}
+  alreadyAlerted: 0
 --- !u!1 &1962836770
 GameObject:
   m_ObjectHideFlags: 0
