@@ -37,7 +37,7 @@ public class Scr_EnemyShoot : MonoBehaviour {
 			tempRB.AddForce(transform.forward * bulletforce);*/
 			GameObject tObj = Instantiate(bullet);
 			tObj.transform.position = barrel.transform.position;
-				Vector3 tTrajectory = new Vector3(this.transform.eulerAngles.x+Random.Range(-2f,2f),this.transform.eulerAngles.y+Random.Range(-2f,2f),this.transform.eulerAngles.z+Random.Range(-2f,2f));
+			Vector3 tTrajectory = new Vector3(barrel.transform.eulerAngles.x+Random.Range(-2f,2f),barrel.transform.eulerAngles.y+Random.Range(-2f,2f),barrel.transform.eulerAngles.z+Random.Range(-2f,2f));
 				tObj.transform.eulerAngles = tTrajectory;
 				tObj.AddComponent<Scr_DestroyTime>().fStartTimer(3f);
 			

@@ -92,13 +92,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1387222509137530}
-  m_LocalRotation: {x: -0, y: 0.14624926, z: -0, w: 0.9892478}
+  m_LocalRotation: {x: 0.000000059604638, y: -0.000000029802319, z: 0.7071072, w: 0.7071064}
   m_LocalPosition: {x: -0.59500164, y: 0.000007483988, z: -0.000019208495}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4243972950320516}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 16.819, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.00001}
 --- !u!4 &4243972950320516
 Transform:
   m_ObjectHideFlags: 1
@@ -133,7 +133,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1293391153427742}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -157.25632, y: 33.86, z: -236.05893}
+  m_LocalPosition: {x: -187.27744, y: 90.114075, z: -96.32484}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4736043597647726}
@@ -322,7 +322,7 @@ MonoBehaviour:
   rgbd: {fileID: 0}
   vLayer:
     serializedVersion: 2
-    m_Bits: 769
+    m_Bits: 768
   boolChase: 0
   inLineOfSight: 0
   floatDistance: 10
@@ -346,7 +346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barrel: {fileID: 1387222509137530}
-  bullet: {fileID: 1165367898603628, guid: 691a20af8c0d0304d8450b7094085119, type: 2}
+  bullet: {fileID: 1713680388597490, guid: 0ae8ab49e8211404395624625821d23e, type: 2}
   coolDownTime: 0.5
   bulletforce: 700
   isShooting: 0
