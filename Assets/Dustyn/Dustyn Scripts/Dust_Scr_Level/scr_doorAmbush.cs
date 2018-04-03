@@ -9,6 +9,9 @@ public class scr_doorAmbush : MonoBehaviour {
 	public AudioClip[] audioClip;
 	private AudioSource As;
 	public float warningTimer;
+
+	public GameObject[] enemiesAmbushing;
+	public bool isAlreadyAlerted;
 	void Start () {
 
 		anim = this.gameObject.GetComponent<Animation>();
@@ -47,6 +50,17 @@ public class scr_doorAmbush : MonoBehaviour {
 	{	
 		PlaySound(1);
 		anim.Play(anim.clip.name="ani_openDoor");
+	}
+
+	void AlertTheAmbushEnemies()
+	{
+	if (!isAlreadyAlerted){
+		foreach (GameObject enemy in enemiesAmbushing)
+		{
+			enemy.GetComponent<Scr_BasicAI>().boolChase=true;
+		}
+		isAlreadyAlerted=true;
+	}
 	}
 
 }

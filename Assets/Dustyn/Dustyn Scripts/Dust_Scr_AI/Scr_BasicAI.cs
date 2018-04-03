@@ -46,6 +46,7 @@ public class Scr_BasicAI : MonoBehaviour {
 	public Scr_EnemyShoot enemyShoot;
 	public Rigidbody rgbd;
 	public LayerMask vLayer;
+	private Scr_alertManager alertArray;
 	//private Animator anim;
 
 	[Header("Bools")]
@@ -336,14 +337,16 @@ public class Scr_BasicAI : MonoBehaviour {
 		transform.LookAt(target);
 		return;
 	}
+
 	public void Alerted()
 	{
-		//getting shot will alert
-		//will also alert when another ai in the room spots the player
-		//if (!boolChase){
-		//FindObjectOfType<scr_roomManager>().RoomAlerted();
-		boolChase=true;
-		//}
-	}
+		if (!boolChase)
+		{
+			boolChase =true;
+			alertArray= FindObjectOfType<Scr_alertManager>();
+			alertArray.AlertEnemiesInArray();
+			
+		}
 
+	}
 }
