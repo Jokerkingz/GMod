@@ -10,13 +10,6 @@ public class Scr_alertManager : MonoBehaviour {
 
 	}
 	
-	
-	void Update () {
-		if (Input.GetKeyDown(KeyCode.A))
-		{
-			AlertEnemiesInArray();
-		}
-	}
 
 	public void AlertEnemiesInArray()
 	{

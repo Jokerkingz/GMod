@@ -7,7 +7,7 @@ public class scr_roomManager : MonoBehaviour {
 	public int enemiesLeft;
 	public GameObject doorGoal;
 	private bool lockCheck;
-	public GameObject[] enemiesToAlert;
+	//public GameObject[] enemiesToAlert;
 
 	void Start () {
 		enemiesLeft=999;

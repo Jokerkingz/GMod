@@ -173,7 +173,7 @@ public class Scr_BasicAI : MonoBehaviour {
 			enemyShoot.isShooting=false;
 			}
 		}
-
+		}
 	 //-------DISTANCE + ANGLE CHECK
 	if (isCheckingWithDistanceAndAngle){
 	 Vector3 direction = target.position - this.transform.position;
@@ -189,15 +189,15 @@ public class Scr_BasicAI : MonoBehaviour {
 		enemyShoot.isShooting=false;
 	}
 	}*/
-	if (inLineOfSight)
+	/*if (inLineOfSight)
 	{
 		boolChase=true;
-	}
+	}*/
 
 
 	}
 	}
-	}
+	
 	
 
 	void Idle()

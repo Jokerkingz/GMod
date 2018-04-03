@@ -14,7 +14,7 @@ public class Scr_alertTrigger : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider col)
 	{
-		if (col.tag=="Player")
+		if (col.tag=="MainOVR")
 		{
 			trigCol.enabled=false;
 			AlertEnemiesInTriggerArray();
