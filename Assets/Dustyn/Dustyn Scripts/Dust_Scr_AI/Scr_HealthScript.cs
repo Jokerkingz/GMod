@@ -24,7 +24,7 @@ void Update()
 	{
 		curHealth=0;
 		//death
-		if (tag=="Enemy")
+		/*if (tag=="Enemy")
 		{
 			Debug.Log("EnemyDead");
 		}
@@ -32,7 +32,7 @@ void Update()
 		if (tag=="Player")
 		{
 			Debug.Log("GameOver");
-		}
+		}*/
 	}
 
 	
