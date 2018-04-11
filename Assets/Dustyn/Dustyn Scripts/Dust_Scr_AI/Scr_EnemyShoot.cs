@@ -10,6 +10,7 @@ public class Scr_EnemyShoot : MonoBehaviour {
 	public GameObject bullet;
 	private bool canShoot;
 
+
 	[Header("Bullet Properties")]
 	public float coolDownTime;
 	public float bulletforce;
@@ -43,7 +44,7 @@ public class Scr_EnemyShoot : MonoBehaviour {
 			
 
 			//Destroy (tempBulletHandler, 10.0f);
-
+		
 		}
 	}
 

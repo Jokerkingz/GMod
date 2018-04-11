@@ -39,7 +39,7 @@ public class scr_DroneMovement : MonoBehaviour {
 
 	void Awake()
 	{
-		target = GameObject.FindWithTag("Player").transform;
+		target = GameObject.FindWithTag("MainOVR").transform;
 		droneAttack = this.gameObject.GetComponentInChildren<scr_DroneAttack>();
 		droneAgent = this.gameObject.GetComponent<NavMeshAgent>();
 	}
