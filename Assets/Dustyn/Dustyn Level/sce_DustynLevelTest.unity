@@ -231,6 +231,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e13436f4d562cd1448769cd0a0dea54f, type: 3}
   - {fileID: 8300000, guid: 9b04e0c5d5c2c574684ebbf518a853aa, type: 3}
   warningTimer: 5.5
+  enemiesAmbushing: []
+  isAlreadyAlerted: 0
 --- !u!111 &12342383
 Animation:
   m_ObjectHideFlags: 0
@@ -1214,6 +1216,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e13436f4d562cd1448769cd0a0dea54f, type: 3}
   - {fileID: 8300000, guid: 9b04e0c5d5c2c574684ebbf518a853aa, type: 3}
   warningTimer: 5.5
+  enemiesAmbushing: []
+  isAlreadyAlerted: 0
 --- !u!111 &101541243
 Animation:
   m_ObjectHideFlags: 0
@@ -3060,6 +3064,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e13436f4d562cd1448769cd0a0dea54f, type: 3}
   - {fileID: 8300000, guid: 9b04e0c5d5c2c574684ebbf518a853aa, type: 3}
   warningTimer: 5.5
+  enemiesAmbushing: []
+  isAlreadyAlerted: 0
 --- !u!111 &240513576
 Animation:
   m_ObjectHideFlags: 0
@@ -3256,6 +3262,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesLeft: 1
   doorGoal: {fileID: 623467185}
+  isPlayingSpecialMusic: 0
+  combatMusicAlreadyPlaying: 0
+  passiveMusicAlreadyPlaying: 0
+  musicAlreadyStopped: 0
+  musicManager: {fileID: 0}
 --- !u!4 &256411172
 Transform:
   m_ObjectHideFlags: 0
@@ -5220,6 +5231,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e13436f4d562cd1448769cd0a0dea54f, type: 3}
   - {fileID: 8300000, guid: 9b04e0c5d5c2c574684ebbf518a853aa, type: 3}
   warningTimer: 5.5
+  enemiesAmbushing: []
+  isAlreadyAlerted: 0
 --- !u!111 &358513904
 Animation:
   m_ObjectHideFlags: 0
@@ -8326,6 +8339,48 @@ Transform:
   m_Father: {fileID: 194111171}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &648136229
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4933983745090032, guid: c45fe99f670798b44a8e4032465c2a97, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 134.23286
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933983745090032, guid: c45fe99f670798b44a8e4032465c2a97, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 72.02037
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933983745090032, guid: c45fe99f670798b44a8e4032465c2a97, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -165.46594
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933983745090032, guid: c45fe99f670798b44a8e4032465c2a97, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933983745090032, guid: c45fe99f670798b44a8e4032465c2a97, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933983745090032, guid: c45fe99f670798b44a8e4032465c2a97, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933983745090032, guid: c45fe99f670798b44a8e4032465c2a97, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933983745090032, guid: c45fe99f670798b44a8e4032465c2a97, type: 2}
+      propertyPath: m_RootOrder
+      value: 80
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c45fe99f670798b44a8e4032465c2a97, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &652511573
 GameObject:
   m_ObjectHideFlags: 0
@@ -13763,6 +13818,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e13436f4d562cd1448769cd0a0dea54f, type: 3}
   - {fileID: 8300000, guid: 9b04e0c5d5c2c574684ebbf518a853aa, type: 3}
   warningTimer: 5.5
+  enemiesAmbushing: []
+  isAlreadyAlerted: 0
 --- !u!111 &1019474303
 Animation:
   m_ObjectHideFlags: 0

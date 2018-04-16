@@ -31,7 +31,7 @@ public class scr_DroneAttack : MonoBehaviour {
 
 	void Awake () {
 
-		target= GameObject.FindWithTag("Player").transform;
+		target= GameObject.FindWithTag("MainOVR").transform;
 		enemyShoot= this.gameObject.GetComponentInChildren<Scr_EnemyShoot>();
 		healthScript = this.gameObject.GetComponent<Scr_HealthScript>();
 		this.currentState= State.Moving;
@@ -106,7 +106,7 @@ public class scr_DroneAttack : MonoBehaviour {
 	{
 		//isMoving=false;
 		if (isMoving){currentState=State.Moving;}
-		transform.LookAt(target);
+		transform.LookAt(switchPoints[curSwitchPoint].position);
 		enemyShoot.isShooting=false;
 		transform.position = Vector3.MoveTowards (this.transform.position, switchPoints[curSwitchPoint].position,Time.deltaTime*switchSpeed);
 		if (this.transform.position == switchPoints [curSwitchPoint].position)

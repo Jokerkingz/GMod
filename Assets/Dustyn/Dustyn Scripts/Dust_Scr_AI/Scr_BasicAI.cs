@@ -47,6 +47,7 @@ public class Scr_BasicAI : MonoBehaviour {
 	public Rigidbody rgbd;
 	public LayerMask vLayer;
 	private Scr_alertManager alertArray;
+	private Animator animator;
 	//private Animator anim;
 
 	[Header("Bools")]
@@ -78,7 +79,7 @@ public class Scr_BasicAI : MonoBehaviour {
 		//anim = this.gameObject.GetComponent<Animator>();
 		//target = GameObject.FindWithTag("Player").transform;
 		target = GameObject.FindWithTag("MainOVR").transform;
-
+		animator = GetComponentInChildren<Animator>();
 
 
 		//This will decide if the enemy starts in an idle state or a patrol state
@@ -218,6 +219,13 @@ public class Scr_BasicAI : MonoBehaviour {
 	}
 	void Patrol()
 	{
+
+		//-- WALKING
+		animator.SetBool("isWalking", true);
+		animator.SetBool("isShootingWalking", false);
+		animator.SetBool("isShootingInPlace", false);
+		animator.SetBool("isRunning", false);
+
 		navyMeshy.speed = floatSpeedHolder;
 
 		if (boolChase &&!goToCover)
@@ -259,6 +267,11 @@ public class Scr_BasicAI : MonoBehaviour {
 
 	void Chase()
 	{
+		//-- WALKING
+		animator.SetBool("isWalking",true);
+		animator.SetBool("isShootingWalking", false);
+		animator.SetBool("isShootingInPlace", false);
+		animator.SetBool("isRunning", false);
 		
 		boolChase=true;
 		if (healthScript.curHealth <=0) {currentState=State.Dying;}
@@ -280,6 +293,12 @@ public class Scr_BasicAI : MonoBehaviour {
 
 	void Attack()
 	{
+		//--SHOOT AND WALK
+		animator.SetBool("isShootingWalking", true);
+		animator.SetBool("isShootingInPlace", false);
+		animator.SetBool("isRunning", false);
+		animator.SetBool("isWalking",false);
+
 		if (floatDistance<=floatAttackInPlaceRange) {currentState= State.AttackInPlace;}
 		if (healthScript.curHealth <=0) {currentState=State.Dying;}
 		enemyShoot.isShooting =true;
@@ -292,6 +311,12 @@ public class Scr_BasicAI : MonoBehaviour {
 
 	void AttackInPlace()
 	{
+		//--SHOOT IN PLACE
+		animator.SetBool("isShootingInPlace", true);
+		animator.SetBool("isRunning", false);
+		animator.SetBool("isWalking",false);
+		animator.SetBool("isShootingWalking", false);
+
 		if (floatDistance>floatAttackInPlaceRange){currentState=State.Chase;}
 		if (healthScript.curHealth <=0) {currentState=State.Dying;}
 
@@ -313,6 +338,8 @@ public class Scr_BasicAI : MonoBehaviour {
 
 	void Dying()
 	{
+		animator.SetBool("isDying", true);
+
 			boolChase =false;
 			enemyShoot.enabled=false;
 			navyMeshy.speed=0;
@@ -321,6 +348,13 @@ public class Scr_BasicAI : MonoBehaviour {
 
 	void RunToCover()
 	{
+		//-- RUNNING
+		animator.SetBool("isRunning",true);
+		animator.SetBool("isWalking",false);
+		animator.SetBool("isShootingWalking", false);
+		animator.SetBool("isShootingInPlace", false);
+		
+		transform.LookAt(coverPoint);
 		if (healthScript.curHealth <=0) {currentState=State.Dying;}
 		if (insideCoverDistance>=coverDistance){currentState=State.InCover;}
 		navyMeshy.destination = coverPoint.position;
@@ -330,6 +364,12 @@ public class Scr_BasicAI : MonoBehaviour {
 
 	void InCover()
 	{
+		//--SHOOT IN PLACE
+		animator.SetBool("isShootingInPlace", true);
+		animator.SetBool("isRunning", false);
+		animator.SetBool("isWalking",false);
+		animator.SetBool("isShootingWalking", false);
+
 		if (healthScript.curHealth <=0) {currentState=State.Dying;}
 		if (inLineOfSight){enemyShoot.isShooting =true;}
 		else {enemyShoot.isShooting=false;}
