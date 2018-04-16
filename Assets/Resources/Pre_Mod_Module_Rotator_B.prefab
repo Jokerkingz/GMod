@@ -155,7 +155,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1738910887484660}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.0002, y: 65.7563, z: 46.372295}
+  m_LocalPosition: {x: -0.435, y: 65.5723, z: 46.476}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4015520589705568}
@@ -340,7 +340,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1188697751880008}
-  m_Mesh: {fileID: 4300000, guid: cb83dab2be4547b46beba5df9e0a255d, type: 3}
+  m_Mesh: {fileID: 4300002, guid: cb83dab2be4547b46beba5df9e0a255d, type: 3}
 --- !u!33 &33523393272376548
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -609,6 +609,9 @@ MonoBehaviour:
   vOwnID: 
   vPartType: Module_Rotator_B
   vModSaverSocketList: []
+  vAnchor: {fileID: 1354061994062534}
+  vMainInformation: Motor Module
+  vImageToUse: 6
 --- !u!114 &114820733633560302
 MonoBehaviour:
   m_ObjectHideFlags: 1

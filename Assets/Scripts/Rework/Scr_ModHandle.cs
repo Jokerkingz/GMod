@@ -6,6 +6,7 @@ using System.Linq;
 public class Scr_ModHandle : MonoBehaviour {
 	public List<Scr_ModBarrel> lBarrelList = new List<Scr_ModBarrel>();
 	public List<Scr_Mod_Magazine> lMagazineList = new List<Scr_Mod_Magazine>();
+	public List<Scr_Mod_Battery> lBatteryList = new List<Scr_Mod_Battery>();
 	public List<Scr_ModModule> lModuleList = new List<Scr_ModModule>();
 
 	public int tCount;
@@ -23,7 +24,10 @@ public class Scr_ModHandle : MonoBehaviour {
 					lMagazineList.Add(tTemp);
 			}
 		tCount = lMagazineList.Count;
+		lBatteryList.Clear();
+		lBatteryList = GetComponentsInChildren<Scr_Mod_Battery>().ToList();
 	}
+
 	public void fTriggerPressed(){
 		fUpdateList();
 		foreach (Scr_ModBarrel tBarrel in lBarrelList){
@@ -33,6 +37,7 @@ public class Scr_ModHandle : MonoBehaviour {
 			tBarrel.fActivateMod();
 		}
 	}
+
 	public GameObject fGetBullet(){
 		GameObject tBulletToUse = null;
 		foreach (Scr_Mod_Magazine tMagazine in lMagazineList){
@@ -46,6 +51,29 @@ public class Scr_ModHandle : MonoBehaviour {
 			}
 		}
 		return tBulletToUse;
+	}
+	public bool fCheckBattery(float tCost){
+		float tTotal = 0f;
+		foreach(Scr_Mod_Battery tThat in lBatteryList){
+			tTotal += tThat.vCurrentBattery;
+		}
+		if (tTotal > tCost)
+			return true;
+		else
+			return false;
+	}
 
+	public bool fGetBattery(float tCost){{
+		foreach(Scr_Mod_Battery tThat in lBatteryList){
+			tThat.vCurrentBattery -= tCost;
+			if (tThat.vCurrentBattery  < 0){
+				tCost = tThat.vCurrentBattery *-1;
+				tThat.vCurrentBattery  = 0;
+				}
+			else 
+				return true;
+			}
+		}
+		return false;
 	}
 }

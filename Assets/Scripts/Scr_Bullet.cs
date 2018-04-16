@@ -8,15 +8,34 @@ public class Scr_Bullet : MonoBehaviour {
 	public Vector3 vFixedAngle; // must be public
 	public Collider vColliderToSkip; // must be public
 	public GameObject vGameObjectToSkip; // must be public
-	private Vector3 vPreviousPosition;
+	public Vector3 vPreviousPosition; // must be public
 	public LayerMask vLayer;
 	public GameObject vSpark;
+	public GameObject vTrailSource;
+	private GameObject vTrail;
+
+	public Vector3 vTilt;
 	void Start(){
 		cRB.velocity = (transform.TransformDirection(Vector3.up))*vSpeedMultiplier;
 		vPreviousPosition = transform.position;
+			vTrail = Instantiate(vTrailSource,this.transform);
+		//vTilt = transform.eulerAngles;
 	}
 	void Update(){
+		if (vTrail==null){
+			vTrail = Instantiate(vTrailSource,this.transform);
+			//vTrail = Instantiate(vTrailSource);
+			}
 //		vSpeed = cRB.velocity;
+		//Vector3 tTempVect = vTilt;
+		//vTilt.x += 1f;
+		//transform.eulerAngles = tTempVect;
+
+
+		//cRB.velocity = (transform.TransformDirection(Vector3.up))*vSpeedMultiplier; // Correct Version
+		//cRB.angularVelocity = new Vector3(cRB.angularVelocity.x+10000000f,cRB.angularVelocity.y,cRB.angularVelocity.z);//(transform.TransformDirection(Vector3.up))*vSpeedMultiplier;
+		cRB.AddForce(vTilt*100f);
+
 		Ray tRay = new Ray(this.transform.position,vPreviousPosition-this.transform.position);
 		RaycastHit tHit;
 		float tDistance = Vector3.Distance(vPreviousPosition,this.transform.position);
@@ -24,6 +43,7 @@ public class Scr_Bullet : MonoBehaviour {
 		Debug.DrawRay(this.transform.position,vPreviousPosition-this.transform.position,Color.white);
 		if (Physics.Raycast(tRay,out tHit,tDistance,vLayer)){
 			if (tHit.collider.gameObject != vGameObjectToSkip && tHit.collider.tag != "Bullet"){
+				//Debug.Log("Collision on " + tHit.collider.gameObject.name + " Name of other was " + vGameObjectToSkip.name);
 				fHit(tHit.collider.gameObject,tHit.point,tHit.rigidbody);
 				}
 			}
@@ -41,6 +61,7 @@ public class Scr_Bullet : MonoBehaviour {
 		Destroy(this.gameObject);
 	}
 	void OnCollisionEnter(Collision tOther){
+		Debug.Log("Collision with" + tOther.gameObject.name);
 		fHit(tOther.collider.gameObject,tOther.contacts[0].point,tOther.rigidbody);
 		//
 	}

@@ -69,6 +69,14 @@ public class OVRGrabber : MonoBehaviour
 
 	public string vWhichHand;
 
+	public Scr_Give_Label cGL; 
+	public Scr_Give_Label cOtherGL;
+	public GameObject vLabelTarget;
+	public int vCount;
+
+	public OVRGrabber cOtherGrabber;
+	public Scr_Guide_Particle cGP;
+	public Scr_Guide_Particle cOtherGP;
     /// <summary>
     /// The currently grabbed object.
     /// </summary>
@@ -125,7 +133,57 @@ public class OVRGrabber : MonoBehaviour
             }
         }
     }
+	void Update(){
+	//return;
+        float closestMagSq = float.MaxValue;
+		OVRGrabbable closestGrabbable = null;
+        Collider closestGrabbableCollider = null;
 
+        GrabVolumeEnable(true);
+		foreach (OVRGrabbable grabbable in m_grabCandidates.Keys)
+		{
+			vCount = grabbable.grabPoints.Length;;
+            bool canGrab = !(grabbable.isGrabbed && !grabbable.allowOffhandGrab);
+            if (!canGrab)
+            {
+                continue;
+            }
+            for (int j = 0; j < grabbable.grabPoints.Length; ++j)
+			{if (grabbable.grabPoints[j] != null){
+                Collider grabbableCollider = grabbable.grabPoints[j];
+                // Store the closest grabbable
+
+                Vector3 closestPointOnBounds = grabbableCollider.ClosestPointOnBounds(m_gripTransform.position);
+                float grabbableMagSq = (m_gripTransform.position - closestPointOnBounds).sqrMagnitude;
+                if (grabbableMagSq < closestMagSq)
+                {
+                    closestMagSq = grabbableMagSq;
+                    closestGrabbable = grabbable;
+                    closestGrabbableCollider = grabbableCollider;
+                }
+                }
+            }
+		}
+        //GrabVolumeEnable(false);
+
+        if (closestGrabbable != null)
+			{OVRGrabbable vRoot = closestGrabbable.transform.root.gameObject.GetComponent<OVRGrabbable>();
+			//if (!vRoot.vIsBeingGripped) Might be deletable
+			if (m_grabbedObj == null)
+			{
+				vLabelTarget = closestGrabbable.gameObject;
+				cGL.fShowLabel(closestGrabbable.gameObject);
+				}
+			else 
+				{vLabelTarget = null;
+				cGL.fShowLabel(null);
+				}
+	        }
+		else 
+			{vLabelTarget = null;
+			cGL.fShowLabel(null);
+			}
+    }
 	void FixedUpdate()
 	{	
 		if (operatingWithoutOVRCameraRig)
@@ -306,6 +364,10 @@ public class OVRGrabber : MonoBehaviour
                 m_grabbedObj.transform.parent = transform;
             }
         }
+		if (m_grabbedObj != null && cOtherGrabber.m_grabbedObj != null){
+			cGP.fGiveMaleParticles(m_grabbedObj.gameObject);
+			cOtherGP.fGiveMaleParticles(cOtherGrabber.m_grabbedObj.gameObject);
+		}
     }
 
     protected virtual void MoveGrabbedObject(Vector3 pos, Quaternion rot, bool forceTeleport = false)
@@ -334,8 +396,13 @@ public class OVRGrabber : MonoBehaviour
 
     protected void GrabEnd()
     {
+
+		if (m_grabbedObj != null && cOtherGrabber.m_grabbedObj != null){
+		}
         if (m_grabbedObj != null)
-        {
+			{cGP.fDestroyParticles();
+			cOtherGP.fDestroyParticles();
+
 			OVRPose localPose = new OVRPose { position = OVRInput.GetLocalControllerPosition(m_controller), orientation = OVRInput.GetLocalControllerRotation(m_controller) };
             OVRPose offsetPose = new OVRPose { position = m_anchorOffsetPosition, orientation = m_anchorOffsetRotation };
             localPose = localPose * offsetPose;

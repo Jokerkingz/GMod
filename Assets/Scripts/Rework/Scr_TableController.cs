@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Scr_TableController : MonoBehaviour {
 	public string vStatus;
@@ -16,7 +17,7 @@ public class Scr_TableController : MonoBehaviour {
 	public Material vHoloMaterial;
 
 	// Print Data
-	private string[] vModType = new string[]{"Handle","Base","Barrel","Magazine","Module"};//,"Extension","Sword","Shield"};
+	private string[] vModType = new string[]{"Handle","Base","Barrel","Magazine","Module","Sword"};//,"Extension","Sword","Shield"};
 	public int vModTypIndex;
 	private string[] vHandleType = new string[]{"Simple"};
 	public int vHandleTypIndex;
@@ -28,6 +29,8 @@ public class Scr_TableController : MonoBehaviour {
 	public int vMagazineTypIndex;
 	private string[] vModuleType = new string[]{"Rotator"};
 	public int vModuleTypIndex;
+	private string[] vSwordType = new string[]{"Simple"};
+	public int vSwordTypIndex;
 	public string vSubType = "A"; //"B"
 	public float vCoolDown;
 	public GameObject vSpawnSpot;
@@ -37,6 +40,13 @@ public class Scr_TableController : MonoBehaviour {
 	public string vCurrentChoice;
 
 	private Scr_System_SourceList cGE;
+	[Header("Display")]
+	public Sprite[] vSpriteList;
+	public Image vIconSource;
+	public Text vTxtCategory;
+	public Text vTxtSubategory;
+	public Text vTxtType;
+
 	// Use this for initialization
 	void Start () {
 		vVectScale = new Vector3(.5f,vFloatUse,1);
@@ -46,6 +56,7 @@ public class Scr_TableController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		fUpdateDisplay();
 		switch (vStatus){
 			case "Idle":
 			break;
@@ -87,6 +98,12 @@ public class Scr_TableController : MonoBehaviour {
 				vStatus = "Idle";
 			break;
 			}
+	}
+	void fUpdateDisplay(){
+		vIconSource.sprite = vSpriteList[vModTypIndex];
+		vTxtCategory.text = vModType[vModTypIndex];
+		vTxtSubategory.text = fGetType();
+		vTxtType.text = "Type " +  vSubType;
 	}
 	public void fHandPressed(){
 		vStatus = "PopUp";
@@ -143,6 +160,11 @@ public class Scr_TableController : MonoBehaviour {
 			if (vModuleTypIndex >= vModuleType.Length)
 				vModuleTypIndex = 0;
 			break;
+		case "Sword":
+			vModuleTypIndex ++;
+			if (vModuleTypIndex >= vModuleType.Length)
+				vModuleTypIndex = 0;
+			break;
 
 
 			//"Handle","Base","Barrel","Magazine","Module"
@@ -179,6 +201,11 @@ public class Scr_TableController : MonoBehaviour {
 			if (vModuleTypIndex < 0)
 				vModuleTypIndex = vModuleType.Length-1;
 			break;
+		case "Sword":
+			vModuleTypIndex --;
+			if (vModuleTypIndex < 0)
+				vModuleTypIndex = vModuleType.Length-1;
+			break;
 
 
 			//"Handle","Base","Barrel","Magazine","Module"
@@ -208,7 +235,7 @@ public class Scr_TableController : MonoBehaviour {
 		vHologramObj = null;
 		//Debug.Log(tTemp);
 
-		string tTemp = vGetType();
+		string tTemp = fGetType();
 		tTemp = vModType[vModTypIndex]+"_"+tTemp+"_"+vSubType;
 		Debug.Log(tTemp);
 		GameObject tPrefab = cGE.fGetPrefab(tTemp);
@@ -251,7 +278,7 @@ public class Scr_TableController : MonoBehaviour {
 
 	}
 
-	string vGetType(){
+	string fGetType(){
 		string tTemp = "";
 		switch (vModType[vModTypIndex]){
 		case "Handle": tTemp = vHandleType[vHandleTypIndex]; break;
@@ -259,6 +286,7 @@ public class Scr_TableController : MonoBehaviour {
 		case "Barrel": tTemp = vBarrelType[vBarrelTypIndex]; break;
 		case "Magazine": tTemp = vMagazineType[vMagazineTypIndex]; break;
 		case "Module": tTemp = vModuleType[vModuleTypIndex]; break;
+		case "Sword": tTemp = vSwordType[vSwordTypIndex]; break;
 		}
 		return tTemp;
 	}

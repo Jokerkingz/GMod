@@ -37,14 +37,20 @@ public class Scr_Misc_Bullet : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision tOther){
-		if (tOther.gameObject.tag == "Wall" || tOther.gameObject.tag == "Untagged")
+		if (tOther.gameObject.tag == "Wall" || tOther.gameObject.tag == "Untagged"){
+
+		Debug.Log("Collision");
 			Destroy(this.gameObject);
+			}
 		if (tOther.gameObject.tag == "Player" || tOther.gameObject.tag == "AI"){
+
+		Debug.Log("Collision");
 			tOther.gameObject.BroadcastMessage("Hit",SendMessageOptions.DontRequireReceiver);
 			Destroy(this.gameObject);
 			}
 	}
 	void Dead(){
+		Debug.Log("On Dead function");
 		Destroy(this.gameObject);
 
 	}

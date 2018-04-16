@@ -72,20 +72,20 @@ public class Scr_NewMusicManager : MonoBehaviour {
 		{combatMusic.GetComponent<AudioSource>().volume=0;}
 
 	}
-	void PlayCombatMusic()
+	public void PlayCombatMusic()
 	{
 		crossFadeIn=true;
 		transitionSound.GetComponent<AudioSource>().Play();
 		Debug.Log("StartCombatMusic");
 	}
-	void PlayPassiveMusic()
+	public void PlayPassiveMusic()
 	{
 		crossFadeOut =true;
 		transitionSound.GetComponent<AudioSource>().Play();
 		Debug.Log("Start Passive Music");
 	}
 
-	void PlayFinalRoomMusicIntro()
+	public void PlayFinalRoomMusicIntro()
 	{
 		finalRoomMusicIntro.GetComponent<AudioSource>().Play();
 		Debug.Log("Playing Final Intro");

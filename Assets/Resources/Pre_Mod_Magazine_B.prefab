@@ -151,7 +151,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1816739256824476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.0757613, y: 65.44656, z: 46.25803}
+  m_LocalPosition: {x: 0.6505387, y: 65.262566, z: 46.25803}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4818611722374224}
@@ -309,7 +309,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1142658894492040}
-  m_Mesh: {fileID: 4300000, guid: cb83dab2be4547b46beba5df9e0a255d, type: 3}
+  m_Mesh: {fileID: 4300002, guid: cb83dab2be4547b46beba5df9e0a255d, type: 3}
 --- !u!33 &33595493778070840
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -547,6 +547,9 @@ MonoBehaviour:
   vOwnID: 
   vPartType: Pre_Mod_Magazine_B
   vModSaverSocketList: []
+  vAnchor: {fileID: 1724939530666744}
+  vMainInformation: Magazine
+  vImageToUse: 3
 --- !u!135 &135570832846410714
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -18,12 +18,14 @@ public class Scr_Female_Socket : MonoBehaviour {
 	private Vector3 vHollowAngle;
 	public string vPartType;
 
+	public GameObject vArrow;
 	[Header("Audio Source")]
 	private AudioSource cAS;
 	public AudioClip vSFX;
 	// Use this for initialization
 	void Start () {
 		cAS = this.GetComponent<AudioSource>();
+		vArrow = Resources.Load("Pre_Arrow") as GameObject;
 	}
 	
 	// Update is called once per frame
@@ -39,28 +41,33 @@ public class Scr_Female_Socket : MonoBehaviour {
 		vHoloRate -= .5f;
 		vCollisionRate -= .2f;
 		if (vHoloRate <= 0){
-				if (vHologramObj != null){
-					Destroy(vHologramObj.gameObject);
-					vHologramSource = null;
-					vHologramObj = null;
-				}
-
+			if (vHologramObj != null){
+				Destroy(vHologramObj.gameObject);
+				vHologramSource = null;
+				vHologramObj = null;
+			}
 			return;
 			}
 		Material tMat = vMatGood;
 		if (vHologramObj != null){
-				vHollowAngle = Reorientate(vHologramSource);
+			vHollowAngle = Reorientate(vHologramSource);
+			vHologramObj.transform.localEulerAngles = vHollowAngle;
+
+			vHologramObj.transform.LookAt(vHologramSource.transform.position);//
+				vHollowAngle = new Vector3(0f,((Mathf.Round(vHologramObj.transform.localEulerAngles.y/90f))*90f),0f);//
 				vHologramObj.transform.localEulerAngles = vHollowAngle;
-				if (vCollisionRate > 0f)
-					tMat = vMatBad;
-				Renderer[] tListA =  vHologramObj.GetComponentsInChildren <Renderer>();
-				foreach (Renderer tR in tListA){
-					Material[] tNew = new Material[tR.materials.Length];
-					for(int i = 0; i < tR.materials.Length;i++)
-						tNew[i] = tMat;
-					tR.materials = tNew;
-					}
+				//vHologramObj.transform.localEulerAngles = new Vector3(transform.localEulerAngles.x,0f,0f);//
+
+			if (vCollisionRate > 0f)
+				tMat = vMatBad;
+			Renderer[] tListA =  vHologramObj.GetComponentsInChildren <Renderer>();
+			foreach (Renderer tR in tListA){
+				Material[] tNew = new Material[tR.materials.Length];
+				for(int i = 0; i < tR.materials.Length;i++)
+					tNew[i] = tMat;
+				tR.materials = tNew;
 				}
+			}
 		}
 
 	}
@@ -77,7 +84,16 @@ public class Scr_Female_Socket : MonoBehaviour {
 					tColliderList.Add(tObjects.gameObject);
 
 				}
-			vHologramSource = tReference;
+			vHologramSource = tReference;/*
+			if (vArrow != null){
+				GameObject tOut = Instantiate(vArrow) as GameObject;
+				//tOut.BroadcastMessage("TurnOff","Hollow");
+				tOut.transform.SetParent(this.transform);
+				tOut.transform.localPosition =Vector3.zero;
+				tOut.transform.localEulerAngles = Vector3.zero;
+				tOut.GetComponent<Scr_LookAtTarget>().vTarget = tReference;
+			}
+			*/
 
 			// hologram creation
 				vHologramObj = Instantiate(tReference) as GameObject;
@@ -85,6 +101,10 @@ public class Scr_Female_Socket : MonoBehaviour {
 				vHologramObj.transform.SetParent(this.transform);
 				vHologramObj.transform.localPosition =Vector3.zero;
 				vHologramObj.transform.localEulerAngles = Reorientate(tReference);
+
+				vHologramObj.transform.LookAt(vHologramSource.transform.position);//
+				vHollowAngle = new Vector3(0f,((Mathf.Round(vHologramObj.transform.localEulerAngles.y/90f))*90f),0f);//
+				vHologramObj.transform.localEulerAngles = vHollowAngle;
 
 				tTransList = new Transform[0];
 				tTransList = vHologramObj.GetComponentsInChildren<Transform>();
@@ -132,6 +152,11 @@ public class Scr_Female_Socket : MonoBehaviour {
 	}
 
 	public void fAcceptAttachement(GameObject tReference){
+		if (tReference == null)
+		return;
+		vHologramObj.transform.LookAt(vHologramSource.transform.position);//
+		vHollowAngle = new Vector3(0f,((Mathf.Round(vHologramObj.transform.localEulerAngles.y/90f))*90f),0f);//
+		vHologramObj.transform.localEulerAngles = vHollowAngle;
 		if (vHologramObj != null)
 		if (vCollisionRate <= 0f && vHologramSource == tReference){
 			Scr_ModSaverSocket tTemp = this.GetComponent<Scr_ModSaverSocket>();
@@ -166,6 +191,45 @@ public class Scr_Female_Socket : MonoBehaviour {
 	}
 	// Re angle the hologram
 	Vector3 Reorientate(GameObject tObject){
+		//vHologramObj.transform.LookAt(vHologramSource.transform.position);
+		//transform.localEulerAngles = new Vector3(0f,transform.localEulerAngles.y,0f);
+		return Vector3.zero;
+	/*
+		if (tObject == null)
+			return Vector3.zero;
+		Vector3 vSave = transform.localEulerAngles;
+		Vector3 tMultiplier = Vector3.zero;
+		if (vSave == Vector3.zero)
+			tMultiplier = new Vector3(0,1,0);
+		if (vSave.x != 0)
+			tMultiplier = new Vector3(1,0,0);
+		if (vSave.y != 0)
+			tMultiplier = new Vector3(0,1,0);
+		if (vSave.z != 0)
+			tMultiplier = new Vector3(0,1,0);
+		transform.LookAt(tObject.transform.position);
+		Vector3 tNewVect = Vector3.Scale(transform.localEulerAngles, tMultiplier);
+		//Vector3 tNewVect = transform.localEulerAngles = new Vector3(transform.localEulerAngles.x*tXMultiplier,transform.localEulerAngles.y*tYMultiplier,transform.localEulerAngles.z*tZMultiplier);
+		transform.localEulerAngles = vSave;
+		return tNewVect;
+		/*
+		if (tObject == null)
+			return Vector3.zero;
+		Vector3 tNewVect = tObject.transform.localEulerAngles;
+		OVRGrabbable tCheck = this.GetComponentInParent<OVRGrabbable>();
+		GameObject tObj = tCheck.gameObject;
+		Vector3 tOwnVect = tObj.transform.eulerAngles;
+		tNewVect.y = tNewVect.y-tOwnVect.y; // I reversed this
+		if (tNewVect.y >360) tNewVect.y -= 360f;
+
+		tNewVect.x = 0;
+		tNewVect.y = ((Mathf.Round(tNewVect.y/90f))*90f);
+		tNewVect.z = 0;
+		return tNewVect;
+		*/
+	}
+	// Re angle the hologram
+	Vector3 ReorientateOld(GameObject tObject){
 		if (tObject == null)
 			return Vector3.zero;
 		Vector3 tNewVect = tObject.transform.localEulerAngles;

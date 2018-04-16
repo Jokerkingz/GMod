@@ -325,7 +325,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1985062003311490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.9375, y: 65.5257, z: 46.4581}
+  m_LocalPosition: {x: 0.7926, y: 65.383, z: 46.3425}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4548268121316244}
@@ -767,7 +767,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1785895060730074}
-  m_Mesh: {fileID: 4300000, guid: cb83dab2be4547b46beba5df9e0a255d, type: 3}
+  m_Mesh: {fileID: 4300002, guid: cb83dab2be4547b46beba5df9e0a255d, type: 3}
 --- !u!33 &33635385819788880
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -1454,6 +1454,9 @@ MonoBehaviour:
   vOwnID: 
   vPartType: Base_Cylinder_A
   vModSaverSocketList: []
+  vAnchor: {fileID: 1594668861329936}
+  vMainInformation: Cylinder Body
+  vImageToUse: 1
 --- !u!114 &114808211114196770
 MonoBehaviour:
   m_ObjectHideFlags: 1

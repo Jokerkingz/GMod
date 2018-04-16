@@ -15,7 +15,7 @@ public class Scr_ModModule : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		switch (vModuleType){
-		case "Rotation":
+		case "RotationB":
 			if (vFloatSub <= 0f)
 				return;
 			vFloatSub -= 10f*Time.deltaTime;
@@ -26,7 +26,7 @@ public class Scr_ModModule : MonoBehaviour {
 				vFloatSub = 0f;
 			this.transform.localEulerAngles = new Vector3(0f,vFloat,0f);
 			break;
-		case "RotationB":
+		case "Rotation":
 			if (vFloatSub <= 0f)
 				return;
 			vFloatSub -= 10f*Time.deltaTime;

@@ -92,9 +92,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4174563690045552}
   - component: {fileID: 64381089813403604}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Grip_Box
-  m_TagString: Untagged
+  m_TagString: GripPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,7 +160,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1672507629344692}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.914, z: -0.046}
+  m_LocalPosition: {x: 0, y: 0.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4828429755939488}
@@ -186,7 +186,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1144703785530580}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.396, y: 66.14, z: 46.30293}
+  m_LocalPosition: {x: -0.812, y: 65.292, z: 46.56}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4396523952238626}
@@ -271,7 +271,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1518925329965146}
-  m_Mesh: {fileID: 4300000, guid: cb83dab2be4547b46beba5df9e0a255d, type: 3}
+  m_Mesh: {fileID: 4300002, guid: cb83dab2be4547b46beba5df9e0a255d, type: 3}
 --- !u!33 &33870324617491474
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -433,7 +433,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vCoolDown: 0
   vVFX: {fileID: 0}
-  vColliderToSkip: {fileID: 0}
+  vColliderToSkip: {fileID: 64897842784148758}
+  vBarrelType: 3
+  vBulletSource: {fileID: 0}
+  vOtherBarrel: {fileID: 0}
+  vBatteryCost: 5
 --- !u!114 &114422180073266568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -448,6 +452,9 @@ MonoBehaviour:
   vOwnID: 
   vPartType: Barrel_Rail_A
   vModSaverSocketList: []
+  vAnchor: {fileID: 0}
+  vMainInformation: 
+  vImageToUse: 0
 --- !u!114 &114445846998074268
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -343,11 +343,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &244120549 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1293391153427742, guid: 7d75b5e886d8a7649ae59af4b2ba930e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1089940312}
 --- !u!1001 &355372283
 Prefab:
   m_ObjectHideFlags: 0
@@ -1006,16 +1001,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 226fe5e6f99445447865346ed679a018, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &733920738 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1293391153427742, guid: 7d75b5e886d8a7649ae59af4b2ba930e,
-    type: 2}
-  m_PrefabInternal: {fileID: 59571693}
---- !u!1 &798465212 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1293391153427742, guid: 7d75b5e886d8a7649ae59af4b2ba930e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1466438639}
 --- !u!1001 &867185992
 Prefab:
   m_ObjectHideFlags: 0
@@ -1054,6 +1039,10 @@ Prefab:
     - target: {fileID: 4637744462673222, guid: 2c52938439570d94c81f4bae21ab05d6, type: 2}
       propertyPath: m_RootOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490710615308948, guid: 2c52938439570d94c81f4bae21ab05d6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c52938439570d94c81f4bae21ab05d6, type: 2}
@@ -1301,10 +1290,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesLeft: 0
   doorGoal: {fileID: 0}
-  enemiesToAlert:
-  - {fileID: 798465212}
-  - {fileID: 244120549}
-  - {fileID: 733920738}
 --- !u!4 &1293932519
 Transform:
   m_ObjectHideFlags: 0

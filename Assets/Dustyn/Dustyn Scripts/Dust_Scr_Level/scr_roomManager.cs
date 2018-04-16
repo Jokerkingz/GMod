@@ -7,11 +7,13 @@ public class scr_roomManager : MonoBehaviour {
 	public int enemiesLeft;
 	public GameObject doorGoal;
 	private bool lockCheck;
+	//public GameObject musicManager;
 	//public GameObject[] enemiesToAlert;
 
 	void Start () {
 		enemiesLeft=999;
 		lockCheck=false;
+		//musicManager = FindObjectOfType<Scr_NewMusicManager>();
 		
 	}
 	
@@ -25,7 +27,12 @@ public class scr_roomManager : MonoBehaviour {
 		{
 			doorGoal.GetComponent<Scr_Door>().DoorUnlocked();
 			lockCheck=true;
+		
+
 		}
+
+
+
 	}
 
 	public void RoomAlerted()

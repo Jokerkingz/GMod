@@ -5,6 +5,7 @@ using UnityEngine;
 public class Scr_ModSystem_Handler : MonoBehaviour {
 	public List<GameObject> lModsConnected; // Current Attached mods
 	public List<GameObject> lMagazineList;
+	public List<GameObject> lBatteryList;
 	private float vCheckingTimer = 0;
 	private bool vIsCheckingForParts = false;
 	public GameObject vHolsterConnectedTo;

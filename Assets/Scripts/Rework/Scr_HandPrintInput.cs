@@ -25,7 +25,7 @@ public class Scr_HandPrintInput : MonoBehaviour {
 			main.simulationSpeed = .3f+(.5f*vCook);
 
 		  } 
-		if (!vDone && vCook > 2f){
+		if (!vDone && vCook > 1f){
 			if (vIsUsedForTable)
 				{vTableSource.fHandPressed();
 				Destroy(this.gameObject);
@@ -39,7 +39,7 @@ public class Scr_HandPrintInput : MonoBehaviour {
 			Debug.Log("I found the Hand");
 			//enabled = false;
 		}
-		vCook = Mathf.Clamp(vCook,0f,3f);
+		vCook = Mathf.Clamp(vCook,0f,2f);
 	}
 
 	void OnTriggerStay(Collider tOther){

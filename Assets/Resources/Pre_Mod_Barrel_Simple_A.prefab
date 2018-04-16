@@ -148,7 +148,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1206805304228498}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3934853, y: 66.14, z: 46.30293}
+  m_LocalPosition: {x: 0.3934853, y: 65.354004, z: 46.30293}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4821251730422316}
@@ -279,7 +279,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1136302030861954}
-  m_Mesh: {fileID: 4300000, guid: cb83dab2be4547b46beba5df9e0a255d, type: 3}
+  m_Mesh: {fileID: 4300002, guid: cb83dab2be4547b46beba5df9e0a255d, type: 3}
 --- !u!33 &33719040300371250
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -424,6 +424,16 @@ MonoBehaviour:
   vCoolDown: 0
   vVFX: {fileID: 0}
   vColliderToSkip: {fileID: 64233264765935212}
+  vBarrelType: 4
+  vBulletSource: {fileID: 0}
+  vOtherBarrel: {fileID: 0}
+  vBatteryCost: 0
+  vVectCurrent: {x: 0, y: 0, z: 0}
+  vVectPrevious: {x: 0, y: 0, z: 0}
+  vTilt: {x: 0, y: 0, z: 0}
+  vAngleCurrent: {x: 0, y: 0, z: 0}
+  vAnglePrevious: {x: 0, y: 0, z: 0}
+  vAngleTilt: {x: 0, y: 0, z: 0}
 --- !u!114 &114402759954685100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -476,6 +486,9 @@ MonoBehaviour:
   vOwnID: 
   vPartType: Barrel_Simple_A
   vModSaverSocketList: []
+  vAnchor: {fileID: 1911696571951898}
+  vMainInformation: Barrel
+  vImageToUse: 2
 --- !u!135 &135883735500363198
 SphereCollider:
   m_ObjectHideFlags: 1
