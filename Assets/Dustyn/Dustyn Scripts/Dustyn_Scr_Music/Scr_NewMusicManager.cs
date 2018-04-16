@@ -12,10 +12,13 @@ public class Scr_NewMusicManager : MonoBehaviour {
 	public GameObject finalRoomMusicLoop;
 	[Header("Floats")]
 	public float fadeTime;
+	public float slowFadeTime;
+	public float maxVol;
 	public float finalRoomIntroTimer;
 	[Header("Bools")]
 	public bool crossFadeIn;
 	public bool crossFadeOut;
+	public bool simpleFadeOut;
 	void Start () {
 	
 
@@ -44,9 +47,10 @@ public class Scr_NewMusicManager : MonoBehaviour {
 			passiveMusic.GetComponent<AudioSource>().volume = passiveMusic.GetComponent<AudioSource>().volume-fadeTime;
 			combatMusic.GetComponent<AudioSource>().volume = combatMusic.GetComponent<AudioSource>().volume +fadeTime;
 
-			if (passiveMusic.GetComponent<AudioSource>().volume<=0 && combatMusic.GetComponent<AudioSource>().volume>=1)
+			if (passiveMusic.GetComponent<AudioSource>().volume<=0 && combatMusic.GetComponent<AudioSource>().volume>=maxVol)
 			{
 				crossFadeIn=false;
+				passiveMusic.GetComponent<AudioSource>().Stop();
 			}
 		}
 
@@ -55,37 +59,53 @@ public class Scr_NewMusicManager : MonoBehaviour {
 			passiveMusic.GetComponent<AudioSource>().volume=passiveMusic.GetComponent<AudioSource>().volume +fadeTime;
 			combatMusic.GetComponent<AudioSource>().volume =combatMusic.GetComponent<AudioSource>().volume-fadeTime;
 
-			if (passiveMusic.GetComponent<AudioSource>().volume>=1 && combatMusic.GetComponent<AudioSource>().volume<=0)
+			if (passiveMusic.GetComponent<AudioSource>().volume>=maxVol && combatMusic.GetComponent<AudioSource>().volume<=0)
 			{
 				crossFadeOut=false;
+				combatMusic.GetComponent<AudioSource>().Stop();
 			}
 		}
 
-		if (passiveMusic.GetComponent<AudioSource>().volume>=1)
-		{passiveMusic.GetComponent<AudioSource>().volume=1;}
+		if (simpleFadeOut)
+		{
+			passiveMusic.GetComponent<AudioSource>().volume = passiveMusic.GetComponent<AudioSource>().volume-fadeTime;
+			combatMusic.GetComponent<AudioSource>().volume =combatMusic.GetComponent<AudioSource>().volume-fadeTime;
+			finalRoomMusicLoop.GetComponent<AudioSource>().volume =finalRoomMusicLoop.GetComponent<AudioSource>().volume-slowFadeTime;
+			if (passiveMusic.GetComponent<AudioSource>().volume<=0 && combatMusic.GetComponent<AudioSource>().volume<=0 &&finalRoomMusicLoop.GetComponent<AudioSource>().volume <=0)
+			{
+				simpleFadeOut=false;
+				combatMusic.GetComponent<AudioSource>().Stop();
+				passiveMusic.GetComponent<AudioSource>().Stop();
+				finalRoomMusicLoop.GetComponent<AudioSource>().Stop();
+			}
+		}
+		if (passiveMusic.GetComponent<AudioSource>().volume>=maxVol)
+		{passiveMusic.GetComponent<AudioSource>().volume=maxVol;}
 		if (passiveMusic.GetComponent<AudioSource>().volume<=0)
 		{passiveMusic.GetComponent<AudioSource>().volume=0;}
 
-		if (combatMusic.GetComponent<AudioSource>().volume>=1)
-		{combatMusic.GetComponent<AudioSource>().volume=1;}
+		if (combatMusic.GetComponent<AudioSource>().volume>=maxVol)
+		{combatMusic.GetComponent<AudioSource>().volume=maxVol;}
 		if (combatMusic.GetComponent<AudioSource>().volume<=0)
 		{combatMusic.GetComponent<AudioSource>().volume=0;}
 
 	}
-	void PlayCombatMusic()
+	public void PlayCombatMusic()
 	{
+		combatMusic.GetComponent<AudioSource>().Play();
 		crossFadeIn=true;
 		transitionSound.GetComponent<AudioSource>().Play();
 		Debug.Log("StartCombatMusic");
 	}
-	void PlayPassiveMusic()
+	public void PlayPassiveMusic()
 	{
+		passiveMusic.GetComponent<AudioSource>().Play();
 		crossFadeOut =true;
 		transitionSound.GetComponent<AudioSource>().Play();
 		Debug.Log("Start Passive Music");
 	}
 
-	void PlayFinalRoomMusicIntro()
+	public void PlayFinalRoomMusicIntro()
 	{
 		finalRoomMusicIntro.GetComponent<AudioSource>().Play();
 		Debug.Log("Playing Final Intro");
@@ -101,6 +121,16 @@ public class Scr_NewMusicManager : MonoBehaviour {
 	void PlayFinalRoomMusicRoomLoop()
 	{
 		finalRoomMusicLoop.GetComponent<AudioSource>().Play();
+		finalRoomMusicLoop.GetComponent<AudioSource>().volume= maxVol;
 		Debug.Log("Playing Final Loop");
+	}
+	public void StopFinalRoomMusicLoop()
+	{
+		simpleFadeOut=true;
+	}
+
+	public void StopMusic()
+	{
+		simpleFadeOut=true;
 	}
 }
