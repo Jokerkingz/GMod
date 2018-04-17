@@ -5,13 +5,13 @@ using UnityEngine;
 public class Scr_musicTrigger : MonoBehaviour {
 
 	private Collider trigCollider;
-	public Scr_NewMusicManager musicManager;
+	public Scr_NewMusicManager_Copy musicManager;
 
 	[Header("Purpose")]
 	public bool stopMusic;
 	public bool playSpecialMusic;
 	void Start () {
-		musicManager= FindObjectOfType<Scr_NewMusicManager>();
+		musicManager= FindObjectOfType<Scr_NewMusicManager_Copy>();
 		trigCollider = this.gameObject.GetComponent<Collider>();
 	}
 

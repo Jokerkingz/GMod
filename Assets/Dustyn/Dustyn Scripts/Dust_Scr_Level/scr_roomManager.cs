@@ -14,12 +14,12 @@ public class scr_roomManager : MonoBehaviour {
 	public bool combatMusicAlreadyPlaying;
 	public bool passiveMusicAlreadyPlaying;
 	public bool musicAlreadyStopped;
-	public Scr_NewMusicManager musicManager;
+	public Scr_NewMusicManager_Copy musicManager;
 
 	void Start () {
 		enemiesLeft=999;
 		lockCheck=false;
-		musicManager = FindObjectOfType<Scr_NewMusicManager>();
+		musicManager = FindObjectOfType<Scr_NewMusicManager_Copy>();
 	}
 	
 	
