@@ -52,6 +52,9 @@ public bool IsDebug;
 			Debug.Log("Locked");
 		}
 
+		/*TESTING 
+		if (Input.GetKeyDown(KeyCode.A))
+		{fDoorOpen();}*/
 
 	}
 
