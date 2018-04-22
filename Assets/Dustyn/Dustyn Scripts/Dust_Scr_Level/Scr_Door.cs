@@ -52,6 +52,9 @@ public bool IsDebug;
 			Debug.Log("Locked");
 		}
 
+		/*TESTING 
+		if (Input.GetKeyDown(KeyCode.A))
+		{fDoorOpen();}*/
 
 	}
 
@@ -122,7 +125,7 @@ public bool IsDebug;
 		StartUnloadingPrevious();
 		DeleteUnnecessaryDoors();
 		PlaySound(3);
-		anim.Play(anim.clip.name="ani_doorOpen");
+		anim.Play(anim.clip.name="ani_SideDoorOpen");
 		}
 
 		if (!isUnlocked)
@@ -134,7 +137,7 @@ public bool IsDebug;
 	public void DoorClose()
 	{
 		PlaySound(4);
-		anim.Play(anim.clip.name="ani_doorClose");
+		anim.Play(anim.clip.name="ani_SideDoorClose");
 	}
 
 	//ACCESSED VIA ANIMATION EVENT

@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 54700071259784092}
   - component: {fileID: 82544578317374554}
   - component: {fileID: 96554135847758502}
+  - component: {fileID: 114192279516789438}
   m_Layer: 13
   m_Name: Pre_Bullet
   m_TagString: Bullet
@@ -125,7 +126,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 14d094c57a1cd464cb6ba54403b6dd1c, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -289,6 +290,23 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 1
+--- !u!114 &114192279516789438
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1713680388597490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa550614172e250448317cb7c340f5d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip:
+  - {fileID: 8300000, guid: b4701f9426d1f2a4cacd4c2a7025f784, type: 3}
+  - {fileID: 8300000, guid: 28b971e425d419649be767bc583550de, type: 3}
+  - {fileID: 8300000, guid: d2d6f4ef4cced2745b42cfc105c6bec9, type: 3}
+  - {fileID: 8300000, guid: a7b4bbe56007a8b4d9e996217b2419f1, type: 3}
+  soundToPlay: 0
 --- !u!114 &114790938845520832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -312,3 +330,4 @@ MonoBehaviour:
   vSpark: {fileID: 1280538921318006, guid: ae7e324796ee1f94d99c7b9f61e9c331, type: 2}
   vTrailSource: {fileID: 1874562276742920, guid: a79b36b1c84241a4b9ca863e4d902df3,
     type: 2}
+  vTilt: {x: 0, y: 0, z: 0}

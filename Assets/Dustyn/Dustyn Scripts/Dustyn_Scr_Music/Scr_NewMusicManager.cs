@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Scr_NewMusicManager_Copy : MonoBehaviour {
+public class Scr_NewMusicManager : MonoBehaviour {
 
 	[Header("References")]
 	public GameObject passiveMusic;

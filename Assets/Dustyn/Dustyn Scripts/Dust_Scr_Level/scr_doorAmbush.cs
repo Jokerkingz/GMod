@@ -49,7 +49,7 @@ public class scr_doorAmbush : MonoBehaviour {
 	 void DoorOpen()
 	{	
 		PlaySound(1);
-		anim.Play(anim.clip.name="ani_openDoor");
+		anim.Play(anim.clip.name="ani_SideDoorOpen");
 		AlertTheAmbushEnemies();
 	}
 
