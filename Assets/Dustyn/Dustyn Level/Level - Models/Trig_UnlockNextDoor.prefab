@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1327511235500032}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 38.436, y: 26.675, z: -210.74}
+  m_LocalPosition: {x: 0.11339, y: -0.19936, z: -10.573}
   m_LocalScale: {x: 4.326392, y: 1, z: 8.611276}
   m_Children: []
   m_Father: {fileID: 0}
@@ -49,7 +49,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1327511235500032}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -109,6 +109,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevDoor: {fileID: 0}
   nextDoor: {fileID: 0}
-  waitTimer: 3
-  doesUntagFloors: 0
+  waitTimer: 1
+  doesUntagFloors: 1
   floorTiles: []
