@@ -527,9 +527,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bfd6c7cd3eb4694982cac3521ade4a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vMagazineToPop: {fileID: 1791880267495844}
   vBulletToUse: {fileID: 1713680388597490, guid: 0ae8ab49e8211404395624625821d23e,
     type: 2}
+  vType: 
+  vCoolDownMultiplier: 1
+  vAccuracy: 1.5
+  vCopies: 1
+  vMagazineToPop: {fileID: 1791880267495844}
   vMaxAmmo: 50
   vCurrentAmmo: 50
   cGE: {fileID: 0}

@@ -21,22 +21,35 @@ public class Scr_Tutorial_Table : MonoBehaviour {
 	public Scr_System_SourceList cGE;
 	public Image vImageShowA;
 	public Image vImageShowB;
+	public Text vTextSource;
 
 	// Print Button Control
 	public Vector3 vVectScale;
 	private float vFloatUse;
 	public GameObject vPrintButton;
 
+	// Holster Check
+	public Scr_Belt_Holsters vHolsterSourceA;
+	public Scr_Belt_Holsters vHolsterSourceB;
 	// Target to spawn
 	public GameObject vTarget;
 	public GameObject vTargetToSpawn;
 	public Vector3 vTargetSpawnPoint;
 
 	public GameObject vNextFloor;
+
+	public Scr_PointToMove[] vPTM;// = new Scr_PointToMove[2];
+	public GameObject vBarrelSource;
 	void Start () {
-		cGE = GameObject.FindGameObjectWithTag("GameController").GetComponent<Scr_System_SourceList>();
+		GameObject tPlayer = GameObject.FindGameObjectWithTag("GameController");
+		cGE = tPlayer.GetComponent<Scr_System_SourceList>();
 		vVectScale = new Vector3(.5f,vFloatUse,1);
 		vPrintButton.transform.localScale = vVectScale;
+		//Scr_PointToMove[] vPTM = tPlayer.GetComponentsInChildren<Scr_PointToMove>();
+		foreach (Scr_PointToMove tPTM in vPTM) {
+			tPTM.enabled = false;
+		}
+		vTextSource.text = "Place one hand on top of the table for the hand scanner";
 	}
 	
 	// Update is called once per frame
@@ -53,6 +66,7 @@ public class Scr_Tutorial_Table : MonoBehaviour {
 				vImageIndex ++;
 				vImageShowA.sprite = vSpriteList[vImageIndex];
 				vImageShowB.sprite = vSpriteList[vImageIndex];
+				vTextSource.text = "Extend your index finger and touch the print button";
 				}
 			vVectScale = new Vector3(.5f,vFloatUse,1);
 			vPrintButton.transform.localScale = vVectScale;
@@ -68,6 +82,7 @@ public class Scr_Tutorial_Table : MonoBehaviour {
 				vImageIndex ++;
 				vImageShowA.sprite = vSpriteList[vImageIndex];
 				vImageShowB.sprite = vSpriteList[vImageIndex];
+				vTextSource.text = "Use your middle finger to grip and hold a gun part";
 				}
 			vVectScale = new Vector3(.5f,vFloatUse,1);
 			vPrintButton.transform.localScale = vVectScale;
@@ -78,7 +93,8 @@ public class Scr_Tutorial_Table : MonoBehaviour {
 				if (vHandle.GetComponent<OVRGrabbable>().vIsBeingGripped){
 					vImageIndex ++;
 					vImageShowA.sprite = vSpriteList[vImageIndex];
-					vImageShowB.sprite = vSpriteList[vImageIndex];
+				vImageShowB.sprite = vSpriteList[vImageIndex];
+				vTextSource.text = "Connect gun parts using their sockets. Yellow male sockets connects to blue female sockets";
 					vStatus = "ThirdStep";
 					}
 		break;
@@ -89,7 +105,8 @@ public class Scr_Tutorial_Table : MonoBehaviour {
 				if (vHandle.GetComponentInChildren<Scr_Female_Socket>().vConnectedObject != null){
 					vImageIndex ++;
 					vImageShowA.sprite = vSpriteList[vImageIndex];
-					vImageShowB.sprite = vSpriteList[vImageIndex];
+				vImageShowB.sprite = vSpriteList[vImageIndex];
+				vTextSource.text = "Connect all parts together. Yellow male sockets connects to blue female sockets";
 					vStatus = "FourthStep";
 					}
 		break;
@@ -116,6 +133,7 @@ public class Scr_Tutorial_Table : MonoBehaviour {
 				vImageIndex ++;
 				vImageShowA.sprite = vSpriteList[vImageIndex];
 				vImageShowB.sprite = vSpriteList[vImageIndex];
+				vTextSource.text = "Press on the index finger to shoot your gun";
 				vStatus = "FifthStep";
 			}
 		break;
@@ -128,17 +146,37 @@ public class Scr_Tutorial_Table : MonoBehaviour {
 				vImageIndex ++;
 				vImageShowA.sprite = vSpriteList[vImageIndex];
 				vImageShowB.sprite = vSpriteList[vImageIndex];
+				vTextSource.text = "Place handles on your holsters on the side to keep your current gun build";
 				vStatus = "SixthStep";
+				}
+
+			break;
+
+		case "SixthStep":
+			fHandleCheck();
+			fBarrelCheck();
+			fBaseCheck();
+			fMagazineCheck();
+			if (vHolsterSourceA.vSavedHandle != null || vHolsterSourceB.vSavedHandle != null){
+				vImageIndex ++;
+				vImageShowA.sprite = vSpriteList[vImageIndex];
+				vImageShowB.sprite = vSpriteList[vImageIndex];
+				vTextSource.text = "Use the analog stick to move. \n The arrow indicates where you will be facing once you let go of the analog stick";
+					foreach (Scr_PointToMove tPTM in vPTM) {
+						tPTM.enabled = true;
+				}
+				vStatus = "SeventhStep";
 				vTarget = Instantiate(vNextFloor);
 				vTarget.transform.position = Vector3.zero;
 				Scr_FabricationCollective tFC = vTarget.AddComponent<Scr_FabricationCollective>();
 				tFC.Start();
 				tFC.vIsLocked = false;
 				tFC.vMaxMeter = 4f;
-				}
+			}
+				
 
-			break;
-		case "SixthStep":
+		break;
+		case "SeventhStep":
 			fHandleCheck();
 			fBarrelCheck();
 			fBaseCheck();
