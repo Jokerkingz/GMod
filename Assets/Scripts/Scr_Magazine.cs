@@ -8,7 +8,6 @@ public class Scr_Magazine : MonoBehaviour {
 	public string vMagazineType;
 	public int vMaxAmmo;
 	public int vCurrentAmmo;
-
 	public Renderer vModelToCancel;
 	void Start(){
 		vCurrentAmmo = vMaxAmmo;

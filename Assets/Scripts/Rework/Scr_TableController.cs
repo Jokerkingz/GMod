@@ -23,9 +23,9 @@ public class Scr_TableController : MonoBehaviour {
 	public int vHandleTypIndex;
 	private string[] vBaseType = new string[]{"Simple","Cylinder","Magazine","Battery"};
 	public int vBaseTypIndex;
-	private string[] vBarrelType = new string[]{"Simple","Rail","DualPlasma"};
+	private string[] vBarrelType = new string[]{"Simple","Rail","Plasma","Curve"};
 	public int vBarrelTypIndex;
-	private string[] vMagazineType = new string[]{"Simple","Plasma"};
+	private string[] vMagazineType = new string[]{"Simple","Pellet"};
 	public int vMagazineTypIndex;
 	private string[] vModuleType = new string[]{"Rotator"};
 	public int vModuleTypIndex;

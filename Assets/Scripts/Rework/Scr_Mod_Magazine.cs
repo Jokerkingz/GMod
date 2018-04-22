@@ -3,11 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Scr_Mod_Magazine : MonoBehaviour {
-	public GameObject vMagazineToPop;
+	[Header("Bullet Information")]
 	public GameObject vBulletToUse;
+	public string vType;
+	public float vCoolDownMultiplier;
+	public float vAccuracy;
+	public int vCopies = 1;
+	//private  cMAR;
+
+	[Header("Magazine Information")]
+	public GameObject vMagazineToPop;
 	public int vMaxAmmo;
 	public int vCurrentAmmo;
-	//private  cMAR;
 	private Scr_Mod_Statistics cMS;
 	public Scr_GameEngine cGE;
 	public Texture vTextureToUse;

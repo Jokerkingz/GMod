@@ -38,20 +38,27 @@ public class Scr_ModHandle : MonoBehaviour {
 		}
 	}
 
-	public GameObject fGetBullet(){
-		GameObject tBulletToUse = null;
+	public Scr_Data_Bullet fGetBullet(){
+		//GameObject tBulletToUse = null;
+		Scr_Data_Bullet tData = new Scr_Data_Bullet();
+		tData.vBulletPrefab = null;
 		foreach (Scr_Mod_Magazine tMagazine in lMagazineList){
 			if (tMagazine.vCurrentAmmo > 0){
 				tMagazine.vCurrentAmmo -= 1;
-				tBulletToUse = tMagazine.vBulletToUse;
+				tData.vBulletPrefab = tMagazine.vBulletToUse;
+				tData.vCoolDownMultiplier = tMagazine.vCoolDownMultiplier;
+				tData.vType = tMagazine.vType;
+				tData.vAccuracy = tMagazine.vAccuracy;
+				tData.vCopies = tMagazine.vCopies;
 				if (tMagazine.vCurrentAmmo <= 0){
 					tMagazine.fNoAmmo();
 				}
 				break;
 			}
 		}
-		return tBulletToUse;
+		return tData;
 	}
+
 	public bool fCheckBattery(float tCost){
 		float tTotal = 0f;
 		foreach(Scr_Mod_Battery tThat in lBatteryList){

@@ -34,7 +34,7 @@ public class Scr_Bullet : MonoBehaviour {
 
 		//cRB.velocity = (transform.TransformDirection(Vector3.up))*vSpeedMultiplier; // Correct Version
 		//cRB.angularVelocity = new Vector3(cRB.angularVelocity.x+10000000f,cRB.angularVelocity.y,cRB.angularVelocity.z);//(transform.TransformDirection(Vector3.up))*vSpeedMultiplier;
-		cRB.AddForce(vTilt*100f);
+		//cRB.AddForce(vTilt*100f);
 
 		Ray tRay = new Ray(this.transform.position,vPreviousPosition-this.transform.position);
 		RaycastHit tHit;
@@ -65,7 +65,11 @@ public class Scr_Bullet : MonoBehaviour {
 		fHit(tOther.collider.gameObject,tOther.contacts[0].point,tOther.rigidbody);
 		//
 	}
+	void OnDestroy(){
+		vTrail.transform.SetParent(null);
+		vTrail.AddComponent<Scr_DestroyTime>().fStartTimer(1f);
 
+	}
 
 /*
 	public Rigidbody cRB;
