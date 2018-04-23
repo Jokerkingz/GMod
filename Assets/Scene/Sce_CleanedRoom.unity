@@ -1270,26 +1270,6 @@ Prefab:
       propertyPath: m_Name
       value: Pre_Mod_Barrel_B
       objectReference: {fileID: 0}
-    - target: {fileID: 114250602767803678, guid: a096311f64677644b8adcd438df5b207,
-        type: 2}
-      propertyPath: vAccuracyMultiplier
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114777701764436414, guid: a096311f64677644b8adcd438df5b207,
-        type: 2}
-      propertyPath: vAccuracyMultiplier
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114250602767803678, guid: a096311f64677644b8adcd438df5b207,
-        type: 2}
-      propertyPath: vCoolDownTime
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114777701764436414, guid: a096311f64677644b8adcd438df5b207,
-        type: 2}
-      propertyPath: vCoolDownTime
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a096311f64677644b8adcd438df5b207, type: 2}
   m_IsPrefabParent: 0
@@ -2317,6 +2297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vUsedFor: BeginRaid
   vTableSource: {fileID: 0}
+  vChallengeSource: {fileID: 0}
   cGE: {fileID: 0}
 --- !u!65 &462655723
 BoxCollider:
@@ -20201,21 +20182,6 @@ Prefab:
     - target: {fileID: 1144703785530580, guid: 735a437a686dfc94c971f242cabdcf71, type: 2}
       propertyPath: m_Name
       value: Pre_Mod_RailGun_A
-      objectReference: {fileID: 0}
-    - target: {fileID: 114418063941462018, guid: 735a437a686dfc94c971f242cabdcf71,
-        type: 2}
-      propertyPath: vBatteryCost
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 114418063941462018, guid: 735a437a686dfc94c971f242cabdcf71,
-        type: 2}
-      propertyPath: vAccuracyMultiplier
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114418063941462018, guid: 735a437a686dfc94c971f242cabdcf71,
-        type: 2}
-      propertyPath: vCoolDownTime
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 735a437a686dfc94c971f242cabdcf71, type: 2}

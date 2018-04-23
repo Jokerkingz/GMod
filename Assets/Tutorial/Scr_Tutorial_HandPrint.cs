@@ -5,6 +5,7 @@ using UnityEngine;
 public class Scr_Tutorial_HandPrint : MonoBehaviour {
 	public string vUsedFor = "Table";
 	public Scr_Tutorial_Table vTableSource;
+	public Scr_Challenge vChallengeSource;
 	public Scr_GameEngine cGE;
 	private float vCook;
 	private float vSpeed;
@@ -40,6 +41,15 @@ public class Scr_Tutorial_HandPrint : MonoBehaviour {
 				case "BeginRaid":
 					cGE.fGotoNextRoom("Dustyn/Level One - Scenes/Sce_level0000");
 					vDone = true;
+					enabled = false;
+
+				break;
+			case "Challenge":
+					vChallengeSource.vChallengeStep = 1;
+				vChallengeSource.fNextChallenge();
+					vDone = true;
+					Destroy(this.gameObject);
+					//Debug.Log("I found the Hand");
 					enabled = false;
 
 				break;
