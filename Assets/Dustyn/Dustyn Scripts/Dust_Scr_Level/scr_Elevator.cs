@@ -7,14 +7,14 @@ public class scr_Elevator : MonoBehaviour {
 	private Animation anim;
 	[Header("Elevator Properties")]
 	public AudioClip[] audioClip;
-	public GameObject invisibleWall;
+	//public GameObject invisibleWall;
 
 	[Header("Loading/Unloading")]
 	public string roomToLoad;
 	public string roomToUnload;
 	void Start () {
 		anim= this.gameObject.GetComponent<Animation>();
-		invisibleWall.GetComponent<Collider>().enabled=false;
+		//invisibleWall.GetComponent<Collider>().enabled=false;
 	}
 	
 	void Update () {
@@ -35,14 +35,14 @@ public class scr_Elevator : MonoBehaviour {
 	public void ElevatorDoorOpen()
 	{
 		PlaySound(4);
-		invisibleWall.GetComponent<Collider>().enabled=false;
+		//invisibleWall.GetComponent<Collider>().enabled=false;
 		anim.Play(anim.clip.name="ani_elevatOpen");	
 	}
 
 	public void ElevatorDoorClose()
 	{
 		PlaySound(5);
-		invisibleWall.GetComponent<Collider>().enabled=true;
+		//invisibleWall.GetComponent<Collider>().enabled=true;
 		anim.Play(anim.clip.name="ani_elevatClose");
 	}
 	public void ElevatorStart()

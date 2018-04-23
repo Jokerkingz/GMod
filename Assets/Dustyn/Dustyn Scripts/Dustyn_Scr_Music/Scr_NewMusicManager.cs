@@ -28,7 +28,7 @@ public class Scr_NewMusicManager : MonoBehaviour {
 	{
 
 		//------TESTING
-	if (Input.GetKeyDown(KeyCode.A))
+	/*if (Input.GetKeyDown(KeyCode.A))
 	{
 		PlayCombatMusic();
 	}
@@ -39,7 +39,7 @@ public class Scr_NewMusicManager : MonoBehaviour {
 	if (Input.GetKeyDown(KeyCode.W))
 	{
 		PlayFinalRoomMusicIntro();
-	}
+	}*/
 
 
 		if (crossFadeIn)
