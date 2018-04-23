@@ -13,7 +13,10 @@ public class Scr_HandPrintInput : MonoBehaviour {
 	void Start(){
 		vList = GetComponentsInChildren<ParticleSystem>();
 		GetComponentsInChildren<HandSymbolState>();
-
+if (!vIsUsedForTable)
+{
+	vDoorSource = GetComponentInParent<Scr_Door>();
+}
 
 
 	}

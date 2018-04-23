@@ -26,7 +26,7 @@ public class Scr_roomSwitch : MonoBehaviour {
 		{
 		if (prevDoor !=null){
 		prevDoor.GetComponent<Scr_Door>().DoorClose();
-		prevDoor.GetComponent<Collider>().enabled=true;
+		//prevDoor.GetComponent<Collider>().enabled=true;
 		}
 		if (nextDoor !=null){
 		StartCoroutine(UnlockNextDoorTimer());
