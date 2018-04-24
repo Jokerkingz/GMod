@@ -9,9 +9,12 @@ public class scr_doorAmbush : MonoBehaviour {
 	public AudioClip[] audioClip;
 	private AudioSource As;
 	public float warningTimer;
-
+	public GameObject warningLight;
 	public GameObject[] enemiesAmbushing;
 	public bool isAlreadyAlerted;
+	public bool isLightActive;
+	public bool isFlareUp;
+	public bool isFlareDown;
 	void Start () {
 
 		anim = this.gameObject.GetComponent<Animation>();
@@ -21,10 +24,31 @@ public class scr_doorAmbush : MonoBehaviour {
 	
 	void Update () {
 
+		if (isFlareUp &&isLightActive)
+		{
+			warningLight.GetComponent<Light>().intensity ++;
+		}
+		if (warningLight.GetComponent<Light>().intensity>=50 &&isLightActive)
+		{
+			isFlareUp=false;
+			isFlareDown=true;
+		}
+
+		if (isFlareDown &&isLightActive)
+		{
+			warningLight.GetComponent<Light>().intensity --;
+		}
+
+		if (warningLight.GetComponent<Light>().intensity<=9 &&isLightActive)
+		{
+			isFlareDown=false;
+			isFlareUp=true;
+		}
+
 	}
 
 
-		void PlaySound(int clip)
+	void PlaySound(int clip)
 	{
 		AudioSource audio = GetComponent<AudioSource> ();
 
@@ -35,6 +59,9 @@ public class scr_doorAmbush : MonoBehaviour {
 
 	public void DoorAlarm()
 	{
+		warningLight.GetComponent<Light>().enabled=true;
+		isLightActive=true;
+		isFlareUp=true;
 		As.loop=true;
 		As.Play();
 		StartCoroutine(DoorAmbushSoon());
@@ -48,6 +75,8 @@ public class scr_doorAmbush : MonoBehaviour {
 
 	 void DoorOpen()
 	{	
+		warningLight.GetComponent<Light>().enabled=false;
+		isLightActive=false;
 		PlaySound(1);
 		anim.Play(anim.clip.name="ani_SideDoorOpen");
 		AlertTheAmbushEnemies();
