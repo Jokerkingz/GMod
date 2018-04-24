@@ -68,8 +68,8 @@ public class Scr_NewMusicManager : MonoBehaviour {
 
 		if (simpleFadeOut)
 		{
-			passiveMusic.GetComponent<AudioSource>().volume = passiveMusic.GetComponent<AudioSource>().volume-fadeTime;
-			combatMusic.GetComponent<AudioSource>().volume =combatMusic.GetComponent<AudioSource>().volume-fadeTime;
+			passiveMusic.GetComponent<AudioSource>().volume = passiveMusic.GetComponent<AudioSource>().volume-slowFadeTime;
+			combatMusic.GetComponent<AudioSource>().volume =combatMusic.GetComponent<AudioSource>().volume-slowFadeTime;
 			finalRoomMusicLoop.GetComponent<AudioSource>().volume =finalRoomMusicLoop.GetComponent<AudioSource>().volume-slowFadeTime;
 			if (passiveMusic.GetComponent<AudioSource>().volume<=0 && combatMusic.GetComponent<AudioSource>().volume<=0 &&finalRoomMusicLoop.GetComponent<AudioSource>().volume <=0)
 			{
