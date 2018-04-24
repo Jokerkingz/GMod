@@ -16,9 +16,13 @@ public class Scr_EnemyShoot : MonoBehaviour {
 	public float bulletforce;
 	public bool isShooting;
 
+	[Header("Gun Part")]
+	public Scr_ModHandle vGunSource;
+
 	void Start () {
 		canShoot =true;
 		isShooting=false;
+		vGunSource = GetComponentInChildren<Scr_ModHandle>();
 	}
 	
 	
@@ -27,7 +31,7 @@ public class Scr_EnemyShoot : MonoBehaviour {
 		if (isShooting && canShoot)
 		{
 			StartCoroutine(CoolDown());
-			
+			vGunSource.fTriggerPressed();
 			/*GameObject tempBulletHandler;
 			tempBulletHandler = Instantiate(bullet, barrel.transform.position, barrel.transform.rotation);
 
@@ -35,14 +39,14 @@ public class Scr_EnemyShoot : MonoBehaviour {
 
 			Rigidbody tempRB;
 			tempRB =tempBulletHandler.GetComponent<Rigidbody>();
-			tempRB.AddForce(transform.forward * bulletforce);*/
+			tempRB.AddForce(transform.forward * bulletforce);
 			GameObject tObj = Instantiate(bullet);
 			tObj.transform.position = barrel.transform.position;
 			Vector3 tTrajectory = new Vector3(barrel.transform.eulerAngles.x+Random.Range(-2f,2f),barrel.transform.eulerAngles.y+Random.Range(-2f,2f),barrel.transform.eulerAngles.z+Random.Range(-2f,2f));
 				tObj.transform.eulerAngles = tTrajectory;
 				tObj.AddComponent<Scr_DestroyTime>().fStartTimer(3f);
 			
-
+			*/
 			//Destroy (tempBulletHandler, 10.0f);
 		
 		}

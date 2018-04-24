@@ -414,7 +414,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &220505083 stripped
 GameObject:
@@ -1658,7 +1658,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4586239789928584, guid: 5083d2f1fbe12df4db9e675e82133f94, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0.87
+      value: 0.603
       objectReference: {fileID: 0}
     - target: {fileID: 4586239789928584, guid: 5083d2f1fbe12df4db9e675e82133f94, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2191,32 +2191,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1501228080705860, guid: 3fef246090f33934091edfef4fe3e32f, type: 2}
       propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114005715598738, guid: 3fef246090f33934091edfef4fe3e32f,
-        type: 2}
-      propertyPath: m_Text
-      value: 'Shooting Range Mode
-
-
-        A showcase of gun parts with situations.
-
-
-        Create weapons from a limited pile.
-
-
-        Movement is disabled'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114247820393704750, guid: 3fef246090f33934091edfef4fe3e32f,
-        type: 2}
-      propertyPath: m_Text
-      value: 'Creative Mode
-
-
-        Have access to all gun parts and have no limits in creation.
-
-
-        Fabrication table is available.'
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3fef246090f33934091edfef4fe3e32f, type: 2}
@@ -2700,6 +2675,52 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 989208005}
   m_Script: {fileID: 11500000, guid: 0035116e2df7b7744a52cca1e25c9901, type: 3}
+--- !u!1001 &2019217422
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4153020389947462, guid: b20e048d44e0f1549810a293e22fe785, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1.945
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153020389947462, guid: b20e048d44e0f1549810a293e22fe785, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153020389947462, guid: b20e048d44e0f1549810a293e22fe785, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 11.662
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153020389947462, guid: b20e048d44e0f1549810a293e22fe785, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.50000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153020389947462, guid: b20e048d44e0f1549810a293e22fe785, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.49999988
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153020389947462, guid: b20e048d44e0f1549810a293e22fe785, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.49999976
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153020389947462, guid: b20e048d44e0f1549810a293e22fe785, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.50000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153020389947462, guid: b20e048d44e0f1549810a293e22fe785, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1538214707809538, guid: b20e048d44e0f1549810a293e22fe785, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b20e048d44e0f1549810a293e22fe785, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &2052053387
 GameObject:
   m_ObjectHideFlags: 0

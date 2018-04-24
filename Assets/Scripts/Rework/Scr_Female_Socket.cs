@@ -6,7 +6,8 @@ public class Scr_Female_Socket : MonoBehaviour {
 	private GameObject vHologramObj;
 	private GameObject vHologramSource;
 	public GameObject vConnectedObject;
-
+	[Header("Audio Control")]
+	public GameObject vAudioPlay;
 	[Header("Hologram Setting")]
 	public GameObject vPseudoPart;
 	//public GameObject vOriginalPart;
@@ -19,12 +20,8 @@ public class Scr_Female_Socket : MonoBehaviour {
 	public string vPartType;
 
 	public GameObject vArrow;
-	[Header("Audio Source")]
-	private AudioSource cAS;
-	public AudioClip vSFX;
 	// Use this for initialization
 	void Start () {
-		cAS = this.GetComponent<AudioSource>();
 		vArrow = Resources.Load("Pre_Arrow") as GameObject;
 	}
 	
@@ -138,6 +135,9 @@ public class Scr_Female_Socket : MonoBehaviour {
 				Scr_ModSystem_Handler[] tModHandlerList = vHologramObj.GetComponentsInChildren<Scr_ModSystem_Handler>();
 			foreach (Scr_ModSystem_Handler tModHandler in tModHandlerList)
 				Destroy(tModHandler);
+			Scr_ModBarrel[] tModBarrelList = vHologramObj.GetComponentsInChildren<Scr_ModBarrel>();
+			foreach (Scr_ModBarrel tModBarrel in tModBarrelList)
+				Destroy(tModBarrel);
 
 
 				Renderer[] tListA =  vHologramObj.GetComponentsInChildren <Renderer>();
@@ -159,6 +159,9 @@ public class Scr_Female_Socket : MonoBehaviour {
 		vHologramObj.transform.localEulerAngles = vHollowAngle;
 		if (vHologramObj != null)
 		if (vCollisionRate <= 0f && vHologramSource == tReference){
+
+			Instantiate(vAudioPlay).GetComponent<Scr_AudioCreation>().fCreateSound("ClipOn",this.transform.position);
+
 			Scr_ModSaverSocket tTemp = this.GetComponent<Scr_ModSaverSocket>();
 				tTemp.vConnection = tReference;
 

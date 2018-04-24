@@ -161,7 +161,7 @@ public class Scr_Tutorial_Table : MonoBehaviour {
 				vImageIndex ++;
 				vImageShowA.sprite = vSpriteList[vImageIndex];
 				vImageShowB.sprite = vSpriteList[vImageIndex];
-				vTextSource.text = "Use the analog stick to move. \n The arrow indicates where you will be facing once you let go of the analog stick";
+				vTextSource.text = "Use the analog stick to rotate and move. \n The arrow indicates where you will be facing once you let go of the analog stick";
 					foreach (Scr_PointToMove tPTM in vPTM) {
 						tPTM.enabled = true;
 				}

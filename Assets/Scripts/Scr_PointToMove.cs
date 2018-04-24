@@ -28,7 +28,7 @@ public class Scr_PointToMove : MonoBehaviour {
 
 	public LineRenderer cLR;
 
-
+	public Renderer[] vRend = new Renderer[0];
 	// Update is called once per frame
 	void Start () {
 		//vTeleportTo = GameObject.FindGameObjectWithTag("TeleportHere");
@@ -73,7 +73,9 @@ public class Scr_PointToMove : MonoBehaviour {
 						vAngleToUse += 360f;
 				if (vTemp != null){
 					cOVRPC.vAngleOffSet = vAngleToUse;
-					if (vTemp.GetComponentInChildren<Scr_CheckBody>().vReadyToTeleport){
+					if (vTemp.GetComponentInChildren<Scr_CheckBody>().vOpenSpot != new Vector3(0,1,0) && vTemp.GetComponentInChildren<Scr_CheckBody>().vOpenSpot != new Vector3(0,0,0))
+					//if (vTemp.GetComponentInChildren<Scr_CheckBody>().vReadyToTeleport) BeforeChange
+					{
 						Vector3 tSpot = vTemp.GetComponentInChildren<Scr_CheckBody>().vOpenSpot;
 						//if (tSpot != Vector3.zero)
 						cOVRPC.gameObject.transform.position = tSpot;
@@ -85,6 +87,21 @@ public class Scr_PointToMove : MonoBehaviour {
 
 			}
 		}
+		if (vTemp != null){
+			Vector3 tSpotA = vTemp.GetComponentInChildren<Scr_CheckBody>().vOpenSpot;
+			if (tSpotA == new Vector3(0,1,0) || tSpotA == new Vector3(0,0,0)){
+				//vTemp.transform.position = new Vector3(0,-10,0);
+					//Debug.Log(tHit.point);
+				foreach (Renderer tRen in vRend) {
+					tRen.enabled = false;
+				}
+				} else {
+
+				foreach (Renderer tRen in vRend) {
+					tRen.enabled = true;
+				}
+			}
+			}
 	}
 
 	void vPointToThere(){
@@ -114,6 +131,7 @@ public class Scr_PointToMove : MonoBehaviour {
 					if (vTemp.gameObject == null){
 						vTemp = Instantiate(vObjectToCreate);
 						vTemp.transform.position = tHit.point;
+					vRend = vTemp.GetComponentsInChildren<Renderer>();
 						tStartingPosition = tHit.point;
 						cLR.positionCount = tIndex+1;
 						tDone = true;
@@ -131,14 +149,18 @@ public class Scr_PointToMove : MonoBehaviour {
 				if (vTemp.gameObject == null){
 					vTemp = Instantiate(vObjectToCreate);
 					vTemp.transform.position = tStartingPosition;
+					vRend = vTemp.GetComponentsInChildren<Renderer>();
 					tStartingPosition = tHit.point;
 					}
 				else{
 					vTemp.transform.position = tHit.point;
-					tStartingPosition = tStartingPosition;}
+					//tStartingPosition = tStartingPosition; before change
+					//tStartingPosition = tHit.point;
+					}
 				tStartingDirection = new Vector3(tStartingDirection.x,tStartingDirection.y-(tIndex*.07f),tStartingDirection.z);
 		
 			}
+
 			cLR.SetPosition(tIndex,tStartingPosition);
 			//tRay.GetPoint(1);
 			if (tIndex > 10)

@@ -1052,8 +1052,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38423819c6d828049a9209e33e88e650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vUsedFor: EndTutorial
+  vUsedFor: BeginRaid
   vTableSource: {fileID: 0}
+  vChallengeSource: {fileID: 0}
   cGE: {fileID: 0}
 --- !u!114 &114105967354707730
 MonoBehaviour:
@@ -1068,6 +1069,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vUsedFor: EndTutorial
   vTableSource: {fileID: 0}
+  vChallengeSource: {fileID: 0}
   cGE: {fileID: 0}
 --- !u!114 &114114005715598738
 MonoBehaviour:
@@ -1101,13 +1103,16 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Challenge Mode
+  m_Text: 'Shooting Range Mode
 
 
-    Be given certain gun parts per challenge and create a weapon to hit targets in
-    various ways.
+    A showcase of gun parts with situations.
 
-    Movements are not necessary'
+
+    Create weapons from a limited pile.
+
+
+    Movement is disabled'
 --- !u!114 &114148490730763934
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1159,7 +1164,8 @@ MonoBehaviour:
 
     Have access to all gun parts and have no limits in creation.
 
-    There is no goal.'
+
+    Fabrication table is available.'
 --- !u!114 &114327521694551376
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1287,7 +1293,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Mission Mode
+  m_Text: 'Raid Mode
 
 
     Run through a level finding parts and creating a weapon as you progress.
@@ -1355,8 +1361,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38423819c6d828049a9209e33e88e650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vUsedFor: EndTutorial
+  vUsedFor: GotoShowcase
   vTableSource: {fileID: 0}
+  vChallengeSource: {fileID: 0}
   cGE: {fileID: 0}
 --- !u!114 &114911204240126472
 MonoBehaviour:
@@ -8175,7 +8182,7 @@ ParticleSystem:
   moveWithTransform: 2
   moveWithCustomTransform: {fileID: 4802626196440518}
   scalingMode: 1
-  randomSeed: -1135876247
+  randomSeed: 1328974055
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -14897,7 +14904,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1869701327
+  randomSeed: 1196361696
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -24980,7 +24987,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 555563342
+  randomSeed: -1653335564
   InitialModule:
     serializedVersion: 3
     enabled: 1

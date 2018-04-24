@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Scr_Male_Socket : MonoBehaviour {
+	[Header("Audio Control")]
+	public GameObject vAudioPlay;
 	[Header("Connection Status")]
 	public List<GameObject> vOriginalParts;
 	public List<GameObject> vGripParts;
@@ -15,9 +17,6 @@ public class Scr_Male_Socket : MonoBehaviour {
 	[Header("Status Result of mod")]
 	public string vStatus = "Active"; // Materializing, Hologram, neutral
 
-	[Header("Audio Settings")]
-	public AudioClip vSFX;
-	private AudioSource cAS;
 
 	// Misc
 	private OVRGrabbable cOVRGrabbable;
@@ -28,7 +27,6 @@ public class Scr_Male_Socket : MonoBehaviour {
 	public void Start () {
 		if (vStarted) return;
 
-		cAS = this.GetComponent<AudioSource>();
 		cOVRGrabbable = GetComponent<OVRGrabbable>();
 
 		// Sort through all objects and categorize to which List
@@ -77,13 +75,14 @@ public class Scr_Male_Socket : MonoBehaviour {
 				tRootMSH.lMagazineList.Remove(tDetachingObject);
 		}
 
-		cAS.PlayOneShot(vSFX,.3f);
+		//cAS.PlayOneShot(vSFX,.3f);
 
 		tDetachingObject.GetComponent<Rigidbody>().useGravity = true;
 		tDetachingObject.GetComponent<Rigidbody>().isKinematic = false; 
 
 		// Remove Connections
 		if (tMalSocket.vConnectedTo != null){
+			Instantiate(vAudioPlay).GetComponent<Scr_AudioCreation>().fCreateSound("ClipOff",this.transform.position);
 			GameObject tSocket = tMalSocket.vConnectedTo;
 			tSocket.GetComponent<Scr_Female_Socket>().vConnectedObject = null;
 			tSocket.GetComponent<Scr_ModSaverSocket>().vConnection = null;

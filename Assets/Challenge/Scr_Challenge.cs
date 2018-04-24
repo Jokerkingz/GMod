@@ -63,7 +63,7 @@ public class Scr_Challenge : MonoBehaviour {
 
 			tTemp = new string[]{"Handle_Simple_A","Base_Magazine_A","Barrel_Simple_A"};
 			fSpawnArray(tTemp);
-			vTextSource.text = "Basics: \n Place your hand over parts to identify them. \n Some parts have a built-in ammunition.";
+			vTextSource.text = "Basics : \n Place your hand over parts to identify them. \n Some parts have a built-in ammunition.";
 		break;
 		case 2:
 			tObj = Instantiate(vTargetSource);
@@ -73,7 +73,7 @@ public class Scr_Challenge : MonoBehaviour {
 
 			tTemp = new string[]{"Handle_Simple_A","Base_Simple_B","Barrel_Simple_A","Magazine_Pellet_A","Magazine_Simple_A"};
 			fSpawnArray(tTemp);
-			vTextSource.text = "Offset: \n Some parts may have weird designs and limits.";
+			vTextSource.text = "Offset : \n Some parts may have weird designs and limits.";
 			break;
 		case 3:
 			tObj = Instantiate(vTargetSource);
@@ -83,7 +83,7 @@ public class Scr_Challenge : MonoBehaviour {
 			//tObj.transform.position = new Vector3(0,4,4);
 			tTemp = new string[]{"Handle_Simple_A","Base_Battery_A","Barrel_Plasma_A","Barrel_Simple_A"};
 			fSpawnArray(tTemp);
-			vTextSource.text = "Batteries: \n Battery powered parts are colored blue \n Battery meters are found around battery sources.";
+			vTextSource.text = "Batteries : \n Battery powered parts are colored blue \n Battery meters are found around battery sources.";
 			//fSpawnParts(tTemp);
 			break;
 		case 4:
@@ -92,7 +92,7 @@ public class Scr_Challenge : MonoBehaviour {
 
 			tTemp = new string[]{"Handle_Simple_A","Base_Battery_A","Barrel_Rail_A","Magazine_Simple_A","Base_Magazine_A","Magazine_Pellet_A"};
 			fSpawnArray(tTemp);
-			vTextSource.text = "Rail Gun: \n Rail guns require batteries and ammunition \n Railguns boost projectile speed with magnets to cause more damage";
+			vTextSource.text = "Rail Gun : \n Rail guns require batteries and ammunition \n Railguns boost projectile speed with magnets to cause more damage";
 			//fSpawnParts(tTemp);
 		break;
 		case 5:
@@ -103,7 +103,7 @@ public class Scr_Challenge : MonoBehaviour {
 
 			tTemp = new string[]{"Module_Rotator_A","Handle_Simple_A","Base_Magazine_A","Base_Magazine_A","Base_Magazine_A","Base_Magazine_A","Base_Magazine_A","Base_Cylinder_A","Barrel_Simple_A","Barrel_Simple_A","Barrel_Simple_A","Barrel_Simple_A","Magazine_Simple_A","Base_Simple_A"};
 			fSpawnArray(tTemp);
-			vTextSource.text = "Motor Modules: \n Motor modules spin parts connected to it. \n Holding the trigger button activates motors when connected.";
+			vTextSource.text = "Motor Modules : \n Motor modules spin parts connected to it. \n Holding the trigger button activates motors when connected.";
 			//fSpawnParts(tTemp);
 			break;
 		case 6:
@@ -115,7 +115,7 @@ public class Scr_Challenge : MonoBehaviour {
 
 			tTemp = new string[]{"Handle_Simple_A","Base_Simple_A","Magazine_Pellet_A","Barrel_Curve_A"};
 			fSpawnArray(tTemp);
-			vTextSource.text = "Curving barrels: \n You must swing your gun to curve the bullets on the given direction.";
+			vTextSource.text = "Curving barrels : \n You must swing your gun to curve the bullets on the given direction.";
 			//fSpawnParts(tTemp);
 		break;
 
@@ -135,7 +135,7 @@ public class Scr_Challenge : MonoBehaviour {
 
 			tTemp = new string[]{"Handle_Simple_A","Handle_Simple_A","Base_Barrel_A","Base_Battery_A","Barrel_Simple_A","Barrel_Plasma_A"};
 			fSpawnArray(tTemp);
-			vTextSource.text = "Dual: \n You can create and use two seperate guns. \n The holsters are not activated during this course.";
+			vTextSource.text = "Dual : \n You can create and use two seperate guns. \n The holsters are not activated during this course.";
 			//fSpawnParts(tTemp);
 			break;
 		case 8:
@@ -151,7 +151,17 @@ public class Scr_Challenge : MonoBehaviour {
 
 			tTemp = new string[]{"Handle_Simple_A","Base_Simple_A","Base_Cylinder_A","Base_Magazine_A","Base_Battery_A","Magazine_Simple_A","Magazine_Pellet_A","Barrel_Simple_A","Barrel_Curve_A","Barrel_Rail_A","Magazine_Plasma_A","Module_Rotator_A"};
 			fSpawnArray(tTemp);
-			vTextSource.text = "Mixing things Together: \n Having many parts together can create a unique gun \n Be creative with what you have";
+			vTextSource.text = "Mixing things Together : \n Having many parts together can create a unique gun \n Be creative with what you have";
+			//fSpawnParts(tTemp);
+			break;
+		case 9:
+			tObj = Instantiate(vTargetSource);
+			tObj.transform.position = new Vector3(0,-10,0);
+
+
+			//tTemp = new string[]{"Handle_Simple_A","Base_Simple_A","Base_Cylinder_A","Base_Magazine_A","Base_Battery_A","Magazine_Simple_A","Magazine_Pellet_A","Barrel_Simple_A","Barrel_Curve_A","Barrel_Rail_A","Magazine_Plasma_A","Module_Rotator_A"};
+			//fSpawnArray(tTemp);
+			vTextSource.text = "Thank you for trying the showcase. \n Teleporters are available behind you.";
 			//fSpawnParts(tTemp);
 		break;
 

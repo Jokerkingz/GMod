@@ -53,6 +53,12 @@ public class Scr_Tutorial_HandPrint : MonoBehaviour {
 					enabled = false;
 
 				break;
+				case "GotoShowcase":
+				cGE.fGotoNextRoom("Challenge/Sce_Challenge");
+					vDone = true;
+					enabled = false;
+
+				break;
 				}
 			}
 		vCook = Mathf.Clamp(vCook,0f,3f);

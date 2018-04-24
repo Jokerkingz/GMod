@@ -20,7 +20,8 @@ public class Scr_ModBarrel : MonoBehaviour {
 	public Vector3 vVectCurrent;
 	public Vector3 vVectPrevious;
 	public Vector3 vTilt;
-	// Update is called once per frame
+	[Header("Audio Control")]
+	public GameObject vAudioPlay;
 	void Start(){
 		vVectCurrent = transform.position;
 		vVectPrevious = vVectCurrent;
