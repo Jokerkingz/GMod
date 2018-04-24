@@ -999,7 +999,27 @@ Prefab:
       objectReference: {fileID: 942641253}
     - target: {fileID: 1293391153427742, guid: 7d75b5e886d8a7649ae59af4b2ba930e, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114052562469560498, guid: 7d75b5e886d8a7649ae59af4b2ba930e,
+        type: 2}
+      propertyPath: stationaryGuard
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114052562469560498, guid: 7d75b5e886d8a7649ae59af4b2ba930e,
+        type: 2}
+      propertyPath: coverPoint
+      value: 
+      objectReference: {fileID: 122275150}
+    - target: {fileID: 114052562469560498, guid: 7d75b5e886d8a7649ae59af4b2ba930e,
+        type: 2}
+      propertyPath: goToCover
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114052562469560498, guid: 7d75b5e886d8a7649ae59af4b2ba930e,
+        type: 2}
+      propertyPath: floatAttackInPlaceRange
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75b5e886d8a7649ae59af4b2ba930e, type: 2}
@@ -1609,6 +1629,10 @@ Prefab:
     - target: {fileID: 4637744462673222, guid: 2c52938439570d94c81f4bae21ab05d6, type: 2}
       propertyPath: m_RootOrder
       value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490710615308948, guid: 2c52938439570d94c81f4bae21ab05d6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c52938439570d94c81f4bae21ab05d6, type: 2}

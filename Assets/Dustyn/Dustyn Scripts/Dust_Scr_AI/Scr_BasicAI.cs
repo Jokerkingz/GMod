@@ -61,6 +61,7 @@ public class Scr_BasicAI : MonoBehaviour {
 	public float floatAlertedRange;
 	//public float floatMeleeRange;
 	public float floatAttackInPlaceRange;
+	public float attackWiggleDistance;
 	public float floatSpeedHolder;
 	public float floatMeleeTime;
 	public float rayDistance;
@@ -100,6 +101,8 @@ public class Scr_BasicAI : MonoBehaviour {
 		curPatrolPoint=0;
 		maxPatrolPoint = patrolPointArray.Length;
 		patrolPointSwitchDistance=1;
+		floatAttackInPlaceRange =3f;
+		attackWiggleDistance = floatAttackInPlaceRange+2;
 	}
 	
 	
@@ -130,6 +133,10 @@ public class Scr_BasicAI : MonoBehaviour {
 			coverDistance = Vector3.Distance(transform.position, coverPoint.transform.position);
 		}
 		
+		if (healthScript.curHealth< healthScript.maxHealth)
+		{
+			Alerted();
+		}
 		//MELEE, TO DO IN THE FUTURE
 		/*if (boolChase && floatDistance<=floatMeleeRange)
 		{
@@ -317,7 +324,7 @@ public class Scr_BasicAI : MonoBehaviour {
 		animator.SetBool("isWalking",false);
 		animator.SetBool("isShootingWalking", false);
 
-		if (floatDistance>floatAttackInPlaceRange){currentState=State.Chase;}
+		if (floatDistance>attackWiggleDistance){currentState=State.Chase;}
 		if (healthScript.curHealth <=0) {currentState=State.Dying;}
 
 		enemyShoot.isShooting =true;
@@ -375,6 +382,7 @@ public class Scr_BasicAI : MonoBehaviour {
 		else {enemyShoot.isShooting=false;}
 		navyMeshy.speed=0;
 		transform.LookAt(target);
+		rayDistance =20f;
 		return;
 	}
 
