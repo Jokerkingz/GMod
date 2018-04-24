@@ -124,8 +124,9 @@ public bool IsDebug;
 		StartLoadingNext();
 		StartUnloadingPrevious();
 		DeleteUnnecessaryDoors();
-		PlaySound(3);
-		anim.Play(anim.clip.name="ani_SideDoorOpen");
+		PlaySound(1);
+		//anim.Play(anim.clip.name="ani_SideDoorOpen");
+		StartCoroutine(AllowHolopadSoundToPlay());
 		}
 
 		if (!isUnlocked)
@@ -133,7 +134,17 @@ public bool IsDebug;
 		PlaySound(2);
 		}
 	}
+	private IEnumerator AllowHolopadSoundToPlay()
+	{
+		yield return new WaitForSeconds (1);
+		ActuallyOpenDoor();
+	}
 
+	void ActuallyOpenDoor()
+	{
+		PlaySound(3);
+		anim.Play(anim.clip.name="ani_SideDoorOpen");
+	}
 	public void DoorClose()
 	{
 		PlaySound(4);

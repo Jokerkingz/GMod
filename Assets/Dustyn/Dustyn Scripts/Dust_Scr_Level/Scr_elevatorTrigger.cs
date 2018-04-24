@@ -7,6 +7,7 @@ public class Scr_elevatorTrigger : MonoBehaviour {
 	public bool exteriorTrigger;
 	public bool interiorTrigger;
 	public GameObject elevatorPrefab;
+	public GameObject elevatorMusicBox;
 	private Collider trigCollider;
 	void Start () {
 		trigCollider = this.gameObject.GetComponent<Collider>();
@@ -29,6 +30,7 @@ public class Scr_elevatorTrigger : MonoBehaviour {
 			{
 				elevatorPrefab.GetComponent<scr_Elevator>().ElevatorDoorClose();
 				StartCoroutine(WaitForDoorBeforeStartingElevator());
+				elevatorMusicBox.GetComponent<AudioSource>().Play();
 			}
 		trigCollider.enabled=false;
 		}

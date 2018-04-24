@@ -17,7 +17,7 @@ public class Scr_musicTrigger : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col)
 	{
-		if (col.tag=="Player")
+		if (col.tag=="MainOVR")
 		{
 		
 		if (stopMusic)
