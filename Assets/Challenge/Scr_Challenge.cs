@@ -149,7 +149,7 @@ public class Scr_Challenge : MonoBehaviour {
 				tObj.transform.position = new Vector3(-5+(i*2),4,10);
 			}
 
-			tTemp = new string[]{"Handle_Simple_A","Base_Simple_A","Base_Cylinder_A","Base_Magazine_A","Base_Battery_A","Magazine_Simple_A","Magazine_Pellet_A","Barrel_Simple_A","Barrel_Curve_A","Barrel_Rail_A","Magazine_Plasma_A","Module_Rotator_A"};
+			tTemp = new string[]{"Handle_Simple_A","Handle_Simple_A","Base_Simple_A","Base_Cylinder_A","Base_Battery_A","Magazine_Simple_A","Magazine_Pellet_A","Barrel_Simple_A","Barrel_Curve_A","Barrel_Rail_A","Magazine_Plasma_A","Module_Rotator_A"};
 			fSpawnArray(tTemp);
 			vTextSource.text = "Mixing things Together : \n Having many parts together can create a unique gun \n Be creative with what you have";
 			//fSpawnParts(tTemp);

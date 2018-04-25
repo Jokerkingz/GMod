@@ -6,7 +6,7 @@ public class Scr_Target_Lerp : MonoBehaviour {
 	public Vector3 vStartingPoint;
 	public Vector3 vEndPoint;
 	private float vTimeLerp;
-	public float vSpeedMultiplier = .5f;
+	private float vSpeedMultiplier = .1f;
 	// Use this for initialization
 	void Start () {
 		vStartingPoint = this.transform.position;

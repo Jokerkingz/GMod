@@ -64,6 +64,7 @@ public class Scr_ModBarrel : MonoBehaviour {
 			Scr_Data_Bullet tTemp = tBullet.fGetBullet();
 			if (tTemp.vBulletPrefab != null){
 				for (int i = 0; i < tTemp.vCopies; i++) {
+					Instantiate(vAudioPlay).GetComponent<Scr_AudioCreation>().fCreateSound("BulletCreation",this.transform.position);
 					fShootAbullet(tTemp,vBarrelType);
 				}
 				//tTrail
@@ -77,6 +78,8 @@ public class Scr_ModBarrel : MonoBehaviour {
 			//Scr_Data_Bullet tTemp;
 			//tTemp.vBulletPrefab =  vBulletSource;
 			if (tSource.fCheckBattery(vBatteryCost)){
+				Instantiate(vAudioPlay).GetComponent<Scr_AudioCreation>().fCreateSound("PlasmaCreation",this.transform.position);
+					
 				tSource.fGetBattery(vBatteryCost);
 				GameObject tObj = Instantiate(tTemp);
 				tObj.transform.position = this.transform.position;
@@ -99,6 +102,8 @@ public class Scr_ModBarrel : MonoBehaviour {
 			if (tSource.fCheckBattery(vBatteryCost)){
 				GameObject tTemp = tSource.fGetBullet().vBulletPrefab;
 				if (tTemp != null){
+					Instantiate(vAudioPlay).GetComponent<Scr_AudioCreation>().fCreateSound("RailCreation",this.transform.position);
+
 					tSource.fGetBattery(vBatteryCost);
 					GameObject tObj = Instantiate(tTemp);
 					tObj.transform.position = this.transform.position;
@@ -121,6 +126,8 @@ public class Scr_ModBarrel : MonoBehaviour {
 			Scr_Data_Bullet tTemp = tBullet.fGetBullet();
 			if (tTemp.vBulletPrefab != null){
 				for (int i = 0; i < tTemp.vCopies; i++) {
+					Instantiate(vAudioPlay).GetComponent<Scr_AudioCreation>().fCreateSound("BulletCreation",this.transform.position);
+
 					fShootAbullet(tTemp,vBarrelType);
 				/*
 				GameObject tObj = Instantiate(tTemp.vBulletPrefab);

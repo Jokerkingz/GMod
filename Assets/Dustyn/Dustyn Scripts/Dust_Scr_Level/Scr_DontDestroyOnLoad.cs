@@ -9,6 +9,5 @@ public class Scr_DontDestroyOnLoad : MonoBehaviour {
 		DontDestroyOnLoad(this.gameObject);
 		Destroy(this);
 	}
-	
 
 }

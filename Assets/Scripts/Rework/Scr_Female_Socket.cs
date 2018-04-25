@@ -153,6 +153,10 @@ public class Scr_Female_Socket : MonoBehaviour {
 
 	public void fAcceptAttachement(GameObject tReference){
 		if (tReference == null)
+			return;
+		if (vHologramSource == null)
+			return;
+		if (vHologramObj == null)
 		return;
 		vHologramObj.transform.LookAt(vHologramSource.transform.position);//
 		vHollowAngle = new Vector3(0f,((Mathf.Round(vHologramObj.transform.localEulerAngles.y/90f))*90f),0f);//

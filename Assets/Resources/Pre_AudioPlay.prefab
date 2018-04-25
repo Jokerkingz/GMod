@@ -52,7 +52,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.6
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -133,24 +133,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vAudioSource: {fileID: 82697840172706572}
-  vAudioClip:
-  - {fileID: 8300000, guid: bdef2cfab008c48158badaea25324753, type: 3}
-  - {fileID: 8300000, guid: 967a8d7b692784ede9b29a4e9ec83e48, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  vAudioClipBullet:
+  - {fileID: 8300000, guid: b4701f9426d1f2a4cacd4c2a7025f784, type: 3}
+  - {fileID: 8300000, guid: 28b971e425d419649be767bc583550de, type: 3}
+  - {fileID: 8300000, guid: d2d6f4ef4cced2745b42cfc105c6bec9, type: 3}
+  - {fileID: 8300000, guid: a7b4bbe56007a8b4d9e996217b2419f1, type: 3}
+  vAudioClipRail:
+  - {fileID: 8300000, guid: e0001ca4096f14e45a844a106a8e3a34, type: 3}
+  - {fileID: 8300000, guid: 7a1ea5db352612a498eaa9d38a6aeb59, type: 3}
+  - {fileID: 8300000, guid: 511f97eb61d4c8f41b06f614b29f431e, type: 3}
+  - {fileID: 8300000, guid: ec87e0db4a858004fa07e0fffb9f07d4, type: 3}
+  vAudioClipPlasma:
+  - {fileID: 8300000, guid: be65a23434a14714db825102c9ab1ff6, type: 3}
+  - {fileID: 8300000, guid: 490a0e2790b0a294a869e562e58a1378, type: 3}
+  - {fileID: 8300000, guid: fff0c4e86bf288947842c2d2947c7f4b, type: 3}
+  - {fileID: 8300000, guid: 2a3bfa6a98e8f054596623472fc31580, type: 3}
+  vAudioClipLaser: []
+  vAudioClipGrenade: []
+  vAudioClipPellet: []
+  vAudioClipDoor: []
+  vAudioClipSnapOn:
+  - {fileID: 8300000, guid: 0c77fbcb1a249d349882d7498e85b00e, type: 3}
+  - {fileID: 8300000, guid: f2e6e25cefa4c604fa27f445d5b29ddd, type: 3}
+  vAudioClipSnapOff:
+  - {fileID: 8300000, guid: 70c87c54f511d044d8f0e28a4f7ca4e0, type: 3}
+  - {fileID: 8300000, guid: 8758f584651ea374a8e185957e1b7f3e, type: 3}
+  vAudioClipGeneral: []
