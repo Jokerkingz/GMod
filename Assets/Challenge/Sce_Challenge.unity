@@ -535,6 +535,9 @@ MonoBehaviour:
   cGE: {fileID: 0}
   vHolsterA: {fileID: 989208007}
   vHolsterB: {fileID: 989208006}
+  vPTM:
+  - {fileID: 989208009}
+  - {fileID: 989208008}
 --- !u!1 &447823425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1358,6 +1361,18 @@ GameObject:
   m_PrefabParentObject: {fileID: 1448526223179986, guid: 5083d2f1fbe12df4db9e675e82133f94,
     type: 2}
   m_PrefabInternal: {fileID: 989208005}
+--- !u!114 &989208008 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114413390033552114, guid: 5083d2f1fbe12df4db9e675e82133f94,
+    type: 2}
+  m_PrefabInternal: {fileID: 989208005}
+  m_Script: {fileID: 11500000, guid: 0035116e2df7b7744a52cca1e25c9901, type: 3}
+--- !u!114 &989208009 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114078754810386470, guid: 5083d2f1fbe12df4db9e675e82133f94,
+    type: 2}
+  m_PrefabInternal: {fileID: 989208005}
+  m_Script: {fileID: 11500000, guid: 0035116e2df7b7744a52cca1e25c9901, type: 3}
 --- !u!1 &1014417912
 GameObject:
   m_ObjectHideFlags: 0

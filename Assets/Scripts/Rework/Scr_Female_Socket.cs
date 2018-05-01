@@ -21,6 +21,8 @@ public class Scr_Female_Socket : MonoBehaviour {
 
 	public GameObject vArrow;
 	// Use this for initialization
+
+	public string vAnglingType = "Joystick";
 	void Start () {
 		vArrow = Resources.Load("Pre_Arrow") as GameObject;
 	}

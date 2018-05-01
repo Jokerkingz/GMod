@@ -22,6 +22,8 @@ public class Scr_Challenge : MonoBehaviour {
 	public GameObject vHolsterA;
 	public GameObject vHolsterB;
 	private Vector3 vPos;
+
+	public Scr_PointToMove[] vPTM;// = new Scr_PointToMove[2];
 	// Use this for initialization
 	void Start () {
 		GameObject tPlayer = GameObject.FindGameObjectWithTag("GameController");
@@ -29,6 +31,9 @@ public class Scr_Challenge : MonoBehaviour {
 		vHolsterA.SetActive(false);
 		vHolsterB.SetActive(false);
 		vPos = this.transform.position;
+		foreach (Scr_PointToMove tPTM in vPTM) {
+			tPTM.enabled = false;
+		}
 	}
 	
 	// Update is called once per frame
@@ -101,7 +106,7 @@ public class Scr_Challenge : MonoBehaviour {
 				tObj.transform.position = new Vector3(-10+(i*2),5,10);
 			}
 
-			tTemp = new string[]{"Module_Rotator_A","Handle_Simple_A","Base_Magazine_A","Base_Magazine_A","Base_Magazine_A","Base_Magazine_A","Base_Magazine_A","Base_Cylinder_A","Barrel_Simple_A","Barrel_Simple_A","Barrel_Simple_A","Barrel_Simple_A","Magazine_Simple_A","Base_Simple_A"};
+			tTemp = new string[]{"Module_Rotator_A","Handle_Simple_A","Base_Simple_A","Base_Magazine_A","Base_Magazine_A","Base_Magazine_A","Base_Magazine_A","Base_Magazine_A","Base_Cylinder_A","Barrel_Simple_A","Barrel_Simple_A","Barrel_Simple_A","Barrel_Simple_A","Magazine_Simple_A"};
 			fSpawnArray(tTemp);
 			vTextSource.text = "Motor Modules : \n Motor modules spin parts connected to it. \n Holding the trigger button activates motors when connected.";
 			//fSpawnParts(tTemp);
@@ -161,6 +166,8 @@ public class Scr_Challenge : MonoBehaviour {
 
 			//tTemp = new string[]{"Handle_Simple_A","Base_Simple_A","Base_Cylinder_A","Base_Magazine_A","Base_Battery_A","Magazine_Simple_A","Magazine_Pellet_A","Barrel_Simple_A","Barrel_Curve_A","Barrel_Rail_A","Magazine_Plasma_A","Module_Rotator_A"};
 			//fSpawnArray(tTemp);
+			tTemp = new string[]{};
+			fSpawnArray(tTemp);
 			vTextSource.text = "Thank you for trying the showcase. \n Teleporters are available behind you.";
 			//fSpawnParts(tTemp);
 		break;

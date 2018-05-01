@@ -63,8 +63,8 @@ public class Scr_ModBarrel : MonoBehaviour {
 		if (tBullet != null && vCoolDown <= 0f){
 			Scr_Data_Bullet tTemp = tBullet.fGetBullet();
 			if (tTemp.vBulletPrefab != null){
+				Instantiate(vAudioPlay).GetComponent<Scr_AudioCreation>().fCreateSound("BulletCreation",this.transform.position);
 				for (int i = 0; i < tTemp.vCopies; i++) {
-					Instantiate(vAudioPlay).GetComponent<Scr_AudioCreation>().fCreateSound("BulletCreation",this.transform.position);
 					fShootAbullet(tTemp,vBarrelType);
 				}
 				//tTrail
@@ -125,9 +125,9 @@ public class Scr_ModBarrel : MonoBehaviour {
 			//GameObject tTemp = tBullet.fGetBullet();
 			Scr_Data_Bullet tTemp = tBullet.fGetBullet();
 			if (tTemp.vBulletPrefab != null){
+				Instantiate(vAudioPlay).GetComponent<Scr_AudioCreation>().fCreateSound("BulletCreation",this.transform.position);
 				for (int i = 0; i < tTemp.vCopies; i++) {
-					Instantiate(vAudioPlay).GetComponent<Scr_AudioCreation>().fCreateSound("BulletCreation",this.transform.position);
-
+					
 					fShootAbullet(tTemp,vBarrelType);
 				/*
 				GameObject tObj = Instantiate(tTemp.vBulletPrefab);

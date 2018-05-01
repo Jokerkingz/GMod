@@ -3527,7 +3527,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &941782601
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7555,7 +7555,7 @@ Transform:
   m_GameObject: {fileID: 1680912598}
   m_LocalRotation: {x: -0, y: -0, z: 0.70710677, w: 0.7071068}
   m_LocalPosition: {x: 22.8, y: -68.1, z: 0}
-  m_LocalScale: {x: 25, y: 25, z: 2}
+  m_LocalScale: {x: 25, y: 66.76113, z: 2}
   m_Children: []
   m_Father: {fileID: 1380749172}
   m_RootOrder: 6
@@ -8777,7 +8777,7 @@ RectTransform:
   m_GameObject: {fileID: 1915586482}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.762978, y: 2.7629795, z: 2.7629795}
   m_Children: []
   m_Father: {fileID: 1380749172}
   m_RootOrder: 7
@@ -8799,14 +8799,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.91724133, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 682cc4f076752344198fb49169d25626, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a049d8e28124b47e7bf0343839aeb952, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10201,6 +10201,20 @@ Prefab:
     - target: {fileID: 4153020389947462, guid: b20e048d44e0f1549810a293e22fe785, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114979341101368048, guid: b20e048d44e0f1549810a293e22fe785,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Showcase Mode
+
+
+        A showcase of gun parts with situations.
+
+
+        Create weapons from a limited pile.
+
+
+        Movement is disabled'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b20e048d44e0f1549810a293e22fe785, type: 2}

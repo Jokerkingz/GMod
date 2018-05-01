@@ -39,7 +39,7 @@ public class Scr_Tutorial_HandPrint : MonoBehaviour {
 
 				break;
 				case "BeginRaid":
-					cGE.fGotoNextRoom("Dustyn/Level One - Scenes/Sce_level0000");
+					cGE.fGotoNextRoom("Dustyn/LEVEL SCENES/sce_0000");
 					vDone = true;
 					enabled = false;
 
