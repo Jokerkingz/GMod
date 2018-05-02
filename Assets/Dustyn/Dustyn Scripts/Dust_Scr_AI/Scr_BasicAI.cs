@@ -350,6 +350,7 @@ public class Scr_BasicAI : MonoBehaviour {
 			boolChase =false;
 			enemyShoot.enabled=false;
 			navyMeshy.speed=0;
+			this.gameObject.GetComponent<Collider>().enabled=false;
 			Destroy(this.gameObject, 3f);
 	}
 
