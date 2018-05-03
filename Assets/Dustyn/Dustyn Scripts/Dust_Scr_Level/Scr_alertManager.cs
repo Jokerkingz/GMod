@@ -6,6 +6,7 @@ public class Scr_alertManager : MonoBehaviour {
 
 	public GameObject[] enemiesToAlert;
 	public bool alreadyAlerted;
+	public bool dronesInMix;
 	void Start () {
 
 	}
@@ -16,7 +17,10 @@ public class Scr_alertManager : MonoBehaviour {
 		if (!alreadyAlerted){
 		foreach (GameObject enemy in enemiesToAlert)
 		{
-			enemy.GetComponent<Scr_BasicAI>().boolChase=true;
+			if(!dronesInMix)
+			{enemy.GetComponent<Scr_BasicAI>().boolChase=true;}
+			if(dronesInMix)
+			{enemy.GetComponent<scr_DroneMovement>().boolChase=true;}
 		}
 		alreadyAlerted=true;
 	}

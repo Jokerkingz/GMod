@@ -104,6 +104,7 @@ public class scr_DroneMovement : MonoBehaviour {
 	void Patrol()
 	{
 		//navyMeshy.speed = floatSpeedHolder;
+		if (healthScript.curHealth <=0) {currentState=State.Dying;}
 		droneAttack.isMoving=true;
 		if ( boolChase){currentState= State.Chase;}
 		
@@ -122,6 +123,7 @@ public class scr_DroneMovement : MonoBehaviour {
 
 	void Chase()
 	{	
+		if (healthScript.curHealth <=0) {currentState=State.Dying;}
 		if (floatDistance<=attackDistance) {currentState= State.AttackFormation;}
 		gameObject.GetComponent<NavMeshAgent>().SetDestination (target.transform.position);
 		droneAttack.isMoving=true;
@@ -131,6 +133,7 @@ public class scr_DroneMovement : MonoBehaviour {
 
 	void AttackFormation()
 	{
+		if (healthScript.curHealth <=0) {currentState=State.Dying;}
 		if (floatDistance> attackWiggleDistance){currentState= State.Chase;}
 		droneAttack.isMoving=false;
 		droneAgent.speed =0;
@@ -140,10 +143,11 @@ public class scr_DroneMovement : MonoBehaviour {
 
 	void Dying()
 	{		
-		anim.Play("ani_droneDead");
+		anim.Play("ani_droneDead2");
+		droneAttack.isDeadStopAll=true;
 		boolChase =false;
-		droneAttack.enemyShoot.enabled=false;
 		droneAgent.speed=0;
+		droneAttack.enemyShoot.enabled=false;
 		this.gameObject.GetComponent<Collider>().enabled=false;
 		Destroy(this.gameObject, 3f);
 	}

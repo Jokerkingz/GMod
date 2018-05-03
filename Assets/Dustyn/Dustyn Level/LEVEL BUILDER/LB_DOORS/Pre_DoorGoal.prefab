@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4122671512358734}
   - component: {fileID: 33321067654600864}
   - component: {fileID: 23822167170639564}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4918917259561020}
   - component: {fileID: 33470694763583636}
   - component: {fileID: 23187627762657712}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,8 +276,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1909093040067018}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: -13.973, y: 1.2495, z: -45.606}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -0.030484, y: 1.2527, z: -5.5947}
   m_LocalScale: {x: 0.5, y: 4, z: 1}
   m_Children:
   - {fileID: 4400174836451728}
@@ -285,7 +285,7 @@ Transform:
   - {fileID: 4804453541891102}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4527775030319394
 Transform:
   m_ObjectHideFlags: 1
@@ -307,7 +307,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1853643950750682}
   m_LocalRotation: {x: -6.123234e-17, y: -1, z: 6.123234e-17, w: -6.123234e-17}
-  m_LocalPosition: {x: -0.065, y: 0.3778, z: 0.32}
+  m_LocalPosition: {x: -0.065, y: 0.339, z: 0.32}
   m_LocalScale: {x: 0.16666678, y: 0.06250007, z: 0.06766795}
   m_Children:
   - {fileID: 4206222471863274}
@@ -733,7 +733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e9f76a958c11a14f8b6a870927110e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomToLoad: sce_0006
+  roomToLoad: sce_0002
   roomToUnload: sce_0004
   doorToDelete: {fileID: 0}
   audioClip:
@@ -743,7 +743,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9b04e0c5d5c2c574684ebbf518a853aa, type: 3}
   - {fileID: 8300000, guid: da089ac41db9ccc46bdd3d89417f657a, type: 3}
   - {fileID: 8300000, guid: a424511ad46294c46922ec6a8a154074, type: 3}
-  isUnlocked: 0
+  isUnlocked: 1
   canInteract: 0
   doorActive: 0
   openDoor: 32
