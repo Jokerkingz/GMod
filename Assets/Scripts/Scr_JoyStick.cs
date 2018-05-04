@@ -14,7 +14,7 @@ public class Scr_JoyStick : MonoBehaviour {
 		
 	}
 	public void vJoystick(){
-	/*
+		/*
 		float tX;
 		float tY;
 		if (vIsRight){

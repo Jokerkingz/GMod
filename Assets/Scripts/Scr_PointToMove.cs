@@ -29,6 +29,9 @@ public class Scr_PointToMove : MonoBehaviour {
 	public LineRenderer cLR;
 
 	public Renderer[] vRend = new Renderer[0];
+
+	public string vStickStatus = "Idle";
+	public float vAngleGiven;
 	// Update is called once per frame
 	void Start () {
 		//vTeleportTo = GameObject.FindGameObjectWithTag("TeleportHere");
@@ -40,7 +43,9 @@ public class Scr_PointToMove : MonoBehaviour {
 		vPressCheck = "Checking";
 		float tX;
 		float tY;
-
+		bool tUsing = false;
+		float tAngle;
+		float tAddition = transform.eulerAngles.y;
 		if (vIsRight){
 			 tX = Input.GetAxis("Oculus_GearVR_RThumbstickX");
 			 tY = Input.GetAxis("Oculus_GearVR_RThumbstickY");
@@ -51,42 +56,74 @@ public class Scr_PointToMove : MonoBehaviour {
 			 tY = Input.GetAxis("Oculus_GearVR_LThumbstickY");
 			}
 		cLR.enabled = false;
-		if (tX != 0 && tY != 0 && (Vector2.Distance(Vector2.zero,new Vector3(tX,tY)) > .05f)){
-			cLR.enabled = true;
-			vPress = 2f;
-			vPointToThere();
-			vActive = true;
+		if (tX != 0 && tY != 0 && (Vector2.Distance(Vector2.zero,new Vector3(tX,tY)) > .3f)){
+			tUsing = true;
 			}
-		float tAngle = Mathf.Atan2(tX,tY)*180/Mathf.PI;
-		float tAddition = transform.eulerAngles.y;
-		if (Vector2.Distance(Vector2.zero,new Vector3(tX,tY)) > .5f)
-			vAngleToUse = tAngle+tAddition;
-		if (vPress > 0f)
-			vPress -= .5f;
-		else{
-			vPress = 0f;
-			if (vActive){
-				vActive = false;
-				if (vAngleToUse > 360f)
-						vAngleToUse -= 360f;
-				if (vAngleToUse < 0f)
-						vAngleToUse += 360f;
-				if (vTemp != null){
-					cOVRPC.vAngleOffSet = vAngleToUse;
-					if (vTemp.GetComponentInChildren<Scr_CheckBody>().vOpenSpot != new Vector3(0,1,0) && vTemp.GetComponentInChildren<Scr_CheckBody>().vOpenSpot != new Vector3(0,0,0))
-					//if (vTemp.GetComponentInChildren<Scr_CheckBody>().vReadyToTeleport) BeforeChange
-					{
-						Vector3 tSpot = vTemp.GetComponentInChildren<Scr_CheckBody>().vOpenSpot;
-						//if (tSpot != Vector3.zero)
-						cOVRPC.gameObject.transform.position = tSpot;
-						}
-					vOrienter.transform.localEulerAngles = new Vector3(0,vAngleToUse,0);
+		switch (vStickStatus){
+			default:
+				vStickStatus = "Idle";
+			break;
+			case  "Idle":
+			if (tUsing){
+				if (GameObject.FindGameObjectsWithTag("Hollow").Length > 0)
+					vStickStatus = "Angle";
+				else
+					vStickStatus = "Moving";
+
+				}
+			break;
+		case "Moving":
+			if (tUsing){
+				tAngle = Mathf.Atan2(tX,tY)*180/Mathf.PI;
+				vAngleGiven = tAngle+tAddition;
+				cLR.enabled = true;
+				vPointToThere();
+				vActive = true;
+				vStickStatus = "Moving";
+				}
+			else
+				vStickStatus = "EndUse";
+
+			break;
+		case "Angle":
+			if (tUsing){
+				tAngle = Mathf.Atan2(tX,tY)*180/Mathf.PI;
+				vAngleGiven = tAngle+tAddition;
+				}
+			else{
+				
+			}
+			break;
+		case "EndUse":
+			vStickStatus = "Idle";
+			//if (vActive){
+			//	vActive = false;
+			if (vAngleToUse > 360f)
+					vAngleToUse -= 360f;
+			if (vAngleToUse < 0f)
+					vAngleToUse += 360f;
+			if (vTemp != null){
+				cOVRPC.vAngleOffSet = vAngleToUse;
+				Vector3 tVect = vTemp.GetComponentInChildren<Scr_CheckBody>().vOpenSpot;
+				if (tVect != new Vector3(0,1,0) && tVect != new Vector3(0,0,0))
+				//if (vTemp.GetComponentInChildren<Scr_CheckBody>().vReadyToTeleport) BeforeChange
+					{//Vector3 tSpot = vTemp.GetComponentInChildren<Scr_CheckBody>().vOpenSpot;
+					//if (tSpot != Vector3.zero)
+					cOVRPC.gameObject.transform.position = tVect;
 					}
-			Destroy(vTemp);
-
-
-			}
+				vOrienter.transform.localEulerAngles = new Vector3(0,vAngleToUse,0);
+				}
+		Destroy(vTemp);
+		break;
 		}
+
+		//if (Vector2.Distance(Vector2.zero,new Vector3(tX,tY)) > .5f)
+		//	vAngleToUse = tAngle+tAddition;
+		//if (vPress > 0f)
+		//	vPress -= .5f;
+		//else{
+		//	}
+		//}
 		if (vTemp != null){
 			Vector3 tSpotA = vTemp.GetComponentInChildren<Scr_CheckBody>().vOpenSpot;
 			if (tSpotA == new Vector3(0,1,0) || tSpotA == new Vector3(0,0,0)){
