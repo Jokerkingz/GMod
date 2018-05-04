@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4051963003043864}
   - component: {fileID: 33611132071938732}
   - component: {fileID: 23017832777978376}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1355515270068434
 GameObject:
@@ -147,7 +147,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1936131752928124
 GameObject:
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 4484988239261944}
   - component: {fileID: 33845540353264388}
   - component: {fileID: 23069361910700394}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1550831942637898}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -127.78, y: 37.792, z: -236.27}
+  m_LocalPosition: {x: -215.99, y: 1.2514, z: -47.941}
   m_LocalScale: {x: 0.5, y: 4, z: 1}
   m_Children:
   - {fileID: 4578758195193968}
@@ -764,7 +764,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9b04e0c5d5c2c574684ebbf518a853aa, type: 3}
   warningTimer: 5.5
   warningLight: {fileID: 1355515270068434}
-  enemiesAmbushing: []
+  enemiesAmbushing:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   isAlreadyAlerted: 0
   isLightActive: 0
   isFlareUp: 0

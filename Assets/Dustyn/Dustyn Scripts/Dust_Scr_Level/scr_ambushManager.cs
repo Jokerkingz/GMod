@@ -7,6 +7,9 @@ public class scr_ambushManager : MonoBehaviour {
 	public int enemiesLeftBeforeAmbush;
 	public int enemiesAmmountForAmbush;
 	public GameObject ambushDoor;
+	public bool loadRoomToBeAmbush;
+	public string AmbushRoomToLoad;
+	public GameObject doorToDelete;
 	
 	private bool lockCheck;
 	
@@ -23,8 +26,15 @@ public class scr_ambushManager : MonoBehaviour {
 
 		if (enemiesLeftBeforeAmbush==enemiesAmmountForAmbush &&!lockCheck)
 		{
-			ambushDoor.GetComponent<scr_doorAmbush>().DoorAlarm();
+			
 			lockCheck=true;
+			if (!loadRoomToBeAmbush)
+			{ambushDoor.GetComponent<scr_doorAmbush>().DoorAlarm();}
+			if(loadRoomToBeAmbush)
+			{
+				Scr_SceneManager.Instance.LoadNext(AmbushRoomToLoad);
+				Destroy(doorToDelete);
+			}
 		}
 	}
 }

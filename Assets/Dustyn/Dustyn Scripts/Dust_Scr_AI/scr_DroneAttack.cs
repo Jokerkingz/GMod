@@ -23,17 +23,18 @@ public class scr_DroneAttack : MonoBehaviour {
 	[Header("Bools")]
 	public bool isSwitching;
 	public bool isMoving;
+	public bool isDeadStopAll;
 
 	[Header("References")]
 	public Transform target;
 	public Scr_EnemyShoot enemyShoot;
-	public Scr_HealthScript healthScript;
+	//public Scr_HealthScript healthScript;
 
 	void Awake () {
 
 		target= GameObject.FindWithTag("MainOVR").transform;
 		enemyShoot= this.gameObject.GetComponentInChildren<Scr_EnemyShoot>();
-		healthScript = this.gameObject.GetComponent<Scr_HealthScript>();
+	//	healthScript = this.gameObject.GetComponent<Scr_HealthScript>();
 		this.currentState= State.Moving;
 	}
 
@@ -94,6 +95,7 @@ public class scr_DroneAttack : MonoBehaviour {
 	}
 	void Moving()
 	{
+		if (isDeadStopAll){currentState=State.Dying;}
 		enemyShoot.isShooting=false;
 		transform.position = Vector3.MoveTowards (this.transform.position, centerPoint.position,Time.deltaTime*switchSpeed);
 		switchTimer = 0;
@@ -104,6 +106,7 @@ public class scr_DroneAttack : MonoBehaviour {
 	}
 	void Switch()
 	{
+		if (isDeadStopAll){currentState=State.Dying;}
 		//isMoving=false;
 		if (isMoving){currentState=State.Moving;}
 		transform.LookAt(switchPoints[curSwitchPoint].position);
@@ -120,6 +123,7 @@ public class scr_DroneAttack : MonoBehaviour {
 
 	void Attack()
 	{
+		if (isDeadStopAll){currentState=State.Dying;}
 		//isMoving=false;
 		if (isMoving){currentState=State.Moving;}
 		if (0== switchTimer){isSwitching=false;}
@@ -142,7 +146,10 @@ public class scr_DroneAttack : MonoBehaviour {
 	void Dying()
 	{
 		enemyShoot.isShooting=false;
-		return;
+		isMoving=false;
+		isSwitching=false;
+		switchSpeed=0;
+		
 	}
 
 	void Reset()

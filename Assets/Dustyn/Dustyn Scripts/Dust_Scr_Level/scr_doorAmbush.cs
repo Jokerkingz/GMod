@@ -15,10 +15,13 @@ public class scr_doorAmbush : MonoBehaviour {
 	public bool isLightActive;
 	public bool isFlareUp;
 	public bool isFlareDown;
+	[Header("Type")]
+	public bool OpenOnLoad;
 	void Start () {
 
 		anim = this.gameObject.GetComponent<Animation>();
 		As = this.gameObject.GetComponent<AudioSource>();
+		if (OpenOnLoad){DoorAlarm();}
 	}
 	
 	

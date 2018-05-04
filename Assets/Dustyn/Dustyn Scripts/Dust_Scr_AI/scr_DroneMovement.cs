@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class scr_DroneMovement : MonoBehaviour {
 
-	enum State {Idle, Patrol, Chase, AttackFormation}
+	enum State {Idle, Patrol, Chase, AttackFormation, Dying}
 	State currentState;
 	public string movementCurrentState;
 
@@ -25,6 +25,9 @@ public class scr_DroneMovement : MonoBehaviour {
 	public Transform target;
 	public scr_DroneAttack droneAttack;
 	public NavMeshAgent droneAgent;
+	public Scr_HealthScript healthScript;
+	private Animation anim;
+	private ParticleSystem particleExplosion;
 
 	[Header("Bools")]
 	public bool boolChase;
@@ -39,9 +42,12 @@ public class scr_DroneMovement : MonoBehaviour {
 
 	void Awake()
 	{
+		particleExplosion = GetComponentInChildren<ParticleSystem>();
+		healthScript = GetComponentInChildren<Scr_HealthScript>();
 		target = GameObject.FindWithTag("MainOVR").transform;
 		droneAttack = this.gameObject.GetComponentInChildren<scr_DroneAttack>();
 		droneAgent = this.gameObject.GetComponent<NavMeshAgent>();
+		anim = this.gameObject.GetComponent<Animation>();
 	}
 	void Start () {
 		if (isStationaryGuard){currentState=State.Idle;}
@@ -62,6 +68,7 @@ public class scr_DroneMovement : MonoBehaviour {
 			case State.Patrol: this.Patrol(); break;
 			case State.Chase: this.Chase(); break;
 			case State.AttackFormation: this.AttackFormation();break;
+			case State.Dying: this.Dying();break;
 		}
 		movementCurrentState = ""+currentState;
 
@@ -88,6 +95,8 @@ public class scr_DroneMovement : MonoBehaviour {
 	}
 	void Idle()
 	{	
+		if (healthScript.curHealth <=0) {currentState=State.Dying;}
+	
 		droneAttack.isMoving=true;
 		if(boolChase){currentState=State.Chase;}
 		return;
@@ -95,6 +104,7 @@ public class scr_DroneMovement : MonoBehaviour {
 	void Patrol()
 	{
 		//navyMeshy.speed = floatSpeedHolder;
+		if (healthScript.curHealth <=0) {currentState=State.Dying;}
 		droneAttack.isMoving=true;
 		if ( boolChase){currentState= State.Chase;}
 		
@@ -113,6 +123,7 @@ public class scr_DroneMovement : MonoBehaviour {
 
 	void Chase()
 	{	
+		if (healthScript.curHealth <=0) {currentState=State.Dying;}
 		if (floatDistance<=attackDistance) {currentState= State.AttackFormation;}
 		gameObject.GetComponent<NavMeshAgent>().SetDestination (target.transform.position);
 		droneAttack.isMoving=true;
@@ -122,6 +133,7 @@ public class scr_DroneMovement : MonoBehaviour {
 
 	void AttackFormation()
 	{
+		if (healthScript.curHealth <=0) {currentState=State.Dying;}
 		if (floatDistance> attackWiggleDistance){currentState= State.Chase;}
 		droneAttack.isMoving=false;
 		droneAgent.speed =0;
@@ -129,6 +141,16 @@ public class scr_DroneMovement : MonoBehaviour {
 		return;
 	}
 
+	void Dying()
+	{		
+		anim.Play("ani_droneDead2");
+		droneAttack.isDeadStopAll=true;
+		boolChase =false;
+		droneAgent.speed=0;
+		droneAttack.enemyShoot.enabled=false;
+		this.gameObject.GetComponent<Collider>().enabled=false;
+		Destroy(this.gameObject, 3f);
+	}
 
 	void GoToNextPoint()
 	{
@@ -145,6 +167,11 @@ public class scr_DroneMovement : MonoBehaviour {
 	public void Alerted()
 	{
 		boolChase=true;
+	}
+
+	public void PlayExplosion()
+	{
+		particleExplosion.Play();
 	}
 
 }
