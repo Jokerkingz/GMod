@@ -49,12 +49,20 @@ public class Scr_Female_Socket : MonoBehaviour {
 			}
 		Material tMat = vMatGood;
 		if (vHologramObj != null){
-			vHollowAngle = Reorientate(vHologramSource);
-			vHologramObj.transform.localEulerAngles = vHollowAngle;
+			// Get Angle From Hand
+				float tAngleStick = 0;
+				GameObject tHand =  this.transform.root.GetComponent<OVRGrabbable>().vHandObj;
+				if (tHand != null)
+					tAngleStick = tHand.GetComponentInChildren<Scr_PointToMove>().vAngleGiven;
+			//float tAngleStick = tHand.GetComponentInChildren<Scr_PointToMove>().vAngleGiven;
+			// End Of get Angle From Hand
+			//vHollowAngle = Reorientate(vHologramSource);
+				vHollowAngle = new Vector3(0,((Mathf.Round(tAngleStick/90f))*90f),0);
+				vHologramObj.transform.localEulerAngles = vHollowAngle;//vHollowAngle;
 
-			vHologramObj.transform.LookAt(vHologramSource.transform.position);//
-				vHollowAngle = new Vector3(0f,((Mathf.Round(vHologramObj.transform.localEulerAngles.y/90f))*90f),0f);//
-				vHologramObj.transform.localEulerAngles = vHollowAngle;
+			//vHologramObj.transform.LookAt(vHologramSource.transform.position);//
+			//	vHollowAngle = new Vector3(0f,((Mathf.Round(vHologramObj.transform.localEulerAngles.y/90f))*90f),0f);//
+			//	vHologramObj.transform.localEulerAngles = vHollowAngle;
 				//vHologramObj.transform.localEulerAngles = new Vector3(transform.localEulerAngles.x,0f,0f);//
 
 			if (vCollisionRate > 0f)
@@ -99,10 +107,11 @@ public class Scr_Female_Socket : MonoBehaviour {
 				vHologramObj.BroadcastMessage("TurnOff","Hollow");
 				vHologramObj.transform.SetParent(this.transform);
 				vHologramObj.transform.localPosition =Vector3.zero;
-				vHologramObj.transform.localEulerAngles = Reorientate(tReference);
+				//vHologramObj.transform.localEulerAngles = Reorientate(tReference);
 
-				vHologramObj.transform.LookAt(vHologramSource.transform.position);//
-				vHollowAngle = new Vector3(0f,((Mathf.Round(vHologramObj.transform.localEulerAngles.y/90f))*90f),0f);//
+				//vHologramObj.transform.LookAt(vHologramSource.transform.position);//
+			//vHollowAngle = new Vector3(0f,((Mathf.Round(vHologramObj.transform.localEulerAngles.y/90f))*90f),0f);//
+				vHollowAngle = Vector3.zero;
 				vHologramObj.transform.localEulerAngles = vHollowAngle;
 
 				tTransList = new Transform[0];
@@ -160,8 +169,8 @@ public class Scr_Female_Socket : MonoBehaviour {
 			return;
 		if (vHologramObj == null)
 		return;
-		vHologramObj.transform.LookAt(vHologramSource.transform.position);//
-		vHollowAngle = new Vector3(0f,((Mathf.Round(vHologramObj.transform.localEulerAngles.y/90f))*90f),0f);//
+		//vHologramObj.transform.LookAt(vHologramSource.transform.position);//
+		//vHollowAngle = new Vector3(0f,((Mathf.Round(vHologramObj.transform.localEulerAngles.y/90f))*90f),0f);//
 		vHologramObj.transform.localEulerAngles = vHollowAngle;
 		if (vHologramObj != null)
 		if (vCollisionRate <= 0f && vHologramSource == tReference){

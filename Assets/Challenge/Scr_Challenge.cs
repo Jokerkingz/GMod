@@ -32,7 +32,7 @@ public class Scr_Challenge : MonoBehaviour {
 		vHolsterB.SetActive(false);
 		vPos = this.transform.position;
 		foreach (Scr_PointToMove tPTM in vPTM) {
-			tPTM.enabled = false;
+			tPTM.vIsUsedToMove = false;
 		}
 	}
 	

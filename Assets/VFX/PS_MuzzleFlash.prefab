@@ -36,7 +36,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4701036593165796}
-  - component: {fileID: 114991007292033160}
+  - component: {fileID: 114988182388938464}
   m_Layer: 0
   m_Name: PS_MuzzleFlash
   m_TagString: Untagged
@@ -81,7 +81,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1443591130359764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.273625, y: 65.02513, z: 46.12702}
+  m_LocalPosition: {x: -1.274234, y: 64.17, z: 45.855152}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4877578232724562}
@@ -102,18 +102,19 @@ Transform:
   m_Father: {fileID: 4701036593165796}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114991007292033160
+--- !u!114 &114988182388938464
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1443591130359764}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07b5c2a56af61bb47b2dffeb2475bb7b, type: 3}
+  m_Script: {fileID: 11500000, guid: 71f111e743e7b5646b4bd53907e30c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  muzzle: {fileID: 198673190969172876}
+  vTimer: 1
+  vAutoDie: 1
 --- !u!198 &198671374136388730
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -174,7 +175,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 1991792912
+  randomSeed: 2069665961
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3514,7 +3515,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -1400745068
+  randomSeed: 137265953
   InitialModule:
     serializedVersion: 3
     enabled: 1

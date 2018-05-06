@@ -12,8 +12,6 @@ public class Scr_PointToMove : MonoBehaviour {
 	public float vAngleToUse;
 
 	public OVRPlayerController cOVRPC;
-	private float vPress = 0f;
-	private bool vActive = false;
 
 	public GameObject vOrienter;
 	public bool vIsRight;
@@ -25,6 +23,8 @@ public class Scr_PointToMove : MonoBehaviour {
 	private Vector3 vPointSpot;
 	public LayerMask vHitLayer;
 	public Vector3 vLineRenderPoint;
+
+	public bool vIsUsedToMove = true;
 
 	public LineRenderer cLR;
 
@@ -67,7 +67,7 @@ public class Scr_PointToMove : MonoBehaviour {
 			if (tUsing){
 				if (GameObject.FindGameObjectsWithTag("Hollow").Length > 0)
 					vStickStatus = "Angle";
-				else
+				else if (vIsUsedToMove)
 					vStickStatus = "Moving";
 
 				}
@@ -78,7 +78,7 @@ public class Scr_PointToMove : MonoBehaviour {
 				vAngleGiven = tAngle+tAddition;
 				cLR.enabled = true;
 				vPointToThere();
-				vActive = true;
+				//vActive = true;
 				vStickStatus = "Moving";
 				}
 			else
@@ -88,10 +88,10 @@ public class Scr_PointToMove : MonoBehaviour {
 		case "Angle":
 			if (tUsing){
 				tAngle = Mathf.Atan2(tX,tY)*180/Mathf.PI;
-				vAngleGiven = tAngle+tAddition;
+				vAngleGiven = tAngle;//+tAddition;
 				}
 			else{
-				
+				vStickStatus = "EndAngle";
 			}
 			break;
 		case "EndUse":
@@ -114,6 +114,10 @@ public class Scr_PointToMove : MonoBehaviour {
 				vOrienter.transform.localEulerAngles = new Vector3(0,vAngleToUse,0);
 				}
 		Destroy(vTemp);
+		break;
+		case "EndAngle":
+			vAngleGiven = 0;
+				vStickStatus = "Idle";
 		break;
 		}
 
