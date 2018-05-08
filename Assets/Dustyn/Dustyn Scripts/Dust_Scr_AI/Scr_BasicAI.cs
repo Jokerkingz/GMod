@@ -54,7 +54,7 @@ public class Scr_BasicAI : MonoBehaviour {
 	public bool boolChase;
 	public bool inLineOfSight;
 
-	
+	public bool isDead;
 
 	[Header("Floats")]
 	public float floatDistance;
@@ -351,6 +351,7 @@ public class Scr_BasicAI : MonoBehaviour {
 			enemyShoot.enabled=false;
 			navyMeshy.speed=0;
 			this.gameObject.GetComponent<Collider>().enabled=false;
+			isDead=true;
 			Destroy(this.gameObject, 3f);
 	}
 

@@ -469,96 +469,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 608276105}
   m_Mesh: {fileID: 4300000, guid: 44a92dcadfd386248bfa17e2339c5962, type: 3}
---- !u!1001 &838436382
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4569898729111438, guid: 216062a6d07b9dc479f9732ca4df2da2, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -207.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4569898729111438, guid: 216062a6d07b9dc479f9732ca4df2da2, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.19966
-      objectReference: {fileID: 0}
-    - target: {fileID: 4569898729111438, guid: 216062a6d07b9dc479f9732ca4df2da2, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -35.883
-      objectReference: {fileID: 0}
-    - target: {fileID: 4569898729111438, guid: 216062a6d07b9dc479f9732ca4df2da2, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4569898729111438, guid: 216062a6d07b9dc479f9732ca4df2da2, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4569898729111438, guid: 216062a6d07b9dc479f9732ca4df2da2, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4569898729111438, guid: 216062a6d07b9dc479f9732ca4df2da2, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4569898729111438, guid: 216062a6d07b9dc479f9732ca4df2da2, type: 2}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114766276961866068, guid: 216062a6d07b9dc479f9732ca4df2da2,
-        type: 2}
-      propertyPath: doesUntagFloors
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114766276961866068, guid: 216062a6d07b9dc479f9732ca4df2da2,
-        type: 2}
-      propertyPath: prevDoor
-      value: 
-      objectReference: {fileID: 890790783}
-    - target: {fileID: 1327511235500032, guid: 216062a6d07b9dc479f9732ca4df2da2, type: 2}
-      propertyPath: m_Name
-      value: MusicTrigger2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114766276961866068, guid: 216062a6d07b9dc479f9732ca4df2da2,
-        type: 2}
-      propertyPath: nextDoor
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4569898729111438, guid: 216062a6d07b9dc479f9732ca4df2da2, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 23977567107895166, guid: 216062a6d07b9dc479f9732ca4df2da2,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114766276961866068, guid: 216062a6d07b9dc479f9732ca4df2da2, type: 2}
-  m_ParentPrefab: {fileID: 100100000, guid: 216062a6d07b9dc479f9732ca4df2da2, type: 2}
-  m_IsPrefabParent: 0
---- !u!1 &838436383 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1327511235500032, guid: 216062a6d07b9dc479f9732ca4df2da2,
-    type: 2}
-  m_PrefabInternal: {fileID: 838436382}
---- !u!114 &838436384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 838436383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34dac66d0449a8e498427e25ef0b0826, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicManager: {fileID: 0}
-  stopMusic: 0
-  playSpecialMusic: 1
 --- !u!1001 &845266242
 Prefab:
   m_ObjectHideFlags: 0
@@ -893,7 +803,7 @@ Prefab:
     - target: {fileID: 114873452060917416, guid: 2d9facf4335290647a4ebd22c39964bd,
         type: 2}
       propertyPath: roomToLoad
-      value: sce_0017
+      value: sce_0017a
       objectReference: {fileID: 0}
     - target: {fileID: 114873452060917416, guid: 2d9facf4335290647a4ebd22c39964bd,
         type: 2}
