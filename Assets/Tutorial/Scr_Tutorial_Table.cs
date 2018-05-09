@@ -47,7 +47,7 @@ public class Scr_Tutorial_Table : MonoBehaviour {
 		vPrintButton.transform.localScale = vVectScale;
 		//Scr_PointToMove[] vPTM = tPlayer.GetComponentsInChildren<Scr_PointToMove>();
 		foreach (Scr_PointToMove tPTM in vPTM) {
-			tPTM.enabled = false;
+			tPTM.vIsUsedToMove = false;
 		}
 		vTextSource.text = "Place one hand on top of the table for the hand scanner";
 	}
@@ -94,7 +94,7 @@ public class Scr_Tutorial_Table : MonoBehaviour {
 					vImageIndex ++;
 					vImageShowA.sprite = vSpriteList[vImageIndex];
 				vImageShowB.sprite = vSpriteList[vImageIndex];
-				vTextSource.text = "Connect gun parts using their sockets. Yellow male sockets connects to blue female sockets";
+				vTextSource.text = "Connect gun parts using their sockets. Yellow male sockets connects to blue female sockets \n Use The analog stick to rotate the parts when a hologram is shown.";
 					vStatus = "ThirdStep";
 					}
 		break;
@@ -106,7 +106,7 @@ public class Scr_Tutorial_Table : MonoBehaviour {
 					vImageIndex ++;
 					vImageShowA.sprite = vSpriteList[vImageIndex];
 				vImageShowB.sprite = vSpriteList[vImageIndex];
-				vTextSource.text = "Connect all parts together. Yellow male sockets connects to blue female sockets";
+				vTextSource.text = "Use The analog stick to rotate the parts when a hologram is shown. \n Connect all parts together. Yellow male sockets connects to blue female sockets";
 					vStatus = "FourthStep";
 					}
 		break;
@@ -163,7 +163,7 @@ public class Scr_Tutorial_Table : MonoBehaviour {
 				vImageShowB.sprite = vSpriteList[vImageIndex];
 				vTextSource.text = "Use the analog stick to rotate and move. \n The arrow indicates where you will be facing once you let go of the analog stick";
 					foreach (Scr_PointToMove tPTM in vPTM) {
-						tPTM.enabled = true;
+						tPTM.vIsUsedToMove = true;
 				}
 				vStatus = "SeventhStep";
 				vTarget = Instantiate(vNextFloor);
@@ -177,10 +177,10 @@ public class Scr_Tutorial_Table : MonoBehaviour {
 
 		break;
 		case "SeventhStep":
-			fHandleCheck();
-			fBarrelCheck();
-			fBaseCheck();
-			fMagazineCheck();
+			//fHandleCheck();
+			//fBarrelCheck();
+			//fBaseCheck();
+			//fMagazineCheck();
 
 		break;
 		}

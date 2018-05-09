@@ -351,13 +351,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vCoolDown: 0
-  vVFX: {fileID: 0}
+  vVFXMuzzleFlash: {fileID: 0}
   vColliderToSkip: {fileID: 64897842784148758}
   vBarrelType: 3
   vBulletSource: {fileID: 0}
   vOtherBarrel: {fileID: 0}
   vBatteryCost: 20
-  vAccuracyMultiplier: 0.3
+  vAccuracyMultiplier: 0.0001
   vCoolDownTime: 0.5
   vVectCurrent: {x: 0, y: 0, z: 0}
   vVectPrevious: {x: 0, y: 0, z: 0}
@@ -399,6 +399,7 @@ MonoBehaviour:
   - {fileID: 64381089813403604}
   vIsBeingGripped: 0
   vIsGrippedBy: 
+  vHandObj: {fileID: 0}
   vIsGunHandle: 0
 --- !u!135 &135202937545876752
 SphereCollider:

@@ -43,7 +43,8 @@ public class OVRGrabbable : MonoBehaviour
     protected OVRGrabber m_grabbedBy = null;
 
 	public bool vIsBeingGripped;
-    public string vIsGrippedBy;
+	public string vIsGrippedBy;
+    public GameObject vHandObj;
     public bool vIsGunHandle;
     private Scr_ModHandle cMH;
 	/// <summary>
@@ -144,6 +145,7 @@ public class OVRGrabbable : MonoBehaviour
 
 		vIsBeingGripped = true;
 		vIsGrippedBy = hand.vWhichHand;
+		vHandObj = hand.gameObject;
 		Scr_Male_Socket tNewSocket = this.GetComponent<Scr_Male_Socket>();
 		if (tNewSocket!=null){
 			tNewSocket.enabled = true;
@@ -170,7 +172,7 @@ public class OVRGrabbable : MonoBehaviour
 	/// </summary>
 	virtual public void GrabEnd(Vector3 linearVelocity, Vector3 angularVelocity)
 	{	vIsBeingGripped = false;
-
+		vHandObj = null;
 		if (tag != "Display"){
 	        Rigidbody rb = gameObject.GetComponent<Rigidbody>();
 	        rb.isKinematic = m_grabbedKinematic;

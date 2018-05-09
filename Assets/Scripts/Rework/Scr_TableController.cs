@@ -17,7 +17,7 @@ public class Scr_TableController : MonoBehaviour {
 	public Material vHoloMaterial;
 
 	// Print Data
-	private string[] vModType = new string[]{"Handle","Base","Barrel","Magazine","Module","Sword"};//,"Extension","Sword","Shield"};
+	private string[] vModType = new string[]{"Handle","Base","Barrel","Magazine","Module","Accesory"};//,"Extension","Sword","Shield"};
 	public int vModTypIndex;
 	private string[] vHandleType = new string[]{"Simple"};
 	public int vHandleTypIndex;
@@ -29,7 +29,7 @@ public class Scr_TableController : MonoBehaviour {
 	public int vMagazineTypIndex;
 	private string[] vModuleType = new string[]{"Rotator"};
 	public int vModuleTypIndex;
-	private string[] vSwordType = new string[]{"Simple"};
+	private string[] vSwordType = new string[]{"Scope"};
 	public int vSwordTypIndex;
 	public string vSubType = "A"; //"B"
 	public float vCoolDown;

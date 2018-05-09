@@ -6,7 +6,7 @@ public class Scr_ModBarrel : MonoBehaviour {
 	public enum BarrelType {Void,Simple,Plasma,Rail,Curve}
 	[Header("Common")]
 	public float vCoolDown;
-	public GameObject vVFX;
+	public GameObject vVFXMuzzleFlash;
 	public Collider vColliderToSkip;
 
 	[Header("Barrel Information")]
@@ -64,6 +64,7 @@ public class Scr_ModBarrel : MonoBehaviour {
 			Scr_Data_Bullet tTemp = tBullet.fGetBullet();
 			if (tTemp.vBulletPrefab != null){
 				Instantiate(vAudioPlay).GetComponent<Scr_AudioCreation>().fCreateSound("BulletCreation",this.transform.position);
+				Instantiate(vVFXMuzzleFlash).transform.position = this.transform.position;
 				for (int i = 0; i < tTemp.vCopies; i++) {
 					fShootAbullet(tTemp,vBarrelType);
 				}
@@ -126,6 +127,7 @@ public class Scr_ModBarrel : MonoBehaviour {
 			Scr_Data_Bullet tTemp = tBullet.fGetBullet();
 			if (tTemp.vBulletPrefab != null){
 				Instantiate(vAudioPlay).GetComponent<Scr_AudioCreation>().fCreateSound("BulletCreation",this.transform.position);
+				Instantiate(vVFXMuzzleFlash).transform.position = this.transform.position;
 				for (int i = 0; i < tTemp.vCopies; i++) {
 					
 					fShootAbullet(tTemp,vBarrelType);
