@@ -7,6 +7,7 @@ public class scr_roomManager : MonoBehaviour {
 	public int enemiesLeft;
 	public GameObject doorGoal;
 	private bool lockCheck;
+	//public GameObject[] ListOfAi;
 	//public GameObject musicManager;
 	//public GameObject[] enemiesToAlert;
 
@@ -20,6 +21,7 @@ public class scr_roomManager : MonoBehaviour {
 		enemiesLeft=999;
 		lockCheck=false;
 		musicManager = FindObjectOfType<Scr_NewMusicManager>();
+		//ListOfAi = GameObject.FindGameObjectsWithTag("AI");
 	}
 	
 	

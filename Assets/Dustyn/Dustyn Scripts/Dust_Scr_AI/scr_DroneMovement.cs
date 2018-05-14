@@ -28,6 +28,7 @@ public class scr_DroneMovement : MonoBehaviour {
 	public Scr_HealthScript healthScript;
 	private Animation anim;
 	private ParticleSystem particleExplosion;
+	public LayerMask vLayer;
 
 	[Header("Bools")]
 	public bool boolChase;
@@ -78,21 +79,39 @@ public class scr_DroneMovement : MonoBehaviour {
 	}
 
 	void FixedUpdate()
-	{
-	 /*Vector3 direction = target.position - this.transform.position;
-	 float angle = Vector3.Angle (direction, this.transform.forward);
-		if (Vector3.Distance (target.position, this.transform.position) < viewDistance && angle<viewAngle)
-		{
-			boolChase=true;
-		}*/
+    {
+     /*Vector3 direction = target.position - this.transform.position;
+     float angle = Vector3.Angle (direction, this.transform.forward);
+        if (Vector3.Distance (target.position, this.transform.position) < viewDistance && angle<viewAngle)
+        {
+            boolChase=true;
+        }*/
 
-		RaycastHit hit;
-		Debug.DrawRay (transform.position, transform.TransformDirection(Vector3.forward*viewDistance), Color.red);
-		if (Physics.Raycast (transform.position, transform.TransformDirection(Vector3.forward*viewDistance), out hit))
-		if (hit.collider.CompareTag("Player")) {
-		boolChase=true;
-		}
+        /*RaycastHit hit;
+        Debug.DrawRay (transform.position, transform.TransformDirection(Vector3.forward*viewDistance), Color.red);
+        if (Physics.Raycast (transform.position, transform.TransformDirection(Vector3.forward*viewDistance), out hit))
+        if (hit.collider.CompareTag("MainOVR")) {
+        boolChase=true;*/
+
+            Ray tRay = new Ray(transform.position+transform.up *0.75f, transform.TransformDirection(Vector3.forward*viewDistance));
+            Debug.DrawRay (transform.position +transform.up *0.75f, transform.TransformDirection(Vector3.forward*viewDistance), Color.red);
+            RaycastHit tHit;
+
+            if (Physics.Raycast(tRay, out tHit, viewDistance, vLayer))
+            {
+            if (tHit.collider.CompareTag("MainOVR"))
+            {
+            Alerted();
+            }
+        }
+     Vector3 direction = target.position - this.transform.position;
+     float angle = Vector3.Angle (direction, this.transform.forward);
+    if (Vector3.Distance (target.position, this.transform.position) < viewDistance && angle<viewAngle)
+    {
+            transform.LookAt(target);
+    }
 	}
+
 	void Idle()
 	{	
 		if (healthScript.curHealth <=0) {currentState=State.Dying;}
