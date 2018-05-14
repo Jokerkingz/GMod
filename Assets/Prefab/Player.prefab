@@ -925,7 +925,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1387952373489038}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.107, z: 0.603}
+  m_LocalPosition: {x: -0.003, y: 65.27, z: 45.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4608605822458778}
@@ -2117,8 +2117,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   vLineRenderPoint: {x: 0, y: 0, z: 0}
+  vIsUsedToMove: 1
   cLR: {fileID: 0}
   vRend: []
+  vStickStatus: Idle
+  vAngleGiven: 0
 --- !u!114 &114085811370427046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2445,8 +2448,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   vLineRenderPoint: {x: 0, y: 0, z: 0}
+  vIsUsedToMove: 1
   cLR: {fileID: 0}
   vRend: []
+  vStickStatus: Idle
+  vAngleGiven: 0
 --- !u!114 &114441721144947932
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2634,20 +2640,20 @@ MonoBehaviour:
     vModName: 
     vModType: 
     vNote: 
-  - vName: Barrel_Curve_A
-    vSource: {fileID: 1205577762826484, guid: fc17c7b3a36fc3644b1341d462634bee, type: 2}
+  - vName: Barrel_Rifle_A
+    vSource: {fileID: 1568634814407272, guid: ed4eb8dfff2e6d54f894b7f051bd1179, type: 2}
     vMainCategory: 
     vModName: 
     vModType: 
     vNote: 
-  - vName: Barrel_Curve_A
-    vSource: {fileID: 1205577762826484, guid: fc17c7b3a36fc3644b1341d462634bee, type: 2}
+  - vName: Accessory_Scope_A
+    vSource: {fileID: 1612046458257938, guid: ae8059a349fb0114ba2c02cfa64fa3dd, type: 2}
     vMainCategory: 
     vModName: 
     vModType: 
     vNote: 
-  - vName: Barrel_Curve_A
-    vSource: {fileID: 1205577762826484, guid: fc17c7b3a36fc3644b1341d462634bee, type: 2}
+  - vName: Accessory_Sword_A
+    vSource: {fileID: 1686380595401784, guid: 99b3768a51f29fc4989b32539ded8644, type: 2}
     vMainCategory: 
     vModName: 
     vModType: 

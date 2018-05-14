@@ -33,6 +33,7 @@ public class Scr_FabricationCollective : MonoBehaviour {
 			cRB.isKinematic = true;
 			}
 		vMaterialClone.SetFloat("_DissolveAmount",1f-(vMeter/vMaxMeter));
+		Debug.Log("Started");
 	}
 	
 	// Update is called once per frame

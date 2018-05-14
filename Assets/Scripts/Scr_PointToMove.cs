@@ -95,6 +95,7 @@ public class Scr_PointToMove : MonoBehaviour {
 			}
 			break;
 		case "EndUse":
+			vAngleToUse = vAngleGiven;
 			vStickStatus = "Idle";
 			//if (vActive){
 			//	vActive = false;
@@ -180,7 +181,7 @@ public class Scr_PointToMove : MonoBehaviour {
 					else{
 						vTemp.transform.position = tHit.point;
 						tStartingPosition = tHit.point;
-						vTemp.GetComponentInChildren<Scr_CheckBody>().vRotAngle = vAngleToUse;
+						vTemp.GetComponentInChildren<Scr_CheckBody>().vRotAngle = vAngleGiven;
 						cLR.positionCount = tIndex+1;
 						tDone = true;
 					}

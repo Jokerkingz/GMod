@@ -43,7 +43,6 @@ public class Scr_ModLoadMain : MonoBehaviour {
 						tSocket.GetComponent<Scr_ModSaverSocket>().vConnection = vPrefab;
 						tMalSocket.vConnectedTo = tSocket.gameObject;
 						//
-
 						// Set Transform and Rigidbody
 						int tNewAngle = int.Parse(tDivide[2]);
 						vPrefab.transform.localEulerAngles = new Vector3(0,tNewAngle,0);//Reorientate(tReference);//+this.transform.eulerAngles;
@@ -64,12 +63,7 @@ public class Scr_ModLoadMain : MonoBehaviour {
 							if (tMalSocket.vIsMagazine)
 								tRootMSH.lMagazineList.Add(vPrefab);
 						}
-
-
-
-
-
-						}
+					}
 				}
 			}
 		}

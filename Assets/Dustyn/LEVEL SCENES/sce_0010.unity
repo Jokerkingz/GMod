@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2148,6 +2148,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114970004305201816, guid: f896c7fb9b8b3b1409b15145ea2f990f,
+        type: 2}
+      propertyPath: vVFXMuzzleFlash
+      value: 
+      objectReference: {fileID: 1443591130359764, guid: 7dccd8c83ebcc824aaf57e265566567d,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f896c7fb9b8b3b1409b15145ea2f990f, type: 2}
   m_IsPrefabParent: 0
@@ -2356,6 +2362,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114970004305201816, guid: f896c7fb9b8b3b1409b15145ea2f990f,
+        type: 2}
+      propertyPath: vVFXMuzzleFlash
+      value: 
+      objectReference: {fileID: 1443591130359764, guid: 7dccd8c83ebcc824aaf57e265566567d,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f896c7fb9b8b3b1409b15145ea2f990f, type: 2}
   m_IsPrefabParent: 0
@@ -2809,6 +2821,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114970004305201816, guid: f896c7fb9b8b3b1409b15145ea2f990f,
+        type: 2}
+      propertyPath: vVFXMuzzleFlash
+      value: 
+      objectReference: {fileID: 1443591130359764, guid: 7dccd8c83ebcc824aaf57e265566567d,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f896c7fb9b8b3b1409b15145ea2f990f, type: 2}
   m_IsPrefabParent: 0
@@ -3262,6 +3280,7 @@ MonoBehaviour:
     m_Bits: 768
   boolChase: 0
   inLineOfSight: 0
+  isDead: 0
   floatDistance: 10
   floatAlertedRange: 3
   floatAttackInPlaceRange: 2
@@ -3514,6 +3533,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114970004305201816, guid: f896c7fb9b8b3b1409b15145ea2f990f,
+        type: 2}
+      propertyPath: vVFXMuzzleFlash
+      value: 
+      objectReference: {fileID: 1443591130359764, guid: 7dccd8c83ebcc824aaf57e265566567d,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f896c7fb9b8b3b1409b15145ea2f990f, type: 2}
   m_IsPrefabParent: 0
@@ -5619,6 +5644,12 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114970004305201816, guid: f896c7fb9b8b3b1409b15145ea2f990f,
+        type: 2}
+      propertyPath: vVFXMuzzleFlash
+      value: 
+      objectReference: {fileID: 1443591130359764, guid: 7dccd8c83ebcc824aaf57e265566567d,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f896c7fb9b8b3b1409b15145ea2f990f, type: 2}
   m_IsPrefabParent: 0
@@ -6380,6 +6411,7 @@ MonoBehaviour:
     m_Bits: 768
   boolChase: 0
   inLineOfSight: 0
+  isDead: 0
   floatDistance: 10
   floatAlertedRange: 3
   floatAttackInPlaceRange: 2
@@ -7956,6 +7988,7 @@ MonoBehaviour:
     m_Bits: 768
   boolChase: 0
   inLineOfSight: 0
+  isDead: 0
   floatDistance: 10
   floatAlertedRange: 3
   floatAttackInPlaceRange: 2
@@ -10398,6 +10431,7 @@ MonoBehaviour:
     m_Bits: 768
   boolChase: 0
   inLineOfSight: 0
+  isDead: 0
   floatDistance: 10
   floatAlertedRange: 3
   floatAttackInPlaceRange: 2
@@ -11175,6 +11209,7 @@ MonoBehaviour:
     m_Bits: 768
   boolChase: 0
   inLineOfSight: 0
+  isDead: 0
   floatDistance: 10
   floatAlertedRange: 3
   floatAttackInPlaceRange: 2
@@ -11421,6 +11456,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114970004305201816, guid: f896c7fb9b8b3b1409b15145ea2f990f,
+        type: 2}
+      propertyPath: vVFXMuzzleFlash
+      value: 
+      objectReference: {fileID: 1443591130359764, guid: 7dccd8c83ebcc824aaf57e265566567d,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f896c7fb9b8b3b1409b15145ea2f990f, type: 2}
   m_IsPrefabParent: 0
@@ -19384,6 +19425,7 @@ MonoBehaviour:
     m_Bits: 768
   boolChase: 0
   inLineOfSight: 0
+  isDead: 0
   floatDistance: 10
   floatAlertedRange: 3
   floatAttackInPlaceRange: 2

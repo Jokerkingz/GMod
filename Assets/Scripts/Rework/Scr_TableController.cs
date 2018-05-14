@@ -17,20 +17,20 @@ public class Scr_TableController : MonoBehaviour {
 	public Material vHoloMaterial;
 
 	// Print Data
-	private string[] vModType = new string[]{"Handle","Base","Barrel","Magazine","Module","Accesory"};//,"Extension","Sword","Shield"};
+	private string[] vModType = new string[]{"Handle","Base","Barrel","Magazine","Module","Accessory"};//,"Extension","Sword","Shield"};
 	public int vModTypIndex;
 	private string[] vHandleType = new string[]{"Simple"};
 	public int vHandleTypIndex;
 	private string[] vBaseType = new string[]{"Simple","Cylinder","Magazine","Battery"};
 	public int vBaseTypIndex;
-	private string[] vBarrelType = new string[]{"Simple","Rail","Plasma","Curve"};
+	private string[] vBarrelType = new string[]{"Simple","Rifle","Rail","Plasma","Curve"};
 	public int vBarrelTypIndex;
 	private string[] vMagazineType = new string[]{"Simple","Pellet"};
 	public int vMagazineTypIndex;
 	private string[] vModuleType = new string[]{"Rotator"};
 	public int vModuleTypIndex;
-	private string[] vSwordType = new string[]{"Scope"};
-	public int vSwordTypIndex;
+	private string[] vAccessoryType = new string[]{"Scope","Sword"};
+	public int vAccessoryTypIndex;
 	public string vSubType = "A"; //"B"
 	public float vCoolDown;
 	public GameObject vSpawnSpot;
@@ -160,10 +160,10 @@ public class Scr_TableController : MonoBehaviour {
 			if (vModuleTypIndex >= vModuleType.Length)
 				vModuleTypIndex = 0;
 			break;
-		case "Sword":
-			vModuleTypIndex ++;
-			if (vModuleTypIndex >= vModuleType.Length)
-				vModuleTypIndex = 0;
+		case "Accessory":
+			vAccessoryTypIndex ++;
+			if (vAccessoryTypIndex >= vAccessoryType.Length)
+				vAccessoryTypIndex = 0;
 			break;
 
 
@@ -201,10 +201,10 @@ public class Scr_TableController : MonoBehaviour {
 			if (vModuleTypIndex < 0)
 				vModuleTypIndex = vModuleType.Length-1;
 			break;
-		case "Sword":
-			vModuleTypIndex --;
-			if (vModuleTypIndex < 0)
-				vModuleTypIndex = vModuleType.Length-1;
+		case "Accessory":
+			vAccessoryTypIndex --;
+			if (vAccessoryTypIndex < 0)
+				vAccessoryTypIndex = vAccessoryType.Length-1;
 			break;
 
 
@@ -286,7 +286,7 @@ public class Scr_TableController : MonoBehaviour {
 		case "Barrel": tTemp = vBarrelType[vBarrelTypIndex]; break;
 		case "Magazine": tTemp = vMagazineType[vMagazineTypIndex]; break;
 		case "Module": tTemp = vModuleType[vModuleTypIndex]; break;
-		case "Sword": tTemp = vSwordType[vSwordTypIndex]; break;
+		case "Accessory": tTemp = vAccessoryType[vAccessoryTypIndex]; break;
 		}
 		return tTemp;
 	}

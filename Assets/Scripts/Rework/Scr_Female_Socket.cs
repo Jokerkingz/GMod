@@ -118,9 +118,10 @@ public class Scr_Female_Socket : MonoBehaviour {
 				tTransList = vHologramObj.GetComponentsInChildren<Transform>();
 				foreach (Transform tObjects in tTransList){
 					if (tObjects.tag == "GripPart"){
+					/*
 						Scr_ContactSource_ForCollision tCSFC = tObjects.gameObject.AddComponent<Scr_ContactSource_ForCollision>();
 						tCSFC.vSkipList = tColliderList;
-						tCSFC.vSourceSocket = this;
+						tCSFC.vSourceSocket = this;*/
 						}
 					else{Collider tCollider = tObjects.GetComponent<Collider>();
 						if (tCollider != null)

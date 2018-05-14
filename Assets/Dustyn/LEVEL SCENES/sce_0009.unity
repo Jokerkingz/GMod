@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -215,6 +215,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114970004305201816, guid: f896c7fb9b8b3b1409b15145ea2f990f,
+        type: 2}
+      propertyPath: vVFXMuzzleFlash
+      value: 
+      objectReference: {fileID: 1443591130359764, guid: 7dccd8c83ebcc824aaf57e265566567d,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f896c7fb9b8b3b1409b15145ea2f990f, type: 2}
   m_IsPrefabParent: 0
@@ -2130,6 +2136,7 @@ MonoBehaviour:
     m_Bits: 768
   boolChase: 0
   inLineOfSight: 0
+  isDead: 0
   floatDistance: 10
   floatAlertedRange: 3
   floatAttackInPlaceRange: 2
@@ -2657,6 +2664,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114133692107283908, guid: 48ba9b0856dec5a44a4540491ff0ec53,
+        type: 2}
+      propertyPath: vVFXMuzzleFlash
+      value: 
+      objectReference: {fileID: 1443591130359764, guid: 7dccd8c83ebcc824aaf57e265566567d,
+        type: 2}
+    - target: {fileID: 114497920285100966, guid: 48ba9b0856dec5a44a4540491ff0ec53,
+        type: 2}
+      propertyPath: vVFXMuzzleFlash
+      value: 
+      objectReference: {fileID: 1443591130359764, guid: 7dccd8c83ebcc824aaf57e265566567d,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48ba9b0856dec5a44a4540491ff0ec53, type: 2}
   m_IsPrefabParent: 0
@@ -2689,7 +2708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &348861663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2811,6 +2830,7 @@ MonoBehaviour:
     m_Bits: 768
   boolChase: 0
   inLineOfSight: 0
+  isDead: 0
   floatDistance: 10
   floatAlertedRange: 3
   floatAttackInPlaceRange: 2
@@ -3221,6 +3241,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114133692107283908, guid: 48ba9b0856dec5a44a4540491ff0ec53,
+        type: 2}
+      propertyPath: vVFXMuzzleFlash
+      value: 
+      objectReference: {fileID: 1443591130359764, guid: 7dccd8c83ebcc824aaf57e265566567d,
+        type: 2}
+    - target: {fileID: 114497920285100966, guid: 48ba9b0856dec5a44a4540491ff0ec53,
+        type: 2}
+      propertyPath: vVFXMuzzleFlash
+      value: 
+      objectReference: {fileID: 1443591130359764, guid: 7dccd8c83ebcc824aaf57e265566567d,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48ba9b0856dec5a44a4540491ff0ec53, type: 2}
   m_IsPrefabParent: 0
@@ -4557,10 +4589,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesToAlert:
-  - {fileID: 852046127}
-  - {fileID: 1822400293}
+  - {fileID: 348861662}
+  - {fileID: 653786010}
   alreadyAlerted: 0
-  dronesInMix: 1
+  dronesInMix: 0
 --- !u!114 &511591033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4771,6 +4803,7 @@ MonoBehaviour:
     m_Bits: 768
   boolChase: 0
   inLineOfSight: 0
+  isDead: 0
   floatDistance: 10
   floatAlertedRange: 3
   floatAttackInPlaceRange: 2
@@ -5286,6 +5319,9 @@ MonoBehaviour:
   enemiesLeftBeforeAmbush: 0
   enemiesAmmountForAmbush: 3
   ambushDoor: {fileID: 399840119}
+  loadRoomToBeAmbush: 0
+  AmbushRoomToLoad: 
+  doorToDelete: {fileID: 0}
 --- !u!4 &570013338
 Transform:
   m_ObjectHideFlags: 0
@@ -5700,7 +5736,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &653786011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5822,6 +5858,7 @@ MonoBehaviour:
     m_Bits: 768
   boolChase: 0
   inLineOfSight: 0
+  isDead: 0
   floatDistance: 10
   floatAlertedRange: 3
   floatAttackInPlaceRange: 2
@@ -7040,11 +7077,6 @@ Transform:
   m_Father: {fileID: 606912313}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &852046127 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1777456716088992, guid: 45cdc97d97be5f64c977d8c8ad9a0b9b,
-    type: 2}
-  m_PrefabInternal: {fileID: 1703566470}
 --- !u!1 &853209518
 GameObject:
   m_ObjectHideFlags: 0
@@ -10969,6 +11001,16 @@ Prefab:
       propertyPath: isStationaryGuard
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114772406185461524, guid: 45cdc97d97be5f64c977d8c8ad9a0b9b,
+        type: 2}
+      propertyPath: vVFXMuzzleFlash
+      value: 
+      objectReference: {fileID: 1443591130359764, guid: 7dccd8c83ebcc824aaf57e265566567d,
+        type: 2}
+    - target: {fileID: 1777456716088992, guid: 45cdc97d97be5f64c977d8c8ad9a0b9b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45cdc97d97be5f64c977d8c8ad9a0b9b, type: 2}
   m_IsPrefabParent: 0
@@ -11212,6 +11254,7 @@ MonoBehaviour:
     m_Bits: 768
   boolChase: 0
   inLineOfSight: 0
+  isDead: 0
   floatDistance: 10
   floatAlertedRange: 3
   floatAttackInPlaceRange: 2
@@ -11670,6 +11713,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114970004305201816, guid: f896c7fb9b8b3b1409b15145ea2f990f,
+        type: 2}
+      propertyPath: vVFXMuzzleFlash
+      value: 
+      objectReference: {fileID: 1443591130359764, guid: 7dccd8c83ebcc824aaf57e265566567d,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f896c7fb9b8b3b1409b15145ea2f990f, type: 2}
   m_IsPrefabParent: 0
@@ -12243,6 +12292,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114497920285100966, guid: 48ba9b0856dec5a44a4540491ff0ec53,
+        type: 2}
+      propertyPath: vVFXMuzzleFlash
+      value: 
+      objectReference: {fileID: 1443591130359764, guid: 7dccd8c83ebcc824aaf57e265566567d,
+        type: 2}
+    - target: {fileID: 114133692107283908, guid: 48ba9b0856dec5a44a4540491ff0ec53,
+        type: 2}
+      propertyPath: vVFXMuzzleFlash
+      value: 
+      objectReference: {fileID: 1443591130359764, guid: 7dccd8c83ebcc824aaf57e265566567d,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 48ba9b0856dec5a44a4540491ff0ec53, type: 2}
   m_IsPrefabParent: 0
@@ -13041,6 +13102,16 @@ Prefab:
       propertyPath: patrolPointArray.Array.data[3]
       value: 
       objectReference: {fileID: 160251444}
+    - target: {fileID: 114772406185461524, guid: 45cdc97d97be5f64c977d8c8ad9a0b9b,
+        type: 2}
+      propertyPath: vVFXMuzzleFlash
+      value: 
+      objectReference: {fileID: 1443591130359764, guid: 7dccd8c83ebcc824aaf57e265566567d,
+        type: 2}
+    - target: {fileID: 1777456716088992, guid: 45cdc97d97be5f64c977d8c8ad9a0b9b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45cdc97d97be5f64c977d8c8ad9a0b9b, type: 2}
   m_IsPrefabParent: 0
@@ -13916,11 +13987,6 @@ Transform:
   m_Father: {fileID: 1300187285}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1822400293 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1777456716088992, guid: 45cdc97d97be5f64c977d8c8ad9a0b9b,
-    type: 2}
-  m_PrefabInternal: {fileID: 1410753163}
 --- !u!1 &1832311734
 GameObject:
   m_ObjectHideFlags: 0
