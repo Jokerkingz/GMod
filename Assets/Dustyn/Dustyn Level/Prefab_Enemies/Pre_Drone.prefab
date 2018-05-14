@@ -2306,7 +2306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vCoolDown: -0.010007557
-  vVFX: {fileID: 0}
+  vVFXMuzzleFlash: {fileID: 0}
   vColliderToSkip: {fileID: 64591260671415650}
   vBarrelType: 1
   vBulletSource: {fileID: 0}
@@ -2406,6 +2406,9 @@ MonoBehaviour:
   droneAttack: {fileID: 0}
   droneAgent: {fileID: 0}
   healthScript: {fileID: 0}
+  vLayer:
+    serializedVersion: 2
+    m_Bits: 768
   boolChase: 0
   speed: 5
   floatDistance: 0

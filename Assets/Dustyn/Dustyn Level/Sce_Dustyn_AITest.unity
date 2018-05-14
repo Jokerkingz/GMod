@@ -9159,6 +9159,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 22
       objectReference: {fileID: 0}
+    - target: {fileID: 114919034471985292, guid: 45cdc97d97be5f64c977d8c8ad9a0b9b,
+        type: 2}
+      propertyPath: vLayer.m_Bits
+      value: 768
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45cdc97d97be5f64c977d8c8ad9a0b9b, type: 2}
   m_IsPrefabParent: 0
@@ -20735,6 +20740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesLeft: 0
   doorGoal: {fileID: 1824941157}
+  ListOfAi: []
   isPlayingSpecialMusic: 0
   combatMusicAlreadyPlaying: 0
   passiveMusicAlreadyPlaying: 0
@@ -20783,6 +20789,7 @@ MonoBehaviour:
   ambushDoor: {fileID: 562794195}
   loadRoomToBeAmbush: 0
   AmbushRoomToLoad: 
+  doorToDelete: {fileID: 0}
 --- !u!1 &1302702436
 GameObject:
   m_ObjectHideFlags: 0
