@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4217522832575642}
   - component: {fileID: 33936604963506594}
   - component: {fileID: 23043857473204878}
+  - component: {fileID: 65036041724669398}
   m_Layer: 0
   m_Name: Pipe2unitsBend
   m_TagString: Untagged
@@ -140,3 +141,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1186258459692526}
   m_Mesh: {fileID: 4300000, guid: be59f794f079f1147a4a10133c401a44, type: 3}
+--- !u!65 &65036041724669398
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1186258459692526}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.8829262, y: 2.8125048, z: 2}
+  m_Center: {x: -0.441463, y: 0.836956, z: -0.000030517578}
