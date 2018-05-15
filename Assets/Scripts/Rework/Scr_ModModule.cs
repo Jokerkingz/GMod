@@ -61,11 +61,21 @@ public class Scr_ModModule : MonoBehaviour {
 			//fLoadData(vData);
 			Scr_Male_Socket tOrigin = this.GetComponent<Scr_Male_Socket>();
 			if (tOrigin == null)
-			return;
+				return;
 			if (tOrigin.vConnectedTo == null)
-			return;
+				return;
 			Scr_ModLoadMain tMain = tOrigin.GetComponentInParent<Scr_ModLoadMain>();
+			Scr_Female_Socket vFem = tMain.GetComponentInChildren<Scr_Female_Socket>();
+			tOrigin.Detach(this.gameObject);
 			tMain.fConvert(vData);
+			//tOrigin.gameObject.AddComponent
+
+			Scr_FabricationCollective tTemp = vFem.gameObject.AddComponent<Scr_FabricationCollective>();
+			tTemp.vIsLocked = false;
+			tTemp.vDontChange = true;
+			tTemp.Start();
+
+			Destroy(this.gameObject);
 		break;
 		}
 	}

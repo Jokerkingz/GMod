@@ -104,6 +104,7 @@ public class Scr_Belt_Holsters : MonoBehaviour {
 	public void fRemoveHandle(GameObject tHandle){
 		if (vStatus == "Holding" ){
 			vStatus = "";
+			Scr_Female_Socket tFem = tHandle.GetComponentInChildren<Scr_Female_Socket>();
 			Rigidbody tHR = tHandle.GetComponent<Rigidbody>();
 			tHR.isKinematic = false;
 			tHR.useGravity = true;
@@ -111,6 +112,12 @@ public class Scr_Belt_Holsters : MonoBehaviour {
 			vSavedGun = ""; 
 			tHandle.GetComponent<Scr_ModSystem_Handler>().vHolsterConnectedTo = null;
 			tHandle.GetComponent<Scr_ModHandle>().fUpdateList();
+
+
+			Scr_FabricationCollective tTemp = tFem.gameObject.AddComponent<Scr_FabricationCollective>();
+			tTemp.vIsLocked = false;
+			tTemp.vDontChange = true;
+			tTemp.Start();
 			}
 
 

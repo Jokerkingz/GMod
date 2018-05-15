@@ -23,7 +23,7 @@ public class Scr_System_SourceList : MonoBehaviour {
 	public Parts[] PartList;
 
 	public GameObject fGetPrefab(string tName){
-		Debug.Log(tName);
+//		Debug.Log(tName);
 		for (int i = 0; i < PartList.Length; i++) {
 			if (PartList[i].vName == tName)
 				return PartList[i].vSource;			

@@ -51,7 +51,7 @@ public class Scr_Bullet : MonoBehaviour {
 		}
 	void fHit(GameObject tObj, Vector3 tPoint, Rigidbody tOther){
 		if (tObj.tag == "Target" || tObj.tag == "AI")
-			tObj.SendMessage("fHit");
+			tObj.SendMessage("fHit",SendMessageOptions.DontRequireReceiver);
 		GameObject tTEmp = Instantiate(vSpark);
 		tTEmp.transform.position = tPoint;
 		tTEmp.GetComponent<Scr_DestroyTime>().fStartTimer(.9f);

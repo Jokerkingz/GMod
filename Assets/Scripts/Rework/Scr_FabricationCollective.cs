@@ -11,6 +11,7 @@ public class Scr_FabricationCollective : MonoBehaviour {
 	public Vector3 vLockSpot;
 	public bool vIsLocked = true;
 	public bool vHasStarted;
+	public bool vDontChange;
 	// Use this for initialization
 	public void Start () {
 		if (vHasStarted)
@@ -28,7 +29,7 @@ public class Scr_FabricationCollective : MonoBehaviour {
 			tThat.material = vMaterialClone;
 		}
 		Rigidbody cRB = GetComponent<Rigidbody>();
-		if (cRB != null){
+		if (cRB != null && !vDontChange){
 			cRB.useGravity = false;
 			cRB.isKinematic = true;
 			}
@@ -53,9 +54,10 @@ public class Scr_FabricationCollective : MonoBehaviour {
 				Destroy(tFD,1f);
 				}
 			Rigidbody cRB = GetComponent<Rigidbody>();
-			if (cRB != null){
+			if (cRB != null && !vDontChange){
 				cRB.useGravity = true;
-				cRB.isKinematic = false;}
+				cRB.isKinematic = false;
+				}
 			Destroy(vMaterialClone);
 			Destroy(this);
 			}
