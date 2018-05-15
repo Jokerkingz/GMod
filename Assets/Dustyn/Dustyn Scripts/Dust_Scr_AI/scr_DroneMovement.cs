@@ -26,12 +26,14 @@ public class scr_DroneMovement : MonoBehaviour {
 	public scr_DroneAttack droneAttack;
 	public NavMeshAgent droneAgent;
 	public Scr_HealthScript healthScript;
-	private Animation anim;
+	//private Animation anim;
 	private ParticleSystem particleExplosion;
 	public LayerMask vLayer;
+	private Rigidbody rgbd;
 
 	[Header("Bools")]
 	public bool boolChase;
+	private bool isExploding;
 
 	[Header("Floats")]
 	public float speed;
@@ -48,7 +50,8 @@ public class scr_DroneMovement : MonoBehaviour {
 		target = GameObject.FindWithTag("MainOVR").transform;
 		droneAttack = this.gameObject.GetComponentInChildren<scr_DroneAttack>();
 		droneAgent = this.gameObject.GetComponent<NavMeshAgent>();
-		anim = this.gameObject.GetComponent<Animation>();
+		//anim = this.gameObject.GetComponent<Animation>();
+		rgbd = this.gameObject.GetComponentInChildren<Rigidbody>();
 	}
 	void Start () {
 		if (isStationaryGuard){currentState=State.Idle;}
@@ -77,6 +80,10 @@ public class scr_DroneMovement : MonoBehaviour {
 
 		if (!isStationaryGuard){patrolPointDistance =Vector3.Distance (transform.position, patrolPointArray[curPatrolPoint].transform.position);}
 
+		if (healthScript.curHealth< healthScript.maxHealth)
+		{
+			Alerted();
+		}
 		//Vector3 NewOwn = transform.position;
 
         Ray tRay = new Ray(transform.position+transform.up *-.75f, transform.TransformDirection(Vector3.forward*viewDistance));
@@ -171,12 +178,15 @@ public class scr_DroneMovement : MonoBehaviour {
 
 	void Dying()
 	{		
-		anim.Play("ani_droneDead2");
+		//anim.Play("ani_droneDead2");
+		rgbd.isKinematic=false;
+		rgbd.useGravity=true;
 		droneAttack.isDeadStopAll=true;
 		boolChase =false;
 		droneAgent.speed=0;
 		droneAttack.enemyShoot.enabled=false;
 		this.gameObject.GetComponent<Collider>().enabled=false;
+		StartCoroutine(ExplosionTimer());
 		Destroy(this.gameObject, 3f);
 	}
 
@@ -199,7 +209,15 @@ public class scr_DroneMovement : MonoBehaviour {
 
 	public void PlayExplosion()
 	{
-		particleExplosion.Play();
+		if(!isExploding)
+		{particleExplosion.Play();
+		isExploding=true;}
+	}
+	IEnumerator ExplosionTimer()
+	{
+		yield return new WaitForSeconds (1.3f);
+		PlayExplosion();
+		
 	}
 
 }
