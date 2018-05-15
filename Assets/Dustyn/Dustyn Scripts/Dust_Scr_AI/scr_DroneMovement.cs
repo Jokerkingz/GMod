@@ -33,6 +33,7 @@ public class scr_DroneMovement : MonoBehaviour {
 
 	[Header("Bools")]
 	public bool boolChase;
+	private bool isExploding;
 
 	[Header("Floats")]
 	public float speed;
@@ -208,12 +209,15 @@ public class scr_DroneMovement : MonoBehaviour {
 
 	public void PlayExplosion()
 	{
-		particleExplosion.Play();
+		if(!isExploding)
+		{particleExplosion.Play();
+		isExploding=true;}
 	}
 	IEnumerator ExplosionTimer()
 	{
-		yield return new WaitForSeconds (2f);
+		yield return new WaitForSeconds (1.3f);
 		PlayExplosion();
+		
 	}
 
 }
