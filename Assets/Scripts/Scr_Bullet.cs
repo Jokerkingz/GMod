@@ -16,7 +16,7 @@ public class Scr_Bullet : MonoBehaviour {
 
 	public Vector3 vTilt;
 	void Start(){
-		cRB.velocity = (transform.TransformDirection(Vector3.up))*vSpeedMultiplier;
+		cRB.velocity = (transform.TransformDirection(Vector3.up))*vSpeedMultiplier*2f;
 		vPreviousPosition = transform.position;
 			vTrail = Instantiate(vTrailSource,this.transform);
 		//vTilt = transform.eulerAngles;

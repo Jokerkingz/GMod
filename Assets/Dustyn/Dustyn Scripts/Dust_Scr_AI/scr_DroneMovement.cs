@@ -76,12 +76,26 @@ public class scr_DroneMovement : MonoBehaviour {
 		floatDistance = Vector3.Distance (transform.position, target.transform.position);
 
 		if (!isStationaryGuard){patrolPointDistance =Vector3.Distance (transform.position, patrolPointArray[curPatrolPoint].transform.position);}
+
+		//Vector3 NewOwn = transform.position;
+
+        Ray tRay = new Ray(transform.position+transform.up *-.75f, transform.TransformDirection(Vector3.forward*viewDistance));
+		Debug.DrawRay (transform.position +transform.up *-.75f, transform.TransformDirection(Vector3.forward*viewDistance), Color.red);
+        RaycastHit tHit;
+
+        if (Physics.Raycast(tRay, out tHit, viewDistance, vLayer))
+        	{if (tHit.collider.CompareTag("MainOVR"))
+        		{Alerted();}
+    		}
+    	Vector3 direction = target.position - this.transform.position;
+     	float angle = Vector3.Angle (direction, this.transform.forward);
+    	if (Vector3.Distance (target.position, this.transform.position) < viewDistance && angle<viewAngle)
+    		{transform.LookAt(target);}
 	}
 
-	void FixedUpdate()
-    {
-     /*Vector3 direction = target.position - this.transform.position;
-     float angle = Vector3.Angle (direction, this.transform.forward);
+	void RemovedFixedUpdate(){
+	     /*Vector3 direction = target.position - this.transform.position;
+	     float angle = Vector3.Angle (direction, this.transform.forward);
         if (Vector3.Distance (target.position, this.transform.position) < viewDistance && angle<viewAngle)
         {
             boolChase=true;
@@ -93,23 +107,18 @@ public class scr_DroneMovement : MonoBehaviour {
         if (hit.collider.CompareTag("MainOVR")) {
         boolChase=true;*/
 
-            Ray tRay = new Ray(transform.position+transform.up *0.75f, transform.TransformDirection(Vector3.forward*viewDistance));
-            Debug.DrawRay (transform.position +transform.up *0.75f, transform.TransformDirection(Vector3.forward*viewDistance), Color.red);
-            RaycastHit tHit;
+        Ray tRay = new Ray(transform.position+transform.up *0.75f, transform.TransformDirection(Vector3.forward*viewDistance));
+        Debug.DrawRay (transform.position +transform.up *0.75f, transform.TransformDirection(Vector3.forward*viewDistance), Color.red);
+        RaycastHit tHit;
 
-            if (Physics.Raycast(tRay, out tHit, viewDistance, vLayer))
-            {
-            if (tHit.collider.CompareTag("MainOVR"))
-            {
-            Alerted();
-            }
-        }
-     Vector3 direction = target.position - this.transform.position;
-     float angle = Vector3.Angle (direction, this.transform.forward);
-    if (Vector3.Distance (target.position, this.transform.position) < viewDistance && angle<viewAngle)
-    {
-            transform.LookAt(target);
-    }
+        if (Physics.Raycast(tRay, out tHit, viewDistance, vLayer))
+        	{if (tHit.collider.CompareTag("MainOVR"))
+        		{Alerted();}
+    		}
+    	Vector3 direction = target.position - this.transform.position;
+     	float angle = Vector3.Angle (direction, this.transform.forward);
+    	if (Vector3.Distance (target.position, this.transform.position) < viewDistance && angle<viewAngle)
+    		{transform.LookAt(target);}
 	}
 
 	void Idle()

@@ -165,8 +165,8 @@ public class Scr_BasicAI : MonoBehaviour {
 		}*/
 
 
-			Ray tRay = new Ray(transform.position+transform.up *0.75f, transform.TransformDirection(Vector3.forward*rayDistance));
-			Debug.DrawRay (transform.position +transform.up *0.75f, transform.TransformDirection(Vector3.forward*rayDistance), Color.red);
+			Ray tRay = new Ray(transform.position+transform.up *.75f, transform.TransformDirection(Vector3.forward*rayDistance));
+			Debug.DrawRay (transform.position +transform.up *.75f, transform.TransformDirection(Vector3.forward*rayDistance), Color.red);
 			RaycastHit tHit;
 
 			if (Physics.Raycast(tRay, out tHit, rayDistance, vLayer))
