@@ -26,10 +26,10 @@ public class scr_DroneMovement : MonoBehaviour {
 	public scr_DroneAttack droneAttack;
 	public NavMeshAgent droneAgent;
 	public Scr_HealthScript healthScript;
-	//private Animation anim;
+	private Animation anim;
 	private ParticleSystem particleExplosion;
 	public LayerMask vLayer;
-	private Rigidbody rgbd;
+	//private Rigidbody rgbd;
 
 	[Header("Bools")]
 	public bool boolChase;
@@ -50,8 +50,8 @@ public class scr_DroneMovement : MonoBehaviour {
 		target = GameObject.FindWithTag("MainOVR").transform;
 		droneAttack = this.gameObject.GetComponentInChildren<scr_DroneAttack>();
 		droneAgent = this.gameObject.GetComponent<NavMeshAgent>();
-		//anim = this.gameObject.GetComponent<Animation>();
-		rgbd = this.gameObject.GetComponentInChildren<Rigidbody>();
+		anim = this.gameObject.GetComponent<Animation>();
+		//rgbd = this.gameObject.GetComponentInChildren<Rigidbody>();
 	}
 	void Start () {
 		if (isStationaryGuard){currentState=State.Idle;}
@@ -178,15 +178,15 @@ public class scr_DroneMovement : MonoBehaviour {
 
 	void Dying()
 	{		
-		//anim.Play("ani_droneDead2");
-		rgbd.isKinematic=false;
-		rgbd.useGravity=true;
+		anim.Play("ani_droneDead2");
+		//rgbd.isKinematic=false;
+		//rgbd.useGravity=true;
 		droneAttack.isDeadStopAll=true;
 		boolChase =false;
 		droneAgent.speed=0;
 		droneAttack.enemyShoot.enabled=false;
 		this.gameObject.GetComponent<Collider>().enabled=false;
-		StartCoroutine(ExplosionTimer());
+		//StartCoroutine(ExplosionTimer());
 		Destroy(this.gameObject, 3f);
 	}
 

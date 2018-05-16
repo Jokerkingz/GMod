@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 90ee8ea9bfef36d4f854991fd1148a32, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -253,6 +253,31 @@ Prefab:
       propertyPath: slowFadeTime
       value: 0.005
       objectReference: {fileID: 0}
+    - target: {fileID: 82098416031701088, guid: c45fe99f670798b44a8e4032465c2a97,
+        type: 2}
+      propertyPath: Priority
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 82849455366489036, guid: c45fe99f670798b44a8e4032465c2a97,
+        type: 2}
+      propertyPath: Priority
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 82861721678915618, guid: c45fe99f670798b44a8e4032465c2a97,
+        type: 2}
+      propertyPath: Priority
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 82086854398290856, guid: c45fe99f670798b44a8e4032465c2a97,
+        type: 2}
+      propertyPath: Priority
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 82723656392797254, guid: c45fe99f670798b44a8e4032465c2a97,
+        type: 2}
+      propertyPath: Priority
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c45fe99f670798b44a8e4032465c2a97, type: 2}
   m_IsPrefabParent: 0
@@ -306,6 +331,21 @@ Prefab:
     - target: {fileID: 4670881331406922, guid: 5083d2f1fbe12df4db9e675e82133f94, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 20572463400630008, guid: 5083d2f1fbe12df4db9e675e82133f94,
+        type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20572463400630008, guid: 5083d2f1fbe12df4db9e675e82133f94,
+        type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20572463400630008, guid: 5083d2f1fbe12df4db9e675e82133f94,
+        type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5083d2f1fbe12df4db9e675e82133f94, type: 2}

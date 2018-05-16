@@ -2,13 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Scr_GameEngine : MonoBehaviour {
 	public static Scr_GameEngine gGE;
 	public Material gMat_Fabricate;
 	public LoadingOverlay cLO;
 	public string vNextRoom;
+
+	// Timer Setup
+	public Text vTextTimer;
+	private float vStartTime;
+
 	void Awake(){
+		GameObject tGS =  GameObject.FindGameObjectWithTag("GlobalSystem");
+		if (tGS != null)
+			vStartTime = tGS.GetComponent<Scr_Game_System>().gStartTime;
+		else
+			fStartTimer();
+
 		if (gGE != null){
 			GameObject.Destroy(this);
 			return;
@@ -20,11 +32,19 @@ public class Scr_GameEngine : MonoBehaviour {
 	}
 	void Update(){
 
-		//if (Input.GetKeyDown(KeyCode.A)){
-		//cLO.FadeIn();
-		//}
+		float t = Time.time - vStartTime;	
+
+		string minutes = ((int)t / 60).ToString ();
+		string seconds = (t % 60).ToString ("f0");
+
+		vTextTimer.text = minutes + ":" + seconds;
 
 	}
+
+	public void fStartTimer(){
+		vStartTime = Time.time;
+	}
+
 	public void fGotoNextRoom(string tScene){
 		cLO.FadeIn();
 		cLO.vIsChangingScene = true;

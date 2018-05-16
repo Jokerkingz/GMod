@@ -114,10 +114,10 @@ public class Scr_Belt_Holsters : MonoBehaviour {
 			tHandle.GetComponent<Scr_ModHandle>().fUpdateList();
 
 
-			Scr_FabricationCollective tTemp = tFem.gameObject.AddComponent<Scr_FabricationCollective>();
-			tTemp.vIsLocked = false;
-			tTemp.vDontChange = true;
-			tTemp.Start();
+			//Scr_FabricationCollective tTemp = tFem.gameObject.AddComponent<Scr_FabricationCollective>();
+			//tTemp.vIsLocked = false;
+			//tTemp.vDontChange = true;
+			//tTemp.Start();
 			}
 
 

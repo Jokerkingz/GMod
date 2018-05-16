@@ -78,7 +78,7 @@ public class Scr_Challenge : MonoBehaviour {
 
 			tTemp = new string[]{"Handle_Simple_A","Base_Simple_B","Barrel_Simple_A","Magazine_Pellet_A","Magazine_Simple_A"};
 			fSpawnArray(tTemp);
-			vTextSource.text = "Offset : \n Some parts may have weird designs and limits.";
+			vTextSource.text = "Offset : \n Some parts may have weird designs and limits. \n Use the analog stick to rotate.";
 			break;
 		case 3:
 			tObj = Instantiate(vTargetSource);

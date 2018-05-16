@@ -26,38 +26,31 @@ public class Scr_Bullet : MonoBehaviour {
 			vTrail = Instantiate(vTrailSource,this.transform);
 			//vTrail = Instantiate(vTrailSource);
 			}
-//		vSpeed = cRB.velocity;
-		//Vector3 tTempVect = vTilt;
-		//vTilt.x += 1f;
-		//transform.eulerAngles = tTempVect;
-
-
-		//cRB.velocity = (transform.TransformDirection(Vector3.up))*vSpeedMultiplier; // Correct Version
-		//cRB.angularVelocity = new Vector3(cRB.angularVelocity.x+10000000f,cRB.angularVelocity.y,cRB.angularVelocity.z);//(transform.TransformDirection(Vector3.up))*vSpeedMultiplier;
-		//cRB.AddForce(vTilt*100f);
-
-		Ray tRay = new Ray(this.transform.position,vPreviousPosition-this.transform.position);
+		Ray tRay = new Ray(this.transform.position,this.transform.position-vPreviousPosition);
 		RaycastHit tHit;
 		float tDistance = Vector3.Distance(vPreviousPosition,this.transform.position);
-		//Physics.Raycast(this.transform.position,vPreviousPosition,out tHit,vLayer) // beefore using ray
-		Debug.DrawRay(this.transform.position,vPreviousPosition-this.transform.position,Color.white);
 		if (Physics.Raycast(tRay,out tHit,tDistance,vLayer)){
 			if (tHit.collider.gameObject != vGameObjectToSkip && tHit.collider.tag != "Bullet"){
-				//Debug.Log("Collision on " + tHit.collider.gameObject.name + " Name of other was " + vGameObjectToSkip.name);
 				fHit(tHit.collider.gameObject,tHit.point,tHit.rigidbody);
 				}
 			}
+
 		vPreviousPosition = this.transform.position;
 		}
+
 	void fHit(GameObject tObj, Vector3 tPoint, Rigidbody tOther){
+		this.transform.position = tPoint;
 		if (tObj.tag == "Target" || tObj.tag == "AI")
 			tObj.SendMessage("fHit",SendMessageOptions.DontRequireReceiver);
 		GameObject tTEmp = Instantiate(vSpark);
 		tTEmp.transform.position = tPoint;
 		tTEmp.GetComponent<Scr_DestroyTime>().fStartTimer(.9f);
 		//Rigidbody tRB = tOther.GetComponent<Rigidbody>();
-		if (tOther != null)
-			tOther.AddExplosionForce(10f,tPoint,10f,5f);
+		if (tOther != null){
+			//tOther.AddForce(Vector3.up);
+			tOther.AddForce(cRB.velocity*vSpeedMultiplier);
+			//tOther.AddExplosionForce(10f,tPoint,10f,5f);
+			}
 		Destroy(this.gameObject);
 	}
 	void OnCollisionEnter(Collision tOther){
