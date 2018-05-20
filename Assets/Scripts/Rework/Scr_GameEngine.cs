@@ -36,7 +36,8 @@ public class Scr_GameEngine : MonoBehaviour {
 
 		string minutes = ((int)t / 60).ToString ();
 		string seconds = (t % 60).ToString ("f0");
-
+		if (seconds.Length == 1)
+			seconds = "0"+seconds;
 		vTextTimer.text = minutes + ":" + seconds;
 
 	}
