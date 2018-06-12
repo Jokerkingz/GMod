@@ -9,9 +9,11 @@ public class Scr_ModSaverPart : MonoBehaviour {
 	public GameObject vAnchor;
 	public string vMainInformation;
 	public int vImageToUse;
+    public Scr_GrabSystem_Item cGrabSystItem;
+    public Rigidbody cRB;
 
-	[ContextMenu("Start Script")]
+    [ContextMenu("Start Script")]
 	void Awake(){
 		vModSaverSocketList = GetComponentsInChildren<Scr_ModSaverSocket>();
-	}
+    }
 }

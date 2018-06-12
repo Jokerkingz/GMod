@@ -7,6 +7,7 @@ public class Scr_ModModule : MonoBehaviour {
 	public float vFloat; // Privatable
 	public float vFloatSub; // Privatable
 	public string vData;
+    public bool vUseOnStart;
 	// Use this for initialization
 	void fStart () {
 
@@ -15,11 +16,19 @@ public class Scr_ModModule : MonoBehaviour {
 			this.gameObject.AddComponent<Scr_ModLoadMain>();
 			break;
 		}
-	}
+        if (vUseOnStart)
+        {
+
+            fActivateMod();
+        }
+    }
 	
 	// Update is called once per frame
-	void Update () {
-		switch (vModuleType){
+	void Update ()
+    {
+        if (vUseOnStart)
+            fActivateMod();
+        switch (vModuleType){
 		case "RotationB":
 			if (vFloatSub <= 0f)
 				return;
@@ -46,24 +55,31 @@ public class Scr_ModModule : MonoBehaviour {
 		}
 	}
 	public void fActivateMod(){
-		switch (vModuleType){
-		case "Rotation":
-			vFloatSub += 20f*Time.deltaTime;
-			if (vFloatSub > 10f)
-				vFloatSub = 10f;
-			break;
-		case "RotationB":
-			vFloatSub += 20f*Time.deltaTime;
-			if (vFloatSub > 10f)
-				vFloatSub = 10f;
-			break;
-		case "Loader":
-			//fLoadData(vData);
-			Scr_Male_Socket tOrigin = this.GetComponent<Scr_Male_Socket>();
-			if (tOrigin == null)
-				return;
-			if (tOrigin.vConnectedTo == null)
-				return;
+        Debug.Log("Penis");
+        switch (vModuleType)
+        {
+            case "Rotation":
+                vFloatSub += 20f * Time.deltaTime;
+                if (vFloatSub > 10f)
+                    vFloatSub = 10f;
+                break;
+            case "RotationB":
+                vFloatSub += 20f * Time.deltaTime;
+                if (vFloatSub > 10f)
+                    vFloatSub = 10f;
+                break;
+            case "Loader":
+                //fLoadData(vData);
+                Scr_Male_Socket tOrigin = this.GetComponent<Scr_Male_Socket>();
+                if (tOrigin == null)
+                {
+                    Debug.Log("No Origin");
+                    return;
+                }
+                if (tOrigin.vConnectedTo == null) {
+                    Debug.Log("Nothing connected to");
+                    return;
+                    }
 			Scr_ModLoadMain tMain = tOrigin.GetComponentInParent<Scr_ModLoadMain>();
 			Scr_Female_Socket vFem = tMain.GetComponentInChildren<Scr_Female_Socket>();
 			tOrigin.Detach(this.gameObject);

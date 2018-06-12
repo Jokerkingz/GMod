@@ -163,7 +163,23 @@ public class OVRGrabber : MonoBehaviour
                 }
                 }
             }
-		}
+		}if (closestGrabbable != null)
+			{OVRGrabbable vRoot = closestGrabbable.transform.root.gameObject.GetComponent<OVRGrabbable>();
+			//if (!vRoot.vIsBeingGripped) Might be deletable
+			if (m_grabbedObj == null)
+			{
+				vLabelTarget = closestGrabbable.gameObject;
+				cGL.fShowLabel(closestGrabbable.gameObject);
+				}
+			else 
+				{vLabelTarget = null;
+				cGL.fShowLabel(null);
+				}
+	        }
+		else 
+			{vLabelTarget = null;
+			cGL.fShowLabel(null);
+			}
         //GrabVolumeEnable(false);
 
         if (closestGrabbable != null)
@@ -453,5 +469,5 @@ public class OVRGrabber : MonoBehaviour
         }
     }
 
-
+    
 }

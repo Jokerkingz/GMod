@@ -26,29 +26,37 @@ public class Scr_Give_Label : MonoBehaviour {
 			vLabelProjected.gameObject.transform.position = vAnchor.transform.position;
 	}
 
-	public void fShowLabel(GameObject tSource){
-		if (tSource != null){
-		vMeter = 1f;
-		if (vCurrentTarget != tSource){
-			vCurrentTarget = tSource;
-			if (vLabelProjected != null)
-				vLabelProjected.GetComponent<Scr_Part_Information>().vStatus = "Death";
-			vLabelProjected = Instantiate(vPrefabSource);
-			vLabelProjected.transform.position = tSource.transform.position;
-			Scr_ModSaverPart tSourceMSP = tSource.GetComponent<Scr_ModSaverPart>();
-			vAnchor = tSourceMSP.vAnchor;
+	public void fShowLabel(GameObject tSource)
+    {
+        //Debug.Log(tSource.name + vCurrentTarget);
+        if (tSource != null)
+            {
+                if (vCurrentTarget != null)
+                    Debug.Log(tSource.name + vCurrentTarget.name);
+                else
+                    Debug.Log("No Current Target but source present");
+                vMeter = 1f;
+		        if (vCurrentTarget != tSource){
+			        vCurrentTarget = tSource;
+			        if (vLabelProjected != null)
+				        vLabelProjected.GetComponent<Scr_Part_Information>().vStatus = "Death";
+			        vLabelProjected = Instantiate(vPrefabSource);
+			        vLabelProjected.transform.position = tSource.transform.position;
+			        Scr_ModSaverPart tSourceMSP = tSource.GetComponent<Scr_ModSaverPart>();
+                        //Debug.Log(tSourceMSP.name);
+                        vAnchor = tSourceMSP.vAnchor;
 
-			Scr_Part_Information tPartI = vLabelProjected.GetComponent<Scr_Part_Information>();
-			tPartI.vSource = tSource;
-			tPartI.vTextToSay = tSourceMSP.vMainInformation;
-			tPartI.fImageUpdate(tSourceMSP.vImageToUse);
+			        Scr_Part_Information tPartI = vLabelProjected.GetComponent<Scr_Part_Information>();
+			        tPartI.vSource = tSource;
+			        tPartI.vTextToSay = tSourceMSP.vMainInformation;
+			        tPartI.fImageUpdate(tSourceMSP.vImageToUse);
 
-		}
-		else if (vLabelProjected != null){
-				fReposition();
-			//vLabelProjected.transform.position = tSource.transform.position;
-			}
-		}
+		        }
+		        else if (vLabelProjected != null){
+				    fReposition();
+			    //vLabelProjected.transform.position = tSource.transform.position;
+			    }
+		    }
 		else 
 			vCurrentTarget = null;
 	}

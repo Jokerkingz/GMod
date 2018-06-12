@@ -51,9 +51,9 @@ public class Scr_Female_Socket : MonoBehaviour {
 		if (vHologramObj != null){
 			// Get Angle From Hand
 				float tAngleStick = 0;
-				GameObject tHand =  this.transform.root.GetComponent<OVRGrabbable>().vHandObj;
+				GameObject tHand =  this.transform.root.GetComponent<Scr_ModSaverPart>().cGrabSystItem.vHandObj;
 				if (tHand != null)
-					tAngleStick = tHand.GetComponentInChildren<Scr_PointToMove>().vAngleGiven;
+					tAngleStick = tHand.GetComponentInChildren<Scr_GrabSystem_Main>().cPTM.vAngleGiven;
 			//float tAngleStick = tHand.GetComponentInChildren<Scr_PointToMove>().vAngleGiven;
 			// End Of get Angle From Hand
 			//vHollowAngle = Reorientate(vHologramSource);
@@ -107,11 +107,14 @@ public class Scr_Female_Socket : MonoBehaviour {
 				vHologramObj.BroadcastMessage("TurnOff","Hollow");
 				vHologramObj.transform.SetParent(this.transform);
 				vHologramObj.transform.localPosition =Vector3.zero;
-				//vHologramObj.transform.localEulerAngles = Reorientate(tReference);
+            Rigidbody tRB = vHologramObj.GetComponent<Rigidbody>();
+            tRB.isKinematic = true;
+            tRB.useGravity = false;
+                //vHologramObj.transform.localEulerAngles = Reorientate(tReference);
 
-				//vHologramObj.transform.LookAt(vHologramSource.transform.position);//
-			//vHollowAngle = new Vector3(0f,((Mathf.Round(vHologramObj.transform.localEulerAngles.y/90f))*90f),0f);//
-				vHollowAngle = Vector3.zero;
+                //vHologramObj.transform.LookAt(vHologramSource.transform.position);//
+                //vHollowAngle = new Vector3(0f,((Mathf.Round(vHologramObj.transform.localEulerAngles.y/90f))*90f),0f);//
+                vHollowAngle = Vector3.zero;
 				vHologramObj.transform.localEulerAngles = vHollowAngle;
 
 				tTransList = new Transform[0];
@@ -131,9 +134,9 @@ public class Scr_Female_Socket : MonoBehaviour {
 				}
 
 
-				// Turn Off Scripts
-				OVRGrabbable[] tOVRGrabbableList = vHologramObj.GetComponentsInChildren<OVRGrabbable>();
-			foreach (OVRGrabbable tOVRGrabbable in tOVRGrabbableList)
+            // Turn Off Scripts
+            Scr_GrabSystem_Item[] tOVRGrabbableList = vHologramObj.GetComponentsInChildren<Scr_GrabSystem_Item>();
+			foreach (Scr_GrabSystem_Item tOVRGrabbable in tOVRGrabbableList)
 				Destroy(tOVRGrabbable);
 				Scr_Male_Socket[] tMaleSocketList = vHologramObj.GetComponentsInChildren<Scr_Male_Socket>();
 			foreach (Scr_Male_Socket tMaleSocket in tMaleSocketList)

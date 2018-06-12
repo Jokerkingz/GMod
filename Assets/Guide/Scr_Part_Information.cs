@@ -17,13 +17,13 @@ public class Scr_Part_Information : MonoBehaviour {
 	public Transform vCanvas;
 	public Sprite[] vSpriteList;
 	public Image vImage;
-	public OVRGrabbable vRoot;
+	public Scr_GrabSystem_Item fRoot;
 	private float vDelayTime;
 	// Use this for initialization
 	void Start () {
 		cText.text = "";
 		vTarget = GameObject.FindGameObjectWithTag("MainCamera");
-		vRoot = vSource.transform.root.gameObject.GetComponent<OVRGrabbable>();
+		//vRoot = vSource.transform.root.gameObject.GetComponent<Scr_ModSaverPart>().cGrabSystItem;
 
 	}
 	public void fImageUpdate(int tIndex){
