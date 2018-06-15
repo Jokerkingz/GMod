@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class scr_droneStats : MonoBehaviour {
 [Header("DRONE STATS - EASY TWEAKING")]
+[Header("Health Options")]
+public float vHealth;
 [Header("Entering Options")]
 //THE MINIMUM DISTANCE IT CAN BE FROM THE PLAYER
 public float minDistancefromPlayer;
