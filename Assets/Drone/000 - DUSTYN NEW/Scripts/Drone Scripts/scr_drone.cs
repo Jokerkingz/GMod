@@ -218,8 +218,10 @@ public class scr_drone : MonoBehaviour {
 		droneStats.hoverRotationalSpeed=0;
 		droneStats.rotateTowardsSpeed=0;
 		//fuck
-		//this.gameObject.GetComponent<Collider>().enabled=false;
-		StartCoroutine(ExplosionTimer());
+		this.gameObject.GetComponent<Collider>().enabled=false;
+		this.gameObject.GetComponentInChildren<MeshRenderer>().enabled=false;
+		//StartCoroutine(ExplosionTimer());
+		PlayExplosion();
 		Destroy(transform.parent.parent.gameObject, destroyTimer);
 
 	}

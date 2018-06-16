@@ -12,7 +12,7 @@ public class Scr_DestroyOnHit : MonoBehaviour {
 		//---DUSTYN 
 		if (this.gameObject.tag=="AI")
 		{
-			this.gameObject.GetComponent<Scr_HealthScript>().Damage(2);
+			this.gameObject.GetComponent<scr_droneHealth>().Damage(2);
 		}
 	}
 }
