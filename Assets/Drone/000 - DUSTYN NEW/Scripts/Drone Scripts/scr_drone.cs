@@ -17,6 +17,9 @@ public class scr_drone : MonoBehaviour {
 	public scr_droneEntry droneEntry;
 	public scr_droneStats droneStats;
 	public scr_droneSwitch droneSwitch;
+	public scr_droneHealth droneHealth;
+	
+	private Rigidbody rgbd;
 
 	[Header ("Hover Pattern Properties")]
 	public Transform[] hoverPoints;
@@ -42,6 +45,11 @@ public class scr_drone : MonoBehaviour {
 
 	[Header("Switch State")]
 	public bool isSwitching;
+	[Header("Death Options")]
+	public ParticleSystem particleExplosion;
+	private bool isExploding;
+	public float explosionTimer;
+	public float destroyTimer;
 
 	void Start () {
 		player = GameObject.FindWithTag("MainOVR").transform;
@@ -50,8 +58,11 @@ public class scr_drone : MonoBehaviour {
 		droneAnchor = GetComponentInParent<scr_droneAnchor>();
 		droneEntry =GetComponentInParent<scr_droneEntry>();
 		droneStats = GetComponentInParent<scr_droneStats>();
+		droneHealth = GetComponent<scr_droneHealth>();
 		//droneSwitch= this.gameObject.GetComponent<scr_droneSwitch>();
 		vEngageDistance = Random.Range(droneStats.minDistancefromPlayer, droneStats.maxDistancefromPlayer);
+		rgbd = this.gameObject.GetComponentInChildren<Rigidbody>();
+		particleExplosion = GetComponentInChildren<ParticleSystem>();
 		
 		this.currentState = State.Enter;
 
@@ -82,7 +93,7 @@ public class scr_drone : MonoBehaviour {
 			case State.Switch: this.Switch();break;
 			//case State.Flinch: this.Flinch();break;
 			case State.Reset: this.Reset();break;
-			//case State.Death: this.Death();break;
+			case State.Death: this.Death();break;
 		}
 
 		enemyCurrentState = "" + currentState;
@@ -106,6 +117,7 @@ public class scr_drone : MonoBehaviour {
 		vCurDistance = Vector3.Distance (this.transform.position, player.transform.position);
 		
 		if (vCurDistance <= vEngageDistance) {this.currentState = State.RotatingToPlayer;}
+		if (droneHealth.curHealth <=0) {currentState=State.Death;}
 		return;
 	}
 	void Hover()
@@ -135,6 +147,7 @@ public class scr_drone : MonoBehaviour {
 		}
 
 		if (isSwitching){this.currentState= State.Switch;}
+		if (droneHealth.curHealth <=0) {currentState=State.Death;}
 		return;
 	}
 	
@@ -149,6 +162,8 @@ public class scr_drone : MonoBehaviour {
         Debug.DrawRay(transform.position + transform.up * 0.75f, transform.TransformDirection(Vector3.forward * 10), Color.red);
         if (Physics.Raycast(transform.position + transform.up * 0.75f, transform.TransformDirection(Vector3.forward * 10), out hit))
             if (hit.collider.CompareTag("MainOVR")) { this.currentState = State.Hover; }
+
+		if (droneHealth.curHealth <=0) {currentState=State.Death;}
         return;
     }
 
@@ -163,6 +178,7 @@ public class scr_drone : MonoBehaviour {
         Debug.DrawRay(transform.position + transform.up * 0.75f, transform.TransformDirection(Vector3.forward * 10), Color.red);
         if (Physics.Raycast(transform.position + transform.up * 0.75f, transform.TransformDirection(Vector3.forward * 10), out hit))
             if (hit.collider.CompareTag("MainOVR")) { this.currentState = State.Hover; }*/
+		if (droneHealth.curHealth <=0) {currentState=State.Death;}
         return;
     }
 
@@ -178,6 +194,7 @@ public class scr_drone : MonoBehaviour {
 
 		//droneSwitch.Switching();
 		if (!isSwitching){this.currentState=State.RotatingToPlayer;}
+		if (droneHealth.curHealth <=0) {currentState=State.Death;}
 		return;
 	}
 	public void Reset()
@@ -186,6 +203,39 @@ public class scr_drone : MonoBehaviour {
 		transform.position = Vector3.MoveTowards (this.transform.position, homePosition.position,Time.deltaTime*droneStats.resetSpeed);
 		if (this.transform.position == homePosition.position &&!isSwitching){ this.currentState = State.RotatingToPlayer; }
 		if (this.transform.position == homePosition.position &&isSwitching){ this.currentState = State.Switch;}
+		if (droneHealth.curHealth <=0) {currentState=State.Death;}
 		return;
+	}
+
+	void Death()
+	{
+		//rgbd.isKinematic=false;
+		rgbd.useGravity=true;
+		droneStats.entrySpeed=0;
+		droneStats.switchSpeed=0;
+		droneStats.resetSpeed=0;
+		droneStats.hoverSwitchSpeed=0;
+		droneStats.hoverRotationalSpeed=0;
+		droneStats.rotateTowardsSpeed=0;
+		//fuck
+		this.gameObject.GetComponent<Collider>().enabled=false;
+		this.gameObject.GetComponentInChildren<MeshRenderer>().enabled=false;
+		//StartCoroutine(ExplosionTimer());
+		PlayExplosion();
+		Destroy(transform.parent.parent.gameObject, destroyTimer);
+
+	}
+
+	public void PlayExplosion()
+	{
+		if(!isExploding)
+		{particleExplosion.Play();
+		isExploding=true;}
+	}
+	IEnumerator ExplosionTimer()
+	{
+		yield return new WaitForSeconds (explosionTimer);
+		PlayExplosion();
+		
 	}
 }

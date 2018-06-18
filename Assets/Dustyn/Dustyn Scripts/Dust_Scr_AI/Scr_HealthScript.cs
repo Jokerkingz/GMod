@@ -11,7 +11,6 @@ public float maxHealth;
 void Start()
 {
 	curHealth = maxHealth;
-
 }
 
 void Update()
