@@ -2,16 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Scr_GrabSystem_Item : MonoBehaviour {
+public class Scr_GrabSystem_Item : MonoBehaviour
+{
+    [Header("Grab System")]
     public bool vIsGripped;
     public bool vIsGrippedByRight;
     public GameObject vHandObj;
+    [Header("Initialize")]
     public GameObject vMainObject;
     public Transform vTransformAdjustment;
     public Rigidbody cRB;
     // Use this for initialization
-    void Start () {
+    void Reset()
+    {
+        vMainObject = transform.root.gameObject;
+        Transform[] tObjs = vMainObject.GetComponentsInChildren<Transform>();
+        foreach(Transform tTrans in tObjs)
+        {
+            if (tTrans.name == "Obj_SnapOffset")
+                vTransformAdjustment = tTrans;
+            if (tTrans.tag == "GripPart")
+                DestroyImmediate(tTrans.gameObject);
+        }
         cRB = vMainObject.GetComponent<Rigidbody>();
+        vMainObject.GetComponent<Scr_ModSaverPart>().cGrabSystItem = this;
+        vMainObject.GetComponent<Scr_ModSaverPart>().cRB = cRB;
+        this.gameObject.layer = 21;
+    }
+    void Start () {
 
     }
 	

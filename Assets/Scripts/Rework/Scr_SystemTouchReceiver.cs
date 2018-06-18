@@ -14,7 +14,7 @@ public class Scr_SystemTouchReceiver : MonoBehaviour {
 	void OnTriggerEnter(Collider tOther){
 		if (tOther.tag == "FingerTip"){
 			if (tOther.GetComponent<Scr_TouchTip>().vPointing)
-				vTableSource.gameObject.SendMessage(vMessageToSend);
+				vTableSource.gameObject.SendMessage(vMessageToSend,SendMessageOptions.DontRequireReceiver);
 				}
 	}
 }

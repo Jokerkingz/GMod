@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33566415780312184}
   - component: {fileID: 23545865067406828}
   - component: {fileID: 64974271419817904}
+  - component: {fileID: 114909562659000028}
   m_Layer: 0
   m_Name: Msh_Magazine_Body_B
   m_TagString: Untagged
@@ -44,22 +45,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1297921688782010
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4644054420806444}
-  - component: {fileID: 64414407511338300}
-  m_Layer: 14
-  m_Name: Grip_Box
-  m_TagString: GripPart
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1762632051182468
 GameObject:
   m_ObjectHideFlags: 0
@@ -69,7 +54,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4993322614510982}
   - component: {fileID: 135900263494248026}
-  - component: {fileID: 114324677085250706}
   - component: {fileID: 54857039291803984}
   - component: {fileID: 114020943897608148}
   - component: {fileID: 114935230639630126}
@@ -141,7 +125,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 4993322614510982}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!4 &4398552251510462
 Transform:
@@ -156,19 +140,6 @@ Transform:
   m_Father: {fileID: 4993322614510982}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
---- !u!4 &4644054420806444
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1297921688782010}
-  m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
-  m_LocalPosition: {x: 0.00012397766, y: 0.0050354004, z: 0.00011444092}
-  m_LocalScale: {x: 3.9, y: 3.9, z: 3.9}
-  m_Children: []
-  m_Father: {fileID: 4993322614510982}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!4 &4976441022811380
 Transform:
   m_ObjectHideFlags: 1
@@ -176,11 +147,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1177935646368962}
   m_LocalRotation: {x: 0.99144495, y: -0, z: -0, w: -0.13052607}
-  m_LocalPosition: {x: 0, y: 0.662, z: 0}
+  m_LocalPosition: {x: 0, y: -0.103, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4993322614510982}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 195, y: 0, z: 0}
 --- !u!4 &4993322614510982
 Transform:
@@ -189,12 +160,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1762632051182468}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5740998, y: 65.309, z: 46.25803}
+  m_LocalPosition: {x: 0.6494, y: 65.309, z: 46.2877}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4056872577333758}
   - {fileID: 4398552251510462}
-  - {fileID: 4644054420806444}
   - {fileID: 4976441022811380}
   - {fileID: 4126653152369844}
   m_Father: {fileID: 0}
@@ -213,6 +183,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: fe56291d6f42dd447bae1ce89cccea81, type: 2}
   m_StaticBatchInfo:
@@ -247,6 +218,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: fe56291d6f42dd447bae1ce89cccea81, type: 2}
   m_StaticBatchInfo:
@@ -281,6 +253,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: fe56291d6f42dd447bae1ce89cccea81, type: 2}
   m_StaticBatchInfo:
@@ -338,20 +311,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64414407511338300
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1297921688782010}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 3baaedac0b40f5042a1ceca2e720143d, type: 3}
 --- !u!64 &64789286299699016
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -397,26 +356,8 @@ MonoBehaviour:
   vAnchor: {fileID: 1177935646368962}
   vMainInformation: Magazine
   vImageToUse: 3
---- !u!114 &114324677085250706
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1762632051182468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_allowOffhandGrab: 1
-  m_snapPosition: 1
-  m_snapOrientation: 1
-  m_snapOffset: {fileID: 4976441022811380}
-  m_grabPoints:
-  - {fileID: 64414407511338300}
-  vIsBeingGripped: 0
-  vIsGrippedBy: 
-  vIsGunHandle: 0
+  cGrabSystItem: {fileID: 114909562659000028}
+  cRB: {fileID: 54857039291803984}
 --- !u!114 &114490292158961530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -450,7 +391,7 @@ MonoBehaviour:
     type: 2}
   vType: 
   vCoolDownMultiplier: 1
-  vAccuracy: 1.5
+  vAccuracy: 0.5
   vCopies: 1
   vMagazineToPop: {fileID: 1791880267495844}
   vMaxAmmo: 50
@@ -458,6 +399,23 @@ MonoBehaviour:
   cGE: {fileID: 0}
   vTextureToUse: {fileID: 2800000, guid: 42783566f63a06d47be62504ece8a077, type: 3}
   vPopDirection: {x: 0, y: -1, z: 0}
+--- !u!114 &114909562659000028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1102206429512862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25705f4750aa10c41bcc9cd2c8791572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vIsGripped: 0
+  vIsGrippedByRight: 0
+  vHandObj: {fileID: 0}
+  vMainObject: {fileID: 1762632051182468}
+  vTransformAdjustment: {fileID: 4976441022811380}
+  cRB: {fileID: 0}
 --- !u!114 &114935230639630126
 MonoBehaviour:
   m_ObjectHideFlags: 1

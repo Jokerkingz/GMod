@@ -31,10 +31,6 @@ public class Scr_Give_Label : MonoBehaviour {
         //Debug.Log(tSource.name + vCurrentTarget);
         if (tSource != null)
             {
-                if (vCurrentTarget != null)
-                    Debug.Log(tSource.name + vCurrentTarget.name);
-                else
-                    Debug.Log("No Current Target but source present");
                 vMeter = 1f;
 		        if (vCurrentTarget != tSource){
 			        vCurrentTarget = tSource;

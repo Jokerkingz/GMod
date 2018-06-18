@@ -233,11 +233,9 @@ public class Scr_TableController : MonoBehaviour {
 	void fCreateNewHolo(){
 		Destroy(vHologramObj);
 		vHologramObj = null;
-		//Debug.Log(tTemp);
 
 		string tTemp = fGetType();
 		tTemp = vModType[vModTypIndex]+"_"+tTemp+"_"+vSubType;
-		Debug.Log(tTemp);
 		GameObject tPrefab = cGE.fGetPrefab(tTemp);
 		if (tPrefab == null){
 			tPrefab = cGE.fGetPrefab(vCurrentChoice);

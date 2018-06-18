@@ -86,11 +86,11 @@ public class Scr_Female_Socket : MonoBehaviour {
 				List<GameObject> tColliderList = new List<GameObject>();
 				Transform[] tTransList = tReference.GetComponentsInChildren<Transform>();
 				//List<Transform> tObjList = tReference.GetComponentsInChildren<Transform>();
-				foreach (Transform tObjects in tTransList){
+				/*foreach (Transform tObjects in tTransList){
 					if (tObjects.tag == "GripPart")
 					tColliderList.Add(tObjects.gameObject);
 
-				}
+				}*/
 			vHologramSource = tReference;/*
 			if (vArrow != null){
 				GameObject tOut = Instantiate(vArrow) as GameObject;
@@ -104,7 +104,7 @@ public class Scr_Female_Socket : MonoBehaviour {
 
 			// hologram creation
 				vHologramObj = Instantiate(tReference) as GameObject;
-				vHologramObj.BroadcastMessage("TurnOff","Hollow");
+				vHologramObj.BroadcastMessage("TurnOff","Hollow",SendMessageOptions.DontRequireReceiver);
 				vHologramObj.transform.SetParent(this.transform);
 				vHologramObj.transform.localPosition =Vector3.zero;
             Rigidbody tRB = vHologramObj.GetComponent<Rigidbody>();

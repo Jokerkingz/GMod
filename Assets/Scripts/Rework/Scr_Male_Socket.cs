@@ -7,7 +7,7 @@ public class Scr_Male_Socket : MonoBehaviour {
 	public GameObject vAudioPlay;
 	[Header("Connection Status")]
 	public List<GameObject> vOriginalParts;
-	public List<GameObject> vGripParts;
+	//public List<GameObject> vGripParts;
 	public GameObject vConnectedTo;
 	public bool vIsMagazine;
 	private List<GameObject> vOwnSockets = new List<GameObject>();
@@ -33,14 +33,14 @@ public class Scr_Male_Socket : MonoBehaviour {
 		Transform[] tObjectList = this.GetComponentsInChildren<Transform>();
 		foreach (Transform tObject in tObjectList){
 			if (tObject.gameObject != this.gameObject){
-				if (tObject.gameObject.tag == "GripPart"){
-					vGripParts.Add(tObject.gameObject);
-				}
-				else{
+				//if (tObject.gameObject.tag == "GripPart"){
+				//	vGripParts.Add(tObject.gameObject);
+				//}
+				//else{
 					if (tObject.gameObject.tag == "SocketFemale")
 						vOwnSockets.Add(tObject.gameObject);
 					vOriginalParts.Add(tObject.gameObject);
-				}
+				//}
 			}
 		}
 		this.enabled = false;
