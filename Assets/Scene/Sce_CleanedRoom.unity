@@ -524,87 +524,9 @@ Prefab:
       propertyPath: m_Name
       value: Pre_Main
       objectReference: {fileID: 0}
-    - target: {fileID: 114703612461133074, guid: 5083d2f1fbe12df4db9e675e82133f94,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114647587852225352, guid: 5083d2f1fbe12df4db9e675e82133f94,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114703612461133074, guid: 5083d2f1fbe12df4db9e675e82133f94, type: 2}
-    - {fileID: 114647587852225352, guid: 5083d2f1fbe12df4db9e675e82133f94, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5083d2f1fbe12df4db9e675e82133f94, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &13742697 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1199388676665330, guid: 5083d2f1fbe12df4db9e675e82133f94,
-    type: 2}
-  m_PrefabInternal: {fileID: 13742696}
---- !u!114 &13742698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 13742697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60bfe2ed2893a3643b7b7970c4938e2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vOutwardParticle: {fileID: 1704199762777034, guid: a7dcd9b2b90c21340922e899cc98dcb0,
-    type: 2}
-  vInwardParticle: {fileID: 1993243995557582, guid: dbf7fe78fcc27da45bff42aa81e6d4a8,
-    type: 2}
-  vParticleList: []
---- !u!114 &13742699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 13742697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d87111029e0ca441a6eb70aef8e7609, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vCurrentTarget: {fileID: 0}
-  vPrefabSource: {fileID: 1903640559862310, guid: 3453dad3a2162ea48bab5cfe0c1c6351,
-    type: 2}
-  vLabelProjected: {fileID: 0}
-  vMeter: 0
-  vAnchor: {fileID: 0}
---- !u!114 &13742700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 13742697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dcb49f0bfdd59844b805b12615e3b9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vSourcePoint: {fileID: 108421311}
-  vGrabbedItem: {fileID: 0}
-  lPossibleGrabbables: []
-  vClosestItem: {fileID: 0}
-  vIsTheRightHand: 0
-  vGripState: Idle
-  vItemRB: {fileID: 0}
-  vPrevGripRelease: 0
-  cGL: {fileID: 13742699}
-  cOtherGL: {fileID: 661241415}
-  vLabelTarget: {fileID: 0}
-  cMH: {fileID: 0}
-  vCount: 0
-  cPTM: {fileID: 1986707474}
-  cGP: {fileID: 0}
-  cOtherGP: {fileID: 0}
-  vCD: 0
 --- !u!1 &22459958
 GameObject:
   m_ObjectHideFlags: 0
@@ -1262,7 +1184,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vAudioPlay: {fileID: 1889043661159602, guid: 654673114c7578e42a09e7eeec1dcafd, type: 2}
   vOriginalParts: []
-  vGripParts: []
   vConnectedTo: {fileID: 0}
   vIsMagazine: 0
   vConnectableSockets: []
@@ -1355,11 +1276,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &108421311 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4834071795533634, guid: 5083d2f1fbe12df4db9e675e82133f94,
-    type: 2}
-  m_PrefabInternal: {fileID: 13742696}
 --- !u!1 &111876694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1523,7 +1439,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vAudioPlay: {fileID: 1889043661159602, guid: 654673114c7578e42a09e7eeec1dcafd, type: 2}
   vOriginalParts: []
-  vGripParts: []
   vConnectedTo: {fileID: 0}
   vIsMagazine: 0
   vConnectableSockets: []
@@ -1932,7 +1847,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vAudioPlay: {fileID: 1889043661159602, guid: 654673114c7578e42a09e7eeec1dcafd, type: 2}
   vOriginalParts: []
-  vGripParts: []
   vConnectedTo: {fileID: 0}
   vIsMagazine: 0
   vConnectableSockets: []
@@ -3415,7 +3329,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vAudioPlay: {fileID: 1889043661159602, guid: 654673114c7578e42a09e7eeec1dcafd, type: 2}
   vOriginalParts: []
-  vGripParts: []
   vConnectedTo: {fileID: 0}
   vIsMagazine: 0
   vConnectableSockets: []
@@ -3696,7 +3609,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vAudioPlay: {fileID: 1889043661159602, guid: 654673114c7578e42a09e7eeec1dcafd, type: 2}
   vOriginalParts: []
-  vGripParts: []
   vConnectedTo: {fileID: 0}
   vIsMagazine: 0
   vConnectableSockets: []
@@ -5237,72 +5149,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &661241408 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1426332802250684, guid: 5083d2f1fbe12df4db9e675e82133f94,
-    type: 2}
-  m_PrefabInternal: {fileID: 13742696}
---- !u!114 &661241410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 661241408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dcb49f0bfdd59844b805b12615e3b9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vSourcePoint: {fileID: 1742213356}
-  vGrabbedItem: {fileID: 0}
-  lPossibleGrabbables: []
-  vClosestItem: {fileID: 0}
-  vIsTheRightHand: 1
-  vGripState: Idle
-  vItemRB: {fileID: 0}
-  vPrevGripRelease: 0
-  cGL: {fileID: 661241415}
-  cOtherGL: {fileID: 13742699}
-  vLabelTarget: {fileID: 0}
-  cMH: {fileID: 0}
-  vCount: 0
-  cPTM: {fileID: 1339103775}
-  cGP: {fileID: 0}
-  cOtherGP: {fileID: 0}
-  vCD: 0
---- !u!114 &661241414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 661241408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60bfe2ed2893a3643b7b7970c4938e2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vOutwardParticle: {fileID: 1704199762777034, guid: a7dcd9b2b90c21340922e899cc98dcb0,
-    type: 2}
-  vInwardParticle: {fileID: 1993243995557582, guid: dbf7fe78fcc27da45bff42aa81e6d4a8,
-    type: 2}
-  vParticleList: []
---- !u!114 &661241415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 661241408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d87111029e0ca441a6eb70aef8e7609, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vCurrentTarget: {fileID: 0}
-  vPrefabSource: {fileID: 1903640559862310, guid: 3453dad3a2162ea48bab5cfe0c1c6351,
-    type: 2}
-  vLabelProjected: {fileID: 0}
-  vMeter: 0
-  vAnchor: {fileID: 0}
 --- !u!1 &661412221
 GameObject:
   m_ObjectHideFlags: 0
@@ -7687,7 +7533,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vAudioPlay: {fileID: 1889043661159602, guid: 654673114c7578e42a09e7eeec1dcafd, type: 2}
   vOriginalParts: []
-  vGripParts: []
   vConnectedTo: {fileID: 0}
   vIsMagazine: 0
   vConnectableSockets: []
@@ -9464,7 +9309,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vAudioPlay: {fileID: 1889043661159602, guid: 654673114c7578e42a09e7eeec1dcafd, type: 2}
   vOriginalParts: []
-  vGripParts: []
   vConnectedTo: {fileID: 0}
   vIsMagazine: 0
   vConnectableSockets: []
@@ -10756,7 +10600,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vAudioPlay: {fileID: 1889043661159602, guid: 654673114c7578e42a09e7eeec1dcafd, type: 2}
   vOriginalParts: []
-  vGripParts: []
   vConnectedTo: {fileID: 0}
   vIsMagazine: 0
   vConnectableSockets: []
@@ -11263,7 +11106,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vAudioPlay: {fileID: 1889043661159602, guid: 654673114c7578e42a09e7eeec1dcafd, type: 2}
   vOriginalParts: []
-  vGripParts: []
   vConnectedTo: {fileID: 0}
   vIsMagazine: 0
   vConnectableSockets: []
@@ -11523,7 +11365,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vAudioPlay: {fileID: 1889043661159602, guid: 654673114c7578e42a09e7eeec1dcafd, type: 2}
   vOriginalParts: []
-  vGripParts: []
   vConnectedTo: {fileID: 0}
   vIsMagazine: 0
   vConnectableSockets: []
@@ -11692,12 +11533,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1333930132}
   m_Mesh: {fileID: 4300002, guid: cb83dab2be4547b46beba5df9e0a255d, type: 3}
---- !u!114 &1339103775 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114413390033552114, guid: 5083d2f1fbe12df4db9e675e82133f94,
-    type: 2}
-  m_PrefabInternal: {fileID: 13742696}
-  m_Script: {fileID: 11500000, guid: 0035116e2df7b7744a52cca1e25c9901, type: 3}
 --- !u!1 &1346912300
 GameObject:
   m_ObjectHideFlags: 0
@@ -12141,7 +11976,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vAudioPlay: {fileID: 1889043661159602, guid: 654673114c7578e42a09e7eeec1dcafd, type: 2}
   vOriginalParts: []
-  vGripParts: []
   vConnectedTo: {fileID: 0}
   vIsMagazine: 0
   vConnectableSockets: []
@@ -13267,7 +13101,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vAudioPlay: {fileID: 1889043661159602, guid: 654673114c7578e42a09e7eeec1dcafd, type: 2}
   vOriginalParts: []
-  vGripParts: []
   vConnectedTo: {fileID: 0}
   vIsMagazine: 0
   vConnectableSockets: []
@@ -13854,7 +13687,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vAudioPlay: {fileID: 1889043661159602, guid: 654673114c7578e42a09e7eeec1dcafd, type: 2}
   vOriginalParts: []
-  vGripParts: []
   vConnectedTo: {fileID: 0}
   vIsMagazine: 0
   vConnectableSockets: []
@@ -14531,7 +14363,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vAudioPlay: {fileID: 1889043661159602, guid: 654673114c7578e42a09e7eeec1dcafd, type: 2}
   vOriginalParts: []
-  vGripParts: []
   vConnectedTo: {fileID: 0}
   vIsMagazine: 0
   vConnectableSockets: []
@@ -15928,11 +15759,6 @@ Transform:
   m_Father: {fileID: 182588966}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 195, y: 0, z: 0}
---- !u!4 &1742213356 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4205538263942258, guid: 5083d2f1fbe12df4db9e675e82133f94,
-    type: 2}
-  m_PrefabInternal: {fileID: 13742696}
 --- !u!1 &1748150365
 GameObject:
   m_ObjectHideFlags: 0
@@ -16061,7 +15887,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vAudioPlay: {fileID: 1889043661159602, guid: 654673114c7578e42a09e7eeec1dcafd, type: 2}
   vOriginalParts: []
-  vGripParts: []
   vConnectedTo: {fileID: 0}
   vIsMagazine: 0
   vConnectableSockets: []
@@ -17422,12 +17247,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Debug
---- !u!114 &1986707474 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114078754810386470, guid: 5083d2f1fbe12df4db9e675e82133f94,
-    type: 2}
-  m_PrefabInternal: {fileID: 13742696}
-  m_Script: {fileID: 11500000, guid: 0035116e2df7b7744a52cca1e25c9901, type: 3}
 --- !u!1 &1987957990
 GameObject:
   m_ObjectHideFlags: 0
@@ -17737,7 +17556,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vAudioPlay: {fileID: 1889043661159602, guid: 654673114c7578e42a09e7eeec1dcafd, type: 2}
   vOriginalParts: []
-  vGripParts: []
   vConnectedTo: {fileID: 0}
   vIsMagazine: 0
   vConnectableSockets: []
@@ -19393,7 +19211,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vAudioPlay: {fileID: 1889043661159602, guid: 654673114c7578e42a09e7eeec1dcafd, type: 2}
   vOriginalParts: []
-  vGripParts: []
   vConnectedTo: {fileID: 0}
   vIsMagazine: 0
   vConnectableSockets: []

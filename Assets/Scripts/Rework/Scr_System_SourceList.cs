@@ -19,6 +19,7 @@ public class Scr_System_SourceList : MonoBehaviour {
 		public string vModName;
 		public string vModType;
 		public string vNote;
+        public int vCreditCost;
 	}
 	public Parts[] PartList;
 
