@@ -27,7 +27,10 @@ public class Scr_GrabSystem_Item : MonoBehaviour
         cRB = vMainObject.GetComponent<Rigidbody>();
         vMainObject.GetComponent<Scr_ModSaverPart>().cGrabSystItem = this;
         vMainObject.GetComponent<Scr_ModSaverPart>().cRB = cRB;
+        OVRGrabbable tOVRG = vMainObject.GetComponent<OVRGrabbable>();
+        DestroyImmediate(tOVRG);
         this.gameObject.layer = 21;
+
     }
     void Start () {
 

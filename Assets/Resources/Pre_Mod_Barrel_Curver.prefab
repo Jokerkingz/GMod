@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4569522750380836}
   - component: {fileID: 135049057230627020}
   - component: {fileID: 54616448272686854}
-  - component: {fileID: 114594039260936092}
   - component: {fileID: 114947260639337414}
   - component: {fileID: 114518722509373500}
   m_Layer: 10
@@ -160,13 +159,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1327131316168930}
-  m_LocalRotation: {x: 0.99144495, y: -0, z: -0, w: -0.13052607}
-  m_LocalPosition: {x: 0, y: 1.015, z: 0.032}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: 0, y: 0.192, z: -0.333}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4569522750380836}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 195, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!23 &23502284396735380
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -293,32 +292,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vAudioPlay: {fileID: 1889043661159602, guid: 654673114c7578e42a09e7eeec1dcafd, type: 2}
   vOriginalParts: []
-  vGripParts: []
   vConnectedTo: {fileID: 0}
   vIsMagazine: 0
   vConnectableSockets: []
   vStatus: Active
---- !u!114 &114594039260936092
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1205577762826484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_allowOffhandGrab: 1
-  m_snapPosition: 1
-  m_snapOrientation: 1
-  m_snapOffset: {fileID: 4847033682130120}
-  m_grabPoints:
-  - {fileID: 0}
-  vIsBeingGripped: 0
-  vIsGrippedBy: 
-  vHandObj: {fileID: 0}
-  vIsGunHandle: 0
 --- !u!114 &114737571901509614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -362,6 +339,7 @@ MonoBehaviour:
   vMainInformation: Curving Barrel
   vImageToUse: 2
   cGrabSystItem: {fileID: 114956022677209368}
+  vCreation: Editor
   cRB: {fileID: 54616448272686854}
 --- !u!114 &114956022677209368
 MonoBehaviour:

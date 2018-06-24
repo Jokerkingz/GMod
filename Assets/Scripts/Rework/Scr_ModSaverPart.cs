@@ -10,6 +10,7 @@ public class Scr_ModSaverPart : MonoBehaviour {
 	public string vMainInformation;
 	public int vImageToUse;
     public Scr_GrabSystem_Item cGrabSystItem;
+    public string vCreation = "Editor";
     public Rigidbody cRB;
 
     [ContextMenu("Start Script")]

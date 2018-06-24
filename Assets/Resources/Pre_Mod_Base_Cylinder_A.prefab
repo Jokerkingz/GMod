@@ -231,7 +231,6 @@ GameObject:
   - component: {fileID: 4513760095602530}
   - component: {fileID: 135922660116357314}
   - component: {fileID: 54826211649314484}
-  - component: {fileID: 114952694258397586}
   - component: {fileID: 114767158219570500}
   - component: {fileID: 114249146595224564}
   m_Layer: 10
@@ -859,7 +858,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vAudioPlay: {fileID: 1889043661159602, guid: 654673114c7578e42a09e7eeec1dcafd, type: 2}
   vOriginalParts: []
-  vGripParts: []
   vConnectedTo: {fileID: 0}
   vIsMagazine: 0
   vConnectableSockets: []
@@ -981,27 +979,6 @@ MonoBehaviour:
   vPartType: 
   vArrow: {fileID: 0}
   vAnglingType: Joystick
---- !u!114 &114952694258397586
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1985062003311490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_allowOffhandGrab: 1
-  m_snapPosition: 1
-  m_snapOrientation: 1
-  m_snapOffset: {fileID: 4990906821061142}
-  m_grabPoints:
-  - {fileID: 0}
-  vIsBeingGripped: 0
-  vIsGrippedBy: 
-  vHandObj: {fileID: 0}
-  vIsGunHandle: 0
 --- !u!114 &114980341501616186
 MonoBehaviour:
   m_ObjectHideFlags: 1

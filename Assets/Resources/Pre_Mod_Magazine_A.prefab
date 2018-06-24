@@ -146,13 +146,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1177935646368962}
-  m_LocalRotation: {x: 0.99144495, y: -0, z: -0, w: -0.13052607}
-  m_LocalPosition: {x: 0, y: -0.103, z: 0}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: 0, y: 0.192, z: -0.333}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4993322614510982}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 195, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!4 &4993322614510982
 Transform:
   m_ObjectHideFlags: 1
@@ -357,6 +357,7 @@ MonoBehaviour:
   vMainInformation: Magazine
   vImageToUse: 3
   cGrabSystItem: {fileID: 114909562659000028}
+  vCreation: Editor
   cRB: {fileID: 54857039291803984}
 --- !u!114 &114490292158961530
 MonoBehaviour:
@@ -371,7 +372,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vAudioPlay: {fileID: 1889043661159602, guid: 654673114c7578e42a09e7eeec1dcafd, type: 2}
   vOriginalParts: []
-  vGripParts: []
   vConnectedTo: {fileID: 0}
   vIsMagazine: 0
   vConnectableSockets: []
@@ -415,7 +415,7 @@ MonoBehaviour:
   vHandObj: {fileID: 0}
   vMainObject: {fileID: 1762632051182468}
   vTransformAdjustment: {fileID: 4976441022811380}
-  cRB: {fileID: 0}
+  cRB: {fileID: 54857039291803984}
 --- !u!114 &114935230639630126
 MonoBehaviour:
   m_ObjectHideFlags: 1

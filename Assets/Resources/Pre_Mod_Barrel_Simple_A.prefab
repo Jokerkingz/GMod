@@ -54,7 +54,6 @@ GameObject:
   - component: {fileID: 4581767933958938}
   - component: {fileID: 135883735500363198}
   - component: {fileID: 54004269589314266}
-  - component: {fileID: 114402759954685100}
   - component: {fileID: 114762949220892626}
   - component: {fileID: 114611918795886856}
   m_Layer: 10
@@ -91,7 +90,7 @@ GameObject:
   - component: {fileID: 23578128712579230}
   - component: {fileID: 64233264765935212}
   - component: {fileID: 114151250659096436}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Msh_Barrel_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,28 +320,7 @@ MonoBehaviour:
   vHandObj: {fileID: 0}
   vMainObject: {fileID: 1206805304228498}
   vTransformAdjustment: {fileID: 4540296140938030}
-  cRB: {fileID: 0}
---- !u!114 &114402759954685100
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1206805304228498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_allowOffhandGrab: 1
-  m_snapPosition: 1
-  m_snapOrientation: 1
-  m_snapOffset: {fileID: 4540296140938030}
-  m_grabPoints:
-  - {fileID: 0}
-  vIsBeingGripped: 0
-  vIsGrippedBy: 
-  vHandObj: {fileID: 0}
-  vIsGunHandle: 0
+  cRB: {fileID: 54004269589314266}
 --- !u!114 &114611918795886856
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -356,7 +334,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vAudioPlay: {fileID: 1889043661159602, guid: 654673114c7578e42a09e7eeec1dcafd, type: 2}
   vOriginalParts: []
-  vGripParts: []
   vConnectedTo: {fileID: 0}
   vIsMagazine: 0
   vConnectableSockets: []
@@ -379,6 +356,7 @@ MonoBehaviour:
   vMainInformation: Barrel
   vImageToUse: 2
   cGrabSystItem: {fileID: 114151250659096436}
+  vCreation: Editor
   cRB: {fileID: 54004269589314266}
 --- !u!135 &135883735500363198
 SphereCollider:

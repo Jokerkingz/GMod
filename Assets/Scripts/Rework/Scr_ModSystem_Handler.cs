@@ -62,7 +62,7 @@ public class Scr_ModSystem_Handler : MonoBehaviour {
 		}
 	}
 	void OnTriggerStay(Collider tOther){
-		if (tOther.tag == "Belt" && this.GetComponent<OVRGrabbable>().vIsBeingGripped){
+		if (tOther.tag == "Belt" && this.GetComponent<Scr_GrabSystem_Item>().vIsGripped){
 			if (tOther.GetComponent<Scr_Belt_Holsters>().vStatus == "Nothing"){
 				vHolsterShowHollowTo = tOther.gameObject;
 					vHollowRate = 1f;

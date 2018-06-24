@@ -22,7 +22,8 @@ GameObject:
   - component: {fileID: 33131543299305646}
   - component: {fileID: 23973733604694388}
   - component: {fileID: 64158902522156578}
-  m_Layer: 0
+  - component: {fileID: 114143292213566652}
+  m_Layer: 21
   m_Name: Model_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +40,6 @@ GameObject:
   - component: {fileID: 4722780953070890}
   - component: {fileID: 135525628694129004}
   - component: {fileID: 54128288701229198}
-  - component: {fileID: 114597679036030226}
   - component: {fileID: 114865367821745870}
   - component: {fileID: 114737666155046960}
   m_Layer: 10
@@ -186,22 +186,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1893847010621882
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4250976165794996}
-  - component: {fileID: 64674374597501576}
-  m_Layer: 14
-  m_Name: Grip_Model
-  m_TagString: GripPart
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!4 &4066766975550514
 Transform:
   m_ObjectHideFlags: 1
@@ -213,7 +197,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 4722780953070890}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4151065063642944
 Transform:
@@ -239,34 +223,21 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4722780953070890}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4250976165794996
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1893847010621882}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00000058114523}
-  m_LocalPosition: {x: 0, y: 0.3730774, z: 0.14499664}
-  m_LocalScale: {x: 2.9, y: 2.9, z: 2.9}
-  m_Children: []
-  m_Father: {fileID: 4722780953070890}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
 --- !u!4 &4399817591426270
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1191206012234470}
-  m_LocalRotation: {x: 0.86602545, y: 0, z: 0, w: 0.49999994}
-  m_LocalPosition: {x: 0, y: 0.6600818, z: 0.2}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: 0, y: 0.192, z: -0.333}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4722780953070890}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 120.00001, y: 0, z: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!4 &4428201011163154
 Transform:
   m_ObjectHideFlags: 1
@@ -278,7 +249,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4722780953070890}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!4 &4622196563280680
 Transform:
@@ -291,7 +262,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4722780953070890}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 0}
 --- !u!4 &4633220001016710
 Transform:
@@ -304,7 +275,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 4722780953070890}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4649922267113164
 Transform:
@@ -326,12 +297,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1015854892667622}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5091932, y: 65.3672, z: 46.35888}
+  m_LocalPosition: {x: 0.47, y: 65.2897, z: 46.299}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4151065063642944}
   - {fileID: 4649922267113164}
-  - {fileID: 4250976165794996}
   - {fileID: 4399817591426270}
   - {fileID: 4622196563280680}
   - {fileID: 4066766975550514}
@@ -353,7 +323,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 4722780953070890}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23219090688795148
 MeshRenderer:
@@ -368,6 +338,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: fe56291d6f42dd447bae1ce89cccea81, type: 2}
   m_StaticBatchInfo:
@@ -402,6 +373,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: fe56291d6f42dd447bae1ce89cccea81, type: 2}
   m_StaticBatchInfo:
@@ -436,6 +408,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: fe56291d6f42dd447bae1ce89cccea81, type: 2}
   m_StaticBatchInfo:
@@ -470,6 +443,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: fe56291d6f42dd447bae1ce89cccea81, type: 2}
   m_StaticBatchInfo:
@@ -504,6 +478,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: fe56291d6f42dd447bae1ce89cccea81, type: 2}
   m_StaticBatchInfo:
@@ -589,20 +564,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 41acf4a097a7c2f4190fe178f08b1753, type: 3}
---- !u!64 &64674374597501576
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1893847010621882}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 41acf4a097a7c2f4190fe178f08b1753, type: 3}
 --- !u!114 &114017261978236588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -623,6 +584,24 @@ MonoBehaviour:
   vCollisionRate: 0
   vPartType: 
   vArrow: {fileID: 0}
+  vAnglingType: Joystick
+--- !u!114 &114143292213566652
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1015102810103772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25705f4750aa10c41bcc9cd2c8791572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vIsGripped: 0
+  vIsGrippedByRight: 0
+  vHandObj: {fileID: 0}
+  vMainObject: {fileID: 1015854892667622}
+  vTransformAdjustment: {fileID: 4399817591426270}
+  cRB: {fileID: 54128288701229198}
 --- !u!114 &114187151670873042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -657,6 +636,7 @@ MonoBehaviour:
   vCollisionRate: 0
   vPartType: 
   vArrow: {fileID: 0}
+  vAnglingType: Joystick
 --- !u!114 &114378707293703896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -691,26 +671,7 @@ MonoBehaviour:
   vCollisionRate: 0
   vPartType: 
   vArrow: {fileID: 0}
---- !u!114 &114597679036030226
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1015854892667622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_allowOffhandGrab: 1
-  m_snapPosition: 1
-  m_snapOrientation: 1
-  m_snapOffset: {fileID: 4399817591426270}
-  m_grabPoints:
-  - {fileID: 64674374597501576}
-  vIsBeingGripped: 0
-  vIsGrippedBy: 
-  vIsGunHandle: 0
+  vAnglingType: Joystick
 --- !u!114 &114652255767564200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -738,7 +699,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vAudioPlay: {fileID: 1889043661159602, guid: 654673114c7578e42a09e7eeec1dcafd, type: 2}
   vOriginalParts: []
-  vGripParts: []
   vConnectedTo: {fileID: 0}
   vIsMagazine: 0
   vConnectableSockets: []
@@ -760,6 +720,9 @@ MonoBehaviour:
   vAnchor: {fileID: 1015102810103772}
   vMainInformation: Body
   vImageToUse: 1
+  cGrabSystItem: {fileID: 114143292213566652}
+  vCreation: Editor
+  cRB: {fileID: 54128288701229198}
 --- !u!135 &135152615625646776
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -58,25 +58,10 @@ GameObject:
   - component: {fileID: 33523393272376548}
   - component: {fileID: 23833623465992442}
   - component: {fileID: 64156538376651812}
-  m_Layer: 0
+  - component: {fileID: 114915159804981376}
+  m_Layer: 21
   m_Name: Model_Motor
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1459978901450348
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4464144994520208}
-  - component: {fileID: 64341052838213684}
-  m_Layer: 14
-  m_Name: Grip_Box
-  m_TagString: GripPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,7 +91,6 @@ GameObject:
   - component: {fileID: 4434835455025114}
   - component: {fileID: 135014191127216100}
   - component: {fileID: 54055487500064674}
-  - component: {fileID: 114915264871610350}
   - component: {fileID: 114462396411704052}
   - component: {fileID: 114428635334414472}
   m_Layer: 10
@@ -157,26 +141,12 @@ Transform:
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4015520589705568}
-  - {fileID: 4464144994520208}
   - {fileID: 4849164533267492}
   - {fileID: 4862310999513884}
   - {fileID: 4914899712067596}
   - {fileID: 4795850072935396}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4464144994520208
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1459978901450348}
-  m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.353, z: 0}
-  m_LocalScale: {x: 2.9, y: 2.9, z: 2.9}
-  m_Children: []
-  m_Father: {fileID: 4434835455025114}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4795850072935396
 Transform:
@@ -189,7 +159,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 4434835455025114}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4849164533267492
 Transform:
@@ -202,7 +172,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 4434835455025114}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!4 &4862310999513884
 Transform:
@@ -210,13 +180,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1472160274459700}
-  m_LocalRotation: {x: 0.99144495, y: -0, z: -0, w: -0.13052607}
-  m_LocalPosition: {x: 0, y: 0.355, z: 0.032}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: 0, y: 0.192, z: -0.333}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4434835455025114}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 195, y: 0, z: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!4 &4914899712067596
 Transform:
   m_ObjectHideFlags: 1
@@ -228,7 +198,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4434835455025114}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23136751673515646
 MeshRenderer:
@@ -243,6 +213,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: fe56291d6f42dd447bae1ce89cccea81, type: 2}
   m_StaticBatchInfo:
@@ -277,6 +248,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: fe56291d6f42dd447bae1ce89cccea81, type: 2}
   m_StaticBatchInfo:
@@ -311,6 +283,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: fe56291d6f42dd447bae1ce89cccea81, type: 2}
   m_StaticBatchInfo:
@@ -382,20 +355,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: c7a00d3e5b608a04fae74e0b706a41e7, type: 3}
---- !u!64 &64341052838213684
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1459978901450348}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300002, guid: c7a00d3e5b608a04fae74e0b706a41e7, type: 3}
 --- !u!114 &114188239355208904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -416,6 +375,7 @@ MonoBehaviour:
   vCollisionRate: 0
   vPartType: 
   vArrow: {fileID: 0}
+  vAnglingType: Joystick
 --- !u!114 &114428635334414472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -429,7 +389,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vAudioPlay: {fileID: 1889043661159602, guid: 654673114c7578e42a09e7eeec1dcafd, type: 2}
   vOriginalParts: []
-  vGripParts: []
   vConnectedTo: {fileID: 0}
   vIsMagazine: 0
   vConnectableSockets: []
@@ -451,6 +410,9 @@ MonoBehaviour:
   vAnchor: {fileID: 1354061994062534}
   vMainInformation: Motor Module
   vImageToUse: 6
+  cGrabSystItem: {fileID: 114915159804981376}
+  vCreation: Editor
+  cRB: {fileID: 54055487500064674}
 --- !u!114 &114820733633560302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -465,26 +427,25 @@ MonoBehaviour:
   vModuleType: RotationB
   vFloat: 0
   vFloatSub: 0
---- !u!114 &114915264871610350
+  vData: 
+  vUseOnStart: 0
+--- !u!114 &114915159804981376
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1738910887484660}
+  m_GameObject: {fileID: 1354061994062534}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 25705f4750aa10c41bcc9cd2c8791572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_allowOffhandGrab: 1
-  m_snapPosition: 1
-  m_snapOrientation: 1
-  m_snapOffset: {fileID: 4862310999513884}
-  m_grabPoints:
-  - {fileID: 64341052838213684}
-  vIsBeingGripped: 0
-  vIsGrippedBy: 
-  vIsGunHandle: 0
+  vIsGripped: 0
+  vIsGrippedByRight: 0
+  vHandObj: {fileID: 0}
+  vMainObject: {fileID: 1738910887484660}
+  vTransformAdjustment: {fileID: 4862310999513884}
+  cRB: {fileID: 54055487500064674}
 --- !u!114 &114941482321675288
 MonoBehaviour:
   m_ObjectHideFlags: 1

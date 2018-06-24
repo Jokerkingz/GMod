@@ -32,30 +32,40 @@ public class Scr_GrabSystem_Main : MonoBehaviour
 
         if (lPossibleGrabbables.Count > 0)
         {
+            GameObject tEmpty = null;
+            bool tCall = false;
             GameObject tClosest = null;
             float tClosestDistance = 100f;
             float tItemDistance = 100f;
             Vector3 vSelf = vSourcePoint.position;
             foreach (GameObject tItem in lPossibleGrabbables)
             {
-                if (tItem == null)
+                if (tItem != null)
                 {
-                    tClosest = tItem;
-                    tClosestDistance = Vector3.Distance(tItem.transform.position, vSelf);
+                    if (tClosest == null)
+                    {
+                        tClosest = tItem;
+                        tClosestDistance = Vector3.Distance(tItem.transform.position, vSelf);
+                    }
+                    else
+                    {
+                        tItemDistance = Vector3.Distance(tItem.transform.position, vSelf);
+                        if (tItemDistance < tClosestDistance)
+                        {
+                            tClosestDistance = tItemDistance;
+                            tClosest = tItem;
+                        }
 
-
+                    }
                 }
                 else
-                {
-                    tItemDistance = Vector3.Distance(tItem.transform.position, vSelf);
-                    if (tItemDistance < tClosestDistance)
-                    {
-                        tClosestDistance = tItemDistance;
-                        tClosest = tItem;
+                    { 
+                    tEmpty = tItem;
+                    tCall = true;
                     }
-
-                }
             }
+            if (tCall)
+                lPossibleGrabbables.Remove(tEmpty);
             //vClosestItem = tClosest;
             //* Temporary fix until 
             Scr_ModSaverPart tMSP = tClosest.transform.root.GetComponent<Scr_ModSaverPart>();
@@ -159,7 +169,6 @@ public class Scr_GrabSystem_Main : MonoBehaviour
                 {
                     tPosOffset = tTemp.vTransformAdjustment.localPosition*.1f;
                     tAngOffset = tTemp.vTransformAdjustment.localRotation;
-
                 }
 
                 tPosHand = vSourcePoint.position;
