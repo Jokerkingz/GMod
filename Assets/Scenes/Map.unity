@@ -622,6 +622,7 @@ MonoBehaviour:
   - {fileID: 257432653}
   self: {fileID: 257432651}
   canStartWave: 1
+  waveTimeLength: 60
 --- !u!1001 &281269434
 Prefab:
   m_ObjectHideFlags: 0
@@ -2739,6 +2740,24 @@ Prefab:
     - target: {fileID: 4239443117244868, guid: 5f7e4c9c02ad22a448c7a391d17894ea, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212209669687362718, guid: 5f7e4c9c02ad22a448c7a391d17894ea,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b920b73db93a0cf42a1c283dac2c2cc7,
+        type: 3}
+    - target: {fileID: 4317961008872198, guid: 5f7e4c9c02ad22a448c7a391d17894ea, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.37484583
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317961008872198, guid: 5f7e4c9c02ad22a448c7a391d17894ea, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.37484604
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317961008872198, guid: 5f7e4c9c02ad22a448c7a391d17894ea, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 5.62269
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114406961221687488, guid: 5f7e4c9c02ad22a448c7a391d17894ea, type: 2}
