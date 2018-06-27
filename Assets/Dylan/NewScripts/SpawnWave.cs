@@ -11,8 +11,10 @@ public class SpawnWave : MonoBehaviour {
 
     void Start()
     {
-        // Call the Spawn function after a delay of the spawnTime and then continue to call after the same amount of time.
-        InvokeRepeating("Spawn", spawnTime, spawnTime);
+        
+            // Call the Spawn function after a delay of the spawnTime and then continue to call after the same amount of time.
+            InvokeRepeating("Spawn", spawnTime, spawnTime);
+            StartCoroutine("waveTime");
     }
 
 
@@ -23,5 +25,10 @@ public class SpawnWave : MonoBehaviour {
 
         // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
         Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+    }
+    IEnumerator waveTime()
+    {
+        yield return new WaitForSeconds(5);
+        CancelInvoke("Spawn");
     }
 }
