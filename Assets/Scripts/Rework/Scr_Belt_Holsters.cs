@@ -141,15 +141,15 @@ public class Scr_Belt_Holsters : MonoBehaviour {
 
 			// hologram creation
 				vHologramObj = Instantiate(tReference) as GameObject;
-				vHologramObj.BroadcastMessage("TurnOff","Hollow");
+				//vHologramObj.BroadcastMessage("TurnOff","Hollow");
 				vHologramObj.transform.SetParent(this.transform);
 				vHologramObj.transform.position = this.transform.position;
 				vHologramObj.transform.eulerAngles = this.transform.eulerAngles;
 
 				tTransList = new Transform[0];
 				tTransList = vHologramObj.GetComponentsInChildren<Transform>();
-				foreach (Transform tObjects in tTransList)
-					tObjects.tag = "Hollow";
+				//foreach (Transform tObjects in tTransList)
+				//	tObjects.tag = "Hollow";
 				// Turn Off Scripts
 				OVRGrabbable[] tOVRGrabbableList = vHologramObj.GetComponentsInChildren<OVRGrabbable>();
 				foreach (OVRGrabbable tOVRGrabbable in tOVRGrabbableList)

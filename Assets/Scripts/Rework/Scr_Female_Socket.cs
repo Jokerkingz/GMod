@@ -105,7 +105,9 @@ public class Scr_Female_Socket : MonoBehaviour {
 			// hologram creation
 				vHologramObj = Instantiate(tReference) as GameObject;
 				vHologramObj.BroadcastMessage("TurnOff","Hollow",SendMessageOptions.DontRequireReceiver);
-				vHologramObj.transform.SetParent(this.transform);
+            vHologramObj.tag = "Hollow";
+
+                vHologramObj.transform.SetParent(this.transform);
 				vHologramObj.transform.localPosition =Vector3.zero;
             Rigidbody tRB = vHologramObj.GetComponent<Rigidbody>();
             tRB.isKinematic = true;

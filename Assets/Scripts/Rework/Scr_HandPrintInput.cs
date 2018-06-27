@@ -39,7 +39,6 @@ if (!vIsUsedForTable)
 				//vDone = true;
 				vCook = 0f;
 				}
-			Debug.Log("I found the Hand");
 			//enabled = false;
 		}
 		vCook = Mathf.Clamp(vCook,0f,2f);

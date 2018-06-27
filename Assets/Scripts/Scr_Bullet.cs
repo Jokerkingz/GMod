@@ -13,7 +13,7 @@ public class Scr_Bullet : MonoBehaviour {
 	public GameObject vSpark;
 	public GameObject vTrailSource;
 	private GameObject vTrail;
-
+    public float vDamage = 3f;
 	public Vector3 vTilt;
 	void Start(){
 		cRB.velocity = (transform.TransformDirection(Vector3.up))*vSpeedMultiplier*2f;
@@ -38,16 +38,18 @@ public class Scr_Bullet : MonoBehaviour {
 		vPreviousPosition = this.transform.position;
 		}
 
-	void fHit(GameObject tObj, Vector3 tPoint, Rigidbody tOther){
-		this.transform.position = tPoint;
-		if (tObj.tag == "Target" || tObj.tag == "AI")
-			tObj.SendMessage("fHit",SendMessageOptions.DontRequireReceiver);
-		GameObject tTEmp = Instantiate(vSpark);
+    void fHit(GameObject tObj, Vector3 tPoint, Rigidbody tOther) {
+        this.transform.position = tPoint;
+        if (tObj.tag == "Target" || tObj.tag == "AI") { 
+            tObj.SendMessage("Damage", vDamage, SendMessageOptions.DontRequireReceiver);
+            tObj.SendMessage("fHit", SendMessageOptions.DontRequireReceiver); }
+        GameObject tTEmp = Instantiate(vSpark);
 		tTEmp.transform.position = tPoint;
 		tTEmp.GetComponent<Scr_DestroyTime>().fStartTimer(.9f);
 		//Rigidbody tRB = tOther.GetComponent<Rigidbody>();
 		if (tOther != null){
 			//tOther.AddForce(Vector3.up);
+            if (tOther.tag != "AI")
 			tOther.AddForce(cRB.velocity*vSpeedMultiplier);
 			//tOther.AddExplosionForce(10f,tPoint,10f,5f);
 			}

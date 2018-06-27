@@ -22,10 +22,15 @@ public class Scr_GrabSystem_Main : MonoBehaviour
     public Scr_ModHandle cMH; // for shooting purposes
     public int vCount;
     public Scr_PointToMove cPTM;
-	//public OVRGrabber cOtherGrabber;
-	public Scr_Guide_Particle cGP;
+
+
+    public bool vShouldTeleport;
+    [Header("ParticleSystem")]
+    public Scr_GrabSystem_Main cOtherGrabber;
+    public Scr_Guide_Particle cGP;
 	public Scr_Guide_Particle cOtherGP;
 
+    
     public float vCD;
     void Update()
     {
@@ -87,7 +92,13 @@ public class Scr_GrabSystem_Main : MonoBehaviour
         if (vClosestItem != null)
         {
             vClosestItem = vClosestItem.GetComponent<Scr_GrabSystem_Item>().vMainObject;
-
+            Scr_FabricationCollective tFabCheck  = vClosestItem.GetComponentInChildren<Scr_FabricationCollective>();
+            if (tFabCheck != null)
+            {
+                vClosestItem = null;
+                return;
+            }
+                
             if (vGripState == "Idle")
             {
 
@@ -111,10 +122,11 @@ public class Scr_GrabSystem_Main : MonoBehaviour
 
         // Particle System // Particle guidance activation system
         /*
-        if (m_grabbedObj != null && cOtherGrabber.m_grabbedObj != null)
+        if (vGrabbedItem != null && cOtherGrabber.vGrabbedItem != null)
         {
-            cGP.fGiveMaleParticles(m_grabbedObj.gameObject);
-            cOtherGP.fGiveMaleParticles(cOtherGrabber.m_grabbedObj.gameObject);
+            cGP.fGiveMaleParticles(vGrabbedItem.gameObject);
+            cOtherGP.fGiveMaleParticles(cOtherGrabber.vGrabbedItem.gameObject);
+            Debug.Log("Sending Particles");
         }
         */
         // Start Shooting stuff
@@ -145,17 +157,34 @@ public class Scr_GrabSystem_Main : MonoBehaviour
                     if (tGripButton > 0.4f)
                     {
                         vGripState = "Lerp";
+                        vGrabbedItem = vClosestItem;
                         vItemRB = vClosestItem.GetComponent<Scr_ModSaverPart>().cRB;
                         vItemRB.isKinematic = true;
                         vItemRB.useGravity = false;
                         vClosestItem.GetComponent<Scr_ModSaverPart>().cGrabSystItem.fGrabBegin(this);
                         cMH = vClosestItem.GetComponent<Scr_ModHandle>();
+                        // Particle System // Particle guidance activation system
+        
+                        if (vGrabbedItem != null && cOtherGrabber.vGrabbedItem != null)
+                        {
+                            cGP.fGiveMaleParticles(vGrabbedItem.gameObject);
+                            cOtherGP.fGiveMaleParticles(cOtherGrabber.vGrabbedItem.gameObject);
+                            Debug.Log("Sending Particles");
+                        }
                     }
                 }
                 vPrevGripRelease = 0;
                 break;
 
             case "Lerp":
+                if (vItemRB == null)
+                {
+                    vGrabbedItem = null;
+                    vGripState = "Idle";
+                    break;
+
+                }
+                
                 vItemRB.isKinematic = true;
                 vItemRB.useGravity = false;
                 Vector3 tPoint = Vector3.zero;
@@ -178,24 +207,28 @@ public class Scr_GrabSystem_Main : MonoBehaviour
                 float tDistance = Vector3.Distance(tPosHand - transform.TransformDirection(tPosOffset), vItemRB.position );
                 Quaternion tAngleDif = Quaternion.RotateTowards(vItemRB.transform.rotation, tQuad, 25f);
 
-                if (tDistance > .1f)
+                if (tDistance > .1f && !vShouldTeleport)
                 {
                     tPoint = vItemRB.position + Vector3.Normalize(tPosHand - vItemRB.position - transform.TransformDirection(tPosOffset)) * .1f;
                 }
                 else
                 {
                     tPoint = tPosHand - transform.TransformDirection(tPosOffset);
+                    vShouldTeleport = false;
                 }
                 vItemRB.MovePosition(tPoint);
                 vItemRB.MoveRotation(tAngleDif);
 
                 if (tGripButton < 0.4f)
                 {
-                 vGripState = "Idle";
+                    vGrabbedItem = null;
+                    vGripState = "Idle";
                     vItemRB.isKinematic = false;
                     vItemRB.useGravity = true;
                     vItemRB.GetComponentInChildren<Scr_GrabSystem_Item>().fGrabEnd();
                     cMH = null;
+                    cGP.fDestroyParticles();
+                    cOtherGP.fDestroyParticles();
                 }
                 //vPrevGripRelease = Input.GetAxis("OGVR_RGrip");
 
@@ -255,5 +288,30 @@ public class Scr_GrabSystem_Main : MonoBehaviour
             tTmp -= 360;
 
         return tTmp;
+    }
+    public void fTeleportToHand()
+    {
+        vShouldTeleport = true;
+        /*
+        if (vGrabbedItem == null)
+            return;
+        
+        Vector3 tPosHand;
+        Vector3 tPosOffset = Vector3.zero;
+        Quaternion tAngOffset = transform.rotation;
+        Scr_GrabSystem_Item tTemp = vItemRB.GetComponentInChildren<Scr_GrabSystem_Item>();
+        if (tTemp != null)
+        {
+            tPosOffset = tTemp.vTransformAdjustment.localPosition * .1f;
+            tAngOffset = tTemp.vTransformAdjustment.localRotation;
+        }
+        tPosHand = vSourcePoint.position;
+        Vector3 tPoint = tPosHand - transform.TransformDirection(tPosOffset);
+        vItemRB.MovePosition(tPoint);
+        
+        vGrabbedItem.transform.position= vSourcePoint.transform.position;
+        Debug.Break();
+        //Debug.Log("Teleported");
+        */
     }
 }

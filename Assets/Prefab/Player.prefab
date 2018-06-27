@@ -2171,6 +2171,8 @@ MonoBehaviour:
   vRend: []
   vStickStatus: Idle
   vAngleGiven: 0
+  cGSHand: {fileID: 114723053005708546}
+  cGSOtherHand: {fileID: 114369483441642594}
 --- !u!114 &114085811370427046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2416,8 +2418,10 @@ MonoBehaviour:
   cMH: {fileID: 0}
   vCount: 0
   cPTM: {fileID: 114413390033552114}
-  cGP: {fileID: 0}
-  cOtherGP: {fileID: 0}
+  vShouldTeleport: 0
+  cOtherGrabber: {fileID: 114723053005708546}
+  cGP: {fileID: 114903500113774786}
+  cOtherGP: {fileID: 114406410113706680}
   vCD: 0
 --- !u!114 &114373179809321762
 MonoBehaviour:
@@ -2563,6 +2567,8 @@ MonoBehaviour:
   vRend: []
   vStickStatus: Idle
   vAngleGiven: 0
+  cGSHand: {fileID: 114369483441642594}
+  cGSOtherHand: {fileID: 114723053005708546}
 --- !u!114 &114441721144947932
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2688,120 +2694,140 @@ MonoBehaviour:
     vModName: 
     vModType: 
     vNote: 
+    vCreditCost: 250
   - vName: Barrel_Rail_A
     vSource: {fileID: 1144703785530580, guid: 735a437a686dfc94c971f242cabdcf71, type: 2}
     vMainCategory: 
     vModName: 
     vModType: 
     vNote: 
+    vCreditCost: 1500
   - vName: Barrel_Plasma_A
     vSource: {fileID: 1736174573898562, guid: a096311f64677644b8adcd438df5b207, type: 2}
     vMainCategory: 
     vModName: 
     vModType: 
     vNote: 
+    vCreditCost: 500
   - vName: Base_Simple_A
     vSource: {fileID: 1015854892667622, guid: 8025605e63a2b6041bf65135a47f7f6a, type: 2}
     vMainCategory: 
     vModName: 
     vModType: 
     vNote: 
+    vCreditCost: 250
   - vName: Base_Battery_A
     vSource: {fileID: 1488649265403624, guid: 6e092c302f9de8c4da321dbf09d9d300, type: 2}
     vMainCategory: 
     vModName: 
     vModType: 
     vNote: 
+    vCreditCost: 500
   - vName: Base_Cylinder_A
     vSource: {fileID: 1985062003311490, guid: 728d1594eb35e9440a7a13055109a44e, type: 2}
     vMainCategory: 
     vModName: 
     vModType: 
     vNote: 
+    vCreditCost: 750
   - vName: Magazine_Simple_A
     vSource: {fileID: 1762632051182468, guid: 6f95f6ff50d85db499703d234a60e959, type: 2}
     vMainCategory: 
     vModName: 
     vModType: 
     vNote: 
+    vCreditCost: 750
   - vName: Base_Magazine_A
     vSource: {fileID: 1954619723114610, guid: e0dd13bfa1c0d9d4491593c6aee2fc21, type: 2}
     vMainCategory: 
     vModName: 
     vModType: 
     vNote: 
+    vCreditCost: 500
   - vName: Magazine_Plasma_A
     vSource: {fileID: 1816739256824476, guid: 558be8add55204748b573f87ee7f97cc, type: 2}
     vMainCategory: 
     vModName: 
     vModType: 
     vNote: 
+    vCreditCost: 250
   - vName: Module_Rotator_A
     vSource: {fileID: 1608146034193260, guid: 1c65c67aba7b3aa48a94fe612fdaa3e2, type: 2}
     vMainCategory: 
     vModName: 
     vModType: 
     vNote: 
+    vCreditCost: 500
   - vName: Module_Rotator_B
     vSource: {fileID: 1738910887484660, guid: 55272729b8518df4991eff50f938fdda, type: 2}
     vMainCategory: 
     vModName: 
     vModType: 
     vNote: 
+    vCreditCost: 500
   - vName: Handle_Simple_A
     vSource: {fileID: 1991414613247604, guid: d40c18663a451f74394de7a25c7d8179, type: 2}
     vMainCategory: 
     vModName: 
     vModType: 
     vNote: 
+    vCreditCost: 150
   - vName: Base_Barrel_A
     vSource: {fileID: 1954619723114610, guid: e0dd13bfa1c0d9d4491593c6aee2fc21, type: 2}
     vMainCategory: 
     vModName: 
     vModType: 
     vNote: 
+    vCreditCost: 500
   - vName: Sword_Simple_A
     vSource: {fileID: 1686380595401784, guid: 99b3768a51f29fc4989b32539ded8644, type: 2}
     vMainCategory: 
     vModName: 
     vModType: 
     vNote: 
+    vCreditCost: 500
   - vName: Barrel_Curve_A
     vSource: {fileID: 1205577762826484, guid: fc17c7b3a36fc3644b1341d462634bee, type: 2}
     vMainCategory: 
     vModName: 
     vModType: 
     vNote: 
+    vCreditCost: 750
   - vName: Magazine_Pellet_A
     vSource: {fileID: 1816739256824476, guid: 558be8add55204748b573f87ee7f97cc, type: 2}
     vMainCategory: 
     vModName: 
     vModType: 
     vNote: 
+    vCreditCost: 250
   - vName: Base_Simple_B
     vSource: {fileID: 1138286583837540, guid: f571f5d036b28504a8ce1e5dbc99749b, type: 2}
     vMainCategory: 
     vModName: 
     vModType: 
     vNote: 
+    vCreditCost: 200
   - vName: Barrel_Rifle_A
     vSource: {fileID: 1568634814407272, guid: ed4eb8dfff2e6d54f894b7f051bd1179, type: 2}
     vMainCategory: 
     vModName: 
     vModType: 
     vNote: 
+    vCreditCost: 1500
   - vName: Accessory_Scope_A
     vSource: {fileID: 1612046458257938, guid: ae8059a349fb0114ba2c02cfa64fa3dd, type: 2}
     vMainCategory: 
     vModName: 
     vModType: 
     vNote: 
+    vCreditCost: 450
   - vName: Accessory_Sword_A
     vSource: {fileID: 1686380595401784, guid: 99b3768a51f29fc4989b32539ded8644, type: 2}
     vMainCategory: 
     vModName: 
     vModType: 
     vNote: 
+    vCreditCost: 500
 --- !u!114 &114604047423086118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2929,8 +2955,10 @@ MonoBehaviour:
   cMH: {fileID: 0}
   vCount: 0
   cPTM: {fileID: 114078754810386470}
-  cGP: {fileID: 0}
-  cOtherGP: {fileID: 0}
+  vShouldTeleport: 0
+  cOtherGrabber: {fileID: 114369483441642594}
+  cGP: {fileID: 114406410113706680}
+  cOtherGP: {fileID: 114903500113774786}
   vCD: 0
 --- !u!114 &114733687249381308
 MonoBehaviour:

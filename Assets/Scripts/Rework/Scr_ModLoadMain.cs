@@ -22,7 +22,6 @@ public class Scr_ModLoadMain : MonoBehaviour {
 			tDivide = vStringList[i].Split("/"[0]);
 			foreach(Scr_ModSaverSocket tSocket in tMSS){
 				if (tSocket.vSocketID == tDivide[0]){
-					Debug.Log(tDivide[1] + " Is being Tried to be made");
 					GameObject vPrefab = cGE.fGetPrefab(tDivide[1]);
 					//GameObject vPrefab = Resources.Load(tDivide[1]) as GameObject;
 					if (vPrefab != null){

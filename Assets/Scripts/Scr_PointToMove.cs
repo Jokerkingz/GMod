@@ -32,8 +32,11 @@ public class Scr_PointToMove : MonoBehaviour {
 
 	public string vStickStatus = "Idle";
 	public float vAngleGiven;
-	// Update is called once per frame
-	void Start () {
+
+    public Scr_GrabSystem_Main cGSHand;
+    public Scr_GrabSystem_Main cGSOtherHand;
+    // Update is called once per frame
+    void Start () {
 		//vTeleportTo = GameObject.FindGameObjectWithTag("TeleportHere");
 		cLR = GetComponent<LineRenderer>();
 	}
@@ -109,9 +112,11 @@ public class Scr_PointToMove : MonoBehaviour {
 				if (tVect != new Vector3(0,1,0) && tVect != new Vector3(0,0,0))
 				//if (vTemp.GetComponentInChildren<Scr_CheckBody>().vReadyToTeleport) BeforeChange
 					{//Vector3 tSpot = vTemp.GetComponentInChildren<Scr_CheckBody>().vOpenSpot;
-					//if (tSpot != Vector3.zero)
-					cOVRPC.gameObject.transform.position = tVect;
-					}
+                     //if (tSpot != Vector3.zero)
+                        cOVRPC.gameObject.transform.position = tVect;
+                        cGSHand.fTeleportToHand();
+                        cGSOtherHand.fTeleportToHand();
+                    }
 				vOrienter.transform.localEulerAngles = new Vector3(0,vAngleToUse,0);
 				}
 		Destroy(vTemp);

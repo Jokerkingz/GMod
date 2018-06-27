@@ -209,7 +209,7 @@ public class Scr_Challenge : MonoBehaviour {
 
 				}
 			else if (vPartObj[i].transform.position.y < vYlimit){
-				if (!vPartObj[i].GetComponent<OVRGrabbable>().vIsBeingGripped){
+				if (!vPartObj[i].GetComponent<Scr_ModSaverPart>().cGrabSystItem.vIsGripped){
 					Destroy(vPartObj[i]);
 					vPartObj[i] = null;
 				}

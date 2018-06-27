@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 public class Scr_Tutorial_Table : MonoBehaviour {
 	public string vStatus = "SecondStep";
@@ -90,7 +88,7 @@ public class Scr_Tutorial_Table : MonoBehaviour {
 		case "SecondStep": // print one handle until the player grabs it
 			fHandleCheck();
 			if (vHandle != null)
-				if (vHandle.GetComponent<OVRGrabbable>().vIsBeingGripped){
+				if (vHandle.GetComponent<Scr_ModSaverPart>().cGrabSystItem.vIsGripped){
 					vImageIndex ++;
 					vImageShowA.sprite = vSpriteList[vImageIndex];
 				vImageShowB.sprite = vSpriteList[vImageIndex];
@@ -153,10 +151,10 @@ public class Scr_Tutorial_Table : MonoBehaviour {
 			break;
 
 		case "SixthStep":
-			fHandleCheck();
-			fBarrelCheck();
-			fBaseCheck();
-			fMagazineCheck();
+			//fHandleCheck();
+			//fBarrelCheck();
+			//fBaseCheck();
+			//fMagazineCheck();
 			if (vHolsterSourceA.vSavedHandle != null || vHolsterSourceB.vSavedHandle != null){
 				vImageIndex ++;
 				vImageShowA.sprite = vSpriteList[vImageIndex];
@@ -199,7 +197,8 @@ public class Scr_Tutorial_Table : MonoBehaviour {
 			return;
 		}
 		if (vHandle.transform.position.y < vYlimit){
-			if (!vHandle.GetComponent<OVRGrabbable>().vIsBeingGripped){
+			if (!vHandle.GetComponent<Scr_ModSaverPart>().cGrabSystItem.vIsGripped)
+            {
 				Destroy(vHandle);
 				vHandle = null;
 				}
@@ -220,7 +219,8 @@ public class Scr_Tutorial_Table : MonoBehaviour {
 			return;
 		}
 		if (vBase.transform.position.y < vYlimit){
-			if (!vBase.GetComponent<OVRGrabbable>().vIsBeingGripped){
+			if (!vBase.GetComponent<Scr_ModSaverPart>().cGrabSystItem.vIsGripped)
+            {
 				Destroy(vBase);
 				vBase = null;
 				}
@@ -241,7 +241,7 @@ public class Scr_Tutorial_Table : MonoBehaviour {
 			return;
 		}
 		if (vBarrel.transform.position.y < vYlimit){
-			if (!vBarrel.GetComponent<OVRGrabbable>().vIsBeingGripped){
+			if (!vBarrel.GetComponent<Scr_ModSaverPart>().cGrabSystItem.vIsGripped){
 				Destroy(vBarrel);
 				vBarrel = null;
 				}
@@ -262,7 +262,7 @@ public class Scr_Tutorial_Table : MonoBehaviour {
 			return;
 		}
 		if (vMagazine.transform.position.y < vYlimit){
-			if (!vMagazine.GetComponent<OVRGrabbable>().vIsBeingGripped){
+			if (!vMagazine.GetComponent<Scr_ModSaverPart>().cGrabSystItem.vIsGripped){
 				Destroy(vMagazine);
 				vMagazine = null;
 				}
